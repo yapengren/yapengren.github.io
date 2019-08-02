@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
@@ -16,8 +16,8 @@
 <meta property="og:url" content="http://yoursite.com/wiki/token-防表单重复提交/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
 <meta property="og:description" content="1、加载页面时候调用 initToken() 方法，生成 token 存入页面隐藏域中 &amp;lt;%--隐藏域-防止表单的重复提交--%&amp;gt;&amp;lt;input type=&quot;hidden&quot; name=&quot;examToken&quot; id=&quot;examToken&quot;&amp;gt;&amp;lt;/input&amp;gt;  2、表单提交的时候带上 token 3、springMVC 方法上添加注解 @TokenCheck(isCh">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-02T04:43:52.595Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-02T09:44:04.167Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="token 防表单重复提交">
 <meta name="twitter:description" content="1、加载页面时候调用 initToken() 方法，生成 token 存入页面隐藏域中 &amp;lt;%--隐藏域-防止表单的重复提交--%&amp;gt;&amp;lt;input type=&quot;hidden&quot; name=&quot;examToken&quot; id=&quot;examToken&quot;&amp;gt;&amp;lt;/input&amp;gt;  2、表单提交的时候带上 token 3、springMVC 方法上添加注解 @TokenCheck(isCh">
@@ -81,14 +81,14 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -100,11 +100,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
-            UNTITLED: '(Untitled)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -134,7 +134,7 @@
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
     </div>
 
                 </td>
@@ -151,7 +151,7 @@
         
     <div class="widget-wrap" id='categories'>
         <h3 class="widget-title">
-            <span>categories</span>
+            <span>分类</span>
             &nbsp;
             <a id='allExpand' href="#">
                 <i class="fa fa-angle-double-down fa-2x"></i>
@@ -165,7 +165,7 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
-                            知识点
+                            技术开发
                         </a>
                          <ul class="unstyled" id="tree" > 
                     <li class="directory open">
@@ -175,6 +175,24 @@
                             解决方案
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/token-防表单重复提交/">token 防表单重复提交</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            系统方面
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            mac
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/mac-brew-服务/">mac brew 服务</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -259,7 +277,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/知识点/">知识点</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/知识点/解决方案/">解决方案</a>
+        <a class="article-category-link" href="/categories/技术开发/">技术开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术开发/解决方案/">解决方案</a>
     </div>
 
                         
@@ -309,7 +327,7 @@
         
             
                 <div id="toc" class="toc-article">
-                <strong class="toc-title">Catalogue</strong>
+                <strong class="toc-title">文章目录</strong>
                     
                 </div>
             
@@ -341,6 +359,20 @@
 
 
     
+<nav id="article-nav">
+    
+        <a href="/wiki/mac-brew-服务/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    mac brew 服务
+                
+            </div>
+        </a>
+    
+    
+</nav>
+
 
 
 
