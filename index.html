@@ -185,6 +185,24 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
+                            Dubbo
+                        </a>
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Dubbo-架构/">Dubbo 架构</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Mybatis
+                        </a>
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Mybatis-架构图/">Mybatis 架构图</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
                             java基础
                         </a>
                          <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  </ul> 
@@ -194,9 +212,36 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
+                            spring
+                        </a>
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/springMVC-流程图/">springMVC 流程图</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
                             数据库
                         </a>
                          <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Mysql-知识点/">Mysql 知识点</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            文件存储
+                        </a>
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/FastDFS-流程图/">FastDFS 流程图</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            权限认证
+                        </a>
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/shiro-流程图/">shiro 流程图</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -299,6 +344,507 @@
 </aside>
             
             <section id="main">
+        <article id="post-FastDFS-流程图" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术开发/">技术开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术开发/文件存储/">文件存储</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/FastDFS/">FastDFS</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/FastDFS-流程图/">
+            <time datetime="2019-08-04T03:34:10.000Z" itemprop="datePublished">2019-08-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/FastDFS-流程图.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/FastDFS-流程图.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/FastDFS-流程图.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/FastDFS-流程图/">FastDFS 流程图</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h3 id="FastDFS-执行流程"><a href="#FastDFS-执行流程" class="headerlink" title="FastDFS 执行流程"></a>FastDFS 执行流程</h3><p>FastDFS 服务端有三个角色：跟踪服务器（Tracker Server）、存储服务器（Storage Server）和客户端（Client）。 </p>
+<ul>
+<li><p>Tracker Server：跟踪服务器，主要做调度工作，起负载均衡的作用。在内存记录集群中所有存储组和存储服务器的状态信息，是客户端和数据服务器交互的枢纽。相比 GFS 中的 Master 更为精简，不记录文件索引信息，占用的内存量很少。 </p>
+</li>
+<li><p>Storage Server：存储服务器（又称存储节点或数据服务器），文件和文件属性（Meta Data）都保存到存储服务器上。Storage Server 直接利用 OS 的文件系统调用管理文件。 </p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/FastDFS-流程图/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-springMVC-流程图" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术开发/">技术开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术开发/spring/">spring</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/springMVC/">springMVC</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/springMVC-流程图/">
+            <time datetime="2019-08-04T03:30:24.000Z" itemprop="datePublished">2019-08-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/springMVC-流程图.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/springMVC-流程图.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/springMVC-流程图.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/springMVC-流程图/">springMVC 流程图</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g5nhlgldvpj30ha0asdgj.jpg" alt="1"></p>
+<h3 id="springMVC执行流程"><a href="#springMVC执行流程" class="headerlink" title="springMVC执行流程"></a>springMVC执行流程</h3><ol>
+<li><p>用户发送请求至前端控制器 <code>DispatcherServlet</code></p>
+</li>
+<li><p>前端控制器 <code>DispatcherServlet</code> 收到请求调用处理器映射器``HandlerMapping`。 </p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/springMVC-流程图/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-shiro-流程图" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术开发/">技术开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术开发/权限认证/">权限认证</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/shiro/">shiro</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/shiro-流程图/">
+            <time datetime="2019-08-04T03:28:49.000Z" itemprop="datePublished">2019-08-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/shiro-流程图.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/shiro-流程图.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/shiro-流程图.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/shiro-流程图/">shiro 流程图</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g5nhjbbi30j30se0g1glz.jpg" alt="1"></p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-Mybatis-架构图" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术开发/">技术开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术开发/Mybatis/">Mybatis</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/mybatis/">mybatis</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Mybatis-架构图/">
+            <time datetime="2019-08-04T03:21:42.000Z" itemprop="datePublished">2019-08-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Mybatis-架构图.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Mybatis-架构图.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Mybatis-架构图.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/Mybatis-架构图/">Mybatis 架构图</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g5nheb2f59j30lu0k6754.jpg" alt="1"></p>
+<ol>
+<li>mybatis配置    </li>
+</ol>
+<p><code>SqlMapConfig.xml</code>，此文件作为 mybatis 的全局配置文件，配置了 mybatis 的运行环境等信息。 </p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/Mybatis-架构图/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-Dubbo-架构" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术开发/">技术开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术开发/Dubbo/">Dubbo</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/dubbo/">dubbo</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Dubbo-架构/">
+            <time datetime="2019-08-04T03:15:00.000Z" itemprop="datePublished">2019-08-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Dubbo-架构.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Dubbo-架构.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Dubbo-架构.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/Dubbo-架构/">Dubbo 架构</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p><img src="http://dubbo.apache.org/docs/zh-cn/user/sources/images/dubbo-architecture.jpg" alt="dubbo-architucture"></p>
+<h3 id="节点角色说明"><a href="#节点角色说明" class="headerlink" title="节点角色说明"></a>节点角色说明</h3><table>
+<thead>
+<tr>
+<th>节点</th>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/Dubbo-架构/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-Java-基础知识点" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -732,11 +1278,11 @@
                 
                 
                     
-                    <p><h3 id="加载页面时候调用-initToken-方法，生成-token-存入页面隐藏域中"><a href="#加载页面时候调用-initToken-方法，生成-token-存入页面隐藏域中" class="headerlink" title="加载页面时候调用 initToken() 方法，生成 token 存入页面隐藏域中"></a>加载页面时候调用 <code>initToken()</code> 方法，生成 token 存入页面隐藏域中</h3><figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">&lt;%<span class="comment">--隐藏域-防止表单的重复提交--%&gt;</span></span><br><span class="line">&lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"hidden"</span> name=<span class="string">"examToken"</span> id=<span class="string">"examToken"</span>&gt;&lt;/<span class="built_in">input</span>&gt;</span><br></pre></td></tr></table></figure>
+                    <p><h3 id="生成-token"><a href="#生成-token" class="headerlink" title="生成 token"></a>生成 token</h3><p>加载页面时候调用 <code>initToken()</code> 方法，生成 token 存入页面隐藏域中</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">&lt;%<span class="comment">--隐藏域-防止表单的重复提交--%&gt;</span></span><br><span class="line">&lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">"hidden"</span> name=<span class="string">"examToken"</span> id=<span class="string">"examToken"</span>&gt;&lt;/<span class="built_in">input</span>&gt;</span><br></pre></td></tr></table></figure>
 
-<h3 id="表单提交的时候带上-token"><a href="#表单提交的时候带上-token" class="headerlink" title="表单提交的时候带上 token"></a>表单提交的时候带上 token</h3><h3 id="springMVC-方法上添加注解-TokenCheck-isCheckToken-true"><a href="#springMVC-方法上添加注解-TokenCheck-isCheckToken-true" class="headerlink" title="springMVC 方法上添加注解 @TokenCheck(isCheckToken = true)"></a>springMVC 方法上添加注解 <code>@TokenCheck(isCheckToken = true)</code></h3><h3 id="自定义注解-TokenCheck-java"><a href="#自定义注解-TokenCheck-java" class="headerlink" title="自定义注解 TokenCheck.java"></a>自定义注解 <code>TokenCheck.java</code></h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注解会在class字节码文件中存在，在运行时可以通过反射获取到</span></span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME) </span><br><span class="line"><span class="comment">// 定义注解的作用目标**作用范围字段、枚举的常量/方法</span></span><br><span class="line"><span class="meta">@Target</span>(&#123;ElementType.METHOD&#125;)</span><br><span class="line"><span class="comment">// 说明该注解将被包含在javadoc中</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> TokenCheck &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 是否需要校验</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isCheckToken</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">false</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="springMVC-配置文件-spring-servlet-xml-添加-lt-mvc-interceptors-拦截器"><a href="#springMVC-配置文件-spring-servlet-xml-添加-lt-mvc-interceptors-拦截器" class="headerlink" title="springMVC 配置文件 spring-servlet.xml 添加 &lt;mvc:interceptors 拦截器"></a>springMVC 配置文件 <code>spring-servlet.xml</code> 添加 <code>&lt;mvc:interceptors</code> 拦截器</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;mvc:interceptors&gt;</span><br><span class="line">    &lt;mvc:interceptor&gt;</span><br><span class="line">        &lt;mvc:mapping path=<span class="string">"/**"</span> /&gt;</span><br><span class="line">        &lt;bean class="com.ycx.exam.web.comm.interceptor.TokenCheckDuplicateSubmitInterceptor"&gt;&lt;/bean&gt;</span><br><span class="line">    &lt;/mvc:interceptor&gt;</span><br><span class="line">&lt;/mvc:interceptors&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="表单提交"><a href="#表单提交" class="headerlink" title="表单提交"></a>表单提交</h3><p>表单提交的时候带上 token</p>
+<h3 id="方法添加注解"><a href="#方法添加注解" class="headerlink" title="方法添加注解"></a>方法添加注解</h3><p>springMVC 方法上添加注解 <code>@TokenCheck(isCheckToken = true)</code></p>
 <p>
                 
             

@@ -3,24 +3,28 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>Mysql 知识点 | yp_ren Blog</title>
+    <title>FastDFS 流程图 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="mysql">
+        <meta name="keywords" content="FastDFS">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="数据库mysql 索引类型sql 优化的几种方式数据库事务数据库事务的 4 种隔离级别数据库事务的 4 个基本特性SQLMysql中FIND_IN_SET()和IN区别简析MySQL Explain详解MySQL中concat以及group_concat的使用MySQL中order by语句对null字段的排序SQL练习MySQL经典练习题及答案，常用SQL语句练习50题">
-<meta name="keywords" content="mysql">
+    <meta name="description" content="FastDFS 执行流程FastDFS 服务端有三个角色：跟踪服务器（Tracker Server）、存储服务器（Storage Server）和客户端（Client）。   Tracker Server：跟踪服务器，主要做调度工作，起负载均衡的作用。在内存记录集群中所有存储组和存储服务器的状态信息，是客户端和数据服务器交互的枢纽。相比 GFS 中的 Master 更为精简，不记录文件索引信息，占">
+<meta name="keywords" content="FastDFS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql 知识点">
-<meta property="og:url" content="http://yoursite.com/wiki/Mysql-知识点/index.html">
+<meta property="og:title" content="FastDFS 流程图">
+<meta property="og:url" content="http://yoursite.com/wiki/FastDFS-流程图/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="数据库mysql 索引类型sql 优化的几种方式数据库事务数据库事务的 4 种隔离级别数据库事务的 4 个基本特性SQLMysql中FIND_IN_SET()和IN区别简析MySQL Explain详解MySQL中concat以及group_concat的使用MySQL中order by语句对null字段的排序SQL练习MySQL经典练习题及答案，常用SQL语句练习50题">
+<meta property="og:description" content="FastDFS 执行流程FastDFS 服务端有三个角色：跟踪服务器（Tracker Server）、存储服务器（Storage Server）和客户端（Client）。   Tracker Server：跟踪服务器，主要做调度工作，起负载均衡的作用。在内存记录集群中所有存储组和存储服务器的状态信息，是客户端和数据服务器交互的枢纽。相比 GFS 中的 Master 更为精简，不记录文件索引信息，占">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-03T10:07:10.952Z">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g5nhqjznlqj30ie0gdjw7.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79ly1g5nhr79buzj30p10d6wfu.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g5nhriqa0dj30om0bdjtg.jpg">
+<meta property="og:updated_time" content="2019-08-04T03:42:02.634Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql 知识点">
-<meta name="twitter:description" content="数据库mysql 索引类型sql 优化的几种方式数据库事务数据库事务的 4 种隔离级别数据库事务的 4 个基本特性SQLMysql中FIND_IN_SET()和IN区别简析MySQL Explain详解MySQL中concat以及group_concat的使用MySQL中order by语句对null字段的排序SQL练习MySQL经典练习题及答案，常用SQL语句练习50题">
+<meta name="twitter:title" content="FastDFS 流程图">
+<meta name="twitter:description" content="FastDFS 执行流程FastDFS 服务端有三个角色：跟踪服务器（Tracker Server）、存储服务器（Storage Server）和客户端（Client）。   Tracker Server：跟踪服务器，主要做调度工作，起负载均衡的作用。在内存记录集群中所有存储组和存储服务器的状态信息，是客户端和数据服务器交互的枢纽。相比 GFS 中的 Master 更为精简，不记录文件索引信息，占">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g5nhqjznlqj30ie0gdjw7.jpg">
     
 
     
@@ -222,22 +226,22 @@
                          <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/springMVC-流程图/">springMVC 流程图</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
                             数据库
                         </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file active"><a href="/wiki/Mysql-知识点/">Mysql 知识点</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Mysql-知识点/">Mysql 知识点</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
                             文件存储
                         </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/FastDFS-流程图/">FastDFS 流程图</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file active"><a href="/wiki/FastDFS-流程图/">FastDFS 流程图</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -348,7 +352,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Mysql-知识点" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-FastDFS-流程图" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -358,20 +362,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术开发/">技术开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术开发/数据库/">数据库</a>
+        <a class="article-category-link" href="/categories/技术开发/">技术开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术开发/文件存储/">文件存储</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/mysql/">mysql</a>
+        <a class="tag-link" href="/tags/FastDFS/">FastDFS</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Mysql-知识点/">
-            <time datetime="2019-08-03T09:36:37.000Z" itemprop="datePublished">2019-08-03</time>
+        <a href="/wiki/FastDFS-流程图/">
+            <time datetime="2019-08-04T03:34:10.000Z" itemprop="datePublished">2019-08-04</time>
         </a>
     </div>
 
@@ -382,13 +386,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Mysql-知识点.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/FastDFS-流程图.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Mysql-知识点.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/FastDFS-流程图.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Mysql-知识点.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/FastDFS-流程图.md'> History </a>
                             </div>
                         
                     </div>
@@ -396,7 +400,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Mysql 知识点
+            FastDFS 流程图
         </h1>
     
 
@@ -409,12 +413,28 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库"><span class="toc-number">1.</span> <span class="toc-text">数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mysql-索引类型"><span class="toc-number">1.1.</span> <span class="toc-text">mysql 索引类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sql-优化的几种方式"><span class="toc-number">1.2.</span> <span class="toc-text">sql 优化的几种方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库事务"><span class="toc-number">2.</span> <span class="toc-text">数据库事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库事务的-4-种隔离级别"><span class="toc-number">2.1.</span> <span class="toc-text">数据库事务的 4 种隔离级别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库事务的-4-个基本特性"><span class="toc-number">2.2.</span> <span class="toc-text">数据库事务的 4 个基本特性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL"><span class="toc-number">3.</span> <span class="toc-text">SQL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Mysql中FIND-IN-SET-和IN区别简析"><span class="toc-number">3.1.</span> <span class="toc-text">Mysql中FIND_IN_SET()和IN区别简析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL-Explain详解"><span class="toc-number">3.2.</span> <span class="toc-text">MySQL Explain详解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL中concat以及group-concat的使用"><span class="toc-number">3.3.</span> <span class="toc-text">MySQL中concat以及group_concat的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL中order-by语句对null字段的排序"><span class="toc-number">3.4.</span> <span class="toc-text">MySQL中order by语句对null字段的排序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL练习"><span class="toc-number">4.</span> <span class="toc-text">SQL练习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL经典练习题及答案，常用SQL语句练习50题"><span class="toc-number">4.1.</span> <span class="toc-text">MySQL经典练习题及答案，常用SQL语句练习50题</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#FastDFS-执行流程"><span class="toc-number">1.</span> <span class="toc-text">FastDFS 执行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传机制"><span class="toc-number">2.</span> <span class="toc-text">上传机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载机制"><span class="toc-number">3.</span> <span class="toc-text">下载机制</span></a></li></ol>
                 </div>
             
         
         
-            <h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><h4 id="mysql-索引类型"><a href="#mysql-索引类型" class="headerlink" title="mysql 索引类型"></a><a href="https://www.cnblogs.com/luyucheng/p/6289714.html" target="_blank" rel="noopener">mysql 索引类型</a></h4><h4 id="sql-优化的几种方式"><a href="#sql-优化的几种方式" class="headerlink" title="sql 优化的几种方式"></a><a href="https://blog.csdn.net/jie_liang/article/details/77340905" target="_blank" rel="noopener">sql 优化的几种方式</a></h4><h3 id="数据库事务"><a href="#数据库事务" class="headerlink" title="数据库事务"></a>数据库事务</h3><h4 id="数据库事务的-4-种隔离级别"><a href="#数据库事务的-4-种隔离级别" class="headerlink" title="数据库事务的 4 种隔离级别"></a><a href="https://blog.csdn.net/qq_33290787/article/details/51924963" target="_blank" rel="noopener">数据库事务的 4 种隔离级别</a></h4><h4 id="数据库事务的-4-个基本特性"><a href="#数据库事务的-4-个基本特性" class="headerlink" title="数据库事务的 4 个基本特性"></a><a href="https://blog.csdn.net/mfl0315/article/details/51981792" target="_blank" rel="noopener">数据库事务的 4 个基本特性</a></h4><h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><h4 id="Mysql中FIND-IN-SET-和IN区别简析"><a href="#Mysql中FIND-IN-SET-和IN区别简析" class="headerlink" title="Mysql中FIND_IN_SET()和IN区别简析"></a><a href="https://www.jb51.net/article/125744.htm" target="_blank" rel="noopener">Mysql中FIND_IN_SET()和IN区别简析</a></h4><h4 id="MySQL-Explain详解"><a href="#MySQL-Explain详解" class="headerlink" title="MySQL Explain详解"></a><a href="https://www.cnblogs.com/xuanzhi201111/p/4175635.html" target="_blank" rel="noopener">MySQL Explain详解</a></h4><h4 id="MySQL中concat以及group-concat的使用"><a href="#MySQL中concat以及group-concat的使用" class="headerlink" title="MySQL中concat以及group_concat的使用"></a><a href="https://blog.csdn.net/mary19920410/article/details/76545053" target="_blank" rel="noopener">MySQL中concat以及group_concat的使用</a></h4><h4 id="MySQL中order-by语句对null字段的排序"><a href="#MySQL中order-by语句对null字段的排序" class="headerlink" title="MySQL中order by语句对null字段的排序"></a><a href="https://www.cnblogs.com/Wcy100/p/5376399.html" target="_blank" rel="noopener">MySQL中order by语句对null字段的排序</a></h4><h3 id="SQL练习"><a href="#SQL练习" class="headerlink" title="SQL练习"></a>SQL练习</h3><h4 id="MySQL经典练习题及答案，常用SQL语句练习50题"><a href="#MySQL经典练习题及答案，常用SQL语句练习50题" class="headerlink" title="MySQL经典练习题及答案，常用SQL语句练习50题"></a><a href="https://blog.csdn.net/qq_41936662/article/details/80393172" target="_blank" rel="noopener">MySQL经典练习题及答案，常用SQL语句练习50题</a></h4>
+            <h3 id="FastDFS-执行流程"><a href="#FastDFS-执行流程" class="headerlink" title="FastDFS 执行流程"></a>FastDFS 执行流程</h3><p>FastDFS 服务端有三个角色：跟踪服务器（Tracker Server）、存储服务器（Storage Server）和客户端（Client）。 </p>
+<ul>
+<li><p>Tracker Server：跟踪服务器，主要做调度工作，起负载均衡的作用。在内存记录集群中所有存储组和存储服务器的状态信息，是客户端和数据服务器交互的枢纽。相比 GFS 中的 Master 更为精简，不记录文件索引信息，占用的内存量很少。 </p>
+</li>
+<li><p>Storage Server：存储服务器（又称存储节点或数据服务器），文件和文件属性（Meta Data）都保存到存储服务器上。Storage Server 直接利用 OS 的文件系统调用管理文件。 </p>
+</li>
+<li><p>Client：客户端，作为业务请求的发起方，通过专有接口，使用 TCP/IP 协议与跟踪器服务器或存储节点进行数据交互。FastDFS 向使用者提供基本文件访问接口，如 upload、download、append、delete 等，以客户端库的方式提供给用户使用。 </p>
+</li>
+</ul>
+<p>通过一张图来看一下 FastDFS 的运行机制： </p>
+<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g5nhqjznlqj30ie0gdjw7.jpg" alt="9F8CC1B1-7DF4-42E5-A387-2FA00924B117"></p>
+<p>Tracker 相当于 FastDFS 的大脑，不论是上传还是下载都是通过 Tracker 来分配资源；客户端一般可以使用 Ngnix 等静态服务器来调用或者做一部分的缓存；存储服务器内部分为卷（或者叫做组），卷与卷之间是平行的关系，可以根据资源的使用情况随时增加，卷内服务器文件相互同步备份，以达到容灾的目的。</p>
+<h3 id="上传机制"><a href="#上传机制" class="headerlink" title="上传机制"></a>上传机制</h3><p>首先客户端请求 Tracker 服务获取到存储服务器的 IP 地址和端口，然后客户端根据返回的 IP 地址和端口号请求上传文件，存储服务器接收到请求后生产文件，并且将文件内容写入磁盘并返回给客户端 file_id、路径信息、文件名等信息，客户端保存相关信息上传完毕。 </p>
+<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g5nhr79buzj30p10d6wfu.jpg" alt="1"></p>
+<h3 id="下载机制"><a href="#下载机制" class="headerlink" title="下载机制"></a>下载机制</h3><p>客户端带上文件名信息请求 Tracker 服务获取到存储服务器的 IP 地址和端口，然后客户端根据返回的 IP 地址和端口号请求下载文件，存储服务器接收到请求后返回文件给客户端。 </p>
+<p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g5nhriqa0dj30om0bdjtg.jpg" alt="6542D65C-57D6-4B08-A3D5-CA1578F3091D"></p>
+
             </div>
         
         <footer class="article-footer">
@@ -426,19 +446,10 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/Java-基础知识点/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    Java 基础知识点
-                
-            </div>
-        </a>
     
-    
-        <a href="/wiki/intellij-idea-修改记录/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/springMVC-流程图/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">intellij idea 修改记录</div>
+            <div class="article-nav-title">springMVC 流程图</div>
         </a>
     
 </nav>
