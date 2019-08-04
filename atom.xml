@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-04T03:42:02.634Z</updated>
+  <updated>2019-08-04T05:24:25.244Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,109 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java hash 原理</title>
+    <link href="http://yoursite.com/wiki/java-hash-%E5%8E%9F%E7%90%86/"/>
+    <id>http://yoursite.com/wiki/java-hash-原理/</id>
+    <published>2019-08-04T05:23:50.000Z</published>
+    <updated>2019-08-04T05:24:25.244Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g5nkvcllvaj318c0mqt9z.jpg" alt="88FE31C1-3E38-4DC9-A207-96016AA72F1F"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/006tNc79ly1g5nkvcllvaj318c0mqt9z.jpg&quot; alt=&quot;88FE31C1-3E38-4DC9-A207-96016AA72F1F&quot;&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="技术开发" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="java基础" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>让我们同步进阶</title>
+    <link href="http://yoursite.com/wiki/%E8%AE%A9%E6%88%91%E4%BB%AC%E5%90%8C%E6%AD%A5%E8%BF%9B%E9%98%B6/"/>
+    <id>http://yoursite.com/wiki/让我们同步进阶/</id>
+    <published>2019-08-04T05:18:18.000Z</published>
+    <updated>2019-08-04T05:21:35.489Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="互联网-java-工程师进阶知识完全扫盲"><a href="#互联网-java-工程师进阶知识完全扫盲" class="headerlink" title="互联网 java 工程师进阶知识完全扫盲"></a><a href="https://doocs.github.io/advanced-java/#/?id=%E4%BA%92%E8%81%94%E7%BD%91-java-%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%BF%9B%E9%98%B6%E7%9F%A5%E8%AF%86%E5%AE%8C%E5%85%A8%E6%89%AB%E7%9B%B2" target="_blank" rel="noopener">互联网 java 工程师进阶知识完全扫盲</a></h3><h3 id="CS-Notes"><a href="#CS-Notes" class="headerlink" title="CS-Notes"></a><a href="https://cyc2018.github.io/CS-Notes/" target="_blank" rel="noopener">CS-Notes</a></h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;互联网-java-工程师进阶知识完全扫盲&quot;&gt;&lt;a href=&quot;#互联网-java-工程师进阶知识完全扫盲&quot; class=&quot;headerlink&quot; title=&quot;互联网 java 工程师进阶知识完全扫盲&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://doocs.git
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>redis 知识点</title>
+    <link href="http://yoursite.com/wiki/redis-%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>http://yoursite.com/wiki/redis-知识点/</id>
+    <published>2019-08-04T05:12:21.000Z</published>
+    <updated>2019-08-04T05:15:47.933Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Redis用过哪些数据数据，以及Redis底层怎么实现"><a href="#Redis用过哪些数据数据，以及Redis底层怎么实现" class="headerlink" title="Redis用过哪些数据数据，以及Redis底层怎么实现"></a>Redis用过哪些数据数据，以及Redis底层怎么实现</h3><p>string, hash, list, set, zset</p><h3 id="Redis缓存穿透，缓存雪崩"><a href="#Redis缓存穿透，缓存雪崩" class="headerlink" title="Redis缓存穿透，缓存雪崩"></a><a href="https://www.cnblogs.com/fidelQuan/p/4543387.html" target="_blank" rel="noopener">Redis缓存穿透，缓存雪崩</a></h3><h3 id="如何使用Redis来实现分布式锁"><a href="#如何使用Redis来实现分布式锁" class="headerlink" title="如何使用Redis来实现分布式锁"></a><a href="https://www.cnblogs.com/linjiqin/p/8003838.html" target="_blank" rel="noopener">如何使用Redis来实现分布式锁</a></h3><h3 id="Redis的并发竞争问题如何解决"><a href="#Redis的并发竞争问题如何解决" class="headerlink" title="Redis的并发竞争问题如何解决"></a><a href="https://blog.csdn.net/hjm4702192/article/details/80518856" target="_blank" rel="noopener">Redis的并发竞争问题如何解决</a></h3><h3 id="Redis持久化的几种方式，优缺点是什么，怎么实现的"><a href="#Redis持久化的几种方式，优缺点是什么，怎么实现的" class="headerlink" title="Redis持久化的几种方式，优缺点是什么，怎么实现的"></a><a href="https://www.cnblogs.com/chenliangcl/p/7240350.html" target="_blank" rel="noopener">Redis持久化的几种方式，优缺点是什么，怎么实现的</a></h3><h3 id="aof-文件太大会怎么样"><a href="#aof-文件太大会怎么样" class="headerlink" title="aof 文件太大会怎么样"></a><a href="https://www.cnblogs.com/xingzc/p/6384677.html" target="_blank" rel="noopener">aof 文件太大会怎么样</a></h3><h3 id="Redis的缓存失效策略-amp-最大缓存策略"><a href="#Redis的缓存失效策略-amp-最大缓存策略" class="headerlink" title="Redis的缓存失效策略 &amp; 最大缓存策略"></a><a href="https://www.cnblogs.com/moonandstar08/p/5686498.html" target="_blank" rel="noopener">Redis的缓存失效策略 &amp; 最大缓存策略</a></h3><h3 id="Redis集群，高可用，原理"><a href="#Redis集群，高可用，原理" class="headerlink" title="Redis集群，高可用，原理"></a>Redis集群，高可用，原理</h3><h3 id="Redis缓存分片"><a href="#Redis缓存分片" class="headerlink" title="Redis缓存分片"></a><a href="https://www.cnblogs.com/shiw27/p/8360485.html" target="_blank" rel="noopener">Redis缓存分片</a></h3><h3 id="Redis的数据淘汰策略"><a href="#Redis的数据淘汰策略" class="headerlink" title="Redis的数据淘汰策略"></a><a href="https://blog.csdn.net/yangtuogege/article/details/77970896" target="_blank" rel="noopener">Redis的数据淘汰策略</a></h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Redis用过哪些数据数据，以及Redis底层怎么实现&quot;&gt;&lt;a href=&quot;#Redis用过哪些数据数据，以及Redis底层怎么实现&quot; class=&quot;headerlink&quot; title=&quot;Redis用过哪些数据数据，以及Redis底层怎么实现&quot;&gt;&lt;/a&gt;Redis
+      
+    
+    </summary>
+    
+      <category term="技术开发" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="redis" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/redis/"/>
+    
+    
+      <category term="redis" scheme="http://yoursite.com/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring 知识点</title>
+    <link href="http://yoursite.com/wiki/Spring-%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>http://yoursite.com/wiki/Spring-知识点/</id>
+    <published>2019-08-04T05:01:51.000Z</published>
+    <updated>2019-08-04T05:05:38.496Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="BeanFactory-和-FactoryBean？"><a href="#BeanFactory-和-FactoryBean？" class="headerlink" title="BeanFactory 和 FactoryBean？"></a><a href="https://blog.csdn.net/qiesheng/article/details/72875315" target="_blank" rel="noopener">BeanFactory 和 FactoryBean？</a></h3><h3 id="Spring-IOC-的理解，其初始化过程？"><a href="#Spring-IOC-的理解，其初始化过程？" class="headerlink" title="Spring IOC 的理解，其初始化过程？"></a><a href="https://www.cnblogs.com/chenjunjie12321/p/6124649.html" target="_blank" rel="noopener">Spring IOC 的理解，其初始化过程？</a></h3><h3 id="BeanFactory-和-ApplicationContext？"><a href="#BeanFactory-和-ApplicationContext？" class="headerlink" title="BeanFactory 和 ApplicationContext？"></a><a href="https://blog.csdn.net/qq_32651225/article/details/78323527" target="_blank" rel="noopener">BeanFactory 和 ApplicationContext？</a></h3><h3 id="Spring-Bean-的生命周期，如何被管理的？"><a href="#Spring-Bean-的生命周期，如何被管理的？" class="headerlink" title="Spring Bean 的生命周期，如何被管理的？"></a><a href="https://www.cnblogs.com/kenshinobiy/p/4652008.html" target="_blank" rel="noopener">Spring Bean 的生命周期，如何被管理的？</a></h3><h3 id="Spring-Bean-的加载过程是怎样的？"><a href="#Spring-Bean-的加载过程是怎样的？" class="headerlink" title="Spring Bean 的加载过程是怎样的？"></a><a href="https://www.cnblogs.com/xrq730/p/6285358.html" target="_blank" rel="noopener">Spring Bean 的加载过程是怎样的？</a></h3><h3 id="如果要你实现Spring-AOP，请问怎么实现？"><a href="#如果要你实现Spring-AOP，请问怎么实现？" class="headerlink" title="如果要你实现Spring AOP，请问怎么实现？"></a>如果要你实现Spring AOP，请问怎么实现？</h3><h3 id="如果要你实现Spring-IOC，你会注意哪些问题？"><a href="#如果要你实现Spring-IOC，你会注意哪些问题？" class="headerlink" title="如果要你实现Spring IOC，你会注意哪些问题？"></a>如果要你实现Spring IOC，你会注意哪些问题？</h3><h3 id="Spring-是如何管理事务的，事务管理机制？"><a href="#Spring-是如何管理事务的，事务管理机制？" class="headerlink" title="Spring 是如何管理事务的，事务管理机制？"></a><a href="https://www.cnblogs.com/dongfangshenhua/p/6949521.html" target="_blank" rel="noopener">Spring 是如何管理事务的，事务管理机制？</a></h3><h3 id="Spring-的不同事务传播行为有哪些，干什么用的？"><a href="#Spring-的不同事务传播行为有哪些，干什么用的？" class="headerlink" title="Spring 的不同事务传播行为有哪些，干什么用的？"></a><a href="https://www.cnblogs.com/dongfangshenhua/p/6949521.html" target="_blank" rel="noopener">Spring 的不同事务传播行为有哪些，干什么用的？</a></h3><h3 id="Spring-中用到了那些设计模式？"><a href="#Spring-中用到了那些设计模式？" class="headerlink" title="Spring 中用到了那些设计模式？"></a><a href="https://www.cnblogs.com/baizhanshi/p/6187537.html" target="_blank" rel="noopener">Spring 中用到了那些设计模式？</a></h3><h3 id="Spring-MVC-的工作原理？"><a href="#Spring-MVC-的工作原理？" class="headerlink" title="Spring MVC 的工作原理？"></a><a href="https://www.cnblogs.com/xiaoxi/p/6164383.html" target="_blank" rel="noopener">Spring MVC 的工作原理？</a></h3><h3 id="Spring-循环注入的原理？"><a href="#Spring-循环注入的原理？" class="headerlink" title="Spring 循环注入的原理？"></a>Spring 循环注入的原理？</h3><h3 id="Spring-AOP的理解，各个术语，他们是怎么相互工作的？"><a href="#Spring-AOP的理解，各个术语，他们是怎么相互工作的？" class="headerlink" title="Spring AOP的理解，各个术语，他们是怎么相互工作的？"></a><a href="https://www.jianshu.com/p/5015f212e4e4" target="_blank" rel="noopener">Spring AOP的理解，各个术语，他们是怎么相互工作的？</a></h3><h3 id="Spring-如何保证-Controller-并发的安全？"><a href="#Spring-如何保证-Controller-并发的安全？" class="headerlink" title="Spring 如何保证 Controller 并发的安全？"></a><a href="https://www.cnblogs.com/tiancai/p/9627109.html" target="_blank" rel="noopener">Spring 如何保证 Controller 并发的安全？</a></h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;BeanFactory-和-FactoryBean？&quot;&gt;&lt;a href=&quot;#BeanFactory-和-FactoryBean？&quot; class=&quot;headerlink&quot; title=&quot;BeanFactory 和 FactoryBean？&quot;&gt;&lt;/a&gt;&lt;a href=
+      
+    
+    </summary>
+    
+      <category term="技术开发" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="spring" scheme="http://yoursite.com/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/spring/"/>
+    
+    
+      <category term="spring" scheme="http://yoursite.com/tags/spring/"/>
+    
+  </entry>
   
   <entry>
     <title>FastDFS 流程图</title>
