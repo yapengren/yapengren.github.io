@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yapengren.github.io/"/>
-  <updated>2019-08-04T06:47:41.012Z</updated>
+  <updated>2019-08-14T09:22:49.471Z</updated>
   <id>https://yapengren.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mybatis 知识点</title>
+    <link href="https://yapengren.github.io/wiki/Mybatis-%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>https://yapengren.github.io/wiki/Mybatis-知识点/</id>
+    <published>2019-08-14T09:20:15.000Z</published>
+    <updated>2019-08-14T09:22:49.471Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="MyBatis-中-resultType-和-resultMap-的区别"><a href="#MyBatis-中-resultType-和-resultMap-的区别" class="headerlink" title="MyBatis 中 resultType 和 resultMap 的区别"></a><a href="https://www.cnblogs.com/coder-lzh/p/8960928.html" target="_blank" rel="noopener">MyBatis 中 resultType 和 resultMap 的区别</a></h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;MyBatis-中-resultType-和-resultMap-的区别&quot;&gt;&lt;a href=&quot;#MyBatis-中-resultType-和-resultMap-的区别&quot; class=&quot;headerlink&quot; title=&quot;MyBatis 中 resultType
+      
+    
+    </summary>
+    
+      <category term="技术开发" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="Mybatis" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Mybatis/"/>
+    
+    
+      <category term="mybatis" scheme="https://yapengren.github.io/tags/mybatis/"/>
+    
+  </entry>
   
   <entry>
     <title>synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</title>

@@ -3,26 +3,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>Dubbo 架构 | yp_ren Blog</title>
+    <title>Mybatis 知识点 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="dubbo">
+        <meta name="keywords" content="mybatis">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="节点角色说明   节点 角色说明    Provider 暴露服务的服务提供方   Consumer 调用远程服务的服务消费方   Registry 服务注册与发现的注册中心   Monitor 统计服务的调用次数和调用时间的监控中心   Container 服务运行容器   调用关系说明 服务容器负责启动，加载，运行服务提供者。 服务提供者在启动时，向注册中心注册自己提供的服务。 服务消费者在">
-<meta name="keywords" content="dubbo">
+    <meta name="description" content="MyBatis 中 resultType 和 resultMap 的区别">
+<meta name="keywords" content="mybatis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dubbo 架构">
-<meta property="og:url" content="https://yapengren.github.io/wiki/Dubbo-架构/index.html">
+<meta property="og:title" content="Mybatis 知识点">
+<meta property="og:url" content="https://yapengren.github.io/wiki/Mybatis-知识点/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="节点角色说明   节点 角色说明    Provider 暴露服务的服务提供方   Consumer 调用远程服务的服务消费方   Registry 服务注册与发现的注册中心   Monitor 统计服务的调用次数和调用时间的监控中心   Container 服务运行容器   调用关系说明 服务容器负责启动，加载，运行服务提供者。 服务提供者在启动时，向注册中心注册自己提供的服务。 服务消费者在">
+<meta property="og:description" content="MyBatis 中 resultType 和 resultMap 的区别">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://dubbo.apache.org/docs/zh-cn/user/sources/images/dubbo-architecture.jpg">
-<meta property="og:updated_time" content="2019-08-04T03:20:10.521Z">
+<meta property="og:updated_time" content="2019-08-14T09:22:49.471Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dubbo 架构">
-<meta name="twitter:description" content="节点角色说明   节点 角色说明    Provider 暴露服务的服务提供方   Consumer 调用远程服务的服务消费方   Registry 服务注册与发现的注册中心   Monitor 统计服务的调用次数和调用时间的监控中心   Container 服务运行容器   调用关系说明 服务容器负责启动，加载，运行服务提供者。 服务提供者在启动时，向注册中心注册自己提供的服务。 服务消费者在">
-<meta name="twitter:image" content="http://dubbo.apache.org/docs/zh-cn/user/sources/images/dubbo-architecture.jpg">
+<meta name="twitter:title" content="Mybatis 知识点">
+<meta name="twitter:description" content="MyBatis 中 resultType 和 resultMap 的区别">
     
 
     
@@ -190,22 +188,22 @@
                             技术开发
                         </a>
                          <ul class="unstyled" id="tree" style="display: block;"> 
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
                             Dubbo
                         </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file active"><a href="/wiki/Dubbo-架构/">Dubbo 架构</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Dubbo-架构/">Dubbo 架构</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
                             Mybatis
                         </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Mybatis-架构图/">Mybatis 架构图</a></li>  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Mybatis-架构图/">Mybatis 架构图</a></li>  <li class="file active"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -370,7 +368,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Dubbo-架构" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Mybatis-知识点" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -380,20 +378,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术开发/">技术开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术开发/Dubbo/">Dubbo</a>
+        <a class="article-category-link" href="/categories/技术开发/">技术开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术开发/Mybatis/">Mybatis</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/dubbo/">dubbo</a>
+        <a class="tag-link" href="/tags/mybatis/">mybatis</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Dubbo-架构/">
-            <time datetime="2019-08-04T03:15:00.000Z" itemprop="datePublished">2019-08-04</time>
+        <a href="/wiki/Mybatis-知识点/">
+            <time datetime="2019-08-14T09:20:15.000Z" itemprop="datePublished">2019-08-14</time>
         </a>
     </div>
 
@@ -404,13 +402,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Dubbo-架构.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Mybatis-知识点.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Dubbo-架构.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Mybatis-知识点.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Dubbo-架构.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Mybatis-知识点.md'> History </a>
                             </div>
                         
                     </div>
@@ -418,7 +416,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Dubbo 架构
+            Mybatis 知识点
         </h1>
     
 
@@ -431,50 +429,12 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#节点角色说明"><span class="toc-number">1.</span> <span class="toc-text">节点角色说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调用关系说明"><span class="toc-number">2.</span> <span class="toc-text">调用关系说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#MyBatis-中-resultType-和-resultMap-的区别"><span class="toc-number">1.</span> <span class="toc-text">MyBatis 中 resultType 和 resultMap 的区别</span></a></li></ol>
                 </div>
             
         
         
-            <p><img src="http://dubbo.apache.org/docs/zh-cn/user/sources/images/dubbo-architecture.jpg" alt="dubbo-architucture"></p>
-<h3 id="节点角色说明"><a href="#节点角色说明" class="headerlink" title="节点角色说明"></a>节点角色说明</h3><table>
-<thead>
-<tr>
-<th>节点</th>
-<th>角色说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>Provider</code></td>
-<td>暴露服务的服务提供方</td>
-</tr>
-<tr>
-<td><code>Consumer</code></td>
-<td>调用远程服务的服务消费方</td>
-</tr>
-<tr>
-<td><code>Registry</code></td>
-<td>服务注册与发现的注册中心</td>
-</tr>
-<tr>
-<td><code>Monitor</code></td>
-<td>统计服务的调用次数和调用时间的监控中心</td>
-</tr>
-<tr>
-<td><code>Container</code></td>
-<td>服务运行容器</td>
-</tr>
-</tbody></table>
-<h3 id="调用关系说明"><a href="#调用关系说明" class="headerlink" title="调用关系说明"></a>调用关系说明</h3><ol>
-<li>服务容器负责启动，加载，运行服务提供者。</li>
-<li>服务提供者在启动时，向注册中心注册自己提供的服务。</li>
-<li>服务消费者在启动时，向注册中心订阅自己所需的服务。</li>
-<li>注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者。</li>
-<li>服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。</li>
-<li>服务消费者和提供者，在内存中累计调用次数和调用时间，定时每分钟发送一次统计数据到监控中心。</li>
-</ol>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://dubbo.apache.org/zh-cn/docs/user/preface/architecture.html" target="_blank" rel="noopener">http://dubbo.apache.org/zh-cn/docs/user/preface/architecture.html</a></p>
-
+            <h3 id="MyBatis-中-resultType-和-resultMap-的区别"><a href="#MyBatis-中-resultType-和-resultMap-的区别" class="headerlink" title="MyBatis 中 resultType 和 resultMap 的区别"></a><a href="https://www.cnblogs.com/coder-lzh/p/8960928.html" target="_blank" rel="noopener">MyBatis 中 resultType 和 resultMap 的区别</a></h3>
             </div>
         
         <footer class="article-footer">
@@ -486,19 +446,10 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/Mybatis-架构图/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    Mybatis 架构图
-                
-            </div>
-        </a>
     
-    
-        <a href="/wiki/Java-基础知识点/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Java 基础知识点</div>
+            <div class="article-nav-title">synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</div>
         </a>
     
 </nav>
