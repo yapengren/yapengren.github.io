@@ -1,3 +1,5 @@
+https://yapengren.github.io/wiki/Redis-zset-实现简单限流/
+https://yapengren.github.io/wiki/Redis-深度历险：核心原理与应用实践/
 https://yapengren.github.io/wiki/HashMap-源码分析/
 https://yapengren.github.io/wiki/ArrayList-源码分析/
 https://yapengren.github.io/wiki/Dubbo-知识点/
@@ -6,5 +8,3 @@ https://yapengren.github.io/wiki/synchronized-和-lock-有什么区别？用新�
 https://yapengren.github.io/wiki/java-hash-原理/
 https://yapengren.github.io/wiki/让我们同步进阶/
 https://yapengren.github.io/wiki/redis-知识点/
-https://yapengren.github.io/wiki/Spring-知识点/
-https://yapengren.github.io/wiki/FastDFS-流程图/

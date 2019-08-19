@@ -18,7 +18,7 @@
 <meta property="og:description" content="继承体系 在 Java 中，HashMap 的实现采用了（数组 + 链表 + 红黑树）的复杂结构，数组的一个元素又称作桶。 在添加元素时，会根据 hash 值算出元素在数组中的位置，如果该位置没有元素，则直接把元素放置在此处，如果该位置有元素了，则把元素以链表的形式放置在链表的尾部。 当一个链表的元素个数达到一定的数量（且数组的长度达到一定的长度）后，则把链表转化为红黑树，从而提高效率。 数组的查">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79ly1g62mklbo1uj30u40cg0tc.jpg">
-<meta property="og:updated_time" content="2019-08-17T07:41:00.791Z">
+<meta property="og:updated_time" content="2019-08-18T03:35:27.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HashMap 源码分析">
 <meta name="twitter:description" content="继承体系 在 Java 中，HashMap 的实现采用了（数组 + 链表 + 红黑树）的复杂结构，数组的一个元素又称作桶。 在添加元素时，会根据 hash 值算出元素在数组中的位置，如果该位置没有元素，则直接把元素放置在此处，如果该位置有元素了，则把元素以链表的形式放置在链表的尾部。 当一个链表的元素个数达到一定的数量（且数组的长度达到一定的长度）后，则把链表转化为红黑树，从而提高效率。 数组的查">
@@ -187,25 +187,16 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
-                            技术开发
+                            技术分享
                         </a>
                          <ul class="unstyled" id="tree" style="display: block;"> 
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
-                            Dubbo
+                            dubbo
                         </a>
                          <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Dubbo-架构/">Dubbo 架构</a></li>  <li class="file"><a href="/wiki/Dubbo-知识点/">Dubbo 知识点</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
-                            &nbsp;
-                            Mybatis
-                        </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Mybatis-架构图/">Mybatis 架构图</a></li>  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory open">
@@ -230,9 +221,18 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
+                            mybatis
+                        </a>
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Mybatis-架构图/">Mybatis 架构图</a></li>  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
                             redis
                         </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/redis-知识点/">redis 知识点</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/redis-知识点/">redis 知识点</a></li>  <li class="file"><a href="/wiki/Redis-深度历险：核心原理与应用实践/">Redis 深度历险：核心原理与应用实践</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -250,7 +250,7 @@
                             &nbsp;
                             数据库
                         </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Mysql-知识点/">Mysql 知识点</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/MySQL-知识点/">MySQL 知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -380,7 +380,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术开发/">技术开发</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术开发/java基础/">java基础</a>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java基础/">java基础</a>
     </div>
 
                         
@@ -468,6 +468,15 @@
 
     
 <nav id="article-nav">
+    
+        <a href="/wiki/Redis-深度历险：核心原理与应用实践/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    Redis 深度历险：核心原理与应用实践
+                
+            </div>
+        </a>
     
     
         <a href="/wiki/ArrayList-源码分析/" id="article-nav-older" class="article-nav-link-wrap">
