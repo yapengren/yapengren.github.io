@@ -198,7 +198,7 @@
                             &nbsp;
                             java基础
                         </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList-知识点/">CopyOnWriteArrayList 知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -207,7 +207,7 @@
                             &nbsp;
                             java并发
                         </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/">synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/">synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</a></li>  <li class="file"><a href="/wiki/java-线程池知识点/">java 线程池知识点</a></li>  <li class="file"><a href="/wiki/谈谈你对-volatile-的理解/">谈谈你对 volatile 的理解</a></li>  <li class="file"><a href="/wiki/CAS-你知道吗？/">CAS 你知道吗？</a></li>  <li class="file"><a href="/wiki/原子类Atomiclnteger-的-ABA-问题谈谈？/">原子类Atomiclnteger 的 ABA 问题谈谈？</a></li>  <li class="file"><a href="/wiki/java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/">java 公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -279,7 +279,7 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
-                            系统方面
+                            系统知识
                         </a>
                          <ul class="unstyled" id="tree" style="display: block;"> 
                     <li class="directory">
@@ -364,6 +364,615 @@
 </aside>
             
             <section id="main">
+        <article id="post-java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java并发/">java并发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/">
+            <time datetime="2019-08-20T06:29:56.000Z" itemprop="datePublished">2019-08-20</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/">java 公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="公平锁和非公平锁"><a href="#公平锁和非公平锁" class="headerlink" title="公平锁和非公平锁"></a>公平锁和非公平锁</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>公平锁：是指多个线程按照申请锁的顺序来获取锁，类似排队打饭，先来后到。</p>
+<p>非公平锁：是指多个线程获取锁的顺序并不是按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁。在高并发的情况下，有可能会造成优先级反转或者饥饿现象。</p>
+<h3 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h3><p>公平锁/非公平锁：并发包中 ReentrantLock 的创建可以指定构造函数的 boolean 类型来得到公平锁或非公平锁，默认是非公平锁。</p>
+<p>关于两者区别：</p>
+<p>公平锁，就是很公平，在并发情况下，每个线程在获取锁时会查看此锁维护的等待队列，如果为空，或者当前线程是等待队列的第一个，就占有锁，否则就会加入到等待队列中，以后会按照 FIFO 的规则从队列中取到自己。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-CopyOnWriteArrayList-知识点" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java基础/">java基础</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/CopyOnWriteArrayList-知识点/">
+            <time datetime="2019-08-20T06:19:07.000Z" itemprop="datePublished">2019-08-20</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/CopyOnWriteArrayList-知识点.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/CopyOnWriteArrayList-知识点.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/CopyOnWriteArrayList-知识点.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/CopyOnWriteArrayList-知识点/">CopyOnWriteArrayList 知识点</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <p>写时复制</p>
+<p>CopyOnWrite 容器即写时复制的容器。<br>往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，<br>然后新的容器 Object[] newElements 里添加元素，<br>添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)<br>这样做的好处是可以对 copyonwrite 容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。<br>所以 copyonwrite容器也是一种读写分离的思想，读和写不同的容器。</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-原子类Atomiclnteger-的-ABA-问题谈谈？" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java并发/">java并发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/原子类Atomiclnteger-的-ABA-问题谈谈？/">
+            <time datetime="2019-08-20T05:56:30.000Z" itemprop="datePublished">2019-08-20</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/原子类Atomiclnteger-的-ABA-问题谈谈？.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/原子类Atomiclnteger-的-ABA-问题谈谈？.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/原子类Atomiclnteger-的-ABA-问题谈谈？.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/原子类Atomiclnteger-的-ABA-问题谈谈？/">原子类Atomiclnteger 的 ABA 问题谈谈？</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="ABA问题怎么产生的"><a href="#ABA问题怎么产生的" class="headerlink" title="ABA问题怎么产生的"></a>ABA问题怎么产生的</h2><p>CAS会导致 ABA 问题</p>
+<p>CAS 算法实现一个重要前提需要取出内存中某时刻的数据并在当下时刻比较并替换，那么在这个时间差类会导致数据的变化。</p>
+<p>尽管线程 one 的 CAS 操作成功，但是不代表这个过程就是没问题的。</p>
+<h2 id="原子引用"><a href="#原子引用" class="headerlink" title="原子引用"></a>原子引用</h2><p>解决ABA问题</p>
+<h2 id="时间戳原子引用"><a href="#时间戳原子引用" class="headerlink" title="时间戳原子引用"></a>时间戳原子引用</h2><p>AtomicStampledReference<br>ABADemo</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/原子类Atomiclnteger-的-ABA-问题谈谈？/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-CAS-你知道吗？" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java并发/">java并发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/CAS-你知道吗？/">
+            <time datetime="2019-08-20T05:49:03.000Z" itemprop="datePublished">2019-08-20</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/CAS-你知道吗？.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/CAS-你知道吗？.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/CAS-你知道吗？.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/CAS-你知道吗？/">CAS 你知道吗？</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="比较并交换"><a href="#比较并交换" class="headerlink" title="比较并交换"></a>比较并交换</h2><h2 id="CAS底层原理？如果知道，谈谈比对Unsafe的理解"><a href="#CAS底层原理？如果知道，谈谈比对Unsafe的理解" class="headerlink" title="CAS底层原理？如果知道，谈谈比对Unsafe的理解"></a>CAS底层原理？如果知道，谈谈比对Unsafe的理解</h2><h3 id="Unsafe"><a href="#Unsafe" class="headerlink" title="Unsafe"></a>Unsafe</h3><ol>
+<li><p>Unsafe 是 CAS 的核心类，由于 Java 方法无法直接访问底层系统，需要通过本地（native）方法来访问，Unsafe 相当于一个后门，基于该类可以直接操作特定内存的数据。Unsafe 类存在于 sun.misc 包中，其内部方法操作可以像 C 的指针一样直接操作内存，因为 Java 中 CAS 操作的执行依赖于 Unsafe 类的方法。</p>
+<p>注意 Unsafe 类中的所有方法都是 native 修饰的，也就是说 Unsafe 类中的方法都直接调用操作系统底层资源执行相应任务。</p>
+</li>
+<li><p>变量 valueOffset，表示该变量在内存中的偏移地址，因为 Unsafe 就是根据内存偏移地址获取数据的。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/CAS-你知道吗？/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-谈谈你对-volatile-的理解" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java并发/">java并发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/谈谈你对-volatile-的理解/">
+            <time datetime="2019-08-19T09:23:18.000Z" itemprop="datePublished">2019-08-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/谈谈你对-volatile-的理解.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/谈谈你对-volatile-的理解.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/谈谈你对-volatile-的理解.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/谈谈你对-volatile-的理解/">谈谈你对 volatile 的理解</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="谈谈你对-volatile-的理解"><a href="#谈谈你对-volatile-的理解" class="headerlink" title="谈谈你对 volatile 的理解"></a>谈谈你对 volatile 的理解</h2><p>volatile 是 Java 虚拟机提供的轻量级的同步机制</p>
+<h3 id="保证可见性"><a href="#保证可见性" class="headerlink" title="保证可见性"></a>保证可见性</h3><p>各个线程对主内存中共享变量的操作都是各个线程各自拷贝到自己的工作内存进行操作后再写回主内存中的。</p>
+<p>这就可能存在一个线程 A 修改了共享变量 X 的值但还未写回主内存时，另一个线程 B 又对准内存中同一个共享变量 X 进行操作，但此时 A 线程工作内存中共享变量 X 对线程 B 来说并不是可见，这种工作内存与主内存同步存在延迟现象就造成了可见性问题。</p>
+<h3 id="不保证原子性"><a href="#不保证原子性" class="headerlink" title="不保证原子性"></a>不保证原子性</h3><h3 id="禁止指令重排"><a href="#禁止指令重排" class="headerlink" title="禁止指令重排"></a>禁止指令重排</h3><p>volatile 实现禁止指令重排优化，从而避免多线程环境下程序出现乱序执行的现象。</p>
+<p>先了解一个概念，内存屏障又称内存栅栏，是一个CPU指令，它的作用有两个：<br>一是保证特定操作的执行顺序<br>二是保证某些变量的内存可见性（利用该特性实现volatile的内存可见性）</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/谈谈你对-volatile-的理解/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-java-线程池知识点" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java并发/">java并发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/java-线程池知识点/">
+            <time datetime="2019-08-19T07:33:15.000Z" itemprop="datePublished">2019-08-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java-线程池知识点.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java-线程池知识点.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java-线程池知识点.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/java-线程池知识点/">java 线程池知识点</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="为什么用线程池，优势"><a href="#为什么用线程池，优势" class="headerlink" title="为什么用线程池，优势"></a>为什么用线程池，优势</h2><p>线程池主要是控制运行线程的数量，处理过程中将任务放入队列，然后在线程创建后启动这些任务，如果线程数量超过了最大数量的线程排队等候，等其他线程执行完毕，再从队列中取出任务来执行。</p>
+<p>主要特点是：线程复用、控制最大并发数、管理线程。</p>
+<p>第一：降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</p>
+<p>第二：提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。</p>
+<p>第三：提高线程的可管理性。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/java-线程池知识点/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-Redis-zset-实现简单限流" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -762,540 +1371,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/ArrayList-源码分析/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Dubbo-知识点" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/dubbo/">dubbo</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/dubbo/">dubbo</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/Dubbo-知识点/">
-            <time datetime="2019-08-15T08:54:12.000Z" itemprop="datePublished">2019-08-15</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Dubbo-知识点.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Dubbo-知识点.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Dubbo-知识点.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/Dubbo-知识点/">Dubbo 知识点</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <p>302</p>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Mybatis-知识点" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/mybatis/">mybatis</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/mybatis/">mybatis</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/Mybatis-知识点/">
-            <time datetime="2019-08-14T09:20:15.000Z" itemprop="datePublished">2019-08-14</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Mybatis-知识点.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Mybatis-知识点.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Mybatis-知识点.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/Mybatis-知识点/">Mybatis 知识点</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-            
-        
-        
-            <h3 id="MyBatis-中-resultType-和-resultMap-的区别"><a href="#MyBatis-中-resultType-和-resultMap-的区别" class="headerlink" title="MyBatis 中 resultType 和 resultMap 的区别"></a><a href="https://www.cnblogs.com/coder-lzh/p/8960928.html" target="_blank" rel="noopener">MyBatis 中 resultType 和 resultMap 的区别</a></h3>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java并发/">java并发</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java并发/">java并发</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/">
-            <time datetime="2019-08-04T06:32:36.000Z" itemprop="datePublished">2019-08-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/">synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h3 id="原始构成"><a href="#原始构成" class="headerlink" title="原始构成"></a>原始构成</h3><ul>
-<li><p>synchronized 是关键字，属于JVM层面</p>
-<ul>
-<li><p>monitorenter（底层是通过 monitor 对象来完成，其实 wait/notify 等方法也依赖于 monitor 对象只有在同步块或者方法中才能调用 wait/notify 等方法）</p>
-</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-java-hash-原理" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java基础/">java基础</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/java-hash-原理/">
-            <time datetime="2019-08-04T05:23:50.000Z" itemprop="datePublished">2019-08-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java-hash-原理.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java-hash-原理.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java-hash-原理.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/java-hash-原理/">java hash 原理</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g5nkvcllvaj318c0mqt9z.jpg" alt="88FE31C1-3E38-4DC9-A207-96016AA72F1F"></p>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-让我们同步进阶" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/让我们同步进阶/">
-            <time datetime="2019-08-04T05:18:18.000Z" itemprop="datePublished">2019-08-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/让我们同步进阶.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/让我们同步进阶.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/让我们同步进阶.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/让我们同步进阶/">让我们同步进阶</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h3 id="基础知识点"><a href="#基础知识点" class="headerlink" title="基础知识点"></a>基础知识点</h3><p><a href="http://cmsblogs.com/" target="_blank" rel="noopener">Java技术驿站</a></p>
-<p><a href="https://cyc2018.github.io/CS-Notes/" target="_blank" rel="noopener">CS-Notes</a></p>
-<p><a href="https://github.com/Snailclimb/JavaGuide" target="_blank" rel="noopener">JavaGuide</a></p>
-<h3 id="架构知识点"><a href="#架构知识点" class="headerlink" title="架构知识点"></a>架构知识点</h3><p><a href="https://doocs.github.io/advanced-java" target="_blank" rel="noopener">互联网 java 工程师进阶知识完全扫盲</a></p>
-<h3 id="spring-boot-amp-cloud"><a href="#spring-boot-amp-cloud" class="headerlink" title="spring boot &amp; cloud"></a>spring boot &amp; cloud</h3><p><a href="http://blog.didispace.com/spring-cloud-learning/" target="_blank" rel="noopener">Spring Cloud 程序猿DD</a></p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/让我们同步进阶/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-redis-知识点" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/redis/">redis</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/redis/">redis</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/redis-知识点/">
-            <time datetime="2019-08-04T05:12:21.000Z" itemprop="datePublished">2019-08-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/redis-知识点.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/redis-知识点.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/redis-知识点.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/redis-知识点/">redis 知识点</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <h3 id="Redis用过哪些数据数据，以及Redis底层怎么实现"><a href="#Redis用过哪些数据数据，以及Redis底层怎么实现" class="headerlink" title="Redis用过哪些数据数据，以及Redis底层怎么实现"></a>Redis用过哪些数据数据，以及Redis底层怎么实现</h3><p>string, hash, list, set, zset</p>
-<h3 id="Redis缓存穿透，缓存雪崩"><a href="#Redis缓存穿透，缓存雪崩" class="headerlink" title="Redis缓存穿透，缓存雪崩"></a><a href="https://www.cnblogs.com/fidelQuan/p/4543387.html" target="_blank" rel="noopener">Redis缓存穿透，缓存雪崩</a></h3><h3 id="如何使用Redis来实现分布式锁"><a href="#如何使用Redis来实现分布式锁" class="headerlink" title="如何使用Redis来实现分布式锁"></a><a href="https://www.cnblogs.com/linjiqin/p/8003838.html" target="_blank" rel="noopener">如何使用Redis来实现分布式锁</a></h3><h3 id="Redis的并发竞争问题如何解决"><a href="#Redis的并发竞争问题如何解决" class="headerlink" title="Redis的并发竞争问题如何解决"></a><a href="https://blog.csdn.net/hjm4702192/article/details/80518856" target="_blank" rel="noopener">Redis的并发竞争问题如何解决</a></h3><h3 id="Redis持久化的几种方式，优缺点是什么，怎么实现的"><a href="#Redis持久化的几种方式，优缺点是什么，怎么实现的" class="headerlink" title="Redis持久化的几种方式，优缺点是什么，怎么实现的"></a><a href="https://www.cnblogs.com/chenliangcl/p/7240350.html" target="_blank" rel="noopener">Redis持久化的几种方式，优缺点是什么，怎么实现的</a></h3><h3 id="aof-文件太大会怎么样"><a href="#aof-文件太大会怎么样" class="headerlink" title="aof 文件太大会怎么样"></a><a href="https://www.cnblogs.com/xingzc/p/6384677.html" target="_blank" rel="noopener">aof 文件太大会怎么样</a></h3><h3 id="Redis的缓存失效策略-amp-最大缓存策略"><a href="#Redis的缓存失效策略-amp-最大缓存策略" class="headerlink" title="Redis的缓存失效策略 &amp; 最大缓存策略"></a><a href="https://www.cnblogs.com/moonandstar08/p/5686498.html" target="_blank" rel="noopener">Redis的缓存失效策略 &amp; 最大缓存策略</a></h3><h3 id="Redis集群，高可用，原理"><a href="#Redis集群，高可用，原理" class="headerlink" title="Redis集群，高可用，原理"></a>Redis集群，高可用，原理</h3><h3 id="Redis缓存分片"><a href="#Redis缓存分片" class="headerlink" title="Redis缓存分片"></a><a href="https://www.cnblogs.com/shiw27/p/8360485.html" target="_blank" rel="noopener">Redis缓存分片</a></h3><h3 id="Redis的数据淘汰策略"><a href="#Redis的数据淘汰策略" class="headerlink" title="Redis的数据淘汰策略"></a><a href="https://blog.csdn.net/yangtuogege/article/details/77970896" target="_blank" rel="noopener">Redis的数据淘汰策略</a></h3>
             </div>
         
         <footer class="article-footer">

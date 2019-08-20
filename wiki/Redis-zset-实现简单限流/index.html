@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79ly1g64rkjcypbj30ym0i80ti.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g64rsbdgrgj30jr0cv3yj.jpg">
-<meta property="og:updated_time" content="2019-08-19T02:28:14.636Z">
+<meta property="og:updated_time" content="2019-08-19T08:56:56.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis zset 实现简单限流">
 <meta name="twitter:description" content="除了控制流量，限流还有一个应用目的是用于控制用户行为，避免垃圾请求。比如在 UGC 社区，用户的发帖、回复、点赞等行为都要严格受控，一般要严格限定某行为在规定时间内允许的次数，超过了次数那就是非法行为。对非法行为，业务必须规定适当的惩处策略。 如何使用 Redis 来实现简单限流策略？首先我们来看一个常见的简单的限流策略。系统要限定用户的某个行为在指定的时间里只能允许发生 N 次，如何使用 Red">
@@ -205,7 +205,7 @@
                             &nbsp;
                             java基础
                         </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList-知识点/">CopyOnWriteArrayList 知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -214,7 +214,7 @@
                             &nbsp;
                             java并发
                         </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/">synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/">synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</a></li>  <li class="file"><a href="/wiki/java-线程池知识点/">java 线程池知识点</a></li>  <li class="file"><a href="/wiki/谈谈你对-volatile-的理解/">谈谈你对 volatile 的理解</a></li>  <li class="file"><a href="/wiki/CAS-你知道吗？/">CAS 你知道吗？</a></li>  <li class="file"><a href="/wiki/原子类Atomiclnteger-的-ABA-问题谈谈？/">原子类Atomiclnteger 的 ABA 问题谈谈？</a></li>  <li class="file"><a href="/wiki/java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/">java 公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -286,7 +286,7 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
-                            系统方面
+                            系统知识
                         </a>
                          <ul class="unstyled" id="tree" style="display: block;"> 
                     <li class="directory">
@@ -426,7 +426,7 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何使用-Redis-来实现简单限流策略？"><span class="toc-number">1.</span> <span class="toc-text">如何使用 Redis 来实现简单限流策略？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误方案"><span class="toc-number">1.1.</span> <span class="toc-text">错误方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题模拟分析"><span class="toc-number">1.1.1.</span> <span class="toc-text">问题模拟分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正确方案"><span class="toc-number">1.2.</span> <span class="toc-text">正确方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点"><span class="toc-number">1.2.1.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何使用-Redis-来实现简单限流策略？"><span class="toc-number">1.</span> <span class="toc-text">如何使用 Redis 来实现简单限流策略？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误方案"><span class="toc-number">1.1.</span> <span class="toc-text">错误方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题模拟分析"><span class="toc-number">1.1.1.</span> <span class="toc-text">问题模拟分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正确方案"><span class="toc-number">1.2.</span> <span class="toc-text">正确方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点"><span class="toc-number">1.2.1.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">1.3.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
                 </div>
             
         
@@ -455,6 +455,9 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleRateLimiter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Jedis jedis;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SimpleRateLimiter</span><span class="params">(Jedis jedis)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.jedis = jedis;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> userId    用户 user_id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> actionKey 某个行为</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> period    特定的时间内，单位秒</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> maxCount  最大允许的次数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isActionAllowed</span><span class="params">(String userId, String actionKey, <span class="keyword">int</span> period, <span class="keyword">int</span> maxCount)</span> </span>&#123;</span><br><span class="line">        String key = String.format(<span class="string">"hist:%s:%s"</span>, userId, actionKey);</span><br><span class="line">        <span class="comment">// 毫秒时间戳</span></span><br><span class="line">        <span class="keyword">long</span> nowTs = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        Pipeline pipe = jedis.pipelined();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 用了multi，也就是事务，能保证一系列指令的原子顺序执行</span></span><br><span class="line">        pipe.multi();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 存放数据，value 和 score 都使用毫秒时间戳</span></span><br><span class="line">        pipe.zadd(key, nowTs, <span class="string">""</span> + nowTs);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// zremrangebyscore key min max 命令用于移除有序集中，指定分数（score）区间内的所有成员</span></span><br><span class="line">        <span class="comment">// 移除时间窗口之前的数据，剩下的都是时间窗口之内的</span></span><br><span class="line">        Response&lt;Long&gt; longResponse = pipe.zremrangeByScore(key, <span class="number">0</span>, nowTs - period * <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 相当于 count()，获取时间窗口内的行为数量</span></span><br><span class="line">        Response&lt;Long&gt; count = pipe.zcard(key);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置 zset 过期时间，避免冷用户持续占用内存</span></span><br><span class="line">        <span class="comment">// 过期时间应该等于时间窗口的长度，再多宽限 1s</span></span><br><span class="line">        pipe.expire(key, period + <span class="number">1</span>);</span><br><span class="line">        pipe.exec();</span><br><span class="line">        pipe.close();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 比较数量是否超标</span></span><br><span class="line">        <span class="keyword">return</span> count.get() &lt;= maxCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Jedis jedis = <span class="keyword">new</span> Jedis();</span><br><span class="line">        SimpleRateLimiter limiter = <span class="keyword">new</span> SimpleRateLimiter(jedis);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">            System.out.println(limiter.isActionAllowed(<span class="string">"xiaoming"</span>, <span class="string">"publish"</span>, <span class="number">5</span> * <span class="number">60</span>, <span class="number">10</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>因为它要记录时间窗口内所有的行为记录，如果这个量很大，比如限定 60s 内操作不得超过 100w 次这样的参数，它是不适合做这样的限流的，因为会消耗大量的存储空间。</p>
+<blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  《Redis 深度历险：核心原理与应用实践》   作者：钱文品</p>
+</blockquote>
 
             </div>
         
@@ -466,6 +469,15 @@
 
     
 <nav id="article-nav">
+    
+        <a href="/wiki/java-线程池知识点/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    java 线程池知识点
+                
+            </div>
+        </a>
     
     
         <a href="/wiki/Redis-深度历险：核心原理与应用实践/" id="article-nav-older" class="article-nav-link-wrap">

@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79ly1g63ohss9pag30b404g0ub.gif">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g63oycwdpwj30zk0323yh.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g63oymhg7mj30vz069weo.jpg">
-<meta property="og:updated_time" content="2019-08-18T04:55:34.865Z">
+<meta property="og:updated_time" content="2019-08-19T09:29:42.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis 深度历险：核心原理与应用实践">
 <meta name="twitter:description" content="基础：万丈高楼平地起 —— Redis 基础数据结构千里之行，始于足下。本节我们的学习目标是：快速理解并掌握 Redis 的基础知识。 由于本节内容是 Redis 最简单最容易掌握的知识，如果读者已经很熟悉 Redis 的基础数据结构，从珍惜生命的角度出发，你可以略过本节内容，跳到下一节继续阅读。如果你觉得本节的动画有点晃眼，阅读起来不那么舒服，可以看看作者的另一篇文章《Redis 数据结构基础教">
@@ -215,7 +215,7 @@
                             &nbsp;
                             java基础
                         </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList-知识点/">CopyOnWriteArrayList 知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -224,7 +224,7 @@
                             &nbsp;
                             java并发
                         </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/">synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/">synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</a></li>  <li class="file"><a href="/wiki/java-线程池知识点/">java 线程池知识点</a></li>  <li class="file"><a href="/wiki/谈谈你对-volatile-的理解/">谈谈你对 volatile 的理解</a></li>  <li class="file"><a href="/wiki/CAS-你知道吗？/">CAS 你知道吗？</a></li>  <li class="file"><a href="/wiki/原子类Atomiclnteger-的-ABA-问题谈谈？/">原子类Atomiclnteger 的 ABA 问题谈谈？</a></li>  <li class="file"><a href="/wiki/java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/">java 公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -296,7 +296,7 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
-                            系统方面
+                            系统知识
                         </a>
                          <ul class="unstyled" id="tree" style="display: block;"> 
                     <li class="directory">
@@ -441,7 +441,7 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础：万丈高楼平地起-——-Redis-基础数据结构"><span class="toc-number">1.</span> <span class="toc-text">基础：万丈高楼平地起 —— Redis 基础数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-安装"><span class="toc-number">1.1.</span> <span class="toc-text">Redis 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-方式"><span class="toc-number">1.1.1.</span> <span class="toc-text">Docker 方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Github-源码编译方式"><span class="toc-number">1.1.2.</span> <span class="toc-text">Github 源码编译方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#直接安装方式"><span class="toc-number">1.1.3.</span> <span class="toc-text">直接安装方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-基础数据结构"><span class="toc-number">1.2.</span> <span class="toc-text">Redis 基础数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#string-字符串"><span class="toc-number">1.2.1.</span> <span class="toc-text">string (字符串)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list-列表"><span class="toc-number">1.2.2.</span> <span class="toc-text">list (列表)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hash-字典"><span class="toc-number">1.2.3.</span> <span class="toc-text">hash (字典)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set-集合"><span class="toc-number">1.2.4.</span> <span class="toc-text">set (集合)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zset-有序集合"><span class="toc-number">1.2.5.</span> <span class="toc-text">zset (有序集合)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器型数据结构的通用规则"><span class="toc-number">1.3.</span> <span class="toc-text">容器型数据结构的通用规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过期时间"><span class="toc-number">1.4.</span> <span class="toc-text">过期时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考-amp-作业"><span class="toc-number">1.5.</span> <span class="toc-text">思考 &amp; 作业</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">1.6.</span> <span class="toc-text">扩展阅读</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础：万丈高楼平地起-——-Redis-基础数据结构"><span class="toc-number">1.</span> <span class="toc-text">基础：万丈高楼平地起 —— Redis 基础数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-安装"><span class="toc-number">1.1.</span> <span class="toc-text">Redis 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-方式"><span class="toc-number">1.1.1.</span> <span class="toc-text">Docker 方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Github-源码编译方式"><span class="toc-number">1.1.2.</span> <span class="toc-text">Github 源码编译方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#直接安装方式"><span class="toc-number">1.1.3.</span> <span class="toc-text">直接安装方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-基础数据结构"><span class="toc-number">1.2.</span> <span class="toc-text">Redis 基础数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#string-字符串"><span class="toc-number">1.2.1.</span> <span class="toc-text">string (字符串)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list-列表"><span class="toc-number">1.2.2.</span> <span class="toc-text">list (列表)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hash-字典"><span class="toc-number">1.2.3.</span> <span class="toc-text">hash (字典)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set-集合"><span class="toc-number">1.2.4.</span> <span class="toc-text">set (集合)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zset-有序集合"><span class="toc-number">1.2.5.</span> <span class="toc-text">zset (有序集合)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器型数据结构的通用规则"><span class="toc-number">1.3.</span> <span class="toc-text">容器型数据结构的通用规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过期时间"><span class="toc-number">1.4.</span> <span class="toc-text">过期时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考-amp-作业"><span class="toc-number">1.5.</span> <span class="toc-text">思考 &amp; 作业</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展阅读"><span class="toc-number">1.6.</span> <span class="toc-text">扩展阅读</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">1.7.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
                 </div>
             
         
@@ -574,6 +574,9 @@
 <h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul>
 <li><a href="https://link.juejin.im/?target=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F16375188%2Fredis-strings-vs-redis-hashes-to-represent-json-efficiency" target="_blank" rel="noopener">《存结构体信息到底该使用 hash 还是 string？》</a></li>
 </ul>
+<blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  《Redis 深度历险：核心原理与应用实践》   作者：钱文品</p>
+</blockquote>
 
             </div>
         
