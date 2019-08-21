@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="yp_ren Blog">
 <meta property="og:description" content="为什么用线程池，优势线程池主要是控制运行线程的数量，处理过程中将任务放入队列，然后在线程创建后启动这些任务，如果线程数量超过了最大数量的线程排队等候，等其他线程执行完毕，再从队列中取出任务来执行。 主要特点是：线程复用、控制最大并发数、管理线程。 第一：降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。 第二：提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-20T09:31:58.034Z">
+<meta property="og:updated_time" content="2019-08-21T01:54:18.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 线程池知识点">
 <meta name="twitter:description" content="为什么用线程池，优势线程池主要是控制运行线程的数量，处理过程中将任务放入队列，然后在线程创建后启动这些任务，如果线程数量超过了最大数量的线程排队等候，等其他线程执行完毕，再从队列中取出任务来执行。 主要特点是：线程复用、控制最大并发数、管理线程。 第一：降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。 第二：提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。">
@@ -462,7 +462,7 @@
 <p>主要特点：</p>
 <ol>
 <li>创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。</li>
-<li>newCachedThreadPool 将 corePoolSize 设置为 0，将 maximumPoolSize 设置为Integer.MAX_VALUE，使用的 SynchronousQueue，也就是说来了任务就创建线程运行，当线程空闲超过 60 秒，就销毁线程。</li>
+<li>newCachedThreadPool 将 corePoolSize 设置为 0，将 maximumPoolSize 设置为 Integer.MAX_VALUE，使用的 SynchronousQueue，也就是说来了任务就创建线程运行，当线程空闲超过 60 秒，就销毁线程。</li>
 </ol>
 </li>
 </ol>
@@ -501,7 +501,7 @@
 </li>
 <li><p>当调用 execute() 方法添加一个请求任务时，线程池会做如下判断：</p>
 <ol>
-<li>如果正在运行的线程数量 &lt; corePoolSize，那么马上创建马上创建线程运行这个任务。</li>
+<li>如果正在运行的线程数量 &lt; corePoolSize，那么马上创建线程运行这个任务。</li>
 <li>如果正在运行的线程数量 &gt;= corePoolSize，那么将这个任务放入队列。</li>
 <li>如果这个时候队列满了且正在运行的线程数量还 &lt; maximumPoolSize，那么还是要创建非核心线程立刻运行这个任务。</li>
 <li>如果队列满了且正在运行的线程数量 &gt;= maximumPoolSize，那么线程池会启动饱和拒绝策略来执行。</li>
