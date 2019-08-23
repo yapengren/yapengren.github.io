@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="yp_ren Blog">
 <meta property="og:description" content="为什么用线程池，优势线程池主要是控制运行线程的数量，处理过程中将任务放入队列，然后在线程创建后启动这些任务，如果线程数量超过了最大数量的线程排队等候，等其他线程执行完毕，再从队列中取出任务来执行。 主要特点是：线程复用、控制最大并发数、管理线程。 第一：降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。 第二：提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-22T01:46:31.864Z">
+<meta property="og:updated_time" content="2019-08-23T02:29:38.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java 线程池知识点">
 <meta name="twitter:description" content="为什么用线程池，优势线程池主要是控制运行线程的数量，处理过程中将任务放入队列，然后在线程创建后启动这些任务，如果线程数量超过了最大数量的线程排队等候，等其他线程执行完毕，再从队列中取出任务来执行。 主要特点是：线程复用、控制最大并发数、管理线程。 第一：降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。 第二：提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。">
@@ -468,7 +468,7 @@
 </ol>
 </li>
 </ol>
-<h3 id="阿里巴巴-java-开发规范"><a href="#阿里巴巴-java-开发规范" class="headerlink" title="阿里巴巴 java 开发规范"></a>阿里巴巴 java 开发规范</h3><p>【强制】线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式，这 样的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。</p>
+<h3 id="阿里巴巴-java-开发规范"><a href="#阿里巴巴-java-开发规范" class="headerlink" title="阿里巴巴 java 开发规范"></a>阿里巴巴 java 开发规范</h3><p>【强制】线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式，这样的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。</p>
 <p>说明：Executors 返回的线程池对象的弊端如下：</p>
 <ol>
 <li>FixedThreadPool 和 SingleThreadPool：<br>允许的请求队列长度为 Integer.MAX_VALUE ，可能会堆积大量的请求，从而导致 OOM。</li>
