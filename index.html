@@ -364,6 +364,105 @@
 </aside>
             
             <section id="main">
+        <article id="post-Redis-zset-实现简单限流" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/redis/">redis</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Redis-zset-实现简单限流/">
+            <time datetime="2019-08-23T01:48:40.000Z" itemprop="datePublished">2019-08-23</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis-zset-实现简单限流.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis-zset-实现简单限流.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis-zset-实现简单限流.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>除了控制流量，限流还有一个应用目的是用于控制用户行为，避免垃圾请求。比如在 UGC 社区，用户的发帖、回复、点赞等行为都要严格受控，一般要严格限定某行为在规定时间内允许的次数，超过了次数那就是非法行为。对非法行为，业务必须规定适当的惩处策略。</p>
+<h1 id="如何使用-Redis-来实现简单限流策略？"><a href="#如何使用-Redis-来实现简单限流策略？" class="headerlink" title="如何使用 Redis 来实现简单限流策略？"></a>如何使用 Redis 来实现简单限流策略？</h1><p>首先我们来看一个常见的简单的限流策略。系统要限定用户的某个行为在指定的时间里只能允许发生 N 次，如何使用 Redis 的数据结构来实现这个限流的功能？</p>
+<p>我们先定义这个接口，理解了这个接口的定义，读者就应该能明白我们期望达到的功能。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指定用户 user_id 的某个行为 action_key，在特定的时间内 period，只允许发生一定的次数 max_count</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isActionAllowed</span><span class="params">(String userId, String actionKey, <span class="keyword">int</span> period, <span class="keyword">int</span> maxCount)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用这个接口，5 分钟之内只能发帖 10 次</span></span><br><span class="line">limiter.isActionAllowed(<span class="string">"xiaoming"</span>, <span class="string">"publish"</span>, <span class="number">5</span> * <span class="number">60</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/Redis-zset-实现简单限流/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-java死锁编程及定位分析" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1064,105 +1163,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/java-线程池知识点/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Redis-zset-实现简单限流" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/redis/">redis</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis-zset-实现简单限流/">
-            <time datetime="2019-08-19T01:48:40.000Z" itemprop="datePublished">2019-08-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis-zset-实现简单限流.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis-zset-实现简单限流.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis-zset-实现简单限流.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>除了控制流量，限流还有一个应用目的是用于控制用户行为，避免垃圾请求。比如在 UGC 社区，用户的发帖、回复、点赞等行为都要严格受控，一般要严格限定某行为在规定时间内允许的次数，超过了次数那就是非法行为。对非法行为，业务必须规定适当的惩处策略。</p>
-<h1 id="如何使用-Redis-来实现简单限流策略？"><a href="#如何使用-Redis-来实现简单限流策略？" class="headerlink" title="如何使用 Redis 来实现简单限流策略？"></a>如何使用 Redis 来实现简单限流策略？</h1><p>首先我们来看一个常见的简单的限流策略。系统要限定用户的某个行为在指定的时间里只能允许发生 N 次，如何使用 Redis 的数据结构来实现这个限流的功能？</p>
-<p>我们先定义这个接口，理解了这个接口的定义，读者就应该能明白我们期望达到的功能。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指定用户 user_id 的某个行为 action_key，在特定的时间内 period，只允许发生一定的次数 max_count</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isActionAllowed</span><span class="params">(String userId, String actionKey, <span class="keyword">int</span> period, <span class="keyword">int</span> maxCount)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用这个接口，5 分钟之内只能发帖 10 次</span></span><br><span class="line">limiter.isActionAllowed(<span class="string">"xiaoming"</span>, <span class="string">"publish"</span>, <span class="number">5</span> * <span class="number">60</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/Redis-zset-实现简单限流/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
