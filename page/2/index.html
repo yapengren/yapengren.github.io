@@ -243,7 +243,7 @@
                             &nbsp;
                             数据库
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  <li class="file"><a href="/wiki/SQL-的各种-JOIN-用法/">SQL 的各种 JOIN 用法</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -364,6 +364,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-java-线程池知识点" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java并发/">java并发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/java-线程池知识点/">
+            <time datetime="2019-08-19T07:33:15.000Z" itemprop="datePublished">2019-08-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java-线程池知识点.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java-线程池知识点.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java-线程池知识点.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/java-线程池知识点/">java 线程池知识点</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="为什么用线程池，优势"><a href="#为什么用线程池，优势" class="headerlink" title="为什么用线程池，优势"></a>为什么用线程池，优势</h2><p>线程池主要是控制运行线程的数量，处理过程中将任务放入队列，然后在线程创建后启动这些任务，如果线程数量超过了最大数量的线程排队等候，等其他线程执行完毕，再从队列中取出任务来执行。</p>
+<p>主要特点是：线程复用、控制最大并发数、管理线程。</p>
+<p>第一：降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</p>
+<p>第二：提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。</p>
+<p>第三：提高线程的可管理性。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/java-线程池知识点/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-Redis-深度历险：核心原理与应用实践" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1210,89 +1314,8 @@
 
 
     
-        <article id="post-Spring-知识点" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/spring/">spring</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/spring/">spring</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/Spring-知识点/">
-            <time datetime="2019-08-04T05:01:51.000Z" itemprop="datePublished">2019-08-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Spring-知识点.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Spring-知识点.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Spring-知识点.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/Spring-知识点/">Spring 知识点</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-            
-        
-        
-            <h3 id="BeanFactory-和-FactoryBean？"><a href="#BeanFactory-和-FactoryBean？" class="headerlink" title="BeanFactory 和 FactoryBean？"></a><a href="https://blog.csdn.net/qiesheng/article/details/72875315" target="_blank" rel="noopener">BeanFactory 和 FactoryBean？</a></h3><h3 id="Spring-IOC-的理解，其初始化过程？"><a href="#Spring-IOC-的理解，其初始化过程？" class="headerlink" title="Spring IOC 的理解，其初始化过程？"></a><a href="https://www.cnblogs.com/chenjunjie12321/p/6124649.html" target="_blank" rel="noopener">Spring IOC 的理解，其初始化过程？</a></h3><h3 id="BeanFactory-和-ApplicationContext？"><a href="#BeanFactory-和-ApplicationContext？" class="headerlink" title="BeanFactory 和 ApplicationContext？"></a><a href="https://blog.csdn.net/qq_32651225/article/details/78323527" target="_blank" rel="noopener">BeanFactory 和 ApplicationContext？</a></h3><h3 id="Spring-Bean-的生命周期，如何被管理的？"><a href="#Spring-Bean-的生命周期，如何被管理的？" class="headerlink" title="Spring Bean 的生命周期，如何被管理的？"></a><a href="https://www.cnblogs.com/kenshinobiy/p/4652008.html" target="_blank" rel="noopener">Spring Bean 的生命周期，如何被管理的？</a></h3><h3 id="Spring-Bean-的加载过程是怎样的？"><a href="#Spring-Bean-的加载过程是怎样的？" class="headerlink" title="Spring Bean 的加载过程是怎样的？"></a><a href="https://www.cnblogs.com/xrq730/p/6285358.html" target="_blank" rel="noopener">Spring Bean 的加载过程是怎样的？</a></h3><h3 id="如果要你实现Spring-AOP，请问怎么实现？"><a href="#如果要你实现Spring-AOP，请问怎么实现？" class="headerlink" title="如果要你实现Spring AOP，请问怎么实现？"></a>如果要你实现Spring AOP，请问怎么实现？</h3><h3 id="如果要你实现Spring-IOC，你会注意哪些问题？"><a href="#如果要你实现Spring-IOC，你会注意哪些问题？" class="headerlink" title="如果要你实现Spring IOC，你会注意哪些问题？"></a>如果要你实现Spring IOC，你会注意哪些问题？</h3><h3 id="Spring-是如何管理事务的，事务管理机制？"><a href="#Spring-是如何管理事务的，事务管理机制？" class="headerlink" title="Spring 是如何管理事务的，事务管理机制？"></a><a href="https://www.cnblogs.com/dongfangshenhua/p/6949521.html" target="_blank" rel="noopener">Spring 是如何管理事务的，事务管理机制？</a></h3><h3 id="全面分析-Spring-的编程式事务管理及声明式事务管理"><a href="#全面分析-Spring-的编程式事务管理及声明式事务管理" class="headerlink" title="全面分析 Spring 的编程式事务管理及声明式事务管理"></a><a href="https://www.ibm.com/developerworks/cn/education/opensource/os-cn-spring-trans/index.html" target="_blank" rel="noopener">全面分析 Spring 的编程式事务管理及声明式事务管理</a></h3><h3 id="Spring-的不同事务传播行为有哪些，干什么用的？"><a href="#Spring-的不同事务传播行为有哪些，干什么用的？" class="headerlink" title="Spring 的不同事务传播行为有哪些，干什么用的？"></a><a href="https://www.cnblogs.com/dongfangshenhua/p/6949521.html" target="_blank" rel="noopener">Spring 的不同事务传播行为有哪些，干什么用的？</a></h3><h3 id="Spring-中用到了那些设计模式？"><a href="#Spring-中用到了那些设计模式？" class="headerlink" title="Spring 中用到了那些设计模式？"></a><a href="https://www.cnblogs.com/baizhanshi/p/6187537.html" target="_blank" rel="noopener">Spring 中用到了那些设计模式？</a></h3><h3 id="Spring-MVC-的工作原理？"><a href="#Spring-MVC-的工作原理？" class="headerlink" title="Spring MVC 的工作原理？"></a><a href="https://www.cnblogs.com/xiaoxi/p/6164383.html" target="_blank" rel="noopener">Spring MVC 的工作原理？</a></h3><h3 id="Spring-循环注入的原理？"><a href="#Spring-循环注入的原理？" class="headerlink" title="Spring 循环注入的原理？"></a>Spring 循环注入的原理？</h3><h3 id="Spring-AOP的理解，各个术语，他们是怎么相互工作的？"><a href="#Spring-AOP的理解，各个术语，他们是怎么相互工作的？" class="headerlink" title="Spring AOP的理解，各个术语，他们是怎么相互工作的？"></a><a href="https://www.jianshu.com/p/5015f212e4e4" target="_blank" rel="noopener">Spring AOP的理解，各个术语，他们是怎么相互工作的？</a></h3><h3 id="Spring-如何保证-Controller-并发的安全？"><a href="#Spring-如何保证-Controller-并发的安全？" class="headerlink" title="Spring 如何保证 Controller 并发的安全？"></a><a href="https://www.cnblogs.com/tiancai/p/9627109.html" target="_blank" rel="noopener">Spring 如何保证 Controller 并发的安全？</a></h3>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
         </nav>
     
 </section>
