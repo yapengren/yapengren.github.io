@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yapengren.github.io/"/>
-  <updated>2019-08-23T04:39:59.628Z</updated>
+  <updated>2019-08-24T03:43:52.113Z</updated>
   <id>https://yapengren.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL 执行顺序</title>
+    <link href="https://yapengren.github.io/wiki/SQL-%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/"/>
+    <id>https://yapengren.github.io/wiki/SQL-执行顺序/</id>
+    <published>2019-08-24T03:38:17.000Z</published>
+    <updated>2019-08-24T03:43:52.113Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="SQL-执行顺序"><a href="#SQL-执行顺序" class="headerlink" title="SQL 执行顺序"></a>SQL 执行顺序</h1><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6amco99e5j32640jwagv.jpg" alt="1566617994720"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;SQL-执行顺序&quot;&gt;&lt;a href=&quot;#SQL-执行顺序&quot; class=&quot;headerlink&quot; title=&quot;SQL 执行顺序&quot;&gt;&lt;/a&gt;SQL 执行顺序&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://tva1.sinaimg.cn/large/006y8m
+      
+    
+    </summary>
+    
+      <category term="技术分享" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="数据库" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="mysql" scheme="https://yapengren.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL InnoDB 那些事</title>
+    <link href="https://yapengren.github.io/wiki/MySQL-InnoDB-%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    <id>https://yapengren.github.io/wiki/MySQL-InnoDB-那些事/</id>
+    <published>2019-08-24T01:48:26.000Z</published>
+    <updated>2019-08-24T02:03:49.209Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="MySQL-InnoDB-聚簇索引和非聚簇索引"><a href="#MySQL-InnoDB-聚簇索引和非聚簇索引" class="headerlink" title="MySQL InnoDB 聚簇索引和非聚簇索引"></a>MySQL InnoDB 聚簇索引和非聚簇索引</h1><p>每个 InnoDB 表都有一个称为 「 聚簇索引 」 的特殊索引，通常情况下，这个聚簇索引就是 「 主键 」 ( primary key ) 。Innodb 使用它存储表中每一行的数据。</p><p>如果想要从查询、插入和其它数据库操作中获得最佳性能，那么我们就必须了解 InnoDB 如何使用 「 聚簇索引 」 来优化每个表的最常见检索和 DML 操作方式</p><ul><li><p>当我们在一个 Innodb 表上定义了一个主键，InnoDB 会默认的使用它作为聚簇索引。</p><p>使用 InnoDB 存储引擎时，建议为每个表都添加一个主键。如果该表没有一个逻辑唯一且非空列或列集合，那么可以添加一个带有 AUTO_INCREMENT 约束的自增列作为主键，InnoDB 会自动填充该列。</p></li><li><p>如果某个 InnoDB 表并没有定义主键。那么 InnoDB 会查找第一个 「 唯一索引 」( UNIQUE Index ) ，因为唯一索引的所有键 ( key ) 都是 <code>NOT</code> ，因此可以用来作为聚簇索引。</p></li><li><p>如果某个 InnoDB 表既没有定义主键，也没有一个合适的唯一索引。InnoDB 会在内部生成一个名为 <code>GEN_CLUST_INDEX</code> 的隐式的聚簇索引</p><p>该聚簇索引的键 ( key ) 会包含一个自动为行生成的 ID 值 ( 行号 ) 。</p><p>该表中的所有行会按 InnoDB 分配给此类表中的行的 ID 排序。</p><p>行 ID 是一个 <strong>6</strong> 字节的字段，在插入新行时会单调自增。</p><p>因此，可以认为物理上的行保存顺序就是该行 ID 排序的排序顺序</p></li></ul><h2 id="聚簇索引如何加快查询速度"><a href="#聚簇索引如何加快查询速度" class="headerlink" title="聚簇索引如何加快查询速度"></a>聚簇索引如何加快查询速度</h2><p>通过聚簇索引访问行很快，因为索引搜索直接指向包含所有行数据页 ( data page )。</p><p>如果表很大，与那种索引页与数据页分离的 MyISAM 存储引擎相比， 聚簇索引体系结构通常可以节省磁盘 I/O 操作。</p><h2 id="非聚簇索引和聚簇索引的关系"><a href="#非聚簇索引和聚簇索引的关系" class="headerlink" title="非聚簇索引和聚簇索引的关系"></a>非聚簇索引和聚簇索引的关系</h2><p>非聚簇索引，通常也称之为 「 二级索引 」 ( Secondary Indexes ) 或 「 辅助索引 」 ，一般是指聚簇索引之外的所有其它的索引。</p><p>在 InnoDB 中，每个辅助索引中的每条记录都会包含该行的主键列 ( 也就是聚簇索引的键 ) ，以及为辅助索引指定的列。InnoDB 使用此主键值来搜索聚簇索引中的行。</p><p>如果主键很长，那么辅助索引就会占用更多空间，因此使用短主键是有利的，也是我们所推荐的。</p><h2 id="聚簇索引和非聚簇索引的区别"><a href="#聚簇索引和非聚簇索引的区别" class="headerlink" title="聚簇索引和非聚簇索引的区别"></a>聚簇索引和非聚簇索引的区别</h2><ol><li><p>首先，我们要认识到聚簇索引和非聚簇索引的划分依据是什么？</p><p>答案就是 InnoDB 会使用聚簇索引来保存数据，而非聚簇索引的目的仅仅是加快查询速度</p></li><li><p>在第一点认知基础上，我们就可以知道</p><ul><li>聚簇索引是唯一的，一个 InnoDB 表只有一个聚簇索引，而且一定会有一个聚簇索引，如果不存在，Innodb 存储引擎会自动添加一个</li><li>非聚簇所以可以有多个，而且只能由用户自己添加，InnoDB 默认并不会创建任何非聚簇索引。</li></ul></li><li><p>非聚簇索引中一定包含了聚簇索引的列值，但反过来却不存在。</p><p>因此，使用非聚簇索引查询数据一定会用到聚簇索引，但反过来却不存在。</p></li></ol><blockquote><h2 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h2><p>  <a href="http://cmsblogs.com/?p=5463" target="_blank" rel="noopener">http://cmsblogs.com/?p=5463</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;MySQL-InnoDB-聚簇索引和非聚簇索引&quot;&gt;&lt;a href=&quot;#MySQL-InnoDB-聚簇索引和非聚簇索引&quot; class=&quot;headerlink&quot; title=&quot;MySQL InnoDB 聚簇索引和非聚簇索引&quot;&gt;&lt;/a&gt;MySQL InnoDB 聚簇索引
+      
+    
+    </summary>
+    
+      <category term="技术分享" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="数据库" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="mysql" scheme="https://yapengren.github.io/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis zset 实现简单限流</title>
@@ -480,70 +534,15 @@
     <link href="https://yapengren.github.io/wiki/Spring-%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     <id>https://yapengren.github.io/wiki/Spring-知识点/</id>
     <published>2019-08-04T05:01:51.000Z</published>
-    <updated>2019-08-19T09:30:34.079Z</updated>
+    <updated>2019-08-23T06:00:20.938Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="BeanFactory-和-FactoryBean？"><a href="#BeanFactory-和-FactoryBean？" class="headerlink" title="BeanFactory 和 FactoryBean？"></a><a href="https://blog.csdn.net/qiesheng/article/details/72875315" target="_blank" rel="noopener">BeanFactory 和 FactoryBean？</a></h3><h3 id="Spring-IOC-的理解，其初始化过程？"><a href="#Spring-IOC-的理解，其初始化过程？" class="headerlink" title="Spring IOC 的理解，其初始化过程？"></a><a href="https://www.cnblogs.com/chenjunjie12321/p/6124649.html" target="_blank" rel="noopener">Spring IOC 的理解，其初始化过程？</a></h3><h3 id="BeanFactory-和-ApplicationContext？"><a href="#BeanFactory-和-ApplicationContext？" class="headerlink" title="BeanFactory 和 ApplicationContext？"></a><a href="https://blog.csdn.net/qq_32651225/article/details/78323527" target="_blank" rel="noopener">BeanFactory 和 ApplicationContext？</a></h3><h3 id="Spring-Bean-的生命周期，如何被管理的？"><a href="#Spring-Bean-的生命周期，如何被管理的？" class="headerlink" title="Spring Bean 的生命周期，如何被管理的？"></a><a href="https://www.cnblogs.com/kenshinobiy/p/4652008.html" target="_blank" rel="noopener">Spring Bean 的生命周期，如何被管理的？</a></h3><h3 id="Spring-Bean-的加载过程是怎样的？"><a href="#Spring-Bean-的加载过程是怎样的？" class="headerlink" title="Spring Bean 的加载过程是怎样的？"></a><a href="https://www.cnblogs.com/xrq730/p/6285358.html" target="_blank" rel="noopener">Spring Bean 的加载过程是怎样的？</a></h3><h3 id="如果要你实现Spring-AOP，请问怎么实现？"><a href="#如果要你实现Spring-AOP，请问怎么实现？" class="headerlink" title="如果要你实现Spring AOP，请问怎么实现？"></a>如果要你实现Spring AOP，请问怎么实现？</h3><h3 id="如果要你实现Spring-IOC，你会注意哪些问题？"><a href="#如果要你实现Spring-IOC，你会注意哪些问题？" class="headerlink" title="如果要你实现Spring IOC，你会注意哪些问题？"></a>如果要你实现Spring IOC，你会注意哪些问题？</h3><h3 id="Spring-是如何管理事务的，事务管理机制？"><a href="#Spring-是如何管理事务的，事务管理机制？" class="headerlink" title="Spring 是如何管理事务的，事务管理机制？"></a><a href="https://www.cnblogs.com/dongfangshenhua/p/6949521.html" target="_blank" rel="noopener">Spring 是如何管理事务的，事务管理机制？</a></h3><h3 id="Spring-的不同事务传播行为有哪些，干什么用的？"><a href="#Spring-的不同事务传播行为有哪些，干什么用的？" class="headerlink" title="Spring 的不同事务传播行为有哪些，干什么用的？"></a><a href="https://www.cnblogs.com/dongfangshenhua/p/6949521.html" target="_blank" rel="noopener">Spring 的不同事务传播行为有哪些，干什么用的？</a></h3><h3 id="Spring-中用到了那些设计模式？"><a href="#Spring-中用到了那些设计模式？" class="headerlink" title="Spring 中用到了那些设计模式？"></a><a href="https://www.cnblogs.com/baizhanshi/p/6187537.html" target="_blank" rel="noopener">Spring 中用到了那些设计模式？</a></h3><h3 id="Spring-MVC-的工作原理？"><a href="#Spring-MVC-的工作原理？" class="headerlink" title="Spring MVC 的工作原理？"></a><a href="https://www.cnblogs.com/xiaoxi/p/6164383.html" target="_blank" rel="noopener">Spring MVC 的工作原理？</a></h3><h3 id="Spring-循环注入的原理？"><a href="#Spring-循环注入的原理？" class="headerlink" title="Spring 循环注入的原理？"></a>Spring 循环注入的原理？</h3><h3 id="Spring-AOP的理解，各个术语，他们是怎么相互工作的？"><a href="#Spring-AOP的理解，各个术语，他们是怎么相互工作的？" class="headerlink" title="Spring AOP的理解，各个术语，他们是怎么相互工作的？"></a><a href="https://www.jianshu.com/p/5015f212e4e4" target="_blank" rel="noopener">Spring AOP的理解，各个术语，他们是怎么相互工作的？</a></h3><h3 id="Spring-如何保证-Controller-并发的安全？"><a href="#Spring-如何保证-Controller-并发的安全？" class="headerlink" title="Spring 如何保证 Controller 并发的安全？"></a><a href="https://www.cnblogs.com/tiancai/p/9627109.html" target="_blank" rel="noopener">Spring 如何保证 Controller 并发的安全？</a></h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="BeanFactory-和-FactoryBean？"><a href="#BeanFactory-和-FactoryBean？" class="headerlink" title="BeanFactory 和 FactoryBean？"></a><a href="https://blog.csdn.net/qiesheng/article/details/72875315" target="_blank" rel="noopener">BeanFactory 和 FactoryBean？</a></h3><h3 id="Spring-IOC-的理解，其初始化过程？"><a href="#Spring-IOC-的理解，其初始化过程？" class="headerlink" title="Spring IOC 的理解，其初始化过程？"></a><a href="https://www.cnblogs.com/chenjunjie12321/p/6124649.html" target="_blank" rel="noopener">Spring IOC 的理解，其初始化过程？</a></h3><h3 id="BeanFactory-和-ApplicationContext？"><a href="#BeanFactory-和-ApplicationContext？" class="headerlink" title="BeanFactory 和 ApplicationContext？"></a><a href="https://blog.csdn.net/qq_32651225/article/details/78323527" target="_blank" rel="noopener">BeanFactory 和 ApplicationContext？</a></h3><h3 id="Spring-Bean-的生命周期，如何被管理的？"><a href="#Spring-Bean-的生命周期，如何被管理的？" class="headerlink" title="Spring Bean 的生命周期，如何被管理的？"></a><a href="https://www.cnblogs.com/kenshinobiy/p/4652008.html" target="_blank" rel="noopener">Spring Bean 的生命周期，如何被管理的？</a></h3><h3 id="Spring-Bean-的加载过程是怎样的？"><a href="#Spring-Bean-的加载过程是怎样的？" class="headerlink" title="Spring Bean 的加载过程是怎样的？"></a><a href="https://www.cnblogs.com/xrq730/p/6285358.html" target="_blank" rel="noopener">Spring Bean 的加载过程是怎样的？</a></h3><h3 id="如果要你实现Spring-AOP，请问怎么实现？"><a href="#如果要你实现Spring-AOP，请问怎么实现？" class="headerlink" title="如果要你实现Spring AOP，请问怎么实现？"></a>如果要你实现Spring AOP，请问怎么实现？</h3><h3 id="如果要你实现Spring-IOC，你会注意哪些问题？"><a href="#如果要你实现Spring-IOC，你会注意哪些问题？" class="headerlink" title="如果要你实现Spring IOC，你会注意哪些问题？"></a>如果要你实现Spring IOC，你会注意哪些问题？</h3><h3 id="Spring-是如何管理事务的，事务管理机制？"><a href="#Spring-是如何管理事务的，事务管理机制？" class="headerlink" title="Spring 是如何管理事务的，事务管理机制？"></a><a href="https://www.cnblogs.com/dongfangshenhua/p/6949521.html" target="_blank" rel="noopener">Spring 是如何管理事务的，事务管理机制？</a></h3><h3 id="全面分析-Spring-的编程式事务管理及声明式事务管理"><a href="#全面分析-Spring-的编程式事务管理及声明式事务管理" class="headerlink" title="全面分析 Spring 的编程式事务管理及声明式事务管理"></a><a href="https://www.ibm.com/developerworks/cn/education/opensource/os-cn-spring-trans/index.html" target="_blank" rel="noopener">全面分析 Spring 的编程式事务管理及声明式事务管理</a></h3><h3 id="Spring-的不同事务传播行为有哪些，干什么用的？"><a href="#Spring-的不同事务传播行为有哪些，干什么用的？" class="headerlink" title="Spring 的不同事务传播行为有哪些，干什么用的？"></a><a href="https://www.cnblogs.com/dongfangshenhua/p/6949521.html" target="_blank" rel="noopener">Spring 的不同事务传播行为有哪些，干什么用的？</a></h3><h3 id="Spring-中用到了那些设计模式？"><a href="#Spring-中用到了那些设计模式？" class="headerlink" title="Spring 中用到了那些设计模式？"></a><a href="https://www.cnblogs.com/baizhanshi/p/6187537.html" target="_blank" rel="noopener">Spring 中用到了那些设计模式？</a></h3><h3 id="Spring-MVC-的工作原理？"><a href="#Spring-MVC-的工作原理？" class="headerlink" title="Spring MVC 的工作原理？"></a><a href="https://www.cnblogs.com/xiaoxi/p/6164383.html" target="_blank" rel="noopener">Spring MVC 的工作原理？</a></h3><h3 id="Spring-循环注入的原理？"><a href="#Spring-循环注入的原理？" class="headerlink" title="Spring 循环注入的原理？"></a>Spring 循环注入的原理？</h3><h3 id="Spring-AOP的理解，各个术语，他们是怎么相互工作的？"><a href="#Spring-AOP的理解，各个术语，他们是怎么相互工作的？" class="headerlink" title="Spring AOP的理解，各个术语，他们是怎么相互工作的？"></a><a href="https://www.jianshu.com/p/5015f212e4e4" target="_blank" rel="noopener">Spring AOP的理解，各个术语，他们是怎么相互工作的？</a></h3><h3 id="Spring-如何保证-Controller-并发的安全？"><a href="#Spring-如何保证-Controller-并发的安全？" class="headerlink" title="Spring 如何保证 Controller 并发的安全？"></a><a href="https://www.cnblogs.com/tiancai/p/9627109.html" target="_blank" rel="noopener">Spring 如何保证 Controller 并发的安全？</a></h3>]]></content>
     
     <summary type="html">
     
       
       
         &lt;h3 id=&quot;BeanFactory-和-FactoryBean？&quot;&gt;&lt;a href=&quot;#BeanFactory-和-FactoryBean？&quot; class=&quot;headerlink&quot; title=&quot;BeanFactory 和 FactoryBean？&quot;&gt;&lt;/a&gt;&lt;a href=
-      
-    
-    </summary>
-    
-      <category term="技术分享" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-      <category term="spring" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/spring/"/>
-    
-    
-      <category term="spring" scheme="https://yapengren.github.io/tags/spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>FastDFS 流程图</title>
-    <link href="https://yapengren.github.io/wiki/FastDFS-%E6%B5%81%E7%A8%8B%E5%9B%BE/"/>
-    <id>https://yapengren.github.io/wiki/FastDFS-流程图/</id>
-    <published>2019-08-04T03:34:10.000Z</published>
-    <updated>2019-08-19T09:26:11.391Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="FastDFS-执行流程"><a href="#FastDFS-执行流程" class="headerlink" title="FastDFS 执行流程"></a>FastDFS 执行流程</h3><p>FastDFS 服务端有三个角色：跟踪服务器（Tracker Server）、存储服务器（Storage Server）和客户端（Client）。 </p><ul><li><p>Tracker Server：跟踪服务器，主要做调度工作，起负载均衡的作用。在内存记录集群中所有存储组和存储服务器的状态信息，是客户端和数据服务器交互的枢纽。相比 GFS 中的 Master 更为精简，不记录文件索引信息，占用的内存量很少。 </p></li><li><p>Storage Server：存储服务器（又称存储节点或数据服务器），文件和文件属性（Meta Data）都保存到存储服务器上。Storage Server 直接利用 OS 的文件系统调用管理文件。 </p></li><li><p>Client：客户端，作为业务请求的发起方，通过专有接口，使用 TCP/IP 协议与跟踪器服务器或存储节点进行数据交互。FastDFS 向使用者提供基本文件访问接口，如 upload、download、append、delete 等，以客户端库的方式提供给用户使用。 </p></li></ul><p>通过一张图来看一下 FastDFS 的运行机制： </p><p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g5nhqjznlqj30ie0gdjw7.jpg" alt="9F8CC1B1-7DF4-42E5-A387-2FA00924B117"></p><p>Tracker 相当于 FastDFS 的大脑，不论是上传还是下载都是通过 Tracker 来分配资源；客户端一般可以使用 Ngnix 等静态服务器来调用或者做一部分的缓存；存储服务器内部分为卷（或者叫做组），卷与卷之间是平行的关系，可以根据资源的使用情况随时增加，卷内服务器文件相互同步备份，以达到容灾的目的。</p><h3 id="上传机制"><a href="#上传机制" class="headerlink" title="上传机制"></a>上传机制</h3><p>首先客户端请求 Tracker 服务获取到存储服务器的 IP 地址和端口，然后客户端根据返回的 IP 地址和端口号请求上传文件，存储服务器接收到请求后生产文件，并且将文件内容写入磁盘并返回给客户端 file_id、路径信息、文件名等信息，客户端保存相关信息上传完毕。 </p><p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g5nhr79buzj30p10d6wfu.jpg" alt="1"></p><h3 id="下载机制"><a href="#下载机制" class="headerlink" title="下载机制"></a>下载机制</h3><p>客户端带上文件名信息请求 Tracker 服务获取到存储服务器的 IP 地址和端口，然后客户端根据返回的 IP 地址和端口号请求下载文件，存储服务器接收到请求后返回文件给客户端。 </p><p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g5nhriqa0dj30om0bdjtg.jpg" alt="6542D65C-57D6-4B08-A3D5-CA1578F3091D"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;FastDFS-执行流程&quot;&gt;&lt;a href=&quot;#FastDFS-执行流程&quot; class=&quot;headerlink&quot; title=&quot;FastDFS 执行流程&quot;&gt;&lt;/a&gt;FastDFS 执行流程&lt;/h3&gt;&lt;p&gt;FastDFS 服务端有三个角色：跟踪服务器（Tracker
-      
-    
-    </summary>
-    
-      <category term="技术分享" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-      <category term="文件存储" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8/"/>
-    
-    
-      <category term="FastDFS" scheme="https://yapengren.github.io/tags/FastDFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>springMVC 流程图</title>
-    <link href="https://yapengren.github.io/wiki/springMVC-%E6%B5%81%E7%A8%8B%E5%9B%BE/"/>
-    <id>https://yapengren.github.io/wiki/springMVC-流程图/</id>
-    <published>2019-08-04T03:30:24.000Z</published>
-    <updated>2019-08-19T09:30:46.904Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g5nhlgldvpj30ha0asdgj.jpg" alt="1"></p><h3 id="springMVC执行流程"><a href="#springMVC执行流程" class="headerlink" title="springMVC执行流程"></a>springMVC执行流程</h3><ol><li><p>用户发送请求至前端控制器 <code>DispatcherServlet</code></p></li><li><p>前端控制器 <code>DispatcherServlet</code> 收到请求调用处理器映射器<code>HandlerMapping</code>。 </p></li><li><p>处理器映射器 <code>HandlerMapping</code> 根据请求 url 找到具体的处理器，生成处理器对象及处理器拦截器一并返回给前端控制器<code>DispatcherServlet</code>。 </p></li><li><p>前端控制器 <code>DispatcherServlet</code> 通过处理器适配器 <code>HandlerAdapter</code> 调用处理器 </p></li><li><p>执行处理器，执行业务逻辑(Controller，也叫后端控制器)。 </p></li><li><p><code>Controller</code> 执行完成返回 <code>ModelAndView</code> </p></li><li><p>处理器适配器 <code>HandlerAdapter</code> 将 controller 执行结果 <code>ModelAndView</code> 返回给前端控制器 <code>DispatcherServlet</code> </p></li><li><p>前端控制器 <code>DispatcherServlet</code> 将 <code>ModelAndView</code> 传给视图解析器  <code>ViewResolver</code> </p></li><li><p>视图解析器 <code>ViewResolver</code> 解析后返回具体 View </p></li><li><p><code>DispatcherServlet</code> 对 View 进行渲染视图（即将模型数据填充至视图中）。 </p></li><li><p><code>DispatcherServlet</code> 响应用户 </p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/006tNc79ly1g5nhlgldvpj30ha0asdgj.jpg&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;springMVC执行流程&quot;&gt;&lt;a href=&quot;#springMVC执行流程&quot; 
       
     
     </summary>

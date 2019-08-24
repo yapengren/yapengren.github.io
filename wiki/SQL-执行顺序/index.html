@@ -3,26 +3,26 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>ArrayList 源码分析 | yp_ren Blog</title>
+    <title>SQL 执行顺序 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="java">
+        <meta name="keywords" content="mysql">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="继承体系 源码分析属性/** * 默认容量为10，也就是通过 new ArrayList() 创建时的默认容量 */private static final int DEFAULT_CAPACITY = 10;/** * 空数组 * 这种是通过 new ArrayList(0) 创建时用的空数组 */private static final Object[] EMPTY_ELEMENTDATA =">
-<meta name="keywords" content="java">
+    <meta name="description" content="SQL 执行顺序">
+<meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ArrayList 源码分析">
-<meta property="og:url" content="https://yapengren.github.io/wiki/ArrayList-源码分析/index.html">
+<meta property="og:title" content="SQL 执行顺序">
+<meta property="og:url" content="https://yapengren.github.io/wiki/SQL-执行顺序/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="继承体系 源码分析属性/** * 默认容量为10，也就是通过 new ArrayList() 创建时的默认容量 */private static final int DEFAULT_CAPACITY = 10;/** * 空数组 * 这种是通过 new ArrayList(0) 创建时用的空数组 */private static final Object[] EMPTY_ELEMENTDATA =">
+<meta property="og:description" content="SQL 执行顺序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g62gwty9i8j311i0jk0u2.jpg">
-<meta property="og:updated_time" content="2019-08-19T09:25:31.034Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6amco99e5j32640jwagv.jpg">
+<meta property="og:updated_time" content="2019-08-24T03:43:52.113Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ArrayList 源码分析">
-<meta name="twitter:description" content="继承体系 源码分析属性/** * 默认容量为10，也就是通过 new ArrayList() 创建时的默认容量 */private static final int DEFAULT_CAPACITY = 10;/** * 空数组 * 这种是通过 new ArrayList(0) 创建时用的空数组 */private static final Object[] EMPTY_ELEMENTDATA =">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g62gwty9i8j311i0jk0u2.jpg">
+<meta name="twitter:title" content="SQL 执行顺序">
+<meta name="twitter:description" content="SQL 执行顺序">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6amco99e5j32640jwagv.jpg">
     
 
     
@@ -199,13 +199,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Dubbo-架构/">Dubbo 架构</a></li>  <li class="file"><a href="/wiki/Dubbo-知识点/">Dubbo 知识点</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             java基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file active"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList-知识点/">CopyOnWriteArrayList 知识点</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList-知识点/">CopyOnWriteArrayList 知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -244,13 +244,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/springMVC-流程图/">springMVC 流程图</a></li>  <li class="file"><a href="/wiki/Spring-知识点/">Spring 知识点</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             数据库
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file active"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -370,7 +370,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-ArrayList-源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-SQL-执行顺序" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -380,20 +380,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java基础/">java基础</a>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/数据库/">数据库</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
+        <a class="tag-link" href="/tags/mysql/">mysql</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/ArrayList-源码分析/">
-            <time datetime="2019-08-17T02:28:42.000Z" itemprop="datePublished">2019-08-17</time>
+        <a href="/wiki/SQL-执行顺序/">
+            <time datetime="2019-08-24T03:38:17.000Z" itemprop="datePublished">2019-08-24</time>
         </a>
     </div>
 
@@ -404,13 +404,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/ArrayList-源码分析.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/SQL-执行顺序.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/ArrayList-源码分析.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/SQL-执行顺序.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/ArrayList-源码分析.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/SQL-执行顺序.md'> History </a>
                             </div>
                         
                     </div>
@@ -418,7 +418,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            ArrayList 源码分析
+            SQL 执行顺序
         </h1>
     
 
@@ -431,25 +431,12 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#继承体系"><span class="toc-number">1.</span> <span class="toc-text">继承体系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码分析"><span class="toc-number">2.</span> <span class="toc-text">源码分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#属性"><span class="toc-number">2.1.</span> <span class="toc-text">属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ArrayList-int-initialCapacity-构造方法"><span class="toc-number">2.2.</span> <span class="toc-text">ArrayList(int initialCapacity) 构造方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#add-E-e-方法"><span class="toc-number">2.3.</span> <span class="toc-text">add(E e) 方法</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL-执行顺序"><span class="toc-number">1.</span> <span class="toc-text">SQL 执行顺序</span></a></li></ol>
                 </div>
             
         
         
-            <h3 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h3><p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g62gwty9i8j311i0jk0u2.jpg" alt="image-20190817103049755"></p>
-<h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 默认容量为10，也就是通过 new ArrayList() 创建时的默认容量</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 空数组</span></span><br><span class="line"><span class="comment"> * 这种是通过 new ArrayList(0) 创建时用的空数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 空数组</span></span><br><span class="line"><span class="comment"> * 这种是通过 new ArrayList() 创建时用的空数组</span></span><br><span class="line"><span class="comment"> * 与 EMPTY_ELEMENTDATA 的区别是在添加第一个元素时使用这个空数组会初始化为 DEFAULT_CAPACITY（10）个元素</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 真正存放元素的地方</span></span><br><span class="line"><span class="comment"> * 使用 transient 关键字能不序列化这个字段</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">transient</span> Object[] elementData; <span class="comment">// non-private to simplify nested class access</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 真正存放元素的个数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> size;</span><br></pre></td></tr></table></figure>
-
-<h4 id="ArrayList-int-initialCapacity-构造方法"><a href="#ArrayList-int-initialCapacity-构造方法" class="headerlink" title="ArrayList(int initialCapacity) 构造方法"></a>ArrayList(int initialCapacity) 构造方法</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果传入的初始容量 &gt; 0，新建一个数组存储元素</span></span><br><span class="line">        <span class="keyword">this</span>.elementData = <span class="keyword">new</span> Object[initialCapacity];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (initialCapacity == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果传入的初始容量 = 0，使用空数组 EMPTY_ELEMENTDATA</span></span><br><span class="line">        <span class="keyword">this</span>.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 如果传入的初始容量 &lt; 0，抛出异常</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Illegal Capacity: "</span>+ initialCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="add-E-e-方法"><a href="#add-E-e-方法" class="headerlink" title="add(E e) 方法"></a>add(E e) 方法</h4><p>添加元素到末尾</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 检查是否需要扩容</span></span><br><span class="line">    ensureCapacityInternal(size + <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 将元素插入到最后一位</span></span><br><span class="line">    elementData[size++] = e;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacityInternal</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">calculateCapacity</span><span class="params">(Object[] elementData, <span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 如果是空数组 DEFAULTCAPACITY_EMPTY_ELEMENTDATA，就初始化为默认大小 10</span></span><br><span class="line">    <span class="keyword">if</span> (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">        <span class="keyword">return</span> Math.max(DEFAULT_CAPACITY, minCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minCapacity;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureExplicitCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    modCount++;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)</span><br><span class="line">        <span class="comment">// 扩容</span></span><br><span class="line">        grow(minCapacity);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 扩容</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">grow</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> oldCapacity = elementData.length;</span><br><span class="line">    <span class="comment">// 新容量为旧容量的 1.5 倍</span></span><br><span class="line">    <span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 如果新容量发现比需要的容量还小，则以需要的容量为准</span></span><br><span class="line">    <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = minCapacity;</span><br><span class="line">    <span class="comment">// 如果新容量已经超过最大容量了，则使用最大容量</span></span><br><span class="line">    <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">    <span class="comment">// 以新容量拷贝出来一个新数组</span></span><br><span class="line">    elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>检查是否需要扩容；</li>
-<li>如果 elementData 等于 DEFAULTCAPACITY_EMPTY_ELEMENTDATA，则初始化容量大小为 DEFAULT_CAPACITY；</li>
-<li>新容量是老容量的1.5 倍（oldCapacity + (oldCapacity &gt;&gt; 1)），如果加了这么多容量发现比需要的容量还小，则以需要的容量为；</li>
-<li>创建新容量的数组并把老数组拷贝到新数组；</li>
-</ol>
+            <h1 id="SQL-执行顺序"><a href="#SQL-执行顺序" class="headerlink" title="SQL 执行顺序"></a>SQL 执行顺序</h1><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6amco99e5j32640jwagv.jpg" alt="1566617994720"></p>
 
             </div>
         
@@ -462,19 +449,10 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/HashMap-源码分析/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    HashMap 源码分析
-                
-            </div>
-        </a>
     
-    
-        <a href="/wiki/Dubbo-知识点/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/MySQL-InnoDB-那些事/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Dubbo 知识点</div>
+            <div class="article-nav-title">MySQL InnoDB 那些事</div>
         </a>
     
 </nav>
