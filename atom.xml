@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yapengren.github.io/"/>
-  <updated>2019-08-25T01:26:42.983Z</updated>
+  <updated>2019-08-25T08:54:22.693Z</updated>
   <id>https://yapengren.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL 索引知识点</title>
+    <link href="https://yapengren.github.io/wiki/MySQL-%E7%B4%A2%E5%BC%95%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>https://yapengren.github.io/wiki/MySQL-索引知识点/</id>
+    <published>2019-08-25T03:44:17.000Z</published>
+    <updated>2019-08-25T08:54:22.693Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="索引优化"><a href="#索引优化" class="headerlink" title="索引优化"></a>索引优化</h2><h3 id="索引失效案例"><a href="#索引失效案例" class="headerlink" title="索引失效案例"></a>索引失效案例</h3><ol><li>全值匹配</li><li>最佳左前缀法则。如果索引了多列，要遵守最左前缀法则，指的是查询从索引的最左前列开始并且不跳过索引中的列</li><li>不在索引列上做任何操作（计算、函数、「自动或者手动」类型转换），会导致索引失效而转向全表扫描</li><li>存储引擎不能使用索引中范围条件右边的列</li><li>尽量使用覆盖索引（只访问索引的查询「索引列和查询列一致」），减少 select *</li><li>MySQL 在使用 != 或者 &lt;&gt; 的时候无法使用索引会导致全表扫描</li><li>is null，is not null 无法使用索引</li><li>like 以通配符开头 (‘%abc…’) MySQL 索引失效会变成全表扫描的操作</li><li>字符串不加单引号索引失效</li><li>少用 or，用它来连接时会索引失效 </li></ol><h3 id="小总结"><a href="#小总结" class="headerlink" title="小总结"></a>小总结</h3><p>假设 index(a, b, c)</p><table><thead><tr><th align="left">Where 语句</th><th>索引是否被使用</th></tr></thead><tbody><tr><td align="left">where a = 3</td><td>Y，使用到 a</td></tr><tr><td align="left">where a = 3 and b = 5</td><td>Y，使用到 a，b</td></tr><tr><td align="left">where a = 3 and b = 5 and c = 4</td><td>Y，使用到 a，b，c</td></tr><tr><td align="left">where b = 3 或者 where b = 3 and c = 4 或者 where c = 4</td><td>N</td></tr><tr><td align="left">where a = 3 and c = 5</td><td>使用到 a，但是 c 不可以，b 中间断了</td></tr><tr><td align="left">where a = 3 and b &gt; 4 and c = 5</td><td>使用到 a 和 b，c 不能用在范围之后，b 断了</td></tr><tr><td align="left">where a = 3 and b like ‘kk%’ and c = 4</td><td>Y，使用到 a，b，c</td></tr><tr><td align="left">where a = 3 and b like ‘%kk’ and c = 4</td><td>Y，只用到 a</td></tr><tr><td align="left">where a = 3 and b like ‘%kk%’ and c = 4</td><td>Y，只用到 a</td></tr><tr><td align="left">where a = 3 and b like ‘k%kk%’ and c = 4</td><td>Y，只用到 a，b，c</td></tr></tbody></table><h3 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#  创建表</span><br><span class="line">create table test03(</span><br><span class="line"> id int primary key not null auto_increment,</span><br><span class="line"> c1 char(10),</span><br><span class="line"> c2 char(10),</span><br><span class="line"> c3 char(10),</span><br><span class="line"> c4 char(10),</span><br><span class="line"> c5 char(10)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"># 插入数据</span><br><span class="line">insert into test03(c1,c2,c3,c4,c5)values(&apos;a1&apos;,&apos;a2&apos;,&apos;a3&apos;,&apos;a4&apos;,&apos;a5&apos;);</span><br><span class="line">insert into test03(c1,c2,c3,c4,c5)values(&apos;b1&apos;,&apos;b2&apos;,&apos;b3&apos;,&apos;b4&apos;,&apos;b5&apos;);</span><br><span class="line">insert into test03(c1,c2,c3,c4,c5)values(&apos;c1&apos;,&apos;c2&apos;,&apos;c3&apos;,&apos;c4&apos;,&apos;c5&apos;);</span><br><span class="line">insert into test03(c1,c2,c3,c4,c5)values(&apos;d1&apos;,&apos;d2&apos;,&apos;d3&apos;,&apos;d4&apos;,&apos;d5&apos;);</span><br><span class="line">insert into test03(c1,c2,c3,c4,c5)values(&apos;e1&apos;,&apos;e2&apos;,&apos;e3&apos;,&apos;e4&apos;,&apos;e5&apos;);</span><br><span class="line"></span><br><span class="line"># 创建索引</span><br><span class="line">create index idx_test03_c1234 on test03(c1,c2,c3,c4);</span><br></pre></td></tr></table></figure><p>问题：我们创建了复合索引idx_test03_c1234 ，根据以下SQL分析索引使用情况？</p><ol><li>explain select * from test03 where c1=’a1’ and c2=’a2’ and c3=’a3’ and c4=’a4’;<br>索引全部使用</li></ol><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxein3zpj31v407y0wj.jpg" alt="image-20190825145131921"></p><ol start="2"><li>explain select * from test03 where c1=’a1’ and c2=’a2’ and c4=’a4’ and c3=’a3’;<br>索引全部使用</li></ol><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxkebwxfj31v4088n11.jpg" alt="image-20190825145307176"></p><ol start="3"><li>explain select * from test03 where c1=’a1’ and c2=’a2’ and c3&gt;’a3’ and c4=’a4’;<br>索引 c1c2c3 使用，c4 未使用</li></ol><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxjkp44uj31ua07w42g.jpg" alt="image-20190825145614418"></p><ol start="4"><li>explain select * from test03 where c1=’a1’ and c2=’a2’ and c4&gt;’a4’ and c3=’a3’;<br>索引全部使用 </li></ol><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxjyb630j31uo07yae1.jpg" alt="image-20190825145645207"></p><ol start="5"><li>explain select * from test03 where c1=’a1’ and c2=’a2’ and c4=’a4’ order by c3;<br>索引 c1c2 使用，c3 作用在排序而不是查找，c4 不使用</li></ol><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxlhdwq5j31wy08642j.jpg" alt="image-20190825145812889"></p><ol start="6"><li>explain select * from test03 where c1=’a1’ and c2=’a2’ order by c3;<br>索引 c1c2 使用 c3 作用在排序而不是查找，和 5 题一样</li></ol><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxm32cxcj31x6088n16.jpg" alt="image-20190825145848614"></p><ol start="7"><li>explain select * from test03 where c1=’a1’ and c2=’a2’ order by c4;<br>索引 c1c2 使用 ，但出现 Using filesort</li></ol><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxn1x2g4j323u08ctcz.jpg" alt="image-20190825145943711"></p><ol start="8"><li>explain select * from test03 where c1=’a1’ and c5=’a5’ order by c2,c3;<br>索引 c1 使用，但是 c2，c3用于排序，无 filesort</li></ol><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxnorlcwj320408aq74.jpg" alt="image-20190825150020427"></p><p>explain select * from test03 where c1=’a1’ and c5=’a5’ order by c3,c2;<br>索引 c1 使用，出现 filesort，我们建立索引 1234，它没有按照顺序来，3 2 颠倒了 </p><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxo1umiyj327a08678m.jpg" alt="image-20190825150041613"></p><ol start="9"><li>explain select * from test03 where c1=’a1’ and c2=’a2’ order by c2,c3;<br>索引 c1c2 使用</li></ol><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxofl0uij31x8082djv.jpg" alt="image-20190825150103386"></p><ol start="10"><li>explain select * from test03 where c1=’a1’ and c2=’a2’ and c5=’a5’ order by c2,c3;<br>索引 c1c2 使用，但是 c2、c3 用于排序，无 filesort</li></ol><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxp640boj322m084dk3.jpg" alt="image-20190825150145899"></p><p>explain select * from test03 where c1=’a1’ and c2=’a2’ and c5=’a5’ order by c3,c2;<br>本例有常量 c2 的情况，和 8.2 对比，无filesort</p><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpei5n1j322w08242p.jpg" alt="image-20190825150159806"></p><ol start="11"><li>explain select * from test03 where c1=’a1’ and c4=’a4’ order by c2,c3;<br>索引 c1 使用</li></ol><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpmqucmj31uc084788.jpg" alt="image-20190825150212205"></p><ol start="12"><li>explain select * from test03 where c1=’a1’ and c4=’a4’ order by c3,c2;<br>索引 c1 使用, 出现了 Using where; Using temporary; Using filesort </li></ol><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpz58v2j321a07ygpp.jpg" alt="image-20190825150232699"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;索引优化&quot;&gt;&lt;a href=&quot;#索引优化&quot; class=&quot;headerlink&quot; title=&quot;索引优化&quot;&gt;&lt;/a&gt;索引优化&lt;/h2&gt;&lt;h3 id=&quot;索引失效案例&quot;&gt;&lt;a href=&quot;#索引失效案例&quot; class=&quot;headerlink&quot; title=&quot;索引失效案
+      
+    
+    </summary>
+    
+      <category term="技术分享" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="数据库" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="mysql" scheme="https://yapengren.github.io/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL 的各种 JOIN 用法</title>
@@ -526,33 +553,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>redis 知识点</title>
-    <link href="https://yapengren.github.io/wiki/redis-%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    <id>https://yapengren.github.io/wiki/redis-知识点/</id>
-    <published>2019-08-04T05:12:21.000Z</published>
-    <updated>2019-08-19T09:30:00.509Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Redis用过哪些数据数据，以及Redis底层怎么实现"><a href="#Redis用过哪些数据数据，以及Redis底层怎么实现" class="headerlink" title="Redis用过哪些数据数据，以及Redis底层怎么实现"></a>Redis用过哪些数据数据，以及Redis底层怎么实现</h3><p>string, hash, list, set, zset</p><h3 id="Redis缓存穿透，缓存雪崩"><a href="#Redis缓存穿透，缓存雪崩" class="headerlink" title="Redis缓存穿透，缓存雪崩"></a><a href="https://www.cnblogs.com/fidelQuan/p/4543387.html" target="_blank" rel="noopener">Redis缓存穿透，缓存雪崩</a></h3><h3 id="如何使用Redis来实现分布式锁"><a href="#如何使用Redis来实现分布式锁" class="headerlink" title="如何使用Redis来实现分布式锁"></a><a href="https://www.cnblogs.com/linjiqin/p/8003838.html" target="_blank" rel="noopener">如何使用Redis来实现分布式锁</a></h3><h3 id="Redis的并发竞争问题如何解决"><a href="#Redis的并发竞争问题如何解决" class="headerlink" title="Redis的并发竞争问题如何解决"></a><a href="https://blog.csdn.net/hjm4702192/article/details/80518856" target="_blank" rel="noopener">Redis的并发竞争问题如何解决</a></h3><h3 id="Redis持久化的几种方式，优缺点是什么，怎么实现的"><a href="#Redis持久化的几种方式，优缺点是什么，怎么实现的" class="headerlink" title="Redis持久化的几种方式，优缺点是什么，怎么实现的"></a><a href="https://www.cnblogs.com/chenliangcl/p/7240350.html" target="_blank" rel="noopener">Redis持久化的几种方式，优缺点是什么，怎么实现的</a></h3><h3 id="aof-文件太大会怎么样"><a href="#aof-文件太大会怎么样" class="headerlink" title="aof 文件太大会怎么样"></a><a href="https://www.cnblogs.com/xingzc/p/6384677.html" target="_blank" rel="noopener">aof 文件太大会怎么样</a></h3><h3 id="Redis的缓存失效策略-amp-最大缓存策略"><a href="#Redis的缓存失效策略-amp-最大缓存策略" class="headerlink" title="Redis的缓存失效策略 &amp; 最大缓存策略"></a><a href="https://www.cnblogs.com/moonandstar08/p/5686498.html" target="_blank" rel="noopener">Redis的缓存失效策略 &amp; 最大缓存策略</a></h3><h3 id="Redis集群，高可用，原理"><a href="#Redis集群，高可用，原理" class="headerlink" title="Redis集群，高可用，原理"></a>Redis集群，高可用，原理</h3><h3 id="Redis缓存分片"><a href="#Redis缓存分片" class="headerlink" title="Redis缓存分片"></a><a href="https://www.cnblogs.com/shiw27/p/8360485.html" target="_blank" rel="noopener">Redis缓存分片</a></h3><h3 id="Redis的数据淘汰策略"><a href="#Redis的数据淘汰策略" class="headerlink" title="Redis的数据淘汰策略"></a><a href="https://blog.csdn.net/yangtuogege/article/details/77970896" target="_blank" rel="noopener">Redis的数据淘汰策略</a></h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Redis用过哪些数据数据，以及Redis底层怎么实现&quot;&gt;&lt;a href=&quot;#Redis用过哪些数据数据，以及Redis底层怎么实现&quot; class=&quot;headerlink&quot; title=&quot;Redis用过哪些数据数据，以及Redis底层怎么实现&quot;&gt;&lt;/a&gt;Redis
-      
-    
-    </summary>
-    
-      <category term="技术分享" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-      <category term="redis" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/redis/"/>
-    
-    
-      <category term="redis" scheme="https://yapengren.github.io/tags/redis/"/>
     
   </entry>
   

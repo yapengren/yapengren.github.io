@@ -243,7 +243,7 @@
                             &nbsp;
                             数据库
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  <li class="file"><a href="/wiki/SQL-的各种-JOIN-用法/">SQL 的各种 JOIN 用法</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  <li class="file"><a href="/wiki/SQL-的各种-JOIN-用法/">SQL 的各种 JOIN 用法</a></li>  <li class="file"><a href="/wiki/MySQL-索引知识点/">MySQL 索引知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -364,6 +364,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-谈谈你对-volatile-的理解" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java并发/">java并发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/谈谈你对-volatile-的理解/">
+            <time datetime="2019-08-19T09:23:18.000Z" itemprop="datePublished">2019-08-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/谈谈你对-volatile-的理解.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/谈谈你对-volatile-的理解.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/谈谈你对-volatile-的理解.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/谈谈你对-volatile-的理解/">谈谈你对 volatile 的理解</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="谈谈你对-volatile-的理解"><a href="#谈谈你对-volatile-的理解" class="headerlink" title="谈谈你对 volatile 的理解"></a>谈谈你对 volatile 的理解</h2><p>volatile 是 Java 虚拟机提供的轻量级的同步机制</p>
+<h3 id="保证可见性"><a href="#保证可见性" class="headerlink" title="保证可见性"></a>保证可见性</h3><p>各个线程对主内存中共享变量的操作都是各个线程各自拷贝到自己的工作内存进行操作后再写回主内存中的。</p>
+<p>这就可能存在一个线程 A 修改了共享变量 X 的值但还未写回主内存时，另一个线程 B 又对准内存中同一个共享变量 X 进行操作，但此时 A 线程工作内存中共享变量 X 对线程 B 来说并不是可见，这种工作内存与主内存同步存在延迟现象就造成了可见性问题。</p>
+<h3 id="不保证原子性"><a href="#不保证原子性" class="headerlink" title="不保证原子性"></a>不保证原子性</h3><h3 id="禁止指令重排"><a href="#禁止指令重排" class="headerlink" title="禁止指令重排"></a>禁止指令重排</h3><p>volatile 实现禁止指令重排优化，从而避免多线程环境下程序出现乱序执行的现象。</p>
+<p>先了解一个概念，内存屏障又称内存栅栏，是一个CPU指令，它的作用有两个：<br>一是保证特定操作的执行顺序<br>二是保证某些变量的内存可见性（利用该特性实现volatile的内存可见性）</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/谈谈你对-volatile-的理解/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-java-线程池知识点" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1216,91 +1320,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/让我们同步进阶/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-redis-知识点" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/redis/">redis</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/redis/">redis</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/redis-知识点/">
-            <time datetime="2019-08-04T05:12:21.000Z" itemprop="datePublished">2019-08-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/redis-知识点.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/redis-知识点.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/redis-知识点.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/redis-知识点/">redis 知识点</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <h3 id="Redis用过哪些数据数据，以及Redis底层怎么实现"><a href="#Redis用过哪些数据数据，以及Redis底层怎么实现" class="headerlink" title="Redis用过哪些数据数据，以及Redis底层怎么实现"></a>Redis用过哪些数据数据，以及Redis底层怎么实现</h3><p>string, hash, list, set, zset</p>
-<h3 id="Redis缓存穿透，缓存雪崩"><a href="#Redis缓存穿透，缓存雪崩" class="headerlink" title="Redis缓存穿透，缓存雪崩"></a><a href="https://www.cnblogs.com/fidelQuan/p/4543387.html" target="_blank" rel="noopener">Redis缓存穿透，缓存雪崩</a></h3><h3 id="如何使用Redis来实现分布式锁"><a href="#如何使用Redis来实现分布式锁" class="headerlink" title="如何使用Redis来实现分布式锁"></a><a href="https://www.cnblogs.com/linjiqin/p/8003838.html" target="_blank" rel="noopener">如何使用Redis来实现分布式锁</a></h3><h3 id="Redis的并发竞争问题如何解决"><a href="#Redis的并发竞争问题如何解决" class="headerlink" title="Redis的并发竞争问题如何解决"></a><a href="https://blog.csdn.net/hjm4702192/article/details/80518856" target="_blank" rel="noopener">Redis的并发竞争问题如何解决</a></h3><h3 id="Redis持久化的几种方式，优缺点是什么，怎么实现的"><a href="#Redis持久化的几种方式，优缺点是什么，怎么实现的" class="headerlink" title="Redis持久化的几种方式，优缺点是什么，怎么实现的"></a><a href="https://www.cnblogs.com/chenliangcl/p/7240350.html" target="_blank" rel="noopener">Redis持久化的几种方式，优缺点是什么，怎么实现的</a></h3><h3 id="aof-文件太大会怎么样"><a href="#aof-文件太大会怎么样" class="headerlink" title="aof 文件太大会怎么样"></a><a href="https://www.cnblogs.com/xingzc/p/6384677.html" target="_blank" rel="noopener">aof 文件太大会怎么样</a></h3><h3 id="Redis的缓存失效策略-amp-最大缓存策略"><a href="#Redis的缓存失效策略-amp-最大缓存策略" class="headerlink" title="Redis的缓存失效策略 &amp; 最大缓存策略"></a><a href="https://www.cnblogs.com/moonandstar08/p/5686498.html" target="_blank" rel="noopener">Redis的缓存失效策略 &amp; 最大缓存策略</a></h3><h3 id="Redis集群，高可用，原理"><a href="#Redis集群，高可用，原理" class="headerlink" title="Redis集群，高可用，原理"></a>Redis集群，高可用，原理</h3><h3 id="Redis缓存分片"><a href="#Redis缓存分片" class="headerlink" title="Redis缓存分片"></a><a href="https://www.cnblogs.com/shiw27/p/8360485.html" target="_blank" rel="noopener">Redis缓存分片</a></h3><h3 id="Redis的数据淘汰策略"><a href="#Redis的数据淘汰策略" class="headerlink" title="Redis的数据淘汰策略"></a><a href="https://blog.csdn.net/yangtuogege/article/details/77970896" target="_blank" rel="noopener">Redis的数据淘汰策略</a></h3>
             </div>
         
         <footer class="article-footer">

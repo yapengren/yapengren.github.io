@@ -243,7 +243,7 @@
                             &nbsp;
                             数据库
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  <li class="file"><a href="/wiki/SQL-的各种-JOIN-用法/">SQL 的各种 JOIN 用法</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  <li class="file"><a href="/wiki/SQL-的各种-JOIN-用法/">SQL 的各种 JOIN 用法</a></li>  <li class="file"><a href="/wiki/MySQL-索引知识点/">MySQL 索引知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -364,6 +364,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-mac-brew-服务" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/系统知识/">系统知识</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/系统知识/mac/">mac</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/mac/">mac</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/mac-brew-服务/">
+            <time datetime="2019-08-02T09:40:48.000Z" itemprop="datePublished">2019-08-02</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/mac-brew-服务.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/mac-brew-服务.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/mac-brew-服务.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/mac-brew-服务/">mac brew 服务</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h3 id="brew-常用命令"><a href="#brew-常用命令" class="headerlink" title="brew 常用命令"></a>brew 常用命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew 搜索软件</span><br><span class="line">brew search nginx</span><br><span class="line"></span><br><span class="line">brew 安装软件</span><br><span class="line">brew install nginx</span><br><span class="line"></span><br><span class="line">brew 卸载软件</span><br><span class="line">brew uninstall nginx</span><br><span class="line"></span><br><span class="line">brew 升级</span><br><span class="line">sudo brew update</span><br><span class="line"></span><br><span class="line">查看安装信息</span><br><span class="line">sudo brew info nginx </span><br><span class="line"></span><br><span class="line">查看已安装软件</span><br><span class="line">brew list</span><br></pre></td></tr></table></figure>
+
+<h3 id="brew-安装nginx"><a href="#brew-安装nginx" class="headerlink" title="brew 安装nginx"></a>brew 安装nginx</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">安装</span><br><span class="line">sudo brew install nginx</span><br><span class="line"></span><br><span class="line">启动</span><br><span class="line">sudo brew services start nginx</span><br><span class="line"></span><br><span class="line">重启</span><br><span class="line">sudo brew services restart nginx</span><br><span class="line"></span><br><span class="line">停止</span><br><span class="line">sudo brew services stop nginx</span><br><span class="line"></span><br><span class="line">查看</span><br><span class="line">cat /usr/local/etc/nginx/nignx.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="brew-redis"><a href="#brew-redis" class="headerlink" title="brew redis"></a>brew redis</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">启动</span><br><span class="line">redis-server /usr/local/etc/redis-6379.conf</span><br><span class="line"></span><br><span class="line">停止</span><br><span class="line">redis-cli -p 6379 shutdown</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/mac-brew-服务/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-token-防表单重复提交" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
