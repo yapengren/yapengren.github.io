@@ -1031,14 +1031,10 @@
                     
                     
                 
-                    
-                    
-                
             
         
         
-            <p>写时复制</p>
-<p>CopyOnWrite 容器即写时复制的容器。<br>往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，<br>然后新的容器 Object[] newElements 里添加元素，<br>添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)<br>这样做的好处是可以对 copyonwrite 容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。<br>所以 copyonwrite容器也是一种读写分离的思想，读和写不同的容器。</p>
+            <h2 id="写时复制"><a href="#写时复制" class="headerlink" title="写时复制"></a>写时复制</h2><p>CopyOnWrite 容器即写时复制的容器。<br>往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，<br>然后新的容器 Object[] newElements 里添加元素，<br>添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)<br>这样做的好处是可以对 copyonwrite 容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。<br>所以 copyonwrite容器也是一种读写分离的思想，读和写不同的容器。</p>
 
             </div>
         

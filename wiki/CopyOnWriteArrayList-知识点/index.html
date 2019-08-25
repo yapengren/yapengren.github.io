@@ -9,18 +9,18 @@
         <meta name="keywords" content="java">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="写时复制 CopyOnWrite 容器即写时复制的容器。往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，然后新的容器 Object[] newElements 里添加元素，添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)这样做的好">
+    <meta name="description" content="写时复制CopyOnWrite 容器即写时复制的容器。往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，然后新的容器 Object[] newElements 里添加元素，添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)这样做的好处">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CopyOnWriteArrayList 知识点">
 <meta property="og:url" content="https://yapengren.github.io/wiki/CopyOnWriteArrayList-知识点/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="写时复制 CopyOnWrite 容器即写时复制的容器。往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，然后新的容器 Object[] newElements 里添加元素，添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)这样做的好">
+<meta property="og:description" content="写时复制CopyOnWrite 容器即写时复制的容器。往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，然后新的容器 Object[] newElements 里添加元素，添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)这样做的好处">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-20T06:26:53.273Z">
+<meta property="og:updated_time" content="2019-08-25T01:55:55.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CopyOnWriteArrayList 知识点">
-<meta name="twitter:description" content="写时复制 CopyOnWrite 容器即写时复制的容器。往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，然后新的容器 Object[] newElements 里添加元素，添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)这样做的好">
+<meta name="twitter:description" content="写时复制CopyOnWrite 容器即写时复制的容器。往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，然后新的容器 Object[] newElements 里添加元素，添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)这样做的好处">
     
 
     
@@ -429,13 +429,12 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#写时复制"><span class="toc-number">1.</span> <span class="toc-text">写时复制</span></a></li></ol>
                 </div>
             
         
         
-            <p>写时复制</p>
-<p>CopyOnWrite 容器即写时复制的容器。<br>往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，<br>然后新的容器 Object[] newElements 里添加元素，<br>添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)<br>这样做的好处是可以对 copyonwrite 容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。<br>所以 copyonwrite容器也是一种读写分离的思想，读和写不同的容器。</p>
+            <h2 id="写时复制"><a href="#写时复制" class="headerlink" title="写时复制"></a>写时复制</h2><p>CopyOnWrite 容器即写时复制的容器。<br>往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，<br>然后新的容器 Object[] newElements 里添加元素，<br>添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)<br>这样做的好处是可以对 copyonwrite 容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。<br>所以 copyonwrite容器也是一种读写分离的思想，读和写不同的容器。</p>
 
             </div>
         

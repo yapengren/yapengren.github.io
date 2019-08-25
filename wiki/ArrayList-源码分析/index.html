@@ -18,7 +18,7 @@
 <meta property="og:description" content="继承体系 源码分析属性/** * 默认容量为10，也就是通过 new ArrayList() 创建时的默认容量 */private static final int DEFAULT_CAPACITY = 10;/** * 空数组 * 这种是通过 new ArrayList(0) 创建时用的空数组 */private static final Object[] EMPTY_ELEMENTDATA =">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g62gwty9i8j311i0jk0u2.jpg">
-<meta property="og:updated_time" content="2019-08-19T09:25:31.034Z">
+<meta property="og:updated_time" content="2019-08-25T02:31:37.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ArrayList 源码分析">
 <meta name="twitter:description" content="继承体系 源码分析属性/** * 默认容量为10，也就是通过 new ArrayList() 创建时的默认容量 */private static final int DEFAULT_CAPACITY = 10;/** * 空数组 * 这种是通过 new ArrayList(0) 创建时用的空数组 */private static final Object[] EMPTY_ELEMENTDATA =">
@@ -447,7 +447,7 @@
 <ol>
 <li>检查是否需要扩容；</li>
 <li>如果 elementData 等于 DEFAULTCAPACITY_EMPTY_ELEMENTDATA，则初始化容量大小为 DEFAULT_CAPACITY；</li>
-<li>新容量是老容量的1.5 倍（oldCapacity + (oldCapacity &gt;&gt; 1)），如果加了这么多容量发现比需要的容量还小，则以需要的容量为；</li>
+<li>新容量是老容量的1.5 倍（oldCapacity + (oldCapacity &gt;&gt; 1)），如果加了这么多容量发现比需要的容量还小，则以需要的容量为准；</li>
 <li>创建新容量的数组并把老数组拷贝到新数组；</li>
 </ol>
 

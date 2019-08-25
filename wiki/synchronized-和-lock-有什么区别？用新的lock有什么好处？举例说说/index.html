@@ -9,18 +9,18 @@
         <meta name="keywords" content="java并发">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="原始构成 synchronized 是关键字，属于JVM层面  monitorenter（底层是通过 monitor 对象来完成，其实 wait/notify 等方法也依赖于 monitor 对象只有在同步块或者方法中才能调用 wait/notify 等方法）  monitorexit    Lock 是具体类（java.util.concurrent.locks.lock）是api层面的锁">
+    <meta name="description" content="原始构成 synchronized 是关键字，属于JVM层面  monitorenter（底层是通过 monitor 对象来完成，其实 wait/notify 等方法也依赖于 monitor 对象只有在同步块或者方法中才能调用 wait/notify 等方法）  monitorexit    Lock 是具体类（java.util.concurrent.locks.lock）是 api 层面的锁">
 <meta name="keywords" content="java并发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说">
 <meta property="og:url" content="https://yapengren.github.io/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="原始构成 synchronized 是关键字，属于JVM层面  monitorenter（底层是通过 monitor 对象来完成，其实 wait/notify 等方法也依赖于 monitor 对象只有在同步块或者方法中才能调用 wait/notify 等方法）  monitorexit    Lock 是具体类（java.util.concurrent.locks.lock）是api层面的锁">
+<meta property="og:description" content="原始构成 synchronized 是关键字，属于JVM层面  monitorenter（底层是通过 monitor 对象来完成，其实 wait/notify 等方法也依赖于 monitor 对象只有在同步块或者方法中才能调用 wait/notify 等方法）  monitorexit    Lock 是具体类（java.util.concurrent.locks.lock）是 api 层面的锁">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-19T09:31:02.544Z">
+<meta property="og:updated_time" content="2019-08-25T02:40:12.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说">
-<meta name="twitter:description" content="原始构成 synchronized 是关键字，属于JVM层面  monitorenter（底层是通过 monitor 对象来完成，其实 wait/notify 等方法也依赖于 monitor 对象只有在同步块或者方法中才能调用 wait/notify 等方法）  monitorexit    Lock 是具体类（java.util.concurrent.locks.lock）是api层面的锁">
+<meta name="twitter:description" content="原始构成 synchronized 是关键字，属于JVM层面  monitorenter（底层是通过 monitor 对象来完成，其实 wait/notify 等方法也依赖于 monitor 对象只有在同步块或者方法中才能调用 wait/notify 等方法）  monitorexit    Lock 是具体类（java.util.concurrent.locks.lock）是 api 层面的锁">
     
 
     
@@ -443,11 +443,11 @@
 </li>
 </ul>
 </li>
-<li><p>Lock 是具体类（java.util.concurrent.locks.lock）是api层面的锁</p>
+<li><p>Lock 是具体类（java.util.concurrent.locks.lock）是 api 层面的锁</p>
 </li>
 </ul>
 <h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ul>
-<li><p>synchronized 不需要用户去手动释放锁，当synchronized代码执行完后系统会自动让线程释放对锁的占用。</p>
+<li><p>synchronized 不需要用户去手动释放锁，当 synchronized 代码执行完后系统会自动让线程释放对锁的占用。</p>
 </li>
 <li><p>ReentrantLock 则需要用户去手动释放锁，若没有主动释放锁，就有可能导致出现死锁现象。需要 lock() 和unlock() 方法配合 try/finally 语句块来完成。</p>
 </li>
@@ -458,7 +458,7 @@
 <li><p>ReentrantLock可中断</p>
 <ul>
 <li>1.设置超时方法 tryLock(long timeout,TimeUnit unit)</li>
-<li>2.lockInterruptibly()放代码块中，调用interrupt()方法可中断</li>
+<li>2.lockInterruptibly() 放代码块中，调用 interrupt() 方法可中断</li>
 </ul>
 </li>
 </ul>
