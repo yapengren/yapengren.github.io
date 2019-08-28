@@ -243,7 +243,7 @@
                             &nbsp;
                             数据库
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  <li class="file"><a href="/wiki/SQL-的各种-JOIN-用法/">SQL 的各种 JOIN 用法</a></li>  <li class="file"><a href="/wiki/MySQL-索引知识点/">MySQL 索引知识点</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  <li class="file"><a href="/wiki/SQL-的各种-JOIN-用法/">SQL 的各种 JOIN 用法</a></li>  <li class="file"><a href="/wiki/MySQL-索引知识点/">MySQL 索引知识点</a></li>  <li class="file"><a href="/wiki/数据库事务知识点/">数据库事务知识点</a></li>  <li class="file"><a href="/wiki/数据库知识点/">数据库知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -364,6 +364,214 @@
 </aside>
             
             <section id="main">
+        <article id="post-数据库知识点" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/数据库/">数据库</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/mysql/">mysql</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/数据库知识点/">
+            <time datetime="2019-08-27T09:58:46.000Z" itemprop="datePublished">2019-08-27</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/数据库知识点.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/数据库知识点.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/数据库知识点.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/数据库知识点/">数据库知识点</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="数据库三范式"><a href="#数据库三范式" class="headerlink" title="数据库三范式"></a>数据库三范式</h2><h3 id="第一范式-1st-NF-－列都是不可再分"><a href="#第一范式-1st-NF-－列都是不可再分" class="headerlink" title="第一范式(1st NF －列都是不可再分)"></a>第一范式(1st NF －列都是不可再分)</h3><p>第一范式的目标是确保每列的原子性:如果每列都是不可再分的最小数据单元（也称为最小的原子 单元），则满足第一范式（1NF）</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6fan9n4muj30op05sq4c.jpg" alt="Attachment.jpeg"></p>
+<h3 id="第二范式-2nd-NF－每个表只描述一件事情"><a href="#第二范式-2nd-NF－每个表只描述一件事情" class="headerlink" title="第二范式(2nd NF－每个表只描述一件事情)"></a>第二范式(2nd NF－每个表只描述一件事情)</h3><p>首先满足第一范式，并且表中非主键列不存在对主键的部分依赖。 第二范式要求每个表只描述一 件事情。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6fankw6t9j30jj07cq4d.jpg" alt="Attachment.jpeg"></p>
+<h3 id="第三范式-3rd-NF－-不存在对非主键列的传递依赖"><a href="#第三范式-3rd-NF－-不存在对非主键列的传递依赖" class="headerlink" title="第三范式(3rd NF－ 不存在对非主键列的传递依赖)"></a>第三范式(3rd NF－ 不存在对非主键列的传递依赖)</h3><p>第三范式定义是，满足第二范式，并且表中的列不存在对非主键列的传递依赖。除了主键订单编 号外，顾客姓名依赖于非主键顾客编号。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/数据库知识点/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-数据库事务知识点" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/数据库/">数据库</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/mysql/">mysql</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/数据库事务知识点/">
+            <time datetime="2019-08-27T09:20:07.000Z" itemprop="datePublished">2019-08-27</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/数据库事务知识点.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/数据库事务知识点.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/数据库事务知识点.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/数据库事务知识点/">数据库事务知识点</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="数据库事务概念"><a href="#数据库事务概念" class="headerlink" title="数据库事务概念"></a>数据库事务概念</h2><h3 id="什么是数据库事务"><a href="#什么是数据库事务" class="headerlink" title="什么是数据库事务"></a>什么是数据库事务</h3><p>事务（transaction）是由指逻辑上对数据的的一组操作， 这组操作要么一次全部成功，如果这组操作全部失败，是不可分割的一个工作单位。</p>
+<h2 id="数据库事务的-4-个基本性质（ACID）"><a href="#数据库事务的-4-个基本性质（ACID）" class="headerlink" title="数据库事务的 4 个基本性质（ACID）"></a>数据库事务的 4 个基本性质（ACID）</h2><h3 id="原子性（Atomicity）"><a href="#原子性（Atomicity）" class="headerlink" title="原子性（Atomicity）"></a>原子性（Atomicity）</h3><p>事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部发生，否则全部不发生。</p>
+<h3 id="一致性（Consistency）"><a href="#一致性（Consistency）" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h3><p>在事务开始以前，被操作的数据的完整性处于一致性的状态，事务结束后，被操作的数据的完整性也必须处于一致性状态。</p>
+<p>拿银行转账来说，一致性要求事务的执行不应改变A、B 两个账户的金额总和。如果没有这种一致性要求，转账过程中就会发生钱无中生有，或者不翼而飞的现象。事务应该把数据库从一个一致性状态转换到另外一个一致性状态。</p>
+<h3 id="隔离性（Isolation）"><a href="#隔离性（Isolation）" class="headerlink" title="隔离性（Isolation）"></a>隔离性（Isolation）</h3><p>事务隔离性要求系统必须保证事务不受其他并发执行的事务的影响，也即要达到这样一种效果：对于任何一对事务T1 和 T2，在事务 T1 看来，T2 要么在 T1 开始之前已经结束，要么在 T1 完成之后才开始执行。这样，每个事务都感觉不到系统中有其他事务在并发地执行。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/数据库事务知识点/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-MySQL-索引知识点" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1140,214 +1348,6 @@
         
             <h2 id="写时复制"><a href="#写时复制" class="headerlink" title="写时复制"></a>写时复制</h2><p>CopyOnWrite 容器即写时复制的容器。<br>往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，<br>然后新的容器 Object[] newElements 里添加元素，<br>添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)<br>这样做的好处是可以对 copyonwrite 容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。<br>所以 copyonwrite容器也是一种读写分离的思想，读和写不同的容器。</p>
 
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-原子类Atomiclnteger-的-ABA-问题谈谈？" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java并发/">java并发</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/原子类Atomiclnteger-的-ABA-问题谈谈？/">
-            <time datetime="2019-08-20T05:56:30.000Z" itemprop="datePublished">2019-08-20</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/原子类Atomiclnteger-的-ABA-问题谈谈？.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/原子类Atomiclnteger-的-ABA-问题谈谈？.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/原子类Atomiclnteger-的-ABA-问题谈谈？.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/原子类Atomiclnteger-的-ABA-问题谈谈？/">原子类Atomiclnteger 的 ABA 问题谈谈？</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="ABA问题怎么产生的"><a href="#ABA问题怎么产生的" class="headerlink" title="ABA问题怎么产生的"></a>ABA问题怎么产生的</h2><p>CAS会导致 ABA 问题</p>
-<p>CAS 算法实现一个重要前提需要取出内存中某时刻的数据并在当下时刻比较并替换，那么在这个时间差类会导致数据的变化。</p>
-<p>尽管线程 one 的 CAS 操作成功，但是不代表这个过程就是没问题的。</p>
-<h2 id="原子引用"><a href="#原子引用" class="headerlink" title="原子引用"></a>原子引用</h2><p>解决ABA问题</p>
-<h2 id="时间戳原子引用"><a href="#时间戳原子引用" class="headerlink" title="时间戳原子引用"></a>时间戳原子引用</h2><p>AtomicStampledReference<br>ABADemo</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/原子类Atomiclnteger-的-ABA-问题谈谈？/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-CAS-你知道吗？" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java并发/">java并发</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/CAS-你知道吗？/">
-            <time datetime="2019-08-20T05:49:03.000Z" itemprop="datePublished">2019-08-20</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/CAS-你知道吗？.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/CAS-你知道吗？.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/CAS-你知道吗？.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/CAS-你知道吗？/">CAS 你知道吗？</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="比较并交换"><a href="#比较并交换" class="headerlink" title="比较并交换"></a>比较并交换</h2><h2 id="CAS底层原理？如果知道，谈谈比对Unsafe的理解"><a href="#CAS底层原理？如果知道，谈谈比对Unsafe的理解" class="headerlink" title="CAS底层原理？如果知道，谈谈比对Unsafe的理解"></a>CAS底层原理？如果知道，谈谈比对Unsafe的理解</h2><h3 id="Unsafe"><a href="#Unsafe" class="headerlink" title="Unsafe"></a>Unsafe</h3><ol>
-<li><p>Unsafe 是 CAS 的核心类，由于 Java 方法无法直接访问底层系统，需要通过本地（native）方法来访问，Unsafe 相当于一个后门，基于该类可以直接操作特定内存的数据。Unsafe 类存在于 sun.misc 包中，其内部方法操作可以像 C 的指针一样直接操作内存，因为 Java 中 CAS 操作的执行依赖于 Unsafe 类的方法。</p>
-<p>注意 Unsafe 类中的所有方法都是 native 修饰的，也就是说 Unsafe 类中的方法都直接调用操作系统底层资源执行相应任务。</p>
-</li>
-<li><p>变量 valueOffset，表示该变量在内存中的偏移地址，因为 Unsafe 就是根据内存偏移地址获取数据的。</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/CAS-你知道吗？/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

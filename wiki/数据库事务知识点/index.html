@@ -3,19 +3,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>分类: 文件存储 | yp_ren Blog</title>
+    <title>数据库事务知识点 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="yp_ren Blog">
+        <meta name="keywords" content="mysql">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="yp_ren Blog">
-<meta property="og:url" content="https://yapengren.github.io/categories/技术分享/文件存储/index.html">
+    <meta name="description" content="数据库事务概念什么是数据库事务事务（transaction）是由指逻辑上对数据的的一组操作， 这组操作要么一次全部成功，如果这组操作全部失败，是不可分割的一个工作单位。 数据库事务的 4 个基本性质（ACID）原子性（Atomicity）事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部发生，否则全部不发生。 一致性（Consistency）在事务开始以前，被操作的数据的完整性处于一致">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库事务知识点">
+<meta property="og:url" content="https://yapengren.github.io/wiki/数据库事务知识点/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
+<meta property="og:description" content="数据库事务概念什么是数据库事务事务（transaction）是由指逻辑上对数据的的一组操作， 这组操作要么一次全部成功，如果这组操作全部失败，是不可分割的一个工作单位。 数据库事务的 4 个基本性质（ACID）原子性（Atomicity）事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部发生，否则全部不发生。 一致性（Consistency）在事务开始以前，被操作的数据的完整性处于一致">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-27T09:53:46.802Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yp_ren Blog">
+<meta name="twitter:title" content="数据库事务知识点">
+<meta name="twitter:description" content="数据库事务概念什么是数据库事务事务（transaction）是由指逻辑上对数据的的一组操作， 这组操作要么一次全部成功，如果这组操作全部失败，是不可分割的一个工作单位。 数据库事务的 4 个基本性质（ACID）原子性（Atomicity）事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部发生，否则全部不发生。 一致性（Consistency）在事务开始以前，被操作的数据的完整性处于一致">
     
 
     
@@ -176,9 +181,9 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             技术分享
                         </a>
@@ -237,13 +242,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/springMVC-流程图/">springMVC 流程图</a></li>  <li class="file"><a href="/wiki/Spring-知识点/">Spring 知识点</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             数据库
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  <li class="file"><a href="/wiki/SQL-的各种-JOIN-用法/">SQL 的各种 JOIN 用法</a></li>  <li class="file"><a href="/wiki/MySQL-索引知识点/">MySQL 索引知识点</a></li>  <li class="file"><a href="/wiki/数据库事务知识点/">数据库事务知识点</a></li>  <li class="file"><a href="/wiki/数据库知识点/">数据库知识点</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  <li class="file"><a href="/wiki/SQL-的各种-JOIN-用法/">SQL 的各种 JOIN 用法</a></li>  <li class="file"><a href="/wiki/MySQL-索引知识点/">MySQL 索引知识点</a></li>  <li class="file active"><a href="/wiki/数据库事务知识点/">数据库事务知识点</a></li>  <li class="file"><a href="/wiki/数据库知识点/">数据库知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -363,50 +368,140 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">文件存储</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-数据库事务知识点" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/FastDFS-流程图/">FastDFS 流程图</a>
-        </h1>
-    
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/数据库/">数据库</a>
+    </div>
 
-                <div class="article-meta">
-                    
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/mysql/">mysql</a>
+    </div>
+
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/FastDFS-流程图/">
-            <time datetime="2019-08-04T03:34:10.000Z" itemprop="datePublished">2019-08-04</time>
+        <a href="/wiki/数据库事务知识点/">
+            <time datetime="2019-08-27T09:20:07.000Z" itemprop="datePublished">2019-08-27</time>
         </a>
     </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/文件存储/">文件存储</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/FastDFS/">FastDFS</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/数据库事务知识点.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/数据库事务知识点.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/数据库事务知识点.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
     
-</div>
+        <h1 class="article-title" itemprop="name">
+            数据库事务知识点
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库事务概念"><span class="toc-number">1.</span> <span class="toc-text">数据库事务概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是数据库事务"><span class="toc-number">1.1.</span> <span class="toc-text">什么是数据库事务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库事务的-4-个基本性质（ACID）"><span class="toc-number">2.</span> <span class="toc-text">数据库事务的 4 个基本性质（ACID）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原子性（Atomicity）"><span class="toc-number">2.1.</span> <span class="toc-text">原子性（Atomicity）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一致性（Consistency）"><span class="toc-number">2.2.</span> <span class="toc-text">一致性（Consistency）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#隔离性（Isolation）"><span class="toc-number">2.3.</span> <span class="toc-text">隔离性（Isolation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#持久性（Durability）"><span class="toc-number">2.4.</span> <span class="toc-text">持久性（Durability）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库事务的-4-种隔离级别"><span class="toc-number">3.</span> <span class="toc-text">数据库事务的 4 种隔离级别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Read-uncommitted"><span class="toc-number">3.1.</span> <span class="toc-text">Read uncommitted</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Read-committed"><span class="toc-number">3.2.</span> <span class="toc-text">Read committed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Repeatable-read"><span class="toc-number">3.3.</span> <span class="toc-text">Repeatable read</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Serializable-序列化"><span class="toc-number">3.4.</span> <span class="toc-text">Serializable 序列化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+                </div>
+            
+        
+        
+            <h2 id="数据库事务概念"><a href="#数据库事务概念" class="headerlink" title="数据库事务概念"></a>数据库事务概念</h2><h3 id="什么是数据库事务"><a href="#什么是数据库事务" class="headerlink" title="什么是数据库事务"></a>什么是数据库事务</h3><p>事务（transaction）是由指逻辑上对数据的的一组操作， 这组操作要么一次全部成功，如果这组操作全部失败，是不可分割的一个工作单位。</p>
+<h2 id="数据库事务的-4-个基本性质（ACID）"><a href="#数据库事务的-4-个基本性质（ACID）" class="headerlink" title="数据库事务的 4 个基本性质（ACID）"></a>数据库事务的 4 个基本性质（ACID）</h2><h3 id="原子性（Atomicity）"><a href="#原子性（Atomicity）" class="headerlink" title="原子性（Atomicity）"></a>原子性（Atomicity）</h3><p>事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部发生，否则全部不发生。</p>
+<h3 id="一致性（Consistency）"><a href="#一致性（Consistency）" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h3><p>在事务开始以前，被操作的数据的完整性处于一致性的状态，事务结束后，被操作的数据的完整性也必须处于一致性状态。</p>
+<p>拿银行转账来说，一致性要求事务的执行不应改变A、B 两个账户的金额总和。如果没有这种一致性要求，转账过程中就会发生钱无中生有，或者不翼而飞的现象。事务应该把数据库从一个一致性状态转换到另外一个一致性状态。</p>
+<h3 id="隔离性（Isolation）"><a href="#隔离性（Isolation）" class="headerlink" title="隔离性（Isolation）"></a>隔离性（Isolation）</h3><p>事务隔离性要求系统必须保证事务不受其他并发执行的事务的影响，也即要达到这样一种效果：对于任何一对事务T1 和 T2，在事务 T1 看来，T2 要么在 T1 开始之前已经结束，要么在 T1 完成之后才开始执行。这样，每个事务都感觉不到系统中有其他事务在并发地执行。</p>
+<h3 id="持久性（Durability）"><a href="#持久性（Durability）" class="headerlink" title="持久性（Durability）"></a>持久性（Durability）</h3><p>一个事务一旦成功提交，它对数据库的改变必须是永久的，即便是数据库发生故障也应该不回对其产生任何影响。</p>
+<h2 id="数据库事务的-4-种隔离级别"><a href="#数据库事务的-4-种隔离级别" class="headerlink" title="数据库事务的 4 种隔离级别"></a>数据库事务的 4 种隔离级别</h2><h3 id="Read-uncommitted"><a href="#Read-uncommitted" class="headerlink" title="Read uncommitted"></a>Read uncommitted</h3><p>读未提交，顾名思义，就是一个事务可以读取另一个未提交事务的数据。</p>
+<p>事例：老板要给程序员发工资，程序员的工资是 3.6 万/月。但是发工资时老板不小心按错了数字，按成 3.9 万/月，该钱已经打到程序员的户口，但是事务还没有提交，就在这时，程序员去查看自己这个月的工资，发现比往常多了 3 千元，以为涨工资了非常高兴。但是老板及时发现了不对，马上回滚差点就提交了的事务，将数字改成 3.6 万再提交。</p>
+<p>分析：实际程序员这个月的工资还是 3.6 万，但是程序员看到的是 3.9 万。他看到的是老板还没提交事务时的数据。这就是脏读。</p>
+<p>那怎么解决脏读呢？Read committed！读提交，能解决脏读问题。</p>
+<h3 id="Read-committed"><a href="#Read-committed" class="headerlink" title="Read committed"></a>Read committed</h3><p>读提交，顾名思义，就是一个事务要等另一个事务提交后才能读取数据。</p>
+<p>事例：程序员拿着信用卡去享受生活（卡里当然是只有 3.6 万），当他埋单时（程序员事务开启），收费系统事先检测到他的卡里有 3.6 万，就在这个时候！！程序员的妻子要把钱全部转出充当家用，并提交。当收费系统准备扣款时，再检测卡里的金额，发现已经没钱了（第二次检测金额当然要等待妻子转出金额事务提交完）。程序员就会很郁闷，明明卡里是有钱的…</p>
+<p>分析：这就是读提交，若有事务对数据进行更新 UPDATE 操作时，读操作事务要等待这个更新操作事务提交后才能读取数据，可以解决脏读问题。但在这个事例中，出现了一个事务范围内两个相同的查询却返回了不同数据，这就是不可重复读。</p>
+<p>那怎么解决可能的不可重复读问题？Repeatable read ！</p>
+<h3 id="Repeatable-read"><a href="#Repeatable-read" class="headerlink" title="Repeatable read"></a>Repeatable read</h3><p>重复读，就是在开始读取数据（事务开启）时，不再允许修改操作</p>
+<p>事例：程序员拿着信用卡去享受生活（卡里当然是只有 3.6 万），当他埋单时（事务开启，不允许其他事务的 UPDATE 修改操作），收费系统事先检测到他的卡里有 3.6 万。这个时候他的妻子不能转出金额了。接下来收费系统就可以扣款了。</p>
+<p>分析：重复读可以解决不可重复读问题。写到这里，应该明白的一点就是，不可重复读对应的是修改，即 UPDATE 操作。但是可能还会有幻读问题。因为幻读问题对应的是插入 INSERT 操作，而不是 UPDATE 操作。</p>
+<p>什么时候会出现幻读？</p>
+<p>事例：程序员某一天去消费，花了 2 千元，然后他的妻子去查看他今天的消费记录（全表扫描FTS，妻子事务开启），看到确实是花了 2 千元，就在这个时候，程序员花了 1 万买了一部电脑，即新增 INSERT 了一条消费记录，并提交。当妻子打印程序员的消费记录清单时（妻子事务提交），发现花了1.2万元，似乎出现了幻觉，这就是幻读。</p>
+<p>那怎么解决幻读问题？Serializable！</p>
+<h3 id="Serializable-序列化"><a href="#Serializable-序列化" class="headerlink" title="Serializable 序列化"></a>Serializable 序列化</h3><p>Serializable 是最高的事务隔离级别，在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读。但是这种事务隔离级别效率低下，比较耗数据库性能，一般不使用。</p>
+<blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  <a href="https://blog.csdn.net/mfl0315/article/details/51981792" target="_blank" rel="noopener">https://blog.csdn.net/mfl0315/article/details/51981792</a></p>
+<p>  <a href="https://blog.csdn.net/qq_33290787/article/details/51924963" target="_blank" rel="noopener">https://blog.csdn.net/qq_33290787/article/details/51924963</a></p>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/数据库知识点/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    数据库知识点
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/MySQL-索引知识点/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">MySQL 索引知识点</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 </section>
         </div>
         <footer id="footer">
