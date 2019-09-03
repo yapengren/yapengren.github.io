@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79ly1g64rkjcypbj30ym0i80ti.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g64rsbdgrgj30jr0cv3yj.jpg">
-<meta property="og:updated_time" content="2019-08-25T01:31:15.173Z">
+<meta property="og:updated_time" content="2019-09-03T10:32:54.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis zset 实现简单限流">
 <meta name="twitter:description" content="除了控制流量，限流还有一个应用目的是用于控制用户行为，避免垃圾请求。比如在 UGC 社区，用户的发帖、回复、点赞等行为都要严格受控，一般要严格限定某行为在规定时间内允许的次数，超过了次数那就是非法行为。对非法行为，业务必须规定适当的惩处策略。 如何使用 Redis 来实现简单限流策略？首先我们来看一个常见的简单的限流策略。系统要限定用户的某个行为在指定的时间里只能允许发生 N 次，如何使用 Red">
@@ -279,7 +279,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/token-防表单重复提交/">token 防表单重复提交</a></li>  </ul> 
                     </li> 
-                     </ul> 
+                     <li class="file"><a href="/wiki/稀疏数组-sparsearray/">稀疏数组 sparsearray</a></li>  <li class="file"><a href="/wiki/冒泡排序/">冒泡排序</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -299,7 +299,7 @@
                     </li> 
                      </ul> 
                     </li> 
-                     <li class="file"><a href="/wiki/让我们同步进阶/">让我们同步进阶</a></li>  <li class="file"><a href="/wiki/稀疏数组-sparsearray/">稀疏数组 sparsearray</a></li>  </ul> 
+                     <li class="file"><a href="/wiki/让我们同步进阶/">让我们同步进阶</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -440,7 +440,7 @@
 <p>  将 userId 和 actionKey 拼成 key，在第一次请求时设置 value 为 1，设置过期时间 expire 为特定的时间 period</p>
 <p>  每次请求的时候获取 value 值，若存在则 incr 自增 1，超过 maxCount 则做限制</p>
 </blockquote>
-<h3 id="问题模拟分析"><a href="#问题模拟分析" class="headerlink" title="问题模拟分析"></a>问题模拟分析</h3><p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g64rkjcypbj30ym0i80ti.jpg" alt="image-20190818163237023"></p>
+<h3 id="问题模拟分析"><a href="#问题模拟分析" class="headerlink" title="问题模拟分析"></a>问题模拟分析</h3><p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g64rkjcypbj30ym0i80ti.jpg" alt="redis 问题模拟分析"></p>
 <p>如上图：5 分钟之内只能发帖 10 次。</p>
 <p>11:01 用户发帖 1 次，此时 redis 中存放数据 key 为 <code>userId:actionKey</code>，vlaue 为 1，过期时间 5 分钟；</p>
 <p>11:05 用户发帖 8 次，发帖成功；</p>
@@ -448,7 +448,7 @@
 <p>11:06 用户发帖，此时 redis 中 key 不存在，重新存放 key，发帖 8 次，发帖成功；</p>
 <p>那么 11:05 -&gt; 11:06 时间段 2 分钟发帖 16 次，没有达到期望的功能；</p>
 <h2 id="正确方案"><a href="#正确方案" class="headerlink" title="正确方案"></a>正确方案</h2><p>这个限流需求中存在一个滑动时间窗口，想想 zset 数据结构的 score 值，是不是可以通过 score 来圈出这个时间窗口来。而且我们只需要保留这个时间窗口，窗口之外的数据都可以砍掉。那这个 zset 的 value 填什么比较合适呢？它只需要保证唯一性即可，用 uuid 会比较浪费空间，那就改用毫秒时间戳吧。</p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g64rsbdgrgj30jr0cv3yj.jpg" alt></p>
+<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g64rsbdgrgj30jr0cv3yj.jpg" alt="redis 滑动窗口"></p>
 <p>如图所示，用一个 zset 结构记录用户的行为历史，每一个行为都会作为 zset 中的一个 key 保存下来。同一个用户同一种行为用一个 zset 记录。</p>
 <p>为节省内存，我们只需要保留时间窗口内的行为记录，同时如果用户是冷用户，滑动时间窗口内的行为是空记录，那么这个 zset 就可以从内存中移除，不再占用空间。</p>
 <p>通过统计滑动窗口内的行为数量与阈值 max_count 进行比较就可以得出当前的行为是否允许。用代码表示如下：</p>

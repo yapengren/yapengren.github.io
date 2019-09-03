@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtgf40z1j30zw0fcgp7.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jthducssj30r20k0q7p.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtib2spsj31gi0e2n21.jpg">
-<meta property="og:updated_time" content="2019-09-02T02:53:12.624Z">
+<meta property="og:updated_time" content="2019-09-03T10:28:07.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="稀疏数组 sparsearray">
 <meta name="twitter:description" content="需求编写的五子棋程序中，有存盘退出和续上盘的功能。  分析问题因为该二维数组的很多值是默认值 0, 因此记录了很多没有意义的数据 稀疏数组基本介绍当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。 稀疏数组处理方法 记录数组一共有几行几列，有多少个不同的值 把具有不同值的元素的行列及值记录在一个小规模的数组中，从而缩小程序的规模  稀疏数组举例说明 应用实例 使用稀">
@@ -185,9 +185,9 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             技术分享
                         </a>
@@ -281,7 +281,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/token-防表单重复提交/">token 防表单重复提交</a></li>  </ul> 
                     </li> 
-                     </ul> 
+                     <li class="file active"><a href="/wiki/稀疏数组-sparsearray/">稀疏数组 sparsearray</a></li>  <li class="file"><a href="/wiki/冒泡排序/">冒泡排序</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -301,7 +301,7 @@
                     </li> 
                      </ul> 
                     </li> 
-                     <li class="file"><a href="/wiki/让我们同步进阶/">让我们同步进阶</a></li>  <li class="file active"><a href="/wiki/稀疏数组-sparsearray/">稀疏数组 sparsearray</a></li>  </ul> 
+                     <li class="file"><a href="/wiki/让我们同步进阶/">让我们同步进阶</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -380,6 +380,11 @@
                 
                     <div class="article-meta">
                         
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a>
+    </div>
+
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
@@ -434,19 +439,19 @@
         
         
             <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>编写的五子棋程序中，有存盘退出和续上盘的功能。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtgf40z1j30zw0fcgp7.jpg" alt="image-20190901103926746"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtgf40z1j30zw0fcgp7.jpg" alt="稀疏数组需求"></p>
 <h3 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h3><p>因为该二维数组的很多值是默认值 0, 因此记录了很多没有意义的数据</p>
 <h3 id="稀疏数组基本介绍"><a href="#稀疏数组基本介绍" class="headerlink" title="稀疏数组基本介绍"></a>稀疏数组基本介绍</h3><p>当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。</p>
 <h3 id="稀疏数组处理方法"><a href="#稀疏数组处理方法" class="headerlink" title="稀疏数组处理方法"></a>稀疏数组处理方法</h3><ol>
 <li>记录数组一共有几行几列，有多少个不同的值</li>
 <li>把具有不同值的元素的行列及值记录在一个小规模的数组中，从而缩小程序的规模</li>
 </ol>
-<h3 id="稀疏数组举例说明"><a href="#稀疏数组举例说明" class="headerlink" title="稀疏数组举例说明"></a>稀疏数组举例说明</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jthducssj30r20k0q7p.jpg" alt="image-20190901104024821"></p>
+<h3 id="稀疏数组举例说明"><a href="#稀疏数组举例说明" class="headerlink" title="稀疏数组举例说明"></a>稀疏数组举例说明</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jthducssj30r20k0q7p.jpg" alt="稀疏数组举例说明"></p>
 <h3 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h3><ol>
 <li>使用稀疏数组，来保留类似前面的二维数组(棋盘、地图等等)</li>
 <li>把稀疏数组存盘，并且可以重新恢复原来的二维数组数</li>
 </ol>
-<h3 id="整体思路分析"><a href="#整体思路分析" class="headerlink" title="整体思路分析"></a>整体思路分析</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtib2spsj31gi0e2n21.jpg" alt="image-20190901104117834"></p>
+<h3 id="整体思路分析"><a href="#整体思路分析" class="headerlink" title="整体思路分析"></a>整体思路分析</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtib2spsj31gi0e2n21.jpg" alt="稀疏数组整体思路分析"></p>
 <p>原始的二维数组 –&gt; 稀疏数组的思路</p>
 <ol>
 <li><p>遍历原始的二维数组，得到有效数据的个数 sum</p>
@@ -474,6 +479,15 @@
 
     
 <nav id="article-nav">
+    
+        <a href="/wiki/冒泡排序/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    冒泡排序
+                
+            </div>
+        </a>
     
     
         <a href="/wiki/java-基础题/" id="article-nav-older" class="article-nav-link-wrap">

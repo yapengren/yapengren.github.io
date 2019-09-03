@@ -18,7 +18,7 @@
 <meta property="og:description" content="继承体系 在 Java 中，HashMap 的实现采用了（数组 + 链表 + 红黑树）的复杂结构，数组的一个元素又称作桶。 在添加元素时，会根据 hash 值算出元素在数组中的位置，如果该位置没有元素，则直接把元素放置在此处，如果该位置有元素了，则把元素以链表的形式放置在链表的尾部。 当一个链表的元素个数达到一定的数量（且数组的长度达到一定的长度）后，则把链表转化为红黑树，从而提高效率。 数组的查">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79ly1g62mklbo1uj30u40cg0tc.jpg">
-<meta property="og:updated_time" content="2019-08-19T09:26:39.750Z">
+<meta property="og:updated_time" content="2019-09-03T10:33:52.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HashMap 源码分析">
 <meta name="twitter:description" content="继承体系 在 Java 中，HashMap 的实现采用了（数组 + 链表 + 红黑树）的复杂结构，数组的一个元素又称作桶。 在添加元素时，会根据 hash 值算出元素在数组中的位置，如果该位置没有元素，则直接把元素放置在此处，如果该位置有元素了，则把元素以链表的形式放置在链表的尾部。 当一个链表的元素个数达到一定的数量（且数组的长度达到一定的长度）后，则把链表转化为红黑树，从而提高效率。 数组的查">
@@ -279,7 +279,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/token-防表单重复提交/">token 防表单重复提交</a></li>  </ul> 
                     </li> 
-                     </ul> 
+                     <li class="file"><a href="/wiki/稀疏数组-sparsearray/">稀疏数组 sparsearray</a></li>  <li class="file"><a href="/wiki/冒泡排序/">冒泡排序</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -299,7 +299,7 @@
                     </li> 
                      </ul> 
                     </li> 
-                     <li class="file"><a href="/wiki/让我们同步进阶/">让我们同步进阶</a></li>  <li class="file"><a href="/wiki/稀疏数组-sparsearray/">稀疏数组 sparsearray</a></li>  </ul> 
+                     <li class="file"><a href="/wiki/让我们同步进阶/">让我们同步进阶</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -436,7 +436,7 @@
             
         
         
-            <h3 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h3><p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g62mklbo1uj30u40cg0tc.jpg" alt="image-20190817134639787"></p>
+            <h3 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h3><p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g62mklbo1uj30u40cg0tc.jpg" alt="HashMap 继承体系"></p>
 <p>在 Java 中，HashMap 的实现采用了（数组 + 链表 + 红黑树）的复杂结构，数组的一个元素又称作桶。</p>
 <p>在添加元素时，会根据 hash 值算出元素在数组中的位置，如果该位置没有元素，则直接把元素放置在此处，如果该位置有元素了，则把元素以链表的形式放置在链表的尾部。</p>
 <p>当一个链表的元素个数达到一定的数量（且数组的长度达到一定的长度）后，则把链表转化为红黑树，从而提高效率。</p>

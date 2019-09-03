@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8roxm7j307604u0sp.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8u43nrj307604u3yi.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8tobxfj307604udfu.jpg">
-<meta property="og:updated_time" content="2019-08-25T01:26:42.983Z">
+<meta property="og:updated_time" content="2019-09-03T10:31:33.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL 的各种 JOIN 用法">
 <meta name="twitter:description" content="下图展示了 LEFT JOIN、RIGHT JOIN、INNER JOIN、OUTER JOIN 相关的 7 种用法。  Inner JOIN SELECT &amp;lt;select_list&amp;gt; FROM Table_A AINNER JOIN Table_B BON A.Key = B.Key  Left JOIN SELECT &amp;lt;select_list&amp;gt;FROM Table_A">
@@ -286,7 +286,7 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/token-防表单重复提交/">token 防表单重复提交</a></li>  </ul> 
                     </li> 
-                     </ul> 
+                     <li class="file"><a href="/wiki/稀疏数组-sparsearray/">稀疏数组 sparsearray</a></li>  <li class="file"><a href="/wiki/冒泡排序/">冒泡排序</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -306,7 +306,7 @@
                     </li> 
                      </ul> 
                     </li> 
-                     <li class="file"><a href="/wiki/让我们同步进阶/">让我们同步进阶</a></li>  <li class="file"><a href="/wiki/稀疏数组-sparsearray/">稀疏数组 sparsearray</a></li>  </ul> 
+                     <li class="file"><a href="/wiki/让我们同步进阶/">让我们同步进阶</a></li>  </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -444,26 +444,26 @@
         
         
             <p>下图展示了 LEFT JOIN、RIGHT JOIN、INNER JOIN、OUTER JOIN 相关的 7 种用法。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8ss22yj30qu0l4q5w.jpg" alt="img"></p>
-<h3 id="Inner-JOIN"><a href="#Inner-JOIN" class="headerlink" title="Inner JOIN"></a>Inner JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8r7xc7j307604umx4.jpg" alt="img"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8ss22yj30qu0l4q5w.jpg" alt="SQL JOINS"></p>
+<h3 id="Inner-JOIN"><a href="#Inner-JOIN" class="headerlink" title="Inner JOIN"></a>Inner JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8r7xc7j307604umx4.jpg" alt="inner join"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT &lt;select_list&gt; </span><br><span class="line">FROM Table_A A</span><br><span class="line">INNER JOIN Table_B B</span><br><span class="line">ON A.Key = B.Key</span><br></pre></td></tr></table></figure>
 
-<h3 id="Left-JOIN"><a href="#Left-JOIN" class="headerlink" title="Left JOIN"></a>Left JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8t2omcj307604ugll.jpg" alt="img"></p>
+<h3 id="Left-JOIN"><a href="#Left-JOIN" class="headerlink" title="Left JOIN"></a>Left JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8t2omcj307604ugll.jpg" alt="left join"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT &lt;select_list&gt;</span><br><span class="line">FROM Table_A A</span><br><span class="line">LEFT JOIN Table_B B</span><br><span class="line">ON A.Key = B.Key</span><br></pre></td></tr></table></figure>
 
-<h3 id="Right-JOIN"><a href="#Right-JOIN" class="headerlink" title="Right JOIN"></a>Right JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8s6ylkj307604ugll.jpg" alt="img"></p>
+<h3 id="Right-JOIN"><a href="#Right-JOIN" class="headerlink" title="Right JOIN"></a>Right JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8s6ylkj307604ugll.jpg" alt="right join"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT &lt;select_list&gt;</span><br><span class="line">FROM Table_A A</span><br><span class="line">RIGHT JOIN Table_B B</span><br><span class="line">ON A.Key = B.Key</span><br></pre></td></tr></table></figure>
 
-<h3 id="Left-Excluding-JOIN"><a href="#Left-Excluding-JOIN" class="headerlink" title="Left Excluding JOIN"></a>Left Excluding JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8qxu6hj307604u3yh.jpg" alt="img"></p>
+<h3 id="Left-Excluding-JOIN"><a href="#Left-Excluding-JOIN" class="headerlink" title="Left Excluding JOIN"></a>Left Excluding JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8qxu6hj307604u3yh.jpg" alt="left excluding join"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT &lt;select_list&gt; </span><br><span class="line">FROM Table_A A</span><br><span class="line">LEFT JOIN Table_B B</span><br><span class="line">ON A.Key = B.Key</span><br><span class="line">WHERE B.Key IS NULL</span><br></pre></td></tr></table></figure>
 
-<h3 id="Right-Excluding-JOIN"><a href="#Right-Excluding-JOIN" class="headerlink" title="Right Excluding JOIN"></a>Right Excluding JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8roxm7j307604u0sp.jpg" alt="img"></p>
+<h3 id="Right-Excluding-JOIN"><a href="#Right-Excluding-JOIN" class="headerlink" title="Right Excluding JOIN"></a>Right Excluding JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8roxm7j307604u0sp.jpg" alt="right excluding join"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT &lt;select_list&gt;</span><br><span class="line">FROM Table_A A</span><br><span class="line">RIGHT JOIN Table_B B</span><br><span class="line">ON A.Key = B.Key</span><br><span class="line">WHERE A.Key IS NULL</span><br></pre></td></tr></table></figure>
 
-<h3 id="Outer-JOIN"><a href="#Outer-JOIN" class="headerlink" title="Outer JOIN"></a>Outer JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8u43nrj307604u3yi.jpg" alt="img"></p>
+<h3 id="Outer-JOIN"><a href="#Outer-JOIN" class="headerlink" title="Outer JOIN"></a>Outer JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8u43nrj307604u3yi.jpg" alt="outer join"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># oracle</span><br><span class="line">SELECT &lt;select_list&gt;</span><br><span class="line">FROM Table_A A</span><br><span class="line">FULL OUTER JOIN Table_B B</span><br><span class="line">ON A.Key = B.Key</span><br><span class="line"></span><br><span class="line"># MySQL</span><br><span class="line">SELECT &lt;select_list&gt;</span><br><span class="line">FROM Table_A A</span><br><span class="line">LEFT JOIN Table_B B</span><br><span class="line">ON A.Key = B.Key</span><br><span class="line">UNION</span><br><span class="line">SELECT &lt;select_list&gt;</span><br><span class="line">FROM Table_A A</span><br><span class="line">RIGHT JOIN Table_B B</span><br><span class="line">ON A.Key = B.Key</span><br></pre></td></tr></table></figure>
 
-<h3 id="Outer-Excluding-JOIN"><a href="#Outer-Excluding-JOIN" class="headerlink" title="Outer Excluding JOIN"></a>Outer Excluding JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8tobxfj307604udfu.jpg" alt="img"></p>
+<h3 id="Outer-Excluding-JOIN"><a href="#Outer-Excluding-JOIN" class="headerlink" title="Outer Excluding JOIN"></a>Outer Excluding JOIN</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6at8tobxfj307604udfu.jpg" alt="outer excluding join"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># oracle</span><br><span class="line">SELECT &lt;select_list&gt;</span><br><span class="line">FROM Table_A A</span><br><span class="line">FULL OUTER JOIN Table_B B</span><br><span class="line">ON A.Key = B.Key</span><br><span class="line">WHERE A.Key IS NULL OR B.Key IS NULL</span><br><span class="line"></span><br><span class="line"># mysql</span><br><span class="line">SELECT &lt;select_list&gt; </span><br><span class="line">FROM Table_A A</span><br><span class="line">LEFT JOIN Table_B B</span><br><span class="line">ON A.Key = B.Key</span><br><span class="line">WHERE B.Key IS NULL</span><br><span class="line">UNION</span><br><span class="line">SELECT &lt;select_list&gt;</span><br><span class="line">FROM Table_A A</span><br><span class="line">RIGHT JOIN Table_B B</span><br><span class="line">ON A.Key = B.Key</span><br><span class="line">WHERE A.Key IS NULL</span><br></pre></td></tr></table></figure>
 
 <blockquote>
