@@ -9,18 +9,18 @@
         <meta name="keywords" content="mysql">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="数据库事务概念什么是数据库事务事务（transaction）是由指逻辑上对数据的的一组操作， 这组操作要么一次全部成功，如果这组操作全部失败，是不可分割的一个工作单位。 数据库事务的 4 个基本性质（ACID）原子性（Atomicity）事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部发生，否则全部不发生。 一致性（Consistency）在事务开始以前，被操作的数据的完整性处于一致">
+    <meta name="description" content="数据库事务概念什么是数据库事务事务（transaction）是指逻辑上对数据的一组操作， 这组操作要么全部成功，要么全部失败，是不可分割的一个工作单位。 数据库事务的 4 个基本性质（ACID）原子性（Atomicity）事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部成功，要么全部失败。 一致性（Consistency）在事务开始以前，被操作的数据的完整性处于一致性的状态，事务结束">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库事务知识点">
 <meta property="og:url" content="https://yapengren.github.io/wiki/数据库事务知识点/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="数据库事务概念什么是数据库事务事务（transaction）是由指逻辑上对数据的的一组操作， 这组操作要么一次全部成功，如果这组操作全部失败，是不可分割的一个工作单位。 数据库事务的 4 个基本性质（ACID）原子性（Atomicity）事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部发生，否则全部不发生。 一致性（Consistency）在事务开始以前，被操作的数据的完整性处于一致">
+<meta property="og:description" content="数据库事务概念什么是数据库事务事务（transaction）是指逻辑上对数据的一组操作， 这组操作要么全部成功，要么全部失败，是不可分割的一个工作单位。 数据库事务的 4 个基本性质（ACID）原子性（Atomicity）事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部成功，要么全部失败。 一致性（Consistency）在事务开始以前，被操作的数据的完整性处于一致性的状态，事务结束">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-27T09:53:46.802Z">
+<meta property="og:updated_time" content="2019-09-05T01:49:47.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库事务知识点">
-<meta name="twitter:description" content="数据库事务概念什么是数据库事务事务（transaction）是由指逻辑上对数据的的一组操作， 这组操作要么一次全部成功，如果这组操作全部失败，是不可分割的一个工作单位。 数据库事务的 4 个基本性质（ACID）原子性（Atomicity）事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部发生，否则全部不发生。 一致性（Consistency）在事务开始以前，被操作的数据的完整性处于一致">
+<meta name="twitter:description" content="数据库事务概念什么是数据库事务事务（transaction）是指逻辑上对数据的一组操作， 这组操作要么全部成功，要么全部失败，是不可分割的一个工作单位。 数据库事务的 4 个基本性质（ACID）原子性（Atomicity）事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部成功，要么全部失败。 一致性（Consistency）在事务开始以前，被操作的数据的完整性处于一致性的状态，事务结束">
     
 
     
@@ -239,7 +239,7 @@
                             &nbsp;
                             spring
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/springMVC-流程图/">springMVC 流程图</a></li>  <li class="file"><a href="/wiki/Spring-知识点/">Spring 知识点</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/springMVC-流程图/">springMVC 流程图</a></li>  <li class="file"><a href="/wiki/Spring-知识点/">Spring 知识点</a></li>  <li class="file"><a href="/wiki/lombok-使用方法/">lombok 使用方法</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory open">
@@ -434,15 +434,15 @@
             
         
         
-            <h2 id="数据库事务概念"><a href="#数据库事务概念" class="headerlink" title="数据库事务概念"></a>数据库事务概念</h2><h3 id="什么是数据库事务"><a href="#什么是数据库事务" class="headerlink" title="什么是数据库事务"></a>什么是数据库事务</h3><p>事务（transaction）是由指逻辑上对数据的的一组操作， 这组操作要么一次全部成功，如果这组操作全部失败，是不可分割的一个工作单位。</p>
-<h2 id="数据库事务的-4-个基本性质（ACID）"><a href="#数据库事务的-4-个基本性质（ACID）" class="headerlink" title="数据库事务的 4 个基本性质（ACID）"></a>数据库事务的 4 个基本性质（ACID）</h2><h3 id="原子性（Atomicity）"><a href="#原子性（Atomicity）" class="headerlink" title="原子性（Atomicity）"></a>原子性（Atomicity）</h3><p>事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部发生，否则全部不发生。</p>
+            <h2 id="数据库事务概念"><a href="#数据库事务概念" class="headerlink" title="数据库事务概念"></a>数据库事务概念</h2><h3 id="什么是数据库事务"><a href="#什么是数据库事务" class="headerlink" title="什么是数据库事务"></a>什么是数据库事务</h3><p>事务（transaction）是指逻辑上对数据的一组操作， 这组操作要么全部成功，要么全部失败，是不可分割的一个工作单位。</p>
+<h2 id="数据库事务的-4-个基本性质（ACID）"><a href="#数据库事务的-4-个基本性质（ACID）" class="headerlink" title="数据库事务的 4 个基本性质（ACID）"></a>数据库事务的 4 个基本性质（ACID）</h2><h3 id="原子性（Atomicity）"><a href="#原子性（Atomicity）" class="headerlink" title="原子性（Atomicity）"></a>原子性（Atomicity）</h3><p>事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部成功，要么全部失败。</p>
 <h3 id="一致性（Consistency）"><a href="#一致性（Consistency）" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h3><p>在事务开始以前，被操作的数据的完整性处于一致性的状态，事务结束后，被操作的数据的完整性也必须处于一致性状态。</p>
 <p>拿银行转账来说，一致性要求事务的执行不应改变A、B 两个账户的金额总和。如果没有这种一致性要求，转账过程中就会发生钱无中生有，或者不翼而飞的现象。事务应该把数据库从一个一致性状态转换到另外一个一致性状态。</p>
 <h3 id="隔离性（Isolation）"><a href="#隔离性（Isolation）" class="headerlink" title="隔离性（Isolation）"></a>隔离性（Isolation）</h3><p>事务隔离性要求系统必须保证事务不受其他并发执行的事务的影响，也即要达到这样一种效果：对于任何一对事务T1 和 T2，在事务 T1 看来，T2 要么在 T1 开始之前已经结束，要么在 T1 完成之后才开始执行。这样，每个事务都感觉不到系统中有其他事务在并发地执行。</p>
 <h3 id="持久性（Durability）"><a href="#持久性（Durability）" class="headerlink" title="持久性（Durability）"></a>持久性（Durability）</h3><p>一个事务一旦成功提交，它对数据库的改变必须是永久的，即便是数据库发生故障也应该不回对其产生任何影响。</p>
 <h2 id="数据库事务的-4-种隔离级别"><a href="#数据库事务的-4-种隔离级别" class="headerlink" title="数据库事务的 4 种隔离级别"></a>数据库事务的 4 种隔离级别</h2><h3 id="Read-uncommitted"><a href="#Read-uncommitted" class="headerlink" title="Read uncommitted"></a>Read uncommitted</h3><p>读未提交，顾名思义，就是一个事务可以读取另一个未提交事务的数据。</p>
 <p>事例：老板要给程序员发工资，程序员的工资是 3.6 万/月。但是发工资时老板不小心按错了数字，按成 3.9 万/月，该钱已经打到程序员的户口，但是事务还没有提交，就在这时，程序员去查看自己这个月的工资，发现比往常多了 3 千元，以为涨工资了非常高兴。但是老板及时发现了不对，马上回滚差点就提交了的事务，将数字改成 3.6 万再提交。</p>
-<p>分析：实际程序员这个月的工资还是 3.6 万，但是程序员看到的是 3.9 万。他看到的是老板还没提交事务时的数据。这就是脏读。</p>
+<p>分析：实际程序员这个月的工资还是 3.6 万，但是程序员看到的是 3.9 万。他看到的是老板还没提交事务时的数据，这就是脏读。</p>
 <p>那怎么解决脏读呢？Read committed！读提交，能解决脏读问题。</p>
 <h3 id="Read-committed"><a href="#Read-committed" class="headerlink" title="Read committed"></a>Read committed</h3><p>读提交，顾名思义，就是一个事务要等另一个事务提交后才能读取数据。</p>
 <p>事例：程序员拿着信用卡去享受生活（卡里当然是只有 3.6 万），当他埋单时（程序员事务开启），收费系统事先检测到他的卡里有 3.6 万，就在这个时候！！程序员的妻子要把钱全部转出充当家用，并提交。当收费系统准备扣款时，再检测卡里的金额，发现已经没钱了（第二次检测金额当然要等待妻子转出金额事务提交完）。程序员就会很郁闷，明明卡里是有钱的…</p>

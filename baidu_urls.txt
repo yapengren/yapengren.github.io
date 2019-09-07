@@ -1,3 +1,4 @@
+https://yapengren.github.io/wiki/lombok-使用方法/
 https://yapengren.github.io/wiki/冒泡排序/
 https://yapengren.github.io/wiki/稀疏数组-sparsearray/
 https://yapengren.github.io/wiki/java-基础题/
@@ -7,4 +8,3 @@ https://yapengren.github.io/wiki/MySQL-索引知识点/
 https://yapengren.github.io/wiki/SQL-的各种-JOIN-用法/
 https://yapengren.github.io/wiki/SQL-执行顺序/
 https://yapengren.github.io/wiki/MySQL-InnoDB-那些事/
-https://yapengren.github.io/wiki/Redis-zset-实现简单限流/
