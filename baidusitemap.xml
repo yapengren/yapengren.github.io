@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://yapengren.github.io/wiki/Mybatis-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E6%8A%A5%E9%94%99-BadSqlGrammarException/</loc>
+    <lastmod>2019-09-16</lastmod>
+  </url>  <url>
     <loc>https://yapengren.github.io/wiki/intellij-idea-%E4%BF%AE%E6%94%B9%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2019-09-11</lastmod>
   </url>  <url>

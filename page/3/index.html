@@ -216,7 +216,7 @@
                             &nbsp;
                             mybatis
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-架构图/">Mybatis 架构图</a></li>  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-架构图/">Mybatis 架构图</a></li>  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  <li class="file"><a href="/wiki/Mybatis-批量操作报错-BadSqlGrammarException/">Mybatis 批量操作报错 BadSqlGrammarException</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -364,6 +364,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-HashMap-源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java基础/">java基础</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/HashMap-源码分析/">
+            <time datetime="2019-08-17T05:45:12.000Z" itemprop="datePublished">2019-08-17</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/HashMap-源码分析.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/HashMap-源码分析.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/HashMap-源码分析.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/HashMap-源码分析/">HashMap 源码分析</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h3 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h3><p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g62mklbo1uj30u40cg0tc.jpg" alt="HashMap 继承体系"></p>
+<p>在 Java 中，HashMap 的实现采用了（数组 + 链表 + 红黑树）的复杂结构，数组的一个元素又称作桶。</p>
+<p>在添加元素时，会根据 hash 值算出元素在数组中的位置，如果该位置没有元素，则直接把元素放置在此处，如果该位置有元素了，则把元素以链表的形式放置在链表的尾部。</p>
+<p>当一个链表的元素个数达到一定的数量（且数组的长度达到一定的长度）后，则把链表转化为红黑树，从而提高效率。</p>
+<p>数组的查询效率为 O(1)，链表的查询效率是 O(k)，红黑树的查询效率是 O(log k)，k为桶中的元素个数，所以当元素数量非常多的时候，转化为红黑树能极大地提高效率。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/HashMap-源码分析/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-ArrayList-源码分析" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1174,110 +1278,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/FastDFS-流程图/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-springMVC-流程图" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/spring/">spring</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/spring/">spring</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/springMVC-流程图/">
-            <time datetime="2019-08-04T03:30:24.000Z" itemprop="datePublished">2019-08-04</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/springMVC-流程图.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/springMVC-流程图.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/springMVC-流程图.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/springMVC-流程图/">springMVC 流程图</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g5nhlgldvpj30ha0asdgj.jpg" alt="springMVC流程图"></p>
-<h3 id="springMVC执行流程"><a href="#springMVC执行流程" class="headerlink" title="springMVC执行流程"></a>springMVC执行流程</h3><ol>
-<li><p>用户发送请求至前端控制器 <code>DispatcherServlet</code></p>
-</li>
-<li><p>前端控制器 <code>DispatcherServlet</code> 收到请求调用处理器映射器<code>HandlerMapping</code>。 </p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/springMVC-流程图/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
