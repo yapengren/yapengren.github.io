@@ -198,7 +198,7 @@
                             &nbsp;
                             java基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList-知识点/">CopyOnWriteArrayList 知识点</a></li>  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList-知识点/">CopyOnWriteArrayList 知识点</a></li>  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -364,6 +364,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-java-util-ConcurrentModificationException-异常详解" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java基础/">java基础</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/java-util-ConcurrentModificationException-异常详解/">
+            <time datetime="2019-09-20T02:11:57.000Z" itemprop="datePublished">2019-09-20</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java-util-ConcurrentModificationException-异常详解.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java-util-ConcurrentModificationException-异常详解.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java-util-ConcurrentModificationException-异常详解.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>环境：JDK 1.8.0</p>
+<p>使用 iterator 遍历集合的同时对集合进行修改会报错 <code>java.util.ConcurrentModificationException</code></p>
+<h2 id="问题复现"><a href="#问题复现" class="headerlink" title="问题复现"></a>问题复现</h2><p>抛异常代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">11</span>; i++) &#123;</span><br><span class="line">        list.add(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Iterator&lt;Integer&gt; it = list.iterator();</span><br><span class="line">    <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">        Integer next = it.next();</span><br><span class="line">        <span class="keyword">if</span> (next == <span class="number">5</span>) &#123;</span><br><span class="line">            list.remove(next);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/java-util-ConcurrentModificationException-异常详解/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-Mybatis-批量操作报错-BadSqlGrammarException" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1287,91 +1391,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/SQL-的各种-JOIN-用法/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-SQL-执行顺序" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/数据库/">数据库</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/mysql/">mysql</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/SQL-执行顺序/">
-            <time datetime="2019-08-24T03:38:17.000Z" itemprop="datePublished">2019-08-24</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/SQL-执行顺序.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/SQL-执行顺序.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/SQL-执行顺序.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/SQL-执行顺序/">SQL 执行顺序</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <h1 id="SQL-执行顺序"><a href="#SQL-执行顺序" class="headerlink" title="SQL 执行顺序"></a>SQL 执行顺序</h1><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6amco99e5j32640jwagv.jpg" alt="SQL执行顺序"></p>
-
             </div>
         
         <footer class="article-footer">

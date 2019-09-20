@@ -3,19 +3,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>分类: 系统知识 | yp_ren Blog</title>
+    <title>java.util.ConcurrentModificationException 异常详解 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="yp_ren Blog">
+        <meta name="keywords" content="java">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="yp_ren Blog">
-<meta property="og:url" content="https://yapengren.github.io/categories/系统知识/index.html">
+    <meta name="description" content="环境：JDK 1.8.0 使用 iterator 遍历集合的同时对集合进行修改会报错 java.util.ConcurrentModificationException 问题复现抛异常代码 @Testpublic void test02() &amp;#123;    List&amp;lt;Integer&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();    for (int i = 1">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java.util.ConcurrentModificationException 异常详解">
+<meta property="og:url" content="https://yapengren.github.io/wiki/java-util-ConcurrentModificationException-异常详解/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
+<meta property="og:description" content="环境：JDK 1.8.0 使用 iterator 遍历集合的同时对集合进行修改会报错 java.util.ConcurrentModificationException 问题复现抛异常代码 @Testpublic void test02() &amp;#123;    List&amp;lt;Integer&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();    for (int i = 1">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-20T07:30:22.259Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yp_ren Blog">
+<meta name="twitter:title" content="java.util.ConcurrentModificationException 异常详解">
+<meta name="twitter:description" content="环境：JDK 1.8.0 使用 iterator 遍历集合的同时对集合进行修改会报错 java.util.ConcurrentModificationException 问题复现抛异常代码 @Testpublic void test02() &amp;#123;    List&amp;lt;Integer&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();    for (int i = 1">
     
 
     
@@ -176,9 +181,9 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             技术分享
                         </a>
@@ -192,13 +197,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Dubbo-架构/">Dubbo 架构</a></li>  <li class="file"><a href="/wiki/Dubbo-知识点/">Dubbo 知识点</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             java基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList-知识点/">CopyOnWriteArrayList 知识点</a></li>  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList-知识点/">CopyOnWriteArrayList 知识点</a></li>  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file active"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -363,50 +368,139 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">系统知识</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-java-util-ConcurrentModificationException-异常详解" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/mac-brew-服务/">mac brew 服务</a>
-        </h1>
-    
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java基础/">java基础</a>
+    </div>
 
-                <div class="article-meta">
-                    
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/mac-brew-服务/">
-            <time datetime="2019-08-02T09:40:48.000Z" itemprop="datePublished">2019-08-02</time>
+        <a href="/wiki/java-util-ConcurrentModificationException-异常详解/">
+            <time datetime="2019-09-20T02:11:57.000Z" itemprop="datePublished">2019-09-20</time>
         </a>
     </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/系统知识/">系统知识</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/系统知识/mac/">mac</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/mac/">mac</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java-util-ConcurrentModificationException-异常详解.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java-util-ConcurrentModificationException-异常详解.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java-util-ConcurrentModificationException-异常详解.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
     
-</div>
+        <h1 class="article-title" itemprop="name">
+            java.util.ConcurrentModificationException 异常详解
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题复现"><span class="toc-number">1.</span> <span class="toc-text">问题复现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因分析"><span class="toc-number">2.</span> <span class="toc-text">原因分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-number">3.</span> <span class="toc-text">解决方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+                </div>
+            
+        
+        
+            <p>环境：JDK 1.8.0</p>
+<p>使用 iterator 遍历集合的同时对集合进行修改会报错 <code>java.util.ConcurrentModificationException</code></p>
+<h2 id="问题复现"><a href="#问题复现" class="headerlink" title="问题复现"></a>问题复现</h2><p>抛异常代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">11</span>; i++) &#123;</span><br><span class="line">        list.add(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Iterator&lt;Integer&gt; it = list.iterator();</span><br><span class="line">    <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">        Integer next = it.next();</span><br><span class="line">        <span class="keyword">if</span> (next == <span class="number">5</span>) &#123;</span><br><span class="line">            list.remove(next);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>异常信息</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java.util.ConcurrentModificationException</span><br><span class="line">	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:<span class="number">909</span>)</span><br><span class="line">	at java.util.ArrayList$Itr.next(ArrayList.java:<span class="number">859</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h2><p>使用 Iterator 遍历 ArrayList， 抛出异常的是 iterator.next()，查看 ArrayList 的 Iterator 实现源码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    checkForComodification();</span><br><span class="line">    <span class="keyword">int</span> i = cursor;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= size)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();</span><br><span class="line">    Object[] elementData = ArrayList.<span class="keyword">this</span>.elementData;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= elementData.length)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">    cursor = i + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> (E) elementData[lastRet = i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 next() 方法中有一个 checkForComodification() 方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">checkForComodification</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (modCount != expectedModCount)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到 checkForComodification 方法是用来判断集合的修改次数是否合法。</p>
+<p>modCount 字段用于记录集合被修改的次数，ArrayList 增删改 (add, remove, set) 时都会自增 modCount 属性。</p>
+<p>在创建 Iterator 的时候会将 modCount 赋值给 expectedModCount，同样记录当前集合修改的次数，初始化为集合的 modCount 值。</p>
+<p>抛异常代码中 ArrayList 添加了 10 次所以 modCount = 10；创建 Iterator 时候 expectedModCount = 10；遍历到 next == 5 时执行了 list.remove(next)，此时 modCount = 11, expectedModCount = 10;</p>
+<p>在执行 next 方法时，判断 modCount != expectedModCount ，导致抛出异常 java.util.ConcurrentModificationException。</p>
+<p>为什么要这么做呢？引用一段解释</p>
+<blockquote>
+<p>  Iterator 是工作在一个独立的线程中，并且拥有一个 mutex 锁。 Iterator 被创建之后会建立一个指向原来对象的单链索引表，当原来的对象数量发生变化时，这个索引表的内容不会同步改变，所以当索引指针往后移动的时候就找不到要迭代的对象，所以按照 fail-fast 原则 Iterator 会马上抛出 java.util.ConcurrentModificationException 异常。</p>
+<p>  　　所以 Iterator 在工作的时候是不允许被迭代的对象被改变的。但你可以使用 Iterator 本身的方法 remove() 来删除对象， Iterator.remove() 方法会在删除当前迭代对象的同时维护索引的一致性。</p>
+</blockquote>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>使用 Iterator 本身的方法 remove() 来删除对象</p>
+<p>正确代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void test02() &#123;</span><br><span class="line">    List&lt;Integer&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">    for (int i = 1; i &lt; 11; i++) &#123;</span><br><span class="line">        list.add(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Iterator&lt;Integer&gt; it = list.iterator();</span><br><span class="line">    while (it.hasNext()) &#123;</span><br><span class="line">        Integer next = it.next();</span><br><span class="line">        if (next == 5) &#123;</span><br><span class="line">            // 使用 Iterator 本身的方法 remove() 来删除对象</span><br><span class="line">            it.remove();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  <a href="https://www.cnblogs.com/xujian2014/p/5846128.html" target="_blank" rel="noopener">https://www.cnblogs.com/xujian2014/p/5846128.html</a></p>
+<p>  <a href="https://www.cnblogs.com/snowater/p/8024776.html" target="_blank" rel="noopener">https://www.cnblogs.com/snowater/p/8024776.html</a></p>
+<p>  <a href="https://www.iteye.com/blog/lz12366-675016" target="_blank" rel="noopener">https://www.iteye.com/blog/lz12366-675016</a></p>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/Mybatis-批量操作报错-BadSqlGrammarException/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Mybatis 批量操作报错 BadSqlGrammarException</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 </section>
         </div>
         <footer id="footer">
