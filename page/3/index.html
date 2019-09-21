@@ -216,7 +216,7 @@
                             &nbsp;
                             mybatis
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-架构图/">Mybatis 架构图</a></li>  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  <li class="file"><a href="/wiki/Mybatis-批量操作报错-BadSqlGrammarException/">Mybatis 批量操作报错 BadSqlGrammarException</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  <li class="file"><a href="/wiki/Mybatis-批量操作报错-BadSqlGrammarException/">Mybatis 批量操作报错 BadSqlGrammarException</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -825,10 +825,33 @@
                     
                     
                 
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="jdbc-问题"><a href="#jdbc-问题" class="headerlink" title="jdbc 问题"></a>jdbc 问题</h2><ol>
+<li>数据库连接创建、释放频繁造成系统资源浪费，从而影响系统性能。如果使用数据库连接池可解决此问题。</li>
+<li>Sql 语句在代码中硬编码，造成代码不易维护，实际应用中 sql 变化的可能较大，sql 变动需要改变 java 代码。</li>
+<li>使用 preparedStatement 向占有位符号传参数存在硬编码，因为 sql 语句的 where 条件不一定，可能多也可能少，修改 sql 还要修改代码，系统不易维护。</li>
+<li>对结果集解析存在硬编码（查询列名），sql 变化导致解析代码变化，系统不易维护，如果能将数据库记录封装成 pojo 对象解析比较方便。</li>
+<p>
+                
             
         
         
-            <h3 id="MyBatis-中-resultType-和-resultMap-的区别"><a href="#MyBatis-中-resultType-和-resultMap-的区别" class="headerlink" title="MyBatis 中 resultType 和 resultMap 的区别"></a><a href="https://www.cnblogs.com/coder-lzh/p/8960928.html" target="_blank" rel="noopener">MyBatis 中 resultType 和 resultMap 的区别</a></h3>
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/Mybatis-知识点/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
