@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yapengren.github.io/"/>
-  <updated>2019-09-20T07:30:22.259Z</updated>
+  <updated>2019-09-22T10:00:35.837Z</updated>
   <id>https://yapengren.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux 基础命令</title>
+    <link href="https://yapengren.github.io/wiki/linux-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/"/>
+    <id>https://yapengren.github.io/wiki/linux-基础命令/</id>
+    <published>2019-09-22T05:57:36.000Z</published>
+    <updated>2019-09-22T10:00:35.837Z</updated>
+    
+    <content type="html"><![CDATA[<p>未完待填坑</p><h2 id="文件基本属性"><a href="#文件基本属性" class="headerlink" title="文件基本属性"></a>文件基本属性</h2><p>Linux中我们可以使用 <code>ll</code> 或者 <code>ls –l</code> 命令来显示一个文件的属性以及文件所属的用户和组</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> ll</span><br><span class="line">total 2184</span><br><span class="line">-rw-r--r--    1 renyapeng  staff   846K  9 22 16:08 db.json</span><br><span class="line">drwxr-xr-x  315 renyapeng  staff   9.8K  8 12 14:07 node_modules</span><br><span class="line">drwxr-xr-x   21 renyapeng  staff   672B  9 22 15:28 public</span><br></pre></td></tr></table></figure><p>每个文件的属性由左边第一部分的10个字符来确定（如下图）</p><p><img src="https://www.runoob.com/wp-content/uploads/2014/06/363003_1227493859FdXT.png" alt="文件基本属性"></p><p>10位字符表示：</p><ul><li><p>0位：确定文件类型</p></li><li><p>1-3位：确定该文件的所有者对文件的权限 <strong>owner</strong></p></li><li><p>4-6位：确定所有者的同组用户拥有该文件的权限 <strong>group</strong></p></li><li><p>7-9位：确定其他用户拥有该文件的权限 <strong>others</strong></p></li></ul><p>第一个字符：代表这个文件的类型，是目录、文件，还是一个链接等等</p><ul><li><p><strong>[</strong> <strong>d</strong> <strong>]</strong> 目录</p></li><li><p><strong>[</strong> <strong>-</strong> <strong>]</strong> 文件</p></li><li><p><strong>[</strong> <strong>l</strong>  <strong>]</strong> 链接文档(link file)</p></li><li><p><strong>[</strong> <strong>b</strong> <strong>]</strong> 可供储存的接口设备(可随机存取装置)</p></li><li><p><strong>[</strong> <strong>c</strong> <strong>]</strong> 串行端口设备，例如键盘、鼠标(一次性读取装置)</p></li></ul><p>接下来的字符：以三个一组分成三组，用 r、w、x 三个参数的组合表示，位置不会改变</p><ul><li><strong>[ r ]</strong> 代表可读(read)</li><li><strong>[ w ]</strong> 代表可写(write)</li><li><strong>[ x ]</strong> 代表可执行(execute)</li><li><strong>[ - ]</strong> 没有权限</li></ul><h2 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a>文件与目录管理</h2><h3 id="mkdir-创建目录"><a href="#mkdir-创建目录" class="headerlink" title="mkdir 创建目录"></a>mkdir 创建目录</h3><p>mkdir (make directory)</p><p>语法：</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rmdir [-p] 目录名称</span><br></pre></td></tr></table></figure><p>参数：</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-m ：配置文件的权限喔！直接配置，不需要看默认权限 (umask) 的脸色～</span><br><span class="line">-p ：帮助你直接将所需要的目录(包含上一级目录)递归创建起来！</span><br></pre></td></tr></table></figure><p>实例：</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir test    // 创建新目录</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> mkdir test1/test2/test3/test4</span><br><span class="line">mkdir: test1/test2/test3: No such file or directory    // 不能创建多层目录</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> mkdir -p test1/test2/test3/test4    // 添加-p参数，可以创建多层目录</span><br></pre></td></tr></table></figure><h3 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h3><h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3><h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><p>该命令用于删除文件或目录，remove之间，它的常用参数如下：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-f：就是force的意思，忽略不存在的文件，不会出现警告消息  </span><br><span class="line">-i：互动模式，在删除前会询问用户是否操作  </span><br><span class="line">-r：递归删除，最常用于目录删除，它是一个非常危险的参数</span><br></pre></td></tr></table></figure><h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><p>该命令用于将某个时间点的进程运行情况选取下来并输出，process之意，它的常用参数如下：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ps aux # 查看系统所有的进程数据  </span><br><span class="line">ps ax # 查看不与terminal有关的所有进程  </span><br><span class="line">ps -lA # 查看系统所有的进程数据  </span><br><span class="line">ps axjf # 查看连同一部分进程树状态</span><br></pre></td></tr></table></figure><h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3><p>该命令用于向某个工作（%jobnumber）或者是某个PID（数字）传送一个信号，它通常与ps和jobs命令一起使用，它的基本语法如下：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kill -signal PID</span><br></pre></td></tr></table></figure><h3 id="killall"><a href="#killall" class="headerlink" title="killall"></a>killall</h3><p>该命令用于向某个工作（%jobnumber）或者是某个PID（数字）传送一个信号，它通常与ps和jobs命令一起使用，它的基本语法如下：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">killall -signal PID</span><br></pre></td></tr></table></figure><h3 id="file"><a href="#file" class="headerlink" title="file"></a>file</h3><p>该命令用于判断接在file命令后的文件的基本数据，因为在Linux下文件的类型并不是以后缀为分的，所以这个命令对我们来说就很有用了，它的用法非常简单，基本语法如下：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">file filename  </span><br><span class="line">例如：  </span><br><span class="line">file ./test</span><br></pre></td></tr></table></figure><h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>该命令用于查看文本文件的内容，后接要查看的文件名，通常可用管道与more和less一起使用，从而可以一页页地查看数据。例如：</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat text | less # 查看text文件中的内容  </span><br><span class="line"></span><br><span class="line">这条命令也可以使用less text来代替</span><br></pre></td></tr></table></figure><h3 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h3><h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>搜索指定文件|文件夹</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find 路径 -name 名称</span><br></pre></td></tr></table></figure><p>删除空文件|空文件夹</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find 路径 -type d -empty|xargs -n 1 rm -rf</span><br></pre></td></tr></table></figure><h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><blockquote><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  <a href="https://www.runoob.com/linux/linux-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-tutorial.html</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;未完待填坑&lt;/p&gt;
+&lt;h2 id=&quot;文件基本属性&quot;&gt;&lt;a href=&quot;#文件基本属性&quot; class=&quot;headerlink&quot; title=&quot;文件基本属性&quot;&gt;&lt;/a&gt;文件基本属性&lt;/h2&gt;&lt;p&gt;Linux中我们可以使用 &lt;code&gt;ll&lt;/code&gt; 或者 &lt;code&gt;ls 
+      
+    
+    </summary>
+    
+      <category term="系统知识" scheme="https://yapengren.github.io/categories/%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/"/>
+    
+      <category term="linux" scheme="https://yapengren.github.io/categories/%E7%B3%BB%E7%BB%9F%E7%9F%A5%E8%AF%86/linux/"/>
+    
+    
+      <category term="linux" scheme="https://yapengren.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>java.util.ConcurrentModificationException 异常详解</title>
@@ -517,33 +545,6 @@
       
       
         &lt;h2 id=&quot;谈谈你对-volatile-的理解&quot;&gt;&lt;a href=&quot;#谈谈你对-volatile-的理解&quot; class=&quot;headerlink&quot; title=&quot;谈谈你对 volatile 的理解&quot;&gt;&lt;/a&gt;谈谈你对 volatile 的理解&lt;/h2&gt;&lt;p&gt;volatile 是
-      
-    
-    </summary>
-    
-      <category term="技术分享" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-      <category term="java并发" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/java%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="java" scheme="https://yapengren.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java 线程池知识点</title>
-    <link href="https://yapengren.github.io/wiki/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    <id>https://yapengren.github.io/wiki/java-线程池知识点/</id>
-    <published>2019-08-19T07:33:15.000Z</published>
-    <updated>2019-08-25T02:16:53.048Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="为什么用线程池，优势"><a href="#为什么用线程池，优势" class="headerlink" title="为什么用线程池，优势"></a>为什么用线程池，优势</h2><p>线程池主要是控制运行线程的数量，处理过程中将任务放入队列，然后在线程创建后启动这些任务，如果线程数量超过了最大数量的线程排队等候，等其他线程执行完毕，再从队列中取出任务来执行。</p><p>主要特点是：线程复用、控制最大并发数、管理线程。</p><p>第一：降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</p><p>第二：提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。</p><p>第三：提高线程的可管理性。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。</p><h2 id="线程池如何使用"><a href="#线程池如何使用" class="headerlink" title="线程池如何使用"></a>线程池如何使用</h2><h3 id="架构说明"><a href="#架构说明" class="headerlink" title="架构说明"></a>架构说明</h3><p>Java中的线程池是通过 Executor 框架实现的，该框架中用到了 Executor，Executors，ExecutorService，ThreadPoolExecutor 这几个类。</p><h3 id="编码实现"><a href="#编码实现" class="headerlink" title="编码实现"></a>编码实现</h3><ol><li><p>Executors.newFixedThreadPool(int)</p><p>执行长期的任务，性能好很多</p><p>主要特点：</p><ol><li>创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。</li><li>newFixedThreadPool 创建的线程池 corePoolSize 和 maximumPoolSize 值是相等的，它使用的 LinkedBlockingQueue。</li></ol></li><li><p>Executors.newSingleThreadExecutor()</p><p>一个任务一个任务执行的场景</p><p>主要特点：</p><ol><li>创建一个单线程化的线程池，它只会唯一的工作线程来执行任务，保证所有任务按照指定顺序执行。</li><li>newSingleThread 将 corePoolSize 和 maximumPoolSize 都设置为1，它使用的是LinkedBlockingQueue。</li></ol></li><li><p>Executors.newCachedThreadPool()</p><p>适用：执行很多短期异步的小程序或者负载较轻的服务器</p><p>主要特点：</p><ol><li><p>创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。</p></li><li><p>newCachedThreadPool 将 corePoolSize 设置为 0，将 maximumPoolSize 设置为 Integer.MAX_VALUE，使用的 SynchronousQueue，也就是说来了任务就创建线程运行，当线程空闲超过 60 秒，就销毁线程。</p></li></ol></li></ol><h3 id="阿里巴巴-java-开发规范"><a href="#阿里巴巴-java-开发规范" class="headerlink" title="阿里巴巴 java 开发规范"></a>阿里巴巴 java 开发规范</h3><p>【强制】线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式，这样的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。</p><p>说明：Executors 返回的线程池对象的弊端如下：</p><ol><li>FixedThreadPool 和 SingleThreadPool：<br>允许的请求队列长度为 Integer.MAX_VALUE ，可能会堆积大量的请求，从而导致 OOM。</li><li>CachedThreadPool：<br>允许的创建线程数量为 Integer.MAX_VALUE ，可能会创建大量的线程，从而导致 OOM。</li></ol><h2 id="线程池的几个重要参数介绍"><a href="#线程池的几个重要参数介绍" class="headerlink" title="线程池的几个重要参数介绍"></a>线程池的几个重要参数介绍</h2><ol><li><h3 id="corePoolSize"><a href="#corePoolSize" class="headerlink" title="corePoolSize"></a>corePoolSize</h3></li></ol><p>线程池中的常驻核心线程数</p><p>  在创建线程池后，当有请求任务来之后，就会安排池中的线程去执行请求任务，近似理解为今日当值线程。<br>  当线程池中的线程数目到达 corePoolSize 后，就会把到达的任务放到缓存队列当中。</p><ol start="2"><li><h3 id="maximumPoolSize"><a href="#maximumPoolSize" class="headerlink" title="maximumPoolSize"></a>maximumPoolSize</h3></li></ol><p>线程池能够容纳同时执行的最大线程数，此值必须大于等于1.</p><ol start="3"><li><h3 id="keepAliveTime"><a href="#keepAliveTime" class="headerlink" title="keepAliveTime"></a>keepAliveTime</h3></li></ol><p>多余的空闲线程的存活时间。当前线程池数量超过 corePoolSize 时，当空闲时间达到 keepAliveTime 值时，多余空闲线程会被销毁直到只剩下 corePoolSize 个线程为止。</p><p>默认情况下：<br>只有当线程池中的线程数大于 corePoolSize 时 keepAliveTime 才会起作用，直到线程池中的线程数不大于 corePoolSize。</p><ol start="4"><li><h3 id="unit"><a href="#unit" class="headerlink" title="unit"></a>unit</h3></li></ol><p>keepAliveTime 的单位</p><ol start="5"><li><h3 id="workQueue"><a href="#workQueue" class="headerlink" title="workQueue"></a>workQueue</h3></li></ol><p>任务队列，被提交但尚未被执行的任务。</p><ol start="6"><li><h3 id="threadFactory"><a href="#threadFactory" class="headerlink" title="threadFactory"></a>threadFactory</h3></li></ol><p>表示生成线程池中工作线程的线程工厂，用于创建线程一般用默认的即可。</p><ol start="7"><li><h3 id="handler"><a href="#handler" class="headerlink" title="handler"></a>handler</h3></li></ol><p>拒绝策略，表示当队列满了并且工作线程大于等于线程池的最大线程数。</p><h2 id="线程池的底层工作原理？"><a href="#线程池的底层工作原理？" class="headerlink" title="线程池的底层工作原理？"></a>线程池的底层工作原理？</h2><ol><li><p>在创建了线程池后，等待提交过来的任务请求。</p></li><li><p>当调用 execute() 方法添加一个请求任务时，线程池会做如下判断：</p><ol><li>如果正在运行的线程数量 &lt; corePoolSize，那么马上创建线程运行这个任务。</li><li>如果正在运行的线程数量 &gt;= corePoolSize，那么将这个任务放入队列。</li><li>如果这个时候队列满了且正在运行的线程数量还 &lt; maximumPoolSize，那么还是要创建非核心线程立刻运行这个任务。</li><li>如果队列满了且正在运行的线程数量 &gt;= maximumPoolSize，那么线程池会启动饱和拒绝策略来执行。</li></ol></li><li><p>当一个线程完成任务时，它会从队列中取下一个任务来执行。</p></li><li><p>当一个线程无事可做超过一定的时间 (keepAliveTime) 时，线程池会判断：</p><p>如果当前运行的线程数 &gt; corePoolSize，那么这个线程就被停掉。<br>所以线程池的所有任务完成后它最终会收缩到 corePoolSize 的大小。</p></li></ol><h2 id="线程池的拒绝策略"><a href="#线程池的拒绝策略" class="headerlink" title="线程池的拒绝策略"></a>线程池的拒绝策略</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>等待队列也满了，再也塞不下新任务了，同时线程池中的 max 线程也达到了，无法继续为新的任务服务。</p><p>这时候就需要拒绝策略机制合理的处理这个问题。</p><h3 id="JDK-内置的拒绝策略"><a href="#JDK-内置的拒绝策略" class="headerlink" title="JDK 内置的拒绝策略"></a>JDK 内置的拒绝策略</h3><ol><li>AbortPolicy（默认）：直接抛出 RejectedExecutionException 异常阻止系统正常运行。</li><li>CallerRunsPolicy：“调用者运行”一种调节机制，该策略既不会抛弃任务，也不会抛出异常，而是将某些任务回退到调用者，从而降低新任务的流量。</li><li>DiscardOldestPolicy：抛弃队列中等待最久的任务，然后把当前任务加入队列中尝试再次提交当前任务。</li><li>DiscardPolicy：直接丢弃任务，不予任何处理也不抛出异常。如果允许任务丢失，这是最好的一种方案。</li></ol><p>以上内置拒绝策略均实现了 RejectedExecutionHandler 接口</p><h2 id="合理配置线程池你是如何考虑的？"><a href="#合理配置线程池你是如何考虑的？" class="headerlink" title="合理配置线程池你是如何考虑的？"></a>合理配置线程池你是如何考虑的？</h2><h3 id="CPU密集型"><a href="#CPU密集型" class="headerlink" title="CPU密集型"></a>CPU密集型</h3><p>CPU 密集的意思是该任务需要大量的运算，而没有阻塞，CPU 一直全速运行。</p><p>CPU 密集型任务配置尽可能少的线程数量：</p><p>一般公式为：<strong>CPU 核数 + 1个线程</strong>的线程池。</p><h3 id="IO密集型"><a href="#IO密集型" class="headerlink" title="IO密集型"></a>IO密集型</h3><ol><li>由于 IO 密集型任务线程并不是一直执行任务，则应配置尽可能多的线程，如 <strong>CPU 核数 * 2</strong>        </li><li>IO 密集型，即该任务需要大量的 IO，即大量的阻塞。</li></ol><p>在单线程上运行 IO 密集型的任务会导致浪费大量的 CPU 运算能力浪费在等待。</p><p>所以 IO 密集型任务中使用多线程可以大大的加速程序运行，即使在单核 CPU 上，这种加速主要就是利用了被浪费掉的阻塞时间。</p><p>IO 密集型时，大部分线程都阻塞，故需要多配置线程数：</p><p>参考公式：<strong>CPU 核数 / (1 - 阻塞系数)</strong>    阻塞系数在 0.8-0.9 之间</p><p>比如 8 核 CPU：8 / (1 - 0.9) = 80 个线程数</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;为什么用线程池，优势&quot;&gt;&lt;a href=&quot;#为什么用线程池，优势&quot; class=&quot;headerlink&quot; title=&quot;为什么用线程池，优势&quot;&gt;&lt;/a&gt;为什么用线程池，优势&lt;/h2&gt;&lt;p&gt;线程池主要是控制运行线程的数量，处理过程中将任务放入队列，然后在线程创建后启
       
     
     </summary>
