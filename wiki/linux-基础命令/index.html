@@ -9,19 +9,21 @@
         <meta name="keywords" content="linux">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="未完待填坑 文件基本属性Linux中我们可以使用 ll 或者 ls –l 命令来显示一个文件的属性以及文件所属的用户和组 $ lltotal 2184-rw-r--r--    1 renyapeng  staff   846K  9 22 16:08 db.jsondrwxr-xr-x  315 renyapeng  staff   9.8K  8 12 14:07 node_modulesdr">
+    <meta name="description" content="前言可以使用 man 命令来查看各个命令的使用文档，如：man cp 文件基本属性Linux中我们可以使用 ll 或者 ls –l 命令来显示一个文件的属性以及文件所属的用户和组 $ lltotal 2184-rw-r--r--    1 renyapeng  staff   846K  9 22 16:08 db.jsondrwxr-xr-x  315 renyapeng  staff   9.">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux 基础命令">
 <meta property="og:url" content="https://yapengren.github.io/wiki/linux-基础命令/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="未完待填坑 文件基本属性Linux中我们可以使用 ll 或者 ls –l 命令来显示一个文件的属性以及文件所属的用户和组 $ lltotal 2184-rw-r--r--    1 renyapeng  staff   846K  9 22 16:08 db.jsondrwxr-xr-x  315 renyapeng  staff   9.8K  8 12 14:07 node_modulesdr">
+<meta property="og:description" content="前言可以使用 man 命令来查看各个命令的使用文档，如：man cp 文件基本属性Linux中我们可以使用 ll 或者 ls –l 命令来显示一个文件的属性以及文件所属的用户和组 $ lltotal 2184-rw-r--r--    1 renyapeng  staff   846K  9 22 16:08 db.jsondrwxr-xr-x  315 renyapeng  staff   9.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/06/363003_1227493859FdXT.png">
-<meta property="og:updated_time" content="2019-09-22T10:00:35.837Z">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif">
+<meta property="og:updated_time" content="2019-09-23T12:34:15.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux 基础命令">
-<meta name="twitter:description" content="未完待填坑 文件基本属性Linux中我们可以使用 ll 或者 ls –l 命令来显示一个文件的属性以及文件所属的用户和组 $ lltotal 2184-rw-r--r--    1 renyapeng  staff   846K  9 22 16:08 db.jsondrwxr-xr-x  315 renyapeng  staff   9.8K  8 12 14:07 node_modulesdr">
+<meta name="twitter:description" content="前言可以使用 man 命令来查看各个命令的使用文档，如：man cp 文件基本属性Linux中我们可以使用 ll 或者 ls –l 命令来显示一个文件的属性以及文件所属的用户和组 $ lltotal 2184-rw-r--r--    1 renyapeng  staff   846K  9 22 16:08 db.jsondrwxr-xr-x  315 renyapeng  staff   9.">
 <meta name="twitter:image" content="https://www.runoob.com/wp-content/uploads/2014/06/363003_1227493859FdXT.png">
     
 
@@ -440,17 +442,18 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件基本属性"><span class="toc-number">1.</span> <span class="toc-text">文件基本属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件与目录管理"><span class="toc-number">2.</span> <span class="toc-text">文件与目录管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir-创建目录"><span class="toc-number">2.1.</span> <span class="toc-text">mkdir 创建目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp"><span class="toc-number">2.2.</span> <span class="toc-text">cp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv"><span class="toc-number">2.3.</span> <span class="toc-text">mv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm"><span class="toc-number">2.4.</span> <span class="toc-text">rm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ps"><span class="toc-number">2.5.</span> <span class="toc-text">ps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kill"><span class="toc-number">2.6.</span> <span class="toc-text">kill</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#killall"><span class="toc-number">2.7.</span> <span class="toc-text">killall</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file"><span class="toc-number">2.8.</span> <span class="toc-text">file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar"><span class="toc-number">2.9.</span> <span class="toc-text">tar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat"><span class="toc-number">2.10.</span> <span class="toc-text">cat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod"><span class="toc-number">2.11.</span> <span class="toc-text">chmod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-number">2.12.</span> <span class="toc-text">find</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep"><span class="toc-number">2.13.</span> <span class="toc-text">grep</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件基本属性"><span class="toc-number">2.</span> <span class="toc-text">文件基本属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件与目录管理"><span class="toc-number">3.</span> <span class="toc-text">文件与目录管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir-创建目录"><span class="toc-number">3.1.</span> <span class="toc-text">mkdir 创建目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-复制文件或文件夹"><span class="toc-number">3.2.</span> <span class="toc-text">cp 复制文件或文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm-移除文件或目录"><span class="toc-number">3.3.</span> <span class="toc-text">rm 移除文件或目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv-移动文件与目录或重命名"><span class="toc-number">3.4.</span> <span class="toc-text">mv 移动文件与目录或重命名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件内容查看"><span class="toc-number">4.</span> <span class="toc-text">文件内容查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim"><span class="toc-number">5.</span> <span class="toc-text">vim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vim工作模式"><span class="toc-number">5.1.</span> <span class="toc-text">vim工作模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim键盘图"><span class="toc-number">5.2.</span> <span class="toc-text">vim键盘图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统管理"><span class="toc-number">6.</span> <span class="toc-text">系统管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ps"><span class="toc-number">6.1.</span> <span class="toc-text">ps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kill"><span class="toc-number">6.2.</span> <span class="toc-text">kill</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#killall"><span class="toc-number">6.3.</span> <span class="toc-text">killall</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件管理"><span class="toc-number">7.</span> <span class="toc-text">文件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#file"><span class="toc-number">7.1.</span> <span class="toc-text">file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-number">7.2.</span> <span class="toc-text">find</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文档编辑"><span class="toc-number">8.</span> <span class="toc-text">文档编辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#grep"><span class="toc-number">8.1.</span> <span class="toc-text">grep</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#备份压缩"><span class="toc-number">9.</span> <span class="toc-text">备份压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tar"><span class="toc-number">9.1.</span> <span class="toc-text">tar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">10.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
         
         
-            <p>未完待填坑</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>可以使用 man 命令来查看各个命令的使用文档，如：man cp</p>
 <h2 id="文件基本属性"><a href="#文件基本属性" class="headerlink" title="文件基本属性"></a>文件基本属性</h2><p>Linux中我们可以使用 <code>ll</code> 或者 <code>ls –l</code> 命令来显示一个文件的属性以及文件所属的用户和组</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> ll</span><br><span class="line">total 2184</span><br><span class="line">-rw-r--r--    1 renyapeng  staff   846K  9 22 16:08 db.json</span><br><span class="line">drwxr-xr-x  315 renyapeng  staff   9.8K  8 12 14:07 node_modules</span><br><span class="line">drwxr-xr-x   21 renyapeng  staff   672B  9 22 15:28 public</span><br></pre></td></tr></table></figure>
 
-<p>每个文件的属性由左边第一部分的10个字符来确定（如下图）</p>
-<p><img src="https://www.runoob.com/wp-content/uploads/2014/06/363003_1227493859FdXT.png" alt="文件基本属性"></p>
+<p>每个文件的属性由左边第一部分的 10 个字符来确定（如下图）</p>
+<img src="https://www.runoob.com/wp-content/uploads/2014/06/363003_1227493859FdXT.png" alt="文件基本属性" style="zoom: 50%;">
+
 <p>10位字符表示：</p>
 <ul>
 <li><p>0位：确定文件类型</p>
@@ -468,55 +471,84 @@
 </li>
 <li><p><strong>[</strong> <strong>-</strong> <strong>]</strong> 文件</p>
 </li>
-<li><p><strong>[</strong> <strong>l</strong>  <strong>]</strong> 链接文档(link file)</p>
+<li><p><strong>[</strong> <strong>l</strong>  <strong>]</strong> 链接文档（link file）</p>
 </li>
 <li><p><strong>[</strong> <strong>b</strong> <strong>]</strong> 可供储存的接口设备(可随机存取装置)</p>
 </li>
-<li><p><strong>[</strong> <strong>c</strong> <strong>]</strong> 串行端口设备，例如键盘、鼠标(一次性读取装置)</p>
+<li><p><strong>[</strong> <strong>c</strong> <strong>]</strong> 串行端口设备，例如键盘、鼠标（一次性读取装置）</p>
 </li>
 </ul>
 <p>接下来的字符：以三个一组分成三组，用 r、w、x 三个参数的组合表示，位置不会改变</p>
 <ul>
-<li><strong>[ r ]</strong> 代表可读(read)</li>
-<li><strong>[ w ]</strong> 代表可写(write)</li>
-<li><strong>[ x ]</strong> 代表可执行(execute)</li>
-<li><strong>[ - ]</strong> 没有权限</li>
+<li><p><strong>[ r ]</strong> 代表可读（read）</p>
+</li>
+<li><p><strong>[ w ]</strong> 代表可写（write）</p>
+</li>
+<li><p><strong>[ x ]</strong> 代表可执行（execute）</p>
+</li>
+<li><p><strong>[ - ]</strong> 没有权限</p>
+</li>
 </ul>
 <h2 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a>文件与目录管理</h2><h3 id="mkdir-创建目录"><a href="#mkdir-创建目录" class="headerlink" title="mkdir 创建目录"></a>mkdir 创建目录</h3><p>mkdir (make directory)</p>
 <p>语法：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rmdir [-p] 目录名称</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir [-p] 目录名称</span><br></pre></td></tr></table></figure>
 
 <p>参数：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-m ：配置文件的权限喔！直接配置，不需要看默认权限 (umask) 的脸色～</span><br><span class="line">-p ：帮助你直接将所需要的目录(包含上一级目录)递归创建起来！</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-m ：配置文件的权限</span><br><span class="line">-p ：将所需要的目录（包含上一级目录）递归创建起来</span><br></pre></td></tr></table></figure>
 
 <p>实例：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir test    // 创建新目录</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> mkdir test1/test2/test3/test4</span><br><span class="line">mkdir: test1/test2/test3: No such file or directory    // 不能创建多层目录</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> mkdir -p test1/test2/test3/test4    // 添加-p参数，可以创建多层目录</span><br></pre></td></tr></table></figure>
 
-<h3 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h3><h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3><h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><p>该命令用于删除文件或目录，remove之间，它的常用参数如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-f：就是force的意思，忽略不存在的文件，不会出现警告消息  </span><br><span class="line">-i：互动模式，在删除前会询问用户是否操作  </span><br><span class="line">-r：递归删除，最常用于目录删除，它是一个非常危险的参数</span><br></pre></td></tr></table></figure>
+<h3 id="cp-复制文件或文件夹"><a href="#cp-复制文件或文件夹" class="headerlink" title="cp 复制文件或文件夹"></a>cp 复制文件或文件夹</h3><p>语法：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cp [-adfilprsu] 来源档（source）目标档（destination）</span><br></pre></td></tr></table></figure>
 
-<h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><p>该命令用于将某个时间点的进程运行情况选取下来并输出，process之意，它的常用参数如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ps aux # 查看系统所有的进程数据  </span><br><span class="line">ps ax # 查看不与terminal有关的所有进程  </span><br><span class="line">ps -lA # 查看系统所有的进程数据  </span><br><span class="line">ps axjf # 查看连同一部分进程树状态</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-a ：相当于 -pdr 的意思，至于 pdr 请参考下列说明（常用）</span><br><span class="line">-d ：若来源档为连结档的属性（link file），则复制连结档属性而非文件本身</span><br><span class="line">-f ：为强制（force）的意思，若目标文件已经存在且无法开启，则移除后再尝试一次</span><br><span class="line">-i ：若目标档（destination）已经存在时，在覆盖时会先询问动作的进行（常用）</span><br><span class="line">-l ：进行硬式连结（hard link）的连结档创建，而非复制文件本身</span><br><span class="line">-p ：连同文件的属性一起复制过去，而非使用默认属性（备份常用）</span><br><span class="line">-r ：递归持续复制，用于目录的复制行为（常用）</span><br><span class="line">-s ：复制成为符号连结档（symbolic link），亦即「捷径」文件</span><br><span class="line">-u ：若 destination 比 source 旧才升级 destination</span><br></pre></td></tr></table></figure>
 
-<h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3><p>该命令用于向某个工作（%jobnumber）或者是某个PID（数字）传送一个信号，它通常与ps和jobs命令一起使用，它的基本语法如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kill -signal PID</span><br></pre></td></tr></table></figure>
+<p>实例：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> cp -r test1 bashrc    // 复制文件夹并重命名</span><br></pre></td></tr></table></figure>
 
-<h3 id="killall"><a href="#killall" class="headerlink" title="killall"></a>killall</h3><p>该命令用于向某个工作（%jobnumber）或者是某个PID（数字）传送一个信号，它通常与ps和jobs命令一起使用，它的基本语法如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">killall -signal PID</span><br></pre></td></tr></table></figure>
+<h3 id="rm-移除文件或目录"><a href="#rm-移除文件或目录" class="headerlink" title="rm 移除文件或目录"></a>rm 移除文件或目录</h3><p>rm (remove)</p>
+<p>语法：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm [-fir] 文件或目录</span><br></pre></td></tr></table></figure>
 
-<h3 id="file"><a href="#file" class="headerlink" title="file"></a>file</h3><p>该命令用于判断接在file命令后的文件的基本数据，因为在Linux下文件的类型并不是以后缀为分的，所以这个命令对我们来说就很有用了，它的用法非常简单，基本语法如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">file filename  </span><br><span class="line">例如：  </span><br><span class="line">file ./test</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-f ：就是 force 的意思，忽略不存在的文件，不会出现警告信息</span><br><span class="line">-i ：互动模式，在删除前会询问使用者是否动作</span><br><span class="line">-r ：递归删除啊！最常用在目录的删除了！这是非常危险的选项！！！</span><br></pre></td></tr></table></figure>
 
-<h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3><p>该命令用于查看文本文件的内容，后接要查看的文件名，通常可用管道与more和less一起使用，从而可以一页页地查看数据。例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat text | less # 查看text文件中的内容  </span><br><span class="line"></span><br><span class="line">这条命令也可以使用less text来代替</span><br></pre></td></tr></table></figure>
+<p>实例：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> rm -ir test1    // 删除之前询问使用者是否动作</span><br><span class="line">examine files in directory test1? y</span><br></pre></td></tr></table></figure>
 
-<h3 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h3><h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>搜索指定文件|文件夹</p>
+<h3 id="mv-移动文件与目录或重命名"><a href="#mv-移动文件与目录或重命名" class="headerlink" title="mv 移动文件与目录或重命名"></a>mv 移动文件与目录或重命名</h3><p>语法：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mv [-fiu] source destination</span><br><span class="line">mv [options] source1 source2 source3 .... directory</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖</span><br><span class="line">-i ：若目标文件（destination）已经存在时，就会询问是否覆盖</span><br><span class="line">-u ：若目标文件已经存在，且 source 比较新，才会升级（update）</span><br></pre></td></tr></table></figure>
+
+<p>实例：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> mv test1 test2</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件内容查看"><a href="#文件内容查看" class="headerlink" title="文件内容查看"></a>文件内容查看</h2><p>Linux 系统中使用以下命令来查看文件的内容：</p>
+<ul>
+<li>cat  由第一行开始显示文件内容</li>
+<li>tac  从最后一行开始显示，可以看出 tac 是 cat 的倒着写</li>
+<li>nl  显示的时候，顺道输出行号</li>
+<li>more  一页一页的显示文件内容</li>
+<li>less 与 more 类似，但是可以往前翻页</li>
+<li>head  只看头几行</li>
+<li>tail  只看尾几行</li>
+</ul>
+<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><h3 id="vim工作模式"><a href="#vim工作模式" class="headerlink" title="vim工作模式"></a>vim工作模式</h3><img src="https://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png" alt="vim工作模式" style="zoom:50%;">
+
+<h3 id="vim键盘图"><a href="#vim键盘图" class="headerlink" title="vim键盘图"></a>vim键盘图</h3><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt="vim键盘图" style="zoom:67%;">
+
+<h2 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h2><h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><p>process</p>
+<h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3><h3 id="killall"><a href="#killall" class="headerlink" title="killall"></a>killall</h3><h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><h3 id="file"><a href="#file" class="headerlink" title="file"></a>file</h3><h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>搜索指定文件|文件夹</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find 路径 -name 名称</span><br></pre></td></tr></table></figure>
 
 <p>删除空文件|空文件夹</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find 路径 -type d -empty|xargs -n 1 rm -rf</span><br></pre></td></tr></table></figure>
 
-<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><blockquote>
+<h2 id="文档编辑"><a href="#文档编辑" class="headerlink" title="文档编辑"></a>文档编辑</h2><h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><h2 id="备份压缩"><a href="#备份压缩" class="headerlink" title="备份压缩"></a>备份压缩</h2><h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><blockquote>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  <a href="https://www.runoob.com/linux/linux-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-tutorial.html</a></p>
 </blockquote>
 
