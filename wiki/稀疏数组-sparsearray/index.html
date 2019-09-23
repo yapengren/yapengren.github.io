@@ -9,21 +9,21 @@
         <meta name="keywords" content="数据结构">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="需求编写的五子棋程序中，有存盘退出和续上盘的功能。  分析问题因为该二维数组的很多值是默认值 0, 因此记录了很多没有意义的数据 稀疏数组基本介绍当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。 稀疏数组处理方法 记录数组一共有几行几列，有多少个不同的值 把具有不同值的元素的行列及值记录在一个小规模的数组中，从而缩小程序的规模  稀疏数组举例说明 应用实例 使用稀">
+    <meta name="description" content="需求编写的五子棋程序中，有存盘退出和续上盘的功能。   分析问题因为该二维数组的很多值是默认值 0, 因此记录了很多没有意义的数据 稀疏数组基本介绍当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。 稀疏数组处理方法 记录数组一共有几行几列，有多少个不同的值 把具有不同值的元素的行列及值记录在一个小规模的数组中，从而缩小程序的规模  稀疏数组举例说明  应用实例 使">
 <meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="稀疏数组 sparsearray">
 <meta property="og:url" content="https://yapengren.github.io/wiki/稀疏数组-sparsearray/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="需求编写的五子棋程序中，有存盘退出和续上盘的功能。  分析问题因为该二维数组的很多值是默认值 0, 因此记录了很多没有意义的数据 稀疏数组基本介绍当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。 稀疏数组处理方法 记录数组一共有几行几列，有多少个不同的值 把具有不同值的元素的行列及值记录在一个小规模的数组中，从而缩小程序的规模  稀疏数组举例说明 应用实例 使用稀">
+<meta property="og:description" content="需求编写的五子棋程序中，有存盘退出和续上盘的功能。   分析问题因为该二维数组的很多值是默认值 0, 因此记录了很多没有意义的数据 稀疏数组基本介绍当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。 稀疏数组处理方法 记录数组一共有几行几列，有多少个不同的值 把具有不同值的元素的行列及值记录在一个小规模的数组中，从而缩小程序的规模  稀疏数组举例说明  应用实例 使">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtgf40z1j30zw0fcgp7.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jthducssj30r20k0q7p.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtib2spsj31gi0e2n21.jpg">
-<meta property="og:updated_time" content="2019-09-03T10:28:07.911Z">
+<meta property="og:updated_time" content="2019-09-23T12:58:29.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="稀疏数组 sparsearray">
-<meta name="twitter:description" content="需求编写的五子棋程序中，有存盘退出和续上盘的功能。  分析问题因为该二维数组的很多值是默认值 0, 因此记录了很多没有意义的数据 稀疏数组基本介绍当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。 稀疏数组处理方法 记录数组一共有几行几列，有多少个不同的值 把具有不同值的元素的行列及值记录在一个小规模的数组中，从而缩小程序的规模  稀疏数组举例说明 应用实例 使用稀">
+<meta name="twitter:description" content="需求编写的五子棋程序中，有存盘退出和续上盘的功能。   分析问题因为该二维数组的很多值是默认值 0, 因此记录了很多没有意义的数据 稀疏数组基本介绍当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。 稀疏数组处理方法 记录数组一共有几行几列，有多少个不同的值 把具有不同值的元素的行列及值记录在一个小规模的数组中，从而缩小程序的规模  稀疏数组举例说明  应用实例 使">
 <meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtgf40z1j30zw0fcgp7.jpg">
     
 
@@ -448,19 +448,22 @@
         
         
             <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>编写的五子棋程序中，有存盘退出和续上盘的功能。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtgf40z1j30zw0fcgp7.jpg" alt="稀疏数组需求"></p>
+<img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtgf40z1j30zw0fcgp7.jpg" alt="稀疏数组需求" style="zoom:50%;">
+
 <h3 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h3><p>因为该二维数组的很多值是默认值 0, 因此记录了很多没有意义的数据</p>
 <h3 id="稀疏数组基本介绍"><a href="#稀疏数组基本介绍" class="headerlink" title="稀疏数组基本介绍"></a>稀疏数组基本介绍</h3><p>当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。</p>
 <h3 id="稀疏数组处理方法"><a href="#稀疏数组处理方法" class="headerlink" title="稀疏数组处理方法"></a>稀疏数组处理方法</h3><ol>
 <li>记录数组一共有几行几列，有多少个不同的值</li>
 <li>把具有不同值的元素的行列及值记录在一个小规模的数组中，从而缩小程序的规模</li>
 </ol>
-<h3 id="稀疏数组举例说明"><a href="#稀疏数组举例说明" class="headerlink" title="稀疏数组举例说明"></a>稀疏数组举例说明</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jthducssj30r20k0q7p.jpg" alt="稀疏数组举例说明"></p>
+<h3 id="稀疏数组举例说明"><a href="#稀疏数组举例说明" class="headerlink" title="稀疏数组举例说明"></a>稀疏数组举例说明</h3><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jthducssj30r20k0q7p.jpg" alt="稀疏数组举例说明" style="zoom:50%;">
+
 <h3 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h3><ol>
 <li>使用稀疏数组，来保留类似前面的二维数组(棋盘、地图等等)</li>
 <li>把稀疏数组存盘，并且可以重新恢复原来的二维数组数</li>
 </ol>
-<h3 id="整体思路分析"><a href="#整体思路分析" class="headerlink" title="整体思路分析"></a>整体思路分析</h3><p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtib2spsj31gi0e2n21.jpg" alt="稀疏数组整体思路分析"></p>
+<h3 id="整体思路分析"><a href="#整体思路分析" class="headerlink" title="整体思路分析"></a>整体思路分析</h3><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtib2spsj31gi0e2n21.jpg" alt="稀疏数组整体思路分析" style="zoom:50%;">
+
 <p>原始的二维数组 –&gt; 稀疏数组的思路</p>
 <ol>
 <li><p>遍历原始的二维数组，得到有效数据的个数 sum</p>
