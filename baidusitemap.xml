@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://yapengren.github.io/wiki/linux-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2019-09-26</lastmod>
+  </url>  <url>
+    <loc>https://yapengren.github.io/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/</loc>
+    <lastmod>2019-09-26</lastmod>
+  </url>  <url>
+    <loc>https://yapengren.github.io/wiki/MySQL-%E7%B4%A2%E5%BC%95/</loc>
+    <lastmod>2019-09-26</lastmod>
+  </url>  <url>
+    <loc>https://yapengren.github.io/wiki/CopyOnWriteArrayList/</loc>
+    <lastmod>2019-09-26</lastmod>
+  </url>  <url>
     <loc>https://yapengren.github.io/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <lastmod>2019-09-26</lastmod>
   </url>  <url>
@@ -20,9 +32,6 @@
     <lastmod>2019-09-26</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/Mybatis-%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E6%8A%A5%E9%94%99-BadSqlGrammarException/</loc>
-    <lastmod>2019-09-25</lastmod>
-  </url>  <url>
-    <loc>https://yapengren.github.io/wiki/linux-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2019-09-25</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/java-%E5%9F%BA%E7%A1%80%E9%A2%98/</loc>
@@ -52,9 +61,6 @@
     <loc>https://yapengren.github.io/wiki/lombok-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2019-09-07</lastmod>
   </url>  <url>
-    <loc>https://yapengren.github.io/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
-    <lastmod>2019-09-05</lastmod>
-  </url>  <url>
     <loc>https://yapengren.github.io/wiki/shiro-%E6%B5%81%E7%A8%8B%E5%9B%BE/</loc>
     <lastmod>2019-09-03</lastmod>
   </url>  <url>
@@ -76,16 +82,10 @@
     <loc>https://yapengren.github.io/wiki/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2019-09-03</lastmod>
   </url>  <url>
-    <loc>https://yapengren.github.io/wiki/MySQL-%E7%B4%A2%E5%BC%95%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
-    <lastmod>2019-08-25</lastmod>
-  </url>  <url>
     <loc>https://yapengren.github.io/wiki/synchronized-%E5%92%8C-lock-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F%E7%94%A8%E6%96%B0%E7%9A%84lock%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%9F%E4%B8%BE%E4%BE%8B%E8%AF%B4%E8%AF%B4/</loc>
     <lastmod>2019-08-25</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
-    <lastmod>2019-08-25</lastmod>
-  </url>  <url>
-    <loc>https://yapengren.github.io/wiki/CopyOnWriteArrayList-%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <lastmod>2019-08-25</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/MySQL-InnoDB-%E9%82%A3%E4%BA%9B%E4%BA%8B/</loc>

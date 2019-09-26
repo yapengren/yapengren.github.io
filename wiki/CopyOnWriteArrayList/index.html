@@ -3,28 +3,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>linux 基础命令 | yp_ren Blog</title>
+    <title>CopyOnWriteArrayList | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="linux">
+        <meta name="keywords" content="java">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="前言可以使用 man 命令来查看各个命令的使用文档，如：man cp 文件基本属性Linux中我们可以使用 ll 或者 ls –l 命令来显示一个文件的属性以及文件所属的用户和组 $ lltotal 2184-rw-r--r--    1 renyapeng  staff   846K  9 22 16:08 db.jsondrwxr-xr-x  315 renyapeng  staff   9.">
-<meta name="keywords" content="linux">
+    <meta name="description" content="写时复制CopyOnWrite 容器即写时复制的容器。往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，然后新的容器 Object[] newElements 里添加元素，添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)这样做的好处">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux 基础命令">
-<meta property="og:url" content="https://yapengren.github.io/wiki/linux-基础命令/index.html">
+<meta property="og:title" content="CopyOnWriteArrayList">
+<meta property="og:url" content="https://yapengren.github.io/wiki/CopyOnWriteArrayList/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="前言可以使用 man 命令来查看各个命令的使用文档，如：man cp 文件基本属性Linux中我们可以使用 ll 或者 ls –l 命令来显示一个文件的属性以及文件所属的用户和组 $ lltotal 2184-rw-r--r--    1 renyapeng  staff   846K  9 22 16:08 db.jsondrwxr-xr-x  315 renyapeng  staff   9.">
+<meta property="og:description" content="写时复制CopyOnWrite 容器即写时复制的容器。往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，然后新的容器 Object[] newElements 里添加元素，添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)这样做的好处">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/06/363003_1227493859FdXT.png">
-<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png">
-<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif">
-<meta property="og:updated_time" content="2019-09-25T02:28:48.627Z">
+<meta property="og:updated_time" content="2019-09-26T04:49:14.568Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux 基础命令">
-<meta name="twitter:description" content="前言可以使用 man 命令来查看各个命令的使用文档，如：man cp 文件基本属性Linux中我们可以使用 ll 或者 ls –l 命令来显示一个文件的属性以及文件所属的用户和组 $ lltotal 2184-rw-r--r--    1 renyapeng  staff   846K  9 22 16:08 db.jsondrwxr-xr-x  315 renyapeng  staff   9.">
-<meta name="twitter:image" content="https://www.runoob.com/wp-content/uploads/2014/06/363003_1227493859FdXT.png">
+<meta name="twitter:title" content="CopyOnWriteArrayList">
+<meta name="twitter:description" content="写时复制CopyOnWrite 容器即写时复制的容器。往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，然后新的容器 Object[] newElements 里添加元素，添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)这样做的好处">
     
 
     
@@ -185,9 +181,9 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             技术分享
                         </a>
@@ -201,13 +197,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Dubbo-架构/">Dubbo 架构</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             java基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList-知识点/">CopyOnWriteArrayList 知识点</a></li>  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  <li class="file active"><a href="/wiki/CopyOnWriteArrayList/">CopyOnWriteArrayList</a></li>  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -261,7 +257,7 @@
                             &nbsp;
                             数据库
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  <li class="file"><a href="/wiki/SQL-的各种-JOIN-用法/">SQL 的各种 JOIN 用法</a></li>  <li class="file"><a href="/wiki/MySQL-索引知识点/">MySQL 索引知识点</a></li>  <li class="file"><a href="/wiki/数据库事务知识点/">数据库事务知识点</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  <li class="file"><a href="/wiki/SQL-的各种-JOIN-用法/">SQL 的各种 JOIN 用法</a></li>  <li class="file"><a href="/wiki/MySQL-索引/">MySQL 索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -293,20 +289,20 @@
                      <li class="file"><a href="/wiki/稀疏数组-sparsearray/">稀疏数组 sparsearray</a></li>  <li class="file"><a href="/wiki/冒泡排序/">冒泡排序</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             系统知识
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             linux
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/linux-基础命令/">linux 基础命令</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/linux-基本命令/">linux 基本命令</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -390,7 +386,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-linux-基础命令" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-CopyOnWriteArrayList" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -400,20 +396,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/系统知识/">系统知识</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/系统知识/linux/">linux</a>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java基础/">java基础</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/linux/">linux</a>
+        <a class="tag-link" href="/tags/java/">java</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/linux-基础命令/">
-            <time datetime="2019-09-22T05:57:36.000Z" itemprop="datePublished">2019-09-22</time>
+        <a href="/wiki/CopyOnWriteArrayList/">
+            <time datetime="2019-08-20T06:19:07.000Z" itemprop="datePublished">2019-08-20</time>
         </a>
     </div>
 
@@ -424,13 +420,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/linux-基础命令.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/CopyOnWriteArrayList.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/linux-基础命令.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/CopyOnWriteArrayList.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/linux-基础命令.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/CopyOnWriteArrayList.md'> History </a>
                             </div>
                         
                     </div>
@@ -438,7 +434,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            linux 基础命令
+            CopyOnWriteArrayList
         </h1>
     
 
@@ -451,124 +447,12 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件基本属性"><span class="toc-number">2.</span> <span class="toc-text">文件基本属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件与目录管理"><span class="toc-number">3.</span> <span class="toc-text">文件与目录管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir-创建目录"><span class="toc-number">3.1.</span> <span class="toc-text">mkdir 创建目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-复制文件或文件夹"><span class="toc-number">3.2.</span> <span class="toc-text">cp 复制文件或文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm-移除文件或目录"><span class="toc-number">3.3.</span> <span class="toc-text">rm 移除文件或目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv-移动文件与目录或重命名"><span class="toc-number">3.4.</span> <span class="toc-text">mv 移动文件与目录或重命名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件内容查看"><span class="toc-number">4.</span> <span class="toc-text">文件内容查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vim"><span class="toc-number">5.</span> <span class="toc-text">vim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vim工作模式"><span class="toc-number">5.1.</span> <span class="toc-text">vim工作模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim键盘图"><span class="toc-number">5.2.</span> <span class="toc-text">vim键盘图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim常用按键"><span class="toc-number">5.3.</span> <span class="toc-text">vim常用按键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统管理"><span class="toc-number">6.</span> <span class="toc-text">系统管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ps"><span class="toc-number">6.1.</span> <span class="toc-text">ps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kill"><span class="toc-number">6.2.</span> <span class="toc-text">kill</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#killall"><span class="toc-number">6.3.</span> <span class="toc-text">killall</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件管理"><span class="toc-number">7.</span> <span class="toc-text">文件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#file"><span class="toc-number">7.1.</span> <span class="toc-text">file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-number">7.2.</span> <span class="toc-text">find</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文档编辑"><span class="toc-number">8.</span> <span class="toc-text">文档编辑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#grep"><span class="toc-number">8.1.</span> <span class="toc-text">grep</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#备份压缩"><span class="toc-number">9.</span> <span class="toc-text">备份压缩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tar"><span class="toc-number">9.1.</span> <span class="toc-text">tar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">10.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#写时复制"><span class="toc-number">1.</span> <span class="toc-text">写时复制</span></a></li></ol>
                 </div>
             
         
         
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>可以使用 man 命令来查看各个命令的使用文档，如：man cp</p>
-<h2 id="文件基本属性"><a href="#文件基本属性" class="headerlink" title="文件基本属性"></a>文件基本属性</h2><p>Linux中我们可以使用 <code>ll</code> 或者 <code>ls –l</code> 命令来显示一个文件的属性以及文件所属的用户和组</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> ll</span><br><span class="line">total 2184</span><br><span class="line">-rw-r--r--    1 renyapeng  staff   846K  9 22 16:08 db.json</span><br><span class="line">drwxr-xr-x  315 renyapeng  staff   9.8K  8 12 14:07 node_modules</span><br><span class="line">drwxr-xr-x   21 renyapeng  staff   672B  9 22 15:28 public</span><br></pre></td></tr></table></figure>
-
-<p>每个文件的属性由左边第一部分的 10 个字符来确定（如下图）</p>
-<img src="https://www.runoob.com/wp-content/uploads/2014/06/363003_1227493859FdXT.png" alt="文件基本属性" style="zoom: 50%;">
-
-<p>10位字符表示：</p>
-<ul>
-<li><p>0位：确定文件类型</p>
-</li>
-<li><p>1-3位：确定该文件的所有者对文件的权限 <strong>owner</strong></p>
-</li>
-<li><p>4-6位：确定所有者的同组用户拥有该文件的权限 <strong>group</strong></p>
-</li>
-<li><p>7-9位：确定其他用户拥有该文件的权限 <strong>others</strong></p>
-</li>
-</ul>
-<p>第一个字符：代表这个文件的类型，是目录、文件，还是一个链接等等</p>
-<ul>
-<li><p><strong>[</strong> <strong>d</strong> <strong>]</strong> 目录</p>
-</li>
-<li><p><strong>[</strong> <strong>-</strong> <strong>]</strong> 文件</p>
-</li>
-<li><p><strong>[</strong> <strong>l</strong>  <strong>]</strong> 链接文档（link file）</p>
-</li>
-<li><p><strong>[</strong> <strong>b</strong> <strong>]</strong> 可供储存的接口设备(可随机存取装置)</p>
-</li>
-<li><p><strong>[</strong> <strong>c</strong> <strong>]</strong> 串行端口设备，例如键盘、鼠标（一次性读取装置）</p>
-</li>
-</ul>
-<p>接下来的字符：以三个一组分成三组，用 r、w、x 三个参数的组合表示，位置不会改变</p>
-<ul>
-<li><p><strong>[ r ]</strong> 代表可读（read）</p>
-</li>
-<li><p><strong>[ w ]</strong> 代表可写（write）</p>
-</li>
-<li><p><strong>[ x ]</strong> 代表可执行（execute）</p>
-</li>
-<li><p><strong>[ - ]</strong> 没有权限</p>
-</li>
-</ul>
-<h2 id="文件与目录管理"><a href="#文件与目录管理" class="headerlink" title="文件与目录管理"></a>文件与目录管理</h2><h3 id="mkdir-创建目录"><a href="#mkdir-创建目录" class="headerlink" title="mkdir 创建目录"></a>mkdir 创建目录</h3><p>mkdir (make directory)</p>
-<p>语法：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir [-p] 目录名称</span><br></pre></td></tr></table></figure>
-
-<p>参数：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-m ：配置文件的权限</span><br><span class="line">-p ：将所需要的目录（包含上一级目录）递归创建起来</span><br></pre></td></tr></table></figure>
-
-<p>实例：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir test    // 创建新目录</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> mkdir test1/test2/test3/test4</span><br><span class="line">mkdir: test1/test2/test3: No such file or directory    // 不能创建多层目录</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> mkdir -p test1/test2/test3/test4    // 添加-p参数，可以创建多层目录</span><br></pre></td></tr></table></figure>
-
-<h3 id="cp-复制文件或文件夹"><a href="#cp-复制文件或文件夹" class="headerlink" title="cp 复制文件或文件夹"></a>cp 复制文件或文件夹</h3><p>语法：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cp [-adfilprsu] 来源档（source）目标档（destination）</span><br></pre></td></tr></table></figure>
-
-<p>参数：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-a ：相当于 -pdr 的意思，至于 pdr 请参考下列说明（常用）</span><br><span class="line">-d ：若来源档为连结档的属性（link file），则复制连结档属性而非文件本身</span><br><span class="line">-f ：为强制（force）的意思，若目标文件已经存在且无法开启，则移除后再尝试一次</span><br><span class="line">-i ：若目标档（destination）已经存在时，在覆盖时会先询问动作的进行（常用）</span><br><span class="line">-l ：进行硬式连结（hard link）的连结档创建，而非复制文件本身</span><br><span class="line">-p ：连同文件的属性一起复制过去，而非使用默认属性（备份常用）</span><br><span class="line">-r ：递归持续复制，用于目录的复制行为（常用）</span><br><span class="line">-s ：复制成为符号连结档（symbolic link），亦即「捷径」文件</span><br><span class="line">-u ：若 destination 比 source 旧才升级 destination</span><br></pre></td></tr></table></figure>
-
-<p>实例：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> cp -r test1 bashrc    // 复制文件夹并重命名</span><br></pre></td></tr></table></figure>
-
-<h3 id="rm-移除文件或目录"><a href="#rm-移除文件或目录" class="headerlink" title="rm 移除文件或目录"></a>rm 移除文件或目录</h3><p>rm (remove)</p>
-<p>语法：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm [-fir] 文件或目录</span><br></pre></td></tr></table></figure>
-
-<p>参数：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-f ：就是 force 的意思，忽略不存在的文件，不会出现警告信息</span><br><span class="line">-i ：互动模式，在删除前会询问使用者是否动作</span><br><span class="line">-r ：递归删除啊！最常用在目录的删除了！这是非常危险的选项！！！</span><br></pre></td></tr></table></figure>
-
-<p>实例：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> rm -ir test1    // 删除之前询问使用者是否动作</span><br><span class="line">examine files in directory test1? y</span><br></pre></td></tr></table></figure>
-
-<h3 id="mv-移动文件与目录或重命名"><a href="#mv-移动文件与目录或重命名" class="headerlink" title="mv 移动文件与目录或重命名"></a>mv 移动文件与目录或重命名</h3><p>语法：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mv [-fiu] source destination</span><br><span class="line">mv [options] source1 source2 source3 .... directory</span><br></pre></td></tr></table></figure>
-
-<p>参数：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖</span><br><span class="line">-i ：若目标文件（destination）已经存在时，就会询问是否覆盖</span><br><span class="line">-u ：若目标文件已经存在，且 source 比较新，才会升级（update）</span><br></pre></td></tr></table></figure>
-
-<p>实例：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> mv test1 test2</span><br></pre></td></tr></table></figure>
-
-<h2 id="文件内容查看"><a href="#文件内容查看" class="headerlink" title="文件内容查看"></a>文件内容查看</h2><p>Linux 系统中使用以下命令来查看文件的内容：</p>
-<ul>
-<li>cat  由第一行开始显示文件内容</li>
-<li>tac  从最后一行开始显示，可以看出 tac 是 cat 的倒着写</li>
-<li>nl  显示的时候，顺道输出行号</li>
-<li>more  一页一页的显示文件内容</li>
-<li>less 与 more 类似，但是可以往前翻页</li>
-<li>head  只看头几行</li>
-<li>tail  只看尾几行</li>
-</ul>
-<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><h3 id="vim工作模式"><a href="#vim工作模式" class="headerlink" title="vim工作模式"></a>vim工作模式</h3><img src="https://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png" alt="vim工作模式" style="zoom:50%;">
-
-<h3 id="vim键盘图"><a href="#vim键盘图" class="headerlink" title="vim键盘图"></a>vim键盘图</h3><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt="vim键盘图" style="zoom:67%;">
-
-<h3 id="vim常用按键"><a href="#vim常用按键" class="headerlink" title="vim常用按键"></a>vim常用按键</h3><h2 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h2><h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><p>process</p>
-<h3 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h3><p>语法：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kill [-s &lt;信息名称或编号&gt;][程序]　或　kill [-l &lt;信息编号&gt;]</span><br></pre></td></tr></table></figure>
-
-<p>参数：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>实例：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> kill 12345    // 杀死进程</span><br><span class="line"><span class="meta">$</span> kill -KILL 123456    // 强制杀死进程</span><br><span class="line"><span class="meta">$</span> kill -9 123456    // 彻底杀死进程</span><br></pre></td></tr></table></figure>
-
-<h3 id="killall"><a href="#killall" class="headerlink" title="killall"></a>killall</h3><h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><h3 id="file"><a href="#file" class="headerlink" title="file"></a>file</h3><h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>搜索指定文件|文件夹</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find 路径 -name 名称</span><br></pre></td></tr></table></figure>
-
-<p>删除空文件|空文件夹</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find 路径 -type d -empty|xargs -n 1 rm -rf</span><br></pre></td></tr></table></figure>
-
-<h2 id="文档编辑"><a href="#文档编辑" class="headerlink" title="文档编辑"></a>文档编辑</h2><h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h3><h2 id="备份压缩"><a href="#备份压缩" class="headerlink" title="备份压缩"></a>备份压缩</h2><h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><blockquote>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  <a href="https://www.runoob.com/linux/linux-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-tutorial.html</a></p>
-</blockquote>
+            <h2 id="写时复制"><a href="#写时复制" class="headerlink" title="写时复制"></a>写时复制</h2><p>CopyOnWrite 容器即写时复制的容器。<br>往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而是先将当前 object[] 进行 Copy，复制出一个新的容器 Object[] newElements，<br>然后新的容器 Object[] newElements 里添加元素，<br>添加完元素之后，再将原容器的引用指向新的容器 setArray(newElements)<br>这样做的好处是可以对 copyonwrite 容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。<br>所以 copyonwrite容器也是一种读写分离的思想，读和写不同的容器。</p>
 
             </div>
         
@@ -581,10 +465,19 @@
     
 <nav id="article-nav">
     
+        <a href="/wiki/java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    java 公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？
+                
+            </div>
+        </a>
     
-        <a href="/wiki/java-util-ConcurrentModificationException-异常详解/" id="article-nav-older" class="article-nav-link-wrap">
+    
+        <a href="/wiki/原子类Atomiclnteger-的-ABA-问题谈谈？/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">java.util.ConcurrentModificationException 异常详解</div>
+            <div class="article-nav-title">原子类Atomiclnteger 的 ABA 问题谈谈？</div>
         </a>
     
 </nav>
