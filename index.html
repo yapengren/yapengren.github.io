@@ -162,24 +162,6 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            开发工具
-                        </a>
-                         <ul class="unstyled" id="tree" > 
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            IDE
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/intellij-idea-修改记录/">intellij idea 修改记录</a></li>  </ul> 
-                    </li> 
-                     </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
                             技术分享
                         </a>
                          <ul class="unstyled" id="tree" > 
@@ -252,7 +234,7 @@
                             &nbsp;
                             数据库
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL-InnoDB-那些事/">MySQL InnoDB 那些事</a></li>  <li class="file"><a href="/wiki/SQL-执行顺序/">SQL 执行顺序</a></li>  <li class="file"><a href="/wiki/SQL-的各种-JOIN-用法/">SQL 的各种 JOIN 用法</a></li>  <li class="file"><a href="/wiki/MySQL-索引/">MySQL 索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL-索引/">MySQL 索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -288,9 +270,18 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            系统知识
+                            系统工具
                         </a>
                          <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            IDE
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/intellij-idea-修改记录/">intellij idea 修改记录</a></li>  </ul> 
+                    </li> 
+                    
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
@@ -392,7 +383,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/系统知识/">系统知识</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/系统知识/linux/">linux</a>
+        <a class="article-category-link" href="/categories/系统工具/">系统工具</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/系统工具/linux/">linux</a>
     </div>
 
                         
@@ -1396,7 +1387,7 @@
                 
                 
                     
-                    <p><h2 id="索引优化"><a href="#索引优化" class="headerlink" title="索引优化"></a>索引优化</h2><h3 id="索引失效案例"><a href="#索引失效案例" class="headerlink" title="索引失效案例"></a>索引失效案例</h3><ol>
+                    <p><h1 id="索引优化"><a href="#索引优化" class="headerlink" title="索引优化"></a>索引优化</h1><h2 id="索引失效案例"><a href="#索引失效案例" class="headerlink" title="索引失效案例"></a>索引失效案例</h2><ol>
 <li>全值匹配</li>
 <li>最佳左前缀法则。如果索引了多列，要遵守最左前缀法则，指的是查询从索引的最左前列开始并且不跳过索引中的列</li>
 <li>不在索引列上做任何操作（计算、函数、「自动或者手动」类型转换），会导致索引失效而转向全表扫描</li>
