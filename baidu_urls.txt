@@ -1,3 +1,4 @@
+https://yapengren.github.io/wiki/mac-系统快捷键/
 https://yapengren.github.io/wiki/linux-基本命令/
 https://yapengren.github.io/wiki/java-util-ConcurrentModificationException-异常详解/
 https://yapengren.github.io/wiki/Mybatis-批量操作报错-BadSqlGrammarException/
@@ -7,4 +8,3 @@ https://yapengren.github.io/wiki/稀疏数组-sparsearray/
 https://yapengren.github.io/wiki/java-基础题/
 https://yapengren.github.io/wiki/数据库知识点/
 https://yapengren.github.io/wiki/数据库事务/
-https://yapengren.github.io/wiki/MySQL-索引/
