@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yapengren.github.io/"/>
-  <updated>2019-10-05T03:04:53.009Z</updated>
+  <updated>2019-10-07T05:17:09.069Z</updated>
   <id>https://yapengren.github.io/</id>
   
   <author>
@@ -17,19 +17,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>mac 系统快捷键</title>
-    <link href="https://yapengren.github.io/wiki/mac-%E7%B3%BB%E7%BB%9F%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-    <id>https://yapengren.github.io/wiki/mac-系统快捷键/</id>
+    <title>mac系统快捷键</title>
+    <link href="https://yapengren.github.io/wiki/mac%E7%B3%BB%E7%BB%9F%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>https://yapengren.github.io/wiki/mac系统快捷键/</id>
     <published>2019-10-05T02:58:45.000Z</published>
-    <updated>2019-10-05T03:04:53.009Z</updated>
+    <updated>2019-10-07T05:17:09.069Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">^ A    Home</span><br><span class="line"></span><br><span class="line">^ E    End</span><br><span class="line"></span><br><span class="line">^ H    删除</span><br><span class="line"></span><br><span class="line">^ D    Delete</span><br><span class="line"></span><br><span class="line">^ K    删除到结尾</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">^ P           Previous⬆️</span><br><span class="line"></span><br><span class="line">^ B    ^ F    Backward⬅️    Forward➡️</span><br><span class="line"></span><br><span class="line">^ N           Next⬇️</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>^ A    Home</p><p>^ E    End</p><p>^ H    删除</p><p>^ D    Delete</p><p>^ K    删除到结尾</p><p>^ P              Previous⬆️</p><p>^ B    ^ F    Backward⬅️    Forward➡️</p><p>^ N             Next⬇️</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;^ A    Home&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;spa
+        &lt;p&gt;^ A    Home&lt;/p&gt;
+&lt;p&gt;^ E    End&lt;/p&gt;
+&lt;p&gt;^ H    删除&lt;/p&gt;
+&lt;p&gt;^ D    Delete&lt;/p&gt;
+&lt;p&gt;^ K    删除到结尾&lt;/p&gt;
+&lt;p&gt;^ P              Previous⬆️&lt;/p&gt;
+&lt;p&gt;^ B    
       
     
     </summary>
@@ -181,11 +187,11 @@
   </entry>
   
   <entry>
-    <title>稀疏数组 sparsearray</title>
-    <link href="https://yapengren.github.io/wiki/%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84-sparsearray/"/>
-    <id>https://yapengren.github.io/wiki/稀疏数组-sparsearray/</id>
+    <title>稀疏数组sparsearray</title>
+    <link href="https://yapengren.github.io/wiki/%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84sparsearray/"/>
+    <id>https://yapengren.github.io/wiki/稀疏数组sparsearray/</id>
     <published>2019-09-01T06:37:41.000Z</published>
-    <updated>2019-09-23T12:58:29.827Z</updated>
+    <updated>2019-10-07T05:19:22.686Z</updated>
     
     <content type="html"><![CDATA[<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>编写的五子棋程序中，有存盘退出和续上盘的功能。</p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtgf40z1j30zw0fcgp7.jpg" alt="稀疏数组需求" style="zoom:50%;"><h3 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h3><p>因为该二维数组的很多值是默认值 0, 因此记录了很多没有意义的数据</p><h3 id="稀疏数组基本介绍"><a href="#稀疏数组基本介绍" class="headerlink" title="稀疏数组基本介绍"></a>稀疏数组基本介绍</h3><p>当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来保存该数组。</p><h3 id="稀疏数组处理方法"><a href="#稀疏数组处理方法" class="headerlink" title="稀疏数组处理方法"></a>稀疏数组处理方法</h3><ol><li>记录数组一共有几行几列，有多少个不同的值</li><li>把具有不同值的元素的行列及值记录在一个小规模的数组中，从而缩小程序的规模</li></ol><h3 id="稀疏数组举例说明"><a href="#稀疏数组举例说明" class="headerlink" title="稀疏数组举例说明"></a>稀疏数组举例说明</h3><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jthducssj30r20k0q7p.jpg" alt="稀疏数组举例说明" style="zoom:50%;"><h3 id="应用实例"><a href="#应用实例" class="headerlink" title="应用实例"></a>应用实例</h3><ol><li>使用稀疏数组，来保留类似前面的二维数组(棋盘、地图等等)</li><li>把稀疏数组存盘，并且可以重新恢复原来的二维数组数</li></ol><h3 id="整体思路分析"><a href="#整体思路分析" class="headerlink" title="整体思路分析"></a>整体思路分析</h3><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6jtib2spsj31gi0e2n21.jpg" alt="稀疏数组整体思路分析" style="zoom:50%;"><p>原始的二维数组 –&gt; 稀疏数组的思路</p><ol><li><p>遍历原始的二维数组，得到有效数据的个数 sum</p></li><li><p>根据 sum 可以创建稀疏数组 <code>sparseArr int[sum + 1][3]</code></p></li><li><p>将二维数组的有效数据存入到稀疏数组</p></li></ol><p>稀疏数组 –&gt; 原始的二维数组的思路</p><ol><li><p>先读取稀疏数组的第一行，根据第一行的数据，创建原始的二维数组，比如 <code>int[][] chessArr = new int[11][11]</code></p></li><li><p>在读取稀疏数组后几行的数据，并赋给原始的二维数组</p></li></ol><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SparseArray</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 创建原始的二维数组 11 * 11</span></span><br><span class="line">        <span class="comment">// 0表示没有棋子，1表示黑棋，2表示蓝棋</span></span><br><span class="line">        <span class="keyword">int</span>[][] chessArr = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">11</span>][<span class="number">11</span>];</span><br><span class="line">        chessArr[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">        chessArr[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出原始的二维数组</span></span><br><span class="line">        System.out.println(<span class="string">"原始的二维数组----------"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] ints : chessArr) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> data : ints) &#123;</span><br><span class="line">                System.out.printf(<span class="string">"%d\t"</span>, data);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 原始的二维数组 --&gt; 稀疏数组的思路</span></span><br><span class="line">        <span class="comment">// 1、遍历二维数组，得到非 0 数据的个数</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">11</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">11</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (chessArr[i][j] != <span class="number">0</span>) &#123;</span><br><span class="line">                    sum++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 2、创建对应的稀疏数组</span></span><br><span class="line">        <span class="keyword">int</span>[][] sparseArr = <span class="keyword">new</span> <span class="keyword">int</span>[sum + <span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">        sparseArr[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">11</span>;</span><br><span class="line">        sparseArr[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">11</span>;</span><br><span class="line">        sparseArr[<span class="number">0</span>][<span class="number">2</span>] = sum;</span><br><span class="line">        <span class="comment">// 3、遍历二维数组，将非 0 数据存入 sparseArr</span></span><br><span class="line">        <span class="comment">// count 用于记录是第几个非 0 数据</span></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">11</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">11</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (chessArr[i][j] != <span class="number">0</span>) &#123;</span><br><span class="line">                    count++;</span><br><span class="line">                    sparseArr[count][<span class="number">0</span>] = i;</span><br><span class="line">                    sparseArr[count][<span class="number">1</span>] = j;</span><br><span class="line">                    sparseArr[count][<span class="number">2</span>] = chessArr[i][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 输出稀疏数组</span></span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">"稀疏数组----------"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; sparseArr.length; i++) &#123;</span><br><span class="line">            System.out.printf(<span class="string">"%d\t%d\t%d\t\n"</span>, sparseArr[i][<span class="number">0</span>], sparseArr[i][<span class="number">1</span>], sparseArr[i][<span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 稀疏数组 --&gt; 原始的二维数组的思路</span></span><br><span class="line">        <span class="comment">// 1.  先读取稀疏数组的第一行，根据第一行的数据，创建原始的二维数组，比如 int[][] chessArr = new int[11][11]</span></span><br><span class="line">        <span class="keyword">int</span>[][] chessArr2 = <span class="keyword">new</span> <span class="keyword">int</span>[sparseArr[<span class="number">0</span>][<span class="number">0</span>]][sparseArr[<span class="number">0</span>][<span class="number">1</span>]];</span><br><span class="line">        <span class="comment">// 2.  在读取稀疏数组后几行的数据，并赋给原始的二维数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; sparseArr.length; i++) &#123;</span><br><span class="line">            chessArr2[sparseArr[i][<span class="number">0</span>]][sparseArr[i][<span class="number">1</span>]] = sparseArr[i][<span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 输出恢复后的二维数组</span></span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">"恢复后的二维数组----------"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span>[] ints : chessArr2) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> data : ints) &#123;</span><br><span class="line">                System.out.printf(<span class="string">"%d\t"</span>, data);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -395,11 +401,11 @@
   </entry>
   
   <entry>
-    <title>java 公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？</title>
-    <link href="https://yapengren.github.io/wiki/java-%E5%85%AC%E5%B9%B3%E9%94%81-%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81-%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81-%E9%80%92%E5%BD%92%E9%94%81-%E8%87%AA%E6%97%8B%E9%94%81%E8%B0%88%E8%B0%88%E4%BD%A0%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F/"/>
-    <id>https://yapengren.github.io/wiki/java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/</id>
+    <title>java公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？</title>
+    <link href="https://yapengren.github.io/wiki/java%E5%85%AC%E5%B9%B3%E9%94%81-%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81-%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81-%E9%80%92%E5%BD%92%E9%94%81-%E8%87%AA%E6%97%8B%E9%94%81%E8%B0%88%E8%B0%88%E4%BD%A0%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F/"/>
+    <id>https://yapengren.github.io/wiki/java公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/</id>
     <published>2019-08-20T06:29:56.000Z</published>
-    <updated>2019-08-20T06:41:21.774Z</updated>
+    <updated>2019-10-07T05:22:15.272Z</updated>
     
     <content type="html"><![CDATA[<h2 id="公平锁和非公平锁"><a href="#公平锁和非公平锁" class="headerlink" title="公平锁和非公平锁"></a>公平锁和非公平锁</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>公平锁：是指多个线程按照申请锁的顺序来获取锁，类似排队打饭，先来后到。</p><p>非公平锁：是指多个线程获取锁的顺序并不是按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁。在高并发的情况下，有可能会造成优先级反转或者饥饿现象。</p><h3 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h3><p>公平锁/非公平锁：并发包中 ReentrantLock 的创建可以指定构造函数的 boolean 类型来得到公平锁或非公平锁，默认是非公平锁。</p><p>关于两者区别：</p><p>公平锁，就是很公平，在并发情况下，每个线程在获取锁时会查看此锁维护的等待队列，如果为空，或者当前线程是等待队列的第一个，就占有锁，否则就会加入到等待队列中，以后会按照 FIFO 的规则从队列中取到自己。</p><p>非公平锁：非公平锁比较粗鲁，上来就直接尝试占有锁，如果尝试失败，就再采取类似公平锁那种方式。</p><h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>Java ReentrantLock 而言，通过构造函数指定该锁是否是公平锁，默认是非公平锁。非公平锁的优点在于吞吐量比公平锁大。</p><p>对于 Synchronized 而言，也是一种非公平锁。</p><h2 id="可重入锁（又名递归锁）"><a href="#可重入锁（又名递归锁）" class="headerlink" title="可重入锁（又名递归锁）"></a>可重入锁（又名递归锁）</h2><h3 id="是什么-1"><a href="#是什么-1" class="headerlink" title="是什么"></a>是什么</h3><p>可重入锁（也就是递归锁）：指的是同一个线程外层函数获得锁之后，内层递归函数仍然能获取该锁的代码，在同一线程在外层方法获取锁的时候，在进入内层方法会自动获取锁。</p><p>也就是说，线程可以进入任何一个它已经拥有的锁所有同步着的代码块。</p><h3 id="ReentrantLock-Synchronized-就是一个典型的可重入锁"><a href="#ReentrantLock-Synchronized-就是一个典型的可重入锁" class="headerlink" title="ReentrantLock/Synchronized 就是一个典型的可重入锁"></a>ReentrantLock/Synchronized 就是一个典型的可重入锁</h3><h3 id="可重入锁最大的作用是避免死锁"><a href="#可重入锁最大的作用是避免死锁" class="headerlink" title="可重入锁最大的作用是避免死锁"></a>可重入锁最大的作用是避免死锁</h3><h2 id="独占锁-共享锁"><a href="#独占锁-共享锁" class="headerlink" title="独占锁/共享锁"></a>独占锁/共享锁</h2><p>独占锁：指该锁一次只能被一个线程所持有。对 ReentrantLock 和 Synchronized 而言都是独占锁。</p><p>共享锁：指该锁可被多个线程所持有。</p><p>对 ReentrantReadWriteLock，其读锁是共享锁，其写锁是独占锁。读锁的共享锁可保证并发读是非常高效的，读写，写读，写写的过程是互斥的。</p><h2 id="自旋锁"><a href="#自旋锁" class="headerlink" title="自旋锁"></a>自旋锁</h2><p>自旋锁：是指尝试获取锁的线程不会立即阻塞，而是采用循环的方式去尝试获取锁，这样的好处是减少线程上下切换的消耗，缺点是循环会消耗CPU。</p>]]></content>
     
@@ -449,11 +455,11 @@
   </entry>
   
   <entry>
-    <title>原子类Atomiclnteger 的 ABA 问题谈谈？</title>
-    <link href="https://yapengren.github.io/wiki/%E5%8E%9F%E5%AD%90%E7%B1%BBAtomiclnteger-%E7%9A%84-ABA-%E9%97%AE%E9%A2%98%E8%B0%88%E8%B0%88%EF%BC%9F/"/>
-    <id>https://yapengren.github.io/wiki/原子类Atomiclnteger-的-ABA-问题谈谈？/</id>
+    <title>原子类Atomiclnteger的ABA问题谈谈？</title>
+    <link href="https://yapengren.github.io/wiki/%E5%8E%9F%E5%AD%90%E7%B1%BBAtomiclnteger%E7%9A%84ABA%E9%97%AE%E9%A2%98%E8%B0%88%E8%B0%88%EF%BC%9F/"/>
+    <id>https://yapengren.github.io/wiki/原子类Atomiclnteger的ABA问题谈谈？/</id>
     <published>2019-08-20T05:56:30.000Z</published>
-    <updated>2019-08-20T06:17:01.669Z</updated>
+    <updated>2019-10-07T05:19:46.500Z</updated>
     
     <content type="html"><![CDATA[<h2 id="ABA问题怎么产生的"><a href="#ABA问题怎么产生的" class="headerlink" title="ABA问题怎么产生的"></a>ABA问题怎么产生的</h2><p>CAS会导致 ABA 问题</p><p>CAS 算法实现一个重要前提需要取出内存中某时刻的数据并在当下时刻比较并替换，那么在这个时间差类会导致数据的变化。</p><p>尽管线程 one 的 CAS 操作成功，但是不代表这个过程就是没问题的。</p><h2 id="原子引用"><a href="#原子引用" class="headerlink" title="原子引用"></a>原子引用</h2><p>解决ABA问题</p><h2 id="时间戳原子引用"><a href="#时间戳原子引用" class="headerlink" title="时间戳原子引用"></a>时间戳原子引用</h2><p>AtomicStampledReference<br>ABADemo</p>]]></content>
     
@@ -477,11 +483,11 @@
   </entry>
   
   <entry>
-    <title>CAS 你知道吗？</title>
-    <link href="https://yapengren.github.io/wiki/CAS-%E4%BD%A0%E7%9F%A5%E9%81%93%E5%90%97%EF%BC%9F/"/>
-    <id>https://yapengren.github.io/wiki/CAS-你知道吗？/</id>
+    <title>CAS理解</title>
+    <link href="https://yapengren.github.io/wiki/CAS%E7%90%86%E8%A7%A3/"/>
+    <id>https://yapengren.github.io/wiki/CAS理解/</id>
     <published>2019-08-20T05:49:03.000Z</published>
-    <updated>2019-08-20T06:12:43.874Z</updated>
+    <updated>2019-10-07T05:20:25.676Z</updated>
     
     <content type="html"><![CDATA[<h2 id="比较并交换"><a href="#比较并交换" class="headerlink" title="比较并交换"></a>比较并交换</h2><h2 id="CAS底层原理？如果知道，谈谈比对Unsafe的理解"><a href="#CAS底层原理？如果知道，谈谈比对Unsafe的理解" class="headerlink" title="CAS底层原理？如果知道，谈谈比对Unsafe的理解"></a>CAS底层原理？如果知道，谈谈比对Unsafe的理解</h2><h3 id="Unsafe"><a href="#Unsafe" class="headerlink" title="Unsafe"></a>Unsafe</h3><ol><li><p>Unsafe 是 CAS 的核心类，由于 Java 方法无法直接访问底层系统，需要通过本地（native）方法来访问，Unsafe 相当于一个后门，基于该类可以直接操作特定内存的数据。Unsafe 类存在于 sun.misc 包中，其内部方法操作可以像 C 的指针一样直接操作内存，因为 Java 中 CAS 操作的执行依赖于 Unsafe 类的方法。</p><p>注意 Unsafe 类中的所有方法都是 native 修饰的，也就是说 Unsafe 类中的方法都直接调用操作系统底层资源执行相应任务。</p></li><li><p>变量 valueOffset，表示该变量在内存中的偏移地址，因为 Unsafe 就是根据内存偏移地址获取数据的。</p></li><li><p>变量 value 用 volatile 修饰，保证了多线程之间的内存可见性。</p></li></ol><h3 id="CAS-是什么"><a href="#CAS-是什么" class="headerlink" title="CAS 是什么"></a>CAS 是什么</h3><ol><li><p>unsafe.getAndAddInt</p><p>假设线程 A 和线程 B 两个线程同时执行 getAndAddInt 操作（分别跑在不同 CPU 上）</p><p>AtomicInteger 里面的 value 原始值为 3，即主内存中 AtomicInteger 的 value 为 3，根据 JMM 模型，线程 A 和线程 B 各自持有一份值为 3 的 value 的副本分别到各自的工作内存。</p><p>线程 A 通过 getIntVolatile（var1，var2）拿到 value 值 3，这是线程 A 被挂起。</p><p>线程 B 也通过 getIntVolatile（var1，var2）方法获得 value 值 3，此时刚好线程 B 没有被挂起并执行 compareAndSwap 方法比较内存值也为 3，成功修改内存值为 4，线程 B 打完收工，一切OK。</p><p>这是线程 A 回复，执行 compareAndSwapInt 方法比较，发现手里的值 3 与内存值 4 不一致，说明该值已经被其他线程抢险异步修改过了，那 A 线程本次修改失败，只能重新读取重新来一遍了。</p><p>线程 A 重新获取 value 值，因为变量 value 被 volatile 修饰，所以其他线程对它的修改，线程 A 总是能够看到，线程 A 继续执行 compareAndSwapInt 进行比较替换，直到成功。</p></li><li><p>底层汇编</p></li><li><p>简单版小总结<br>CAS（CompareAndSwap）<br>比较当前工作内存中的值和主内存中的值，如果相同则执行规定操作，否则继续比较知道主内存和工作内存中的值一致为止。</p></li></ol><p>CAS应用<br>CAS有 3 个操作数，内存值 V，旧的预期值 A，要修改的更新值 B。<br>当且仅当预期值 A 和内存值 V 相同时，将内存值 V 修改为 B，否则什么都不做。</p><h2 id="CAS缺点"><a href="#CAS缺点" class="headerlink" title="CAS缺点"></a>CAS缺点</h2><ol><li><p>循环时间长开销大<br>如果 CAS 失败，会一直进行尝试。如果 CAS 长时间一直不成功，可能会给 CPU 带来很大的开销。</p></li><li><p>只能保证一个共享变量的原子操作<br>当对一个共享变量执行操作时，我们只能使用循环 CAS 的方式来保证原子操作，但是，对多个共享变量操作时，循环 CAS 就无法保证操作的原子性，这个时候就可以用锁来保证原子性。</p></li><li><p>引出来 ABA 问题？？？<br>通过原子引用解决 ABA 问题</p></li></ol>]]></content>
     
@@ -504,11 +510,11 @@
   </entry>
   
   <entry>
-    <title>谈谈你对 volatile 的理解</title>
-    <link href="https://yapengren.github.io/wiki/%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9-volatile-%E7%9A%84%E7%90%86%E8%A7%A3/"/>
-    <id>https://yapengren.github.io/wiki/谈谈你对-volatile-的理解/</id>
+    <title>谈谈你对volatile的理解</title>
+    <link href="https://yapengren.github.io/wiki/%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9volatile%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <id>https://yapengren.github.io/wiki/谈谈你对volatile的理解/</id>
     <published>2019-08-19T09:23:18.000Z</published>
-    <updated>2019-08-19T09:33:51.179Z</updated>
+    <updated>2019-10-07T05:19:10.990Z</updated>
     
     <content type="html"><![CDATA[<h2 id="谈谈你对-volatile-的理解"><a href="#谈谈你对-volatile-的理解" class="headerlink" title="谈谈你对 volatile 的理解"></a>谈谈你对 volatile 的理解</h2><p>volatile 是 Java 虚拟机提供的轻量级的同步机制</p><h3 id="保证可见性"><a href="#保证可见性" class="headerlink" title="保证可见性"></a>保证可见性</h3><p>各个线程对主内存中共享变量的操作都是各个线程各自拷贝到自己的工作内存进行操作后再写回主内存中的。</p><p>这就可能存在一个线程 A 修改了共享变量 X 的值但还未写回主内存时，另一个线程 B 又对准内存中同一个共享变量 X 进行操作，但此时 A 线程工作内存中共享变量 X 对线程 B 来说并不是可见，这种工作内存与主内存同步存在延迟现象就造成了可见性问题。</p><h3 id="不保证原子性"><a href="#不保证原子性" class="headerlink" title="不保证原子性"></a>不保证原子性</h3><h3 id="禁止指令重排"><a href="#禁止指令重排" class="headerlink" title="禁止指令重排"></a>禁止指令重排</h3><p>volatile 实现禁止指令重排优化，从而避免多线程环境下程序出现乱序执行的现象。</p><p>先了解一个概念，内存屏障又称内存栅栏，是一个CPU指令，它的作用有两个：<br>一是保证特定操作的执行顺序<br>二是保证某些变量的内存可见性（利用该特性实现volatile的内存可见性）</p><p>由于编译器和处理器都能执行指令重排优化。如果在指令间插入一条 Memory Barrier 则告诉编译器和 CPU，不管什么指令都不能和这条 Memory Barrier 指令重新排序，也就是说通过插入内存屏障禁止在内存屏障前后的指令执行重排序优化。内存屏障另外一个作用是强制刷出各种CPU的缓存数据，因此任何CPU上的线程都能读取到这些数据的最新版本。</p><h2 id="你在哪些地方用过volatile？"><a href="#你在哪些地方用过volatile？" class="headerlink" title="你在哪些地方用过volatile？"></a>你在哪些地方用过volatile？</h2><p>单例模式 DCL 代码<br>单例模式 volatile 分析</p><p>DCL（双端检锁）机制不一定线程安全，原因是有指令重排序的存在，加入 volatile 可以禁止指令重排。<br>原因在于某一个线程执行到第一个检测，读取到的 instance 不为 null 时，instance 的引用对象可能没有完成初始化。<br>指令重排只会保证串行语义的执行一致性（单线程），但并不会关心多线程间的语义一致性。<br>所以当一条线程访问 instance 不为 null 时，由于 instance 实例未必已初始化完成，也就造成了线程安全问题。</p>]]></content>
     

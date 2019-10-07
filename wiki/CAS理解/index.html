@@ -3,28 +3,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>intellij idea 修改记录 | yp_ren Blog</title>
+    <title>CAS理解 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="util">
+        <meta name="keywords" content="java">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="过滤文件  Ignore files and folders *.classpath;*.gitignore;*.hprof;*.idea;*.iml;*.pyc;*.pyo;*.rbc;*.yarb;*~;.DS_Store;.git;.hg;.mvn;.svn;CVS;__pycache__;_svn;logs;mvnw;mvnw.cmd;target;vssver.scc;vssver2.s">
-<meta name="keywords" content="util">
+    <meta name="description" content="比较并交换CAS底层原理？如果知道，谈谈比对Unsafe的理解Unsafe Unsafe 是 CAS 的核心类，由于 Java 方法无法直接访问底层系统，需要通过本地（native）方法来访问，Unsafe 相当于一个后门，基于该类可以直接操作特定内存的数据。Unsafe 类存在于 sun.misc 包中，其内部方法操作可以像 C 的指针一样直接操作内存，因为 Java 中 CAS 操作的执行依赖">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="intellij idea 修改记录">
-<meta property="og:url" content="https://yapengren.github.io/wiki/intellij-idea-修改记录/index.html">
+<meta property="og:title" content="CAS理解">
+<meta property="og:url" content="https://yapengren.github.io/wiki/CAS理解/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="过滤文件  Ignore files and folders *.classpath;*.gitignore;*.hprof;*.idea;*.iml;*.pyc;*.pyo;*.rbc;*.yarb;*~;.DS_Store;.git;.hg;.mvn;.svn;CVS;__pycache__;_svn;logs;mvnw;mvnw.cmd;target;vssver.scc;vssver2.s">
+<meta property="og:description" content="比较并交换CAS底层原理？如果知道，谈谈比对Unsafe的理解Unsafe Unsafe 是 CAS 的核心类，由于 Java 方法无法直接访问底层系统，需要通过本地（native）方法来访问，Unsafe 相当于一个后门，基于该类可以直接操作特定内存的数据。Unsafe 类存在于 sun.misc 包中，其内部方法操作可以像 C 的指针一样直接操作内存，因为 Java 中 CAS 操作的执行依赖">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79ly1g5li1vj2waj31ak0u0199.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g5mm7u2b81j31au0u07ii.jpg">
-<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6vkmzmbnzj31bb0u0n4z.jpg">
-<meta property="og:updated_time" content="2019-09-27T02:34:17.449Z">
+<meta property="og:updated_time" content="2019-10-07T05:20:25.676Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="intellij idea 修改记录">
-<meta name="twitter:description" content="过滤文件  Ignore files and folders *.classpath;*.gitignore;*.hprof;*.idea;*.iml;*.pyc;*.pyo;*.rbc;*.yarb;*~;.DS_Store;.git;.hg;.mvn;.svn;CVS;__pycache__;_svn;logs;mvnw;mvnw.cmd;target;vssver.scc;vssver2.s">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006tNc79ly1g5li1vj2waj31ak0u0199.jpg">
+<meta name="twitter:title" content="CAS理解">
+<meta name="twitter:description" content="比较并交换CAS底层原理？如果知道，谈谈比对Unsafe的理解Unsafe Unsafe 是 CAS 的核心类，由于 Java 方法无法直接访问底层系统，需要通过本地（native）方法来访问，Unsafe 相当于一个后门，基于该类可以直接操作特定内存的数据。Unsafe 类存在于 sun.misc 包中，其内部方法操作可以像 C 的指针一样直接操作内存，因为 Java 中 CAS 操作的执行依赖">
     
 
     
@@ -167,9 +163,9 @@
         
         
          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             技术分享
                         </a>
@@ -180,7 +176,7 @@
                             &nbsp;
                             dubbo
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Dubbo-架构/">Dubbo 架构</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Dubbo架构/">Dubbo架构</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -189,16 +185,16 @@
                             &nbsp;
                             java基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList-源码分析/">ArrayList 源码分析</a></li>  <li class="file"><a href="/wiki/HashMap-源码分析/">HashMap 源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList/">CopyOnWriteArrayList</a></li>  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList源码分析/">ArrayList源码分析</a></li>  <li class="file"><a href="/wiki/HashMap源码分析/">HashMap源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList/">CopyOnWriteArrayList</a></li>  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             java并发
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/">synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</a></li>  <li class="file"><a href="/wiki/java-线程池知识点/">java 线程池知识点</a></li>  <li class="file"><a href="/wiki/谈谈你对-volatile-的理解/">谈谈你对 volatile 的理解</a></li>  <li class="file"><a href="/wiki/CAS-你知道吗？/">CAS 你知道吗？</a></li>  <li class="file"><a href="/wiki/原子类Atomiclnteger-的-ABA-问题谈谈？/">原子类Atomiclnteger 的 ABA 问题谈谈？</a></li>  <li class="file"><a href="/wiki/java-公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/">java 公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？</a></li>  <li class="file"><a href="/wiki/java死锁编程及定位分析/">java死锁编程及定位分析</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/">synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</a></li>  <li class="file"><a href="/wiki/java-线程池知识点/">java 线程池知识点</a></li>  <li class="file"><a href="/wiki/谈谈你对volatile的理解/">谈谈你对volatile的理解</a></li>  <li class="file active"><a href="/wiki/CAS理解/">CAS理解</a></li>  <li class="file"><a href="/wiki/原子类Atomiclnteger的ABA问题谈谈？/">原子类Atomiclnteger的ABA问题谈谈？</a></li>  <li class="file"><a href="/wiki/java公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/">java公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？</a></li>  <li class="file"><a href="/wiki/java死锁编程及定位分析/">java死锁编程及定位分析</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -252,7 +248,7 @@
                             &nbsp;
                             文件存储
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/FastDFS-流程图/">FastDFS 流程图</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/FastDFS流程图/">FastDFS流程图</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -272,23 +268,23 @@
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/token-防表单重复提交/">token 防表单重复提交</a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/wiki/稀疏数组-sparsearray/">稀疏数组 sparsearray</a></li>  <li class="file"><a href="/wiki/冒泡排序/">冒泡排序</a></li>  </ul> 
+                     <li class="file"><a href="/wiki/稀疏数组sparsearray/">稀疏数组sparsearray</a></li>  <li class="file"><a href="/wiki/冒泡排序/">冒泡排序</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             系统工具
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             IDE
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/intellij-idea-修改记录/">intellij idea 修改记录</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/intellij idea修改记录/">intellij idea修改记录</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -306,7 +302,7 @@
                             &nbsp;
                             mac
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/mac-brew-服务/">mac brew 服务</a></li>  <li class="file"><a href="/wiki/mac-系统快捷键/">mac 系统快捷键</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/mac-brew-服务/">mac brew 服务</a></li>  <li class="file"><a href="/wiki/mac系统快捷键/">mac系统快捷键</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -381,7 +377,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-intellij-idea-修改记录" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-CAS理解" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -391,20 +387,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/系统工具/">系统工具</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/系统工具/IDE/">IDE</a>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java并发/">java并发</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/util/">util</a>
+        <a class="tag-link" href="/tags/java/">java</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/intellij-idea-修改记录/">
-            <time datetime="2019-08-02T10:13:00.000Z" itemprop="datePublished">2019-08-02</time>
+        <a href="/wiki/CAS理解/">
+            <time datetime="2019-08-20T05:49:03.000Z" itemprop="datePublished">2019-08-20</time>
         </a>
     </div>
 
@@ -415,13 +411,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/intellij-idea-修改记录.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/CAS理解.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/intellij-idea-修改记录.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/CAS理解.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/intellij-idea-修改记录.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/CAS理解.md'> History </a>
                             </div>
                         
                     </div>
@@ -429,7 +425,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            intellij idea 修改记录
+            CAS理解
         </h1>
     
 
@@ -442,19 +438,44 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤文件"><span class="toc-number">1.</span> <span class="toc-text">过滤文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示多-Tabs"><span class="toc-number">2.</span> <span class="toc-text">显示多 Tabs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭拖动功能"><span class="toc-number">3.</span> <span class="toc-text">关闭拖动功能</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#比较并交换"><span class="toc-number">1.</span> <span class="toc-text">比较并交换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CAS底层原理？如果知道，谈谈比对Unsafe的理解"><span class="toc-number">2.</span> <span class="toc-text">CAS底层原理？如果知道，谈谈比对Unsafe的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Unsafe"><span class="toc-number">2.1.</span> <span class="toc-text">Unsafe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CAS-是什么"><span class="toc-number">2.2.</span> <span class="toc-text">CAS 是什么</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CAS缺点"><span class="toc-number">3.</span> <span class="toc-text">CAS缺点</span></a></li></ol>
                 </div>
             
         
         
-            <h3 id="过滤文件"><a href="#过滤文件" class="headerlink" title="过滤文件"></a>过滤文件</h3><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g5li1vj2waj31ak0u0199.jpg" alt="image-20190802181535850" style="zoom: 50%;">
+            <h2 id="比较并交换"><a href="#比较并交换" class="headerlink" title="比较并交换"></a>比较并交换</h2><h2 id="CAS底层原理？如果知道，谈谈比对Unsafe的理解"><a href="#CAS底层原理？如果知道，谈谈比对Unsafe的理解" class="headerlink" title="CAS底层原理？如果知道，谈谈比对Unsafe的理解"></a>CAS底层原理？如果知道，谈谈比对Unsafe的理解</h2><h3 id="Unsafe"><a href="#Unsafe" class="headerlink" title="Unsafe"></a>Unsafe</h3><ol>
+<li><p>Unsafe 是 CAS 的核心类，由于 Java 方法无法直接访问底层系统，需要通过本地（native）方法来访问，Unsafe 相当于一个后门，基于该类可以直接操作特定内存的数据。Unsafe 类存在于 sun.misc 包中，其内部方法操作可以像 C 的指针一样直接操作内存，因为 Java 中 CAS 操作的执行依赖于 Unsafe 类的方法。</p>
+<p>注意 Unsafe 类中的所有方法都是 native 修饰的，也就是说 Unsafe 类中的方法都直接调用操作系统底层资源执行相应任务。</p>
+</li>
+<li><p>变量 valueOffset，表示该变量在内存中的偏移地址，因为 Unsafe 就是根据内存偏移地址获取数据的。</p>
+</li>
+<li><p>变量 value 用 volatile 修饰，保证了多线程之间的内存可见性。</p>
+</li>
+</ol>
+<h3 id="CAS-是什么"><a href="#CAS-是什么" class="headerlink" title="CAS 是什么"></a>CAS 是什么</h3><ol>
+<li><p>unsafe.getAndAddInt</p>
+<p>假设线程 A 和线程 B 两个线程同时执行 getAndAddInt 操作（分别跑在不同 CPU 上）</p>
+<p>AtomicInteger 里面的 value 原始值为 3，即主内存中 AtomicInteger 的 value 为 3，根据 JMM 模型，线程 A 和线程 B 各自持有一份值为 3 的 value 的副本分别到各自的工作内存。</p>
+<p>线程 A 通过 getIntVolatile（var1，var2）拿到 value 值 3，这是线程 A 被挂起。</p>
+<p>线程 B 也通过 getIntVolatile（var1，var2）方法获得 value 值 3，此时刚好线程 B 没有被挂起并执行 compareAndSwap 方法比较内存值也为 3，成功修改内存值为 4，线程 B 打完收工，一切OK。</p>
+<p>这是线程 A 回复，执行 compareAndSwapInt 方法比较，发现手里的值 3 与内存值 4 不一致，说明该值已经被其他线程抢险异步修改过了，那 A 线程本次修改失败，只能重新读取重新来一遍了。</p>
+<p>线程 A 重新获取 value 值，因为变量 value 被 volatile 修饰，所以其他线程对它的修改，线程 A 总是能够看到，线程 A 继续执行 compareAndSwapInt 进行比较替换，直到成功。</p>
+</li>
+<li><p>底层汇编</p>
+</li>
+<li><p>简单版小总结<br>CAS（CompareAndSwap）<br>比较当前工作内存中的值和主内存中的值，如果相同则执行规定操作，否则继续比较知道主内存和工作内存中的值一致为止。</p>
+</li>
+</ol>
+<p>CAS应用<br>CAS有 3 个操作数，内存值 V，旧的预期值 A，要修改的更新值 B。<br>当且仅当预期值 A 和内存值 V 相同时，将内存值 V 修改为 B，否则什么都不做。</p>
+<h2 id="CAS缺点"><a href="#CAS缺点" class="headerlink" title="CAS缺点"></a>CAS缺点</h2><ol>
+<li><p>循环时间长开销大<br>如果 CAS 失败，会一直进行尝试。如果 CAS 长时间一直不成功，可能会给 CPU 带来很大的开销。</p>
+</li>
+<li><p>只能保证一个共享变量的原子操作<br>当对一个共享变量执行操作时，我们只能使用循环 CAS 的方式来保证原子操作，但是，对多个共享变量操作时，循环 CAS 就无法保证操作的原子性，这个时候就可以用锁来保证原子性。</p>
+</li>
+<li><p>引出来 ABA 问题？？？<br>通过原子引用解决 ABA 问题</p>
+</li>
+</ol>
 
-<p>Ignore files and folders</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">*.classpath;*.gitignore;*.hprof;*.idea;*.iml;*.pyc;*.pyo;*.rbc;*.yarb;*~;.DS_Store;.git;.hg;.mvn;.svn;CVS;__pycache__;_svn;logs;mvnw;mvnw.cmd;target;vssver.scc;vssver2.scc;</span><br></pre></td></tr></table></figure>
-
-<h3 id="显示多-Tabs"><a href="#显示多-Tabs" class="headerlink" title="显示多 Tabs"></a>显示多 Tabs</h3><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g5mm7u2b81j31au0u07ii.jpg" alt="image-20190803172518386" style="zoom:50%;">
-
-<h3 id="关闭拖动功能"><a href="#关闭拖动功能" class="headerlink" title="关闭拖动功能"></a>关闭拖动功能</h3><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6vkmzmbnzj31bb0u0n4z.jpg" alt="image-20190911144101765" style="zoom:50%;">
             </div>
         
         <footer class="article-footer">
@@ -466,19 +487,19 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/MySQL知识点/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/wiki/原子类Atomiclnteger的ABA问题谈谈？/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    MySQL知识点
+                    原子类Atomiclnteger的ABA问题谈谈？
                 
             </div>
         </a>
     
     
-        <a href="/wiki/mac-brew-服务/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/谈谈你对volatile的理解/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">mac brew 服务</div>
+            <div class="article-nav-title">谈谈你对volatile的理解</div>
         </a>
     
 </nav>
