@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yapengren.github.io/wiki/Redis-%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%EF%BC%9A%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/</loc>
+    
+    <lastmod>2019-10-10T12:31:26.364Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yapengren.github.io/wiki/mac-brew-%E6%9C%8D%E5%8A%A1/</loc>
     
     <lastmod>2019-10-08T11:55:45.898Z</lastmod>
@@ -264,13 +271,6 @@
     <loc>https://yapengren.github.io/wiki/token-%E9%98%B2%E8%A1%A8%E5%8D%95%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4/</loc>
     
     <lastmod>2019-08-19T09:31:20.172Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yapengren.github.io/wiki/Redis-%E6%B7%B1%E5%BA%A6%E5%8E%86%E9%99%A9%EF%BC%9A%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5/</loc>
-    
-    <lastmod>2019-08-19T09:29:42.921Z</lastmod>
     
   </url>
   
