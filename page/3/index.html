@@ -207,7 +207,7 @@
                             &nbsp;
                             redis
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis-深度历险：核心原理与应用实践/">Redis 深度历险：核心原理与应用实践</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis核心原理与应用实践/">Redis核心原理与应用实践</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -373,7 +373,7 @@
 </aside>
             
             <section id="main">
-        <article id="post-Redis-深度历险：核心原理与应用实践" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Redis核心原理与应用实践" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -395,7 +395,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis-深度历险：核心原理与应用实践/">
+        <a href="/wiki/Redis核心原理与应用实践/">
             <time datetime="2019-08-18T03:26:40.000Z" itemprop="datePublished">2019-08-18</time>
         </a>
     </div>
@@ -407,13 +407,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis-深度历险：核心原理与应用实践.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis核心原理与应用实践.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis-深度历险：核心原理与应用实践.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis核心原理与应用实践.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis-深度历险：核心原理与应用实践.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis核心原理与应用实践.md'> History </a>
                             </div>
                         
                     </div>
@@ -421,7 +421,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/wiki/Redis-深度历险：核心原理与应用实践/">Redis 深度历险：核心原理与应用实践</a>
+            <a class="article-title" href="/wiki/Redis核心原理与应用实践/">Redis核心原理与应用实践</a>
         </h1>
     
 
@@ -451,11 +451,11 @@
                 
                 
                     
-                    <p><h1 id="基础：万丈高楼平地起-——-Redis-基础数据结构"><a href="#基础：万丈高楼平地起-——-Redis-基础数据结构" class="headerlink" title="基础：万丈高楼平地起 —— Redis 基础数据结构"></a>基础：万丈高楼平地起 —— Redis 基础数据结构</h1><p>千里之行，始于足下。本节我们的学习目标是：快速理解并掌握 Redis 的基础知识。</p>
-<p>由于本节内容是 Redis 最简单最容易掌握的知识，如果读者已经很熟悉 Redis 的基础数据结构，从珍惜生命的角度出发，你可以略过本节内容，跳到下一节继续阅读。如果你觉得本节的动画有点晃眼，阅读起来不那么舒服，可以看看作者的另一篇文章<a href="https://juejin.im/post/5b53ee7e5188251aaa2d2e16" target="_blank" rel="noopener">《Redis 数据结构基础教程》</a>。</p>
-<p>要体验 Redis，我们先从 Redis 安装说起。</p>
-<h2 id="Redis-安装"><a href="#Redis-安装" class="headerlink" title="Redis 安装"></a>Redis 安装</h2><p>体验 Redis 需要使用 Linux 或者 Mac 环境，如果是 Windows 可以考虑使用虚拟机。主要方式有四种：</p>
+                    <p><h1 id="基础：Redis-基础数据结构"><a href="#基础：Redis-基础数据结构" class="headerlink" title="基础：Redis 基础数据结构"></a>基础：Redis 基础数据结构</h1><h2 id="Redis-安装"><a href="#Redis-安装" class="headerlink" title="Redis 安装"></a>Redis 安装</h2><p>体验 Redis 需要使用 Linux 或者 Mac 环境，如果是 Windows 可以考虑使用虚拟机。主要方式有四种：</p>
 <ol>
+<li>使用 Docker 安装。</li>
+<li>通过 Github 源码编译。</li>
+<li>直接安装 apt-get install(Ubuntu)、yum install(RedHat) 或者 brew install(Mac)。</li>
 <p>
                 
             
@@ -463,7 +463,7 @@
         
             </div>   
             <div class="article-more-link">
-                <a href="/wiki/Redis-深度历险：核心原理与应用实践/#more">查看更多</a>
+                <a href="/wiki/Redis核心原理与应用实践/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
