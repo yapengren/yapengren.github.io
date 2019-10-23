@@ -3,24 +3,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>java公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？ | yp_ren Blog</title>
+    <title>SpringBoot中间件 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="java">
+        <meta name="keywords" content="springBoot">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="公平锁和非公平锁是什么公平锁：是指多个线程按照申请锁的顺序来获取锁，类似排队打饭，先来后到。 非公平锁：是指多个线程获取锁的顺序并不是按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁。在高并发的情况下，有可能会造成优先级反转或者饥饿现象。 两者区别公平锁/非公平锁：并发包中 ReentrantLock 的创建可以指定构造函数的 boolean 类型来得到公平锁或非公平锁，默认是非公平锁">
-<meta name="keywords" content="java">
+    <meta name="description" content="Spring Boot 和 Redis 常用操作spring-boot-starter-data-redisSpring Boot 提供了对 Redis 集成的组件包：spring-boot-starter-data-redis，它依赖于 spring-data-redis 和 lettuce。Spring Boot 1.0 默认使⽤的是 Jedis 客户端，2.0 替换成了 Lettuce，但如">
+<meta name="keywords" content="springBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java公平锁&#x2F;非公平锁&#x2F;可重入锁&#x2F;递归锁&#x2F;自旋锁谈谈你的理解？">
-<meta property="og:url" content="https://yapengren.github.io/wiki/java公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/index.html">
+<meta property="og:title" content="SpringBoot中间件">
+<meta property="og:url" content="https://yapengren.github.io/wiki/SpringBoot中间件/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="公平锁和非公平锁是什么公平锁：是指多个线程按照申请锁的顺序来获取锁，类似排队打饭，先来后到。 非公平锁：是指多个线程获取锁的顺序并不是按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁。在高并发的情况下，有可能会造成优先级反转或者饥饿现象。 两者区别公平锁/非公平锁：并发包中 ReentrantLock 的创建可以指定构造函数的 boolean 类型来得到公平锁或非公平锁，默认是非公平锁">
+<meta property="og:description" content="Spring Boot 和 Redis 常用操作spring-boot-starter-data-redisSpring Boot 提供了对 Redis 集成的组件包：spring-boot-starter-data-redis，它依赖于 spring-data-redis 和 lettuce。Spring Boot 1.0 默认使⽤的是 Jedis 客户端，2.0 替换成了 Lettuce，但如">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-07T05:22:15.272Z">
+<meta property="og:updated_time" content="2019-10-23T06:59:08.987Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java公平锁&#x2F;非公平锁&#x2F;可重入锁&#x2F;递归锁&#x2F;自旋锁谈谈你的理解？">
-<meta name="twitter:description" content="公平锁和非公平锁是什么公平锁：是指多个线程按照申请锁的顺序来获取锁，类似排队打饭，先来后到。 非公平锁：是指多个线程获取锁的顺序并不是按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁。在高并发的情况下，有可能会造成优先级反转或者饥饿现象。 两者区别公平锁/非公平锁：并发包中 ReentrantLock 的创建可以指定构造函数的 boolean 类型来得到公平锁或非公平锁，默认是非公平锁">
+<meta name="twitter:title" content="SpringBoot中间件">
+<meta name="twitter:description" content="Spring Boot 和 Redis 常用操作spring-boot-starter-data-redisSpring Boot 提供了对 Redis 集成的组件包：spring-boot-starter-data-redis，它依赖于 spring-data-redis 和 lettuce。Spring Boot 1.0 默认使⽤的是 Jedis 客户端，2.0 替换成了 Lettuce，但如">
     
 
     
@@ -188,13 +188,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList源码分析/">ArrayList源码分析</a></li>  <li class="file"><a href="/wiki/HashMap源码分析/">HashMap源码分析</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList/">CopyOnWriteArrayList</a></li>  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             java并发
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/">synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</a></li>  <li class="file"><a href="/wiki/java-线程池知识点/">java 线程池知识点</a></li>  <li class="file"><a href="/wiki/谈谈你对volatile的理解/">谈谈你对volatile的理解</a></li>  <li class="file"><a href="/wiki/CAS理解/">CAS理解</a></li>  <li class="file"><a href="/wiki/原子类Atomiclnteger的ABA问题谈谈？/">原子类Atomiclnteger的ABA问题谈谈？</a></li>  <li class="file active"><a href="/wiki/java公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/">java公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？</a></li>  <li class="file"><a href="/wiki/java死锁编程及定位分析/">java死锁编程及定位分析</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/synchronized-和-lock-有什么区别？用新的lock有什么好处？举例说说/">synchronized 和 lock 有什么区别？用新的lock有什么好处？举例说说</a></li>  <li class="file"><a href="/wiki/java-线程池知识点/">java 线程池知识点</a></li>  <li class="file"><a href="/wiki/谈谈你对volatile的理解/">谈谈你对volatile的理解</a></li>  <li class="file"><a href="/wiki/CAS理解/">CAS理解</a></li>  <li class="file"><a href="/wiki/原子类Atomiclnteger的ABA问题谈谈？/">原子类Atomiclnteger的ABA问题谈谈？</a></li>  <li class="file"><a href="/wiki/java公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/">java公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？</a></li>  <li class="file"><a href="/wiki/java死锁编程及定位分析/">java死锁编程及定位分析</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -224,13 +224,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/springMVC-流程图/">springMVC 流程图</a></li>  <li class="file"><a href="/wiki/lombok-使用方法/">lombok 使用方法</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             springBoot
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SpringBoot中间件/">SpringBoot中间件</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/SpringBoot中间件/">SpringBoot中间件</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -386,7 +386,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-java公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-SpringBoot中间件" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -396,20 +396,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/java并发/">java并发</a>
+        <a class="article-category-link" href="/categories/技术分享/">技术分享</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术分享/springBoot/">springBoot</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
+        <a class="tag-link" href="/tags/springBoot/">springBoot</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/java公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？/">
-            <time datetime="2019-08-20T06:29:56.000Z" itemprop="datePublished">2019-08-20</time>
+        <a href="/wiki/SpringBoot中间件/">
+            <time datetime="2019-10-23T06:40:41.000Z" itemprop="datePublished">2019-10-23</time>
         </a>
     </div>
 
@@ -420,13 +420,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/SpringBoot中间件.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/SpringBoot中间件.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java公平锁-非公平锁-可重入锁-递归锁-自旋锁谈谈你的理解？.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/SpringBoot中间件.md'> History </a>
                             </div>
                         
                     </div>
@@ -434,7 +434,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            java公平锁/非公平锁/可重入锁/递归锁/自旋锁谈谈你的理解？
+            SpringBoot中间件
         </h1>
     
 
@@ -447,25 +447,29 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#公平锁和非公平锁"><span class="toc-number">1.</span> <span class="toc-text">公平锁和非公平锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#是什么"><span class="toc-number">1.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两者区别"><span class="toc-number">1.2.</span> <span class="toc-text">两者区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题外话"><span class="toc-number">1.3.</span> <span class="toc-text">题外话</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可重入锁（又名递归锁）"><span class="toc-number">2.</span> <span class="toc-text">可重入锁（又名递归锁）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#是什么-1"><span class="toc-number">2.1.</span> <span class="toc-text">是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ReentrantLock-Synchronized-就是一个典型的可重入锁"><span class="toc-number">2.2.</span> <span class="toc-text">ReentrantLock/Synchronized 就是一个典型的可重入锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可重入锁最大的作用是避免死锁"><span class="toc-number">2.3.</span> <span class="toc-text">可重入锁最大的作用是避免死锁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#独占锁-共享锁"><span class="toc-number">3.</span> <span class="toc-text">独占锁/共享锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自旋锁"><span class="toc-number">4.</span> <span class="toc-text">自旋锁</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Boot-和-Redis-常用操作"><span class="toc-number">1.</span> <span class="toc-text">Spring Boot 和 Redis 常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#spring-boot-starter-data-redis"><span class="toc-number">1.1.</span> <span class="toc-text">spring-boot-starter-data-redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关配置"><span class="toc-number">1.2.</span> <span class="toc-text">相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引入依赖包"><span class="toc-number">1.2.1.</span> <span class="toc-text">引入依赖包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#application-配置"><span class="toc-number">1.2.2.</span> <span class="toc-text">application 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缓存配置"><span class="toc-number">1.2.3.</span> <span class="toc-text">缓存配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试使用"><span class="toc-number">1.3.</span> <span class="toc-text">测试使用</span></a></li></ol></li></ol>
                 </div>
             
         
         
-            <h2 id="公平锁和非公平锁"><a href="#公平锁和非公平锁" class="headerlink" title="公平锁和非公平锁"></a>公平锁和非公平锁</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>公平锁：是指多个线程按照申请锁的顺序来获取锁，类似排队打饭，先来后到。</p>
-<p>非公平锁：是指多个线程获取锁的顺序并不是按照申请锁的顺序，有可能后申请的线程比先申请的线程优先获取锁。在高并发的情况下，有可能会造成优先级反转或者饥饿现象。</p>
-<h3 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h3><p>公平锁/非公平锁：并发包中 ReentrantLock 的创建可以指定构造函数的 boolean 类型来得到公平锁或非公平锁，默认是非公平锁。</p>
-<p>关于两者区别：</p>
-<p>公平锁，就是很公平，在并发情况下，每个线程在获取锁时会查看此锁维护的等待队列，如果为空，或者当前线程是等待队列的第一个，就占有锁，否则就会加入到等待队列中，以后会按照 FIFO 的规则从队列中取到自己。</p>
-<p>非公平锁：非公平锁比较粗鲁，上来就直接尝试占有锁，如果尝试失败，就再采取类似公平锁那种方式。</p>
-<h3 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h3><p>Java ReentrantLock 而言，通过构造函数指定该锁是否是公平锁，默认是非公平锁。非公平锁的优点在于吞吐量比公平锁大。</p>
-<p>对于 Synchronized 而言，也是一种非公平锁。</p>
-<h2 id="可重入锁（又名递归锁）"><a href="#可重入锁（又名递归锁）" class="headerlink" title="可重入锁（又名递归锁）"></a>可重入锁（又名递归锁）</h2><h3 id="是什么-1"><a href="#是什么-1" class="headerlink" title="是什么"></a>是什么</h3><p>可重入锁（也就是递归锁）：指的是同一个线程外层函数获得锁之后，内层递归函数仍然能获取该锁的代码，在同一线程在外层方法获取锁的时候，在进入内层方法会自动获取锁。</p>
-<p>也就是说，线程可以进入任何一个它已经拥有的锁所有同步着的代码块。</p>
-<h3 id="ReentrantLock-Synchronized-就是一个典型的可重入锁"><a href="#ReentrantLock-Synchronized-就是一个典型的可重入锁" class="headerlink" title="ReentrantLock/Synchronized 就是一个典型的可重入锁"></a>ReentrantLock/Synchronized 就是一个典型的可重入锁</h3><h3 id="可重入锁最大的作用是避免死锁"><a href="#可重入锁最大的作用是避免死锁" class="headerlink" title="可重入锁最大的作用是避免死锁"></a>可重入锁最大的作用是避免死锁</h3><h2 id="独占锁-共享锁"><a href="#独占锁-共享锁" class="headerlink" title="独占锁/共享锁"></a>独占锁/共享锁</h2><p>独占锁：指该锁一次只能被一个线程所持有。对 ReentrantLock 和 Synchronized 而言都是独占锁。</p>
-<p>共享锁：指该锁可被多个线程所持有。</p>
-<p>对 ReentrantReadWriteLock，其读锁是共享锁，其写锁是独占锁。读锁的共享锁可保证并发读是非常高效的，读写，写读，写写的过程是互斥的。</p>
-<h2 id="自旋锁"><a href="#自旋锁" class="headerlink" title="自旋锁"></a>自旋锁</h2><p>自旋锁：是指尝试获取锁的线程不会立即阻塞，而是采用循环的方式去尝试获取锁，这样的好处是减少线程上下切换的消耗，缺点是循环会消耗CPU。</p>
+            <h1 id="Spring-Boot-和-Redis-常用操作"><a href="#Spring-Boot-和-Redis-常用操作" class="headerlink" title="Spring Boot 和 Redis 常用操作"></a>Spring Boot 和 Redis 常用操作</h1><h2 id="spring-boot-starter-data-redis"><a href="#spring-boot-starter-data-redis" class="headerlink" title="spring-boot-starter-data-redis"></a>spring-boot-starter-data-redis</h2><p>Spring Boot 提供了对 Redis 集成的组件包：spring-boot-starter-data-redis，它依赖于 spring-data-redis 和 lettuce。Spring Boot 1.0 默认使⽤的是 Jedis 客户端，2.0 替换成了 Lettuce，但如果你从 Spring Boot 1.5.X 切换过来，⼏乎感受不⼤差异，这是因为 spring-boot-starter-data-redis 为我们隔离了其中的差异性。</p>
+<ul>
+<li>Lettuce：是⼀个可伸缩线程安全的 Redis 客户端，多个线程可以共享同⼀个 RedisConnection，它利⽤优秀 Netty NIO 框架来⾼效地管理多个连接。</li>
+<li>Spring Data：是 Spring 框架中的⼀个主要项⽬，⽬的是为了简化构建基于 Spring 框架应⽤的数据访问，包括⾮关系数据库、Map-Reduce 框架、云数据服务等，另外也包含对关系数据库的访问⽀持。</li>
+<li>Spring Data Redis：是 Spring Data 项⽬中的⼀个主要模块，实现了对 Redis 客户端 API 的⾼度封装，使对 Redis 的操作更加便捷。</li>
+</ul>
+<p>可以⽤以下⽅式来表达它们之间的关系：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Lettuce ➡️ Spring Data Redis ➡️ Spring Data ➡️ spring-boot-starter-data-redis</span><br></pre></td></tr></table></figure>
+
+<h2 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h2><h3 id="引入依赖包"><a href="#引入依赖包" class="headerlink" title="引入依赖包"></a>引入依赖包</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;commons-pool2&lt;/artifactId&gt; &lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="application-配置"><a href="#application-配置" class="headerlink" title="application 配置"></a>application 配置</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> Redis 数据库索引（默认为 0）</span><br><span class="line">spring.redis.database=0</span><br><span class="line"><span class="meta">#</span> Redis 服务器地址</span><br><span class="line">spring.redis.host=localhost</span><br><span class="line"><span class="meta">#</span> Redis 服务器连接端⼝</span><br><span class="line">spring.redis.port=6379</span><br><span class="line"><span class="meta">#</span> Redis 服务器连接密码（默认为空）</span><br><span class="line">spring.redis.password=</span><br><span class="line"><span class="meta">#</span> 连接池最⼤连接数（使⽤负值表示没有限制） 默认 8</span><br><span class="line">spring.redis.lettuce.pool.max-active=8</span><br><span class="line"><span class="meta">#</span> 连接池最⼤阻塞等待时间（使⽤负值表示没有限制） 默认 -1</span><br><span class="line">spring.redis.lettuce.pool.max-wait=-1</span><br><span class="line"><span class="meta">#</span> 连接池中的最⼤空闲连接 默认 8</span><br><span class="line">spring.redis.lettuce.pool.max-idle=8</span><br><span class="line"><span class="meta">#</span> 连接池中的最⼩空闲连接 默认 0</span><br><span class="line">spring.redis.lettuce.pool.min-idle=0</span><br></pre></td></tr></table></figure>
+
+<h3 id="缓存配置"><a href="#缓存配置" class="headerlink" title="缓存配置"></a>缓存配置</h3><p>在这⾥可以为 Redis 设置⼀些全局配置，⽐如配置主键的⽣产策略 KeyGenerator，如不配置会默认使⽤参数名作为主键。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableCaching</span></span><br><span class="line"><span class="comment">//@EnableCaching 来开启缓存</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> <span class="keyword">extends</span> <span class="title">CachingConfigurerSupport</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> KeyGenerator <span class="title">keyGenerator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> KeyGenerator() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> Object <span class="title">generate</span><span class="params">(Object target, Method method, Object... params)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">                sb.append(target.getClass().getName());</span><br><span class="line">                sb.append(method.getName());</span><br><span class="line">                <span class="keyword">for</span> (Object obj : params) &#123;</span><br><span class="line">                    sb.append(obj.toString());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> sb.toString();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestRedisTemplate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RedisTemplate redisTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        redisTemplate.opsForValue().set(<span class="string">"name"</span>, <span class="string">"renyapeng"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
             </div>
         
@@ -478,19 +482,10 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/java死锁编程及定位分析/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    java死锁编程及定位分析
-                
-            </div>
-        </a>
     
-    
-        <a href="/wiki/CopyOnWriteArrayList/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/mac系统快捷键/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">CopyOnWriteArrayList</div>
+            <div class="article-nav-title">mac系统快捷键</div>
         </a>
     
 </nav>

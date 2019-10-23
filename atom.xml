@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yapengren.github.io/"/>
-  <updated>2019-10-07T05:17:09.069Z</updated>
+  <updated>2019-10-23T06:59:08.987Z</updated>
   <id>https://yapengren.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot中间件</title>
+    <link href="https://yapengren.github.io/wiki/SpringBoot%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    <id>https://yapengren.github.io/wiki/SpringBoot中间件/</id>
+    <published>2019-10-23T06:40:41.000Z</published>
+    <updated>2019-10-23T06:59:08.987Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Spring-Boot-和-Redis-常用操作"><a href="#Spring-Boot-和-Redis-常用操作" class="headerlink" title="Spring Boot 和 Redis 常用操作"></a>Spring Boot 和 Redis 常用操作</h1><h2 id="spring-boot-starter-data-redis"><a href="#spring-boot-starter-data-redis" class="headerlink" title="spring-boot-starter-data-redis"></a>spring-boot-starter-data-redis</h2><p>Spring Boot 提供了对 Redis 集成的组件包：spring-boot-starter-data-redis，它依赖于 spring-data-redis 和 lettuce。Spring Boot 1.0 默认使⽤的是 Jedis 客户端，2.0 替换成了 Lettuce，但如果你从 Spring Boot 1.5.X 切换过来，⼏乎感受不⼤差异，这是因为 spring-boot-starter-data-redis 为我们隔离了其中的差异性。</p><ul><li>Lettuce：是⼀个可伸缩线程安全的 Redis 客户端，多个线程可以共享同⼀个 RedisConnection，它利⽤优秀 Netty NIO 框架来⾼效地管理多个连接。</li><li>Spring Data：是 Spring 框架中的⼀个主要项⽬，⽬的是为了简化构建基于 Spring 框架应⽤的数据访问，包括⾮关系数据库、Map-Reduce 框架、云数据服务等，另外也包含对关系数据库的访问⽀持。</li><li>Spring Data Redis：是 Spring Data 项⽬中的⼀个主要模块，实现了对 Redis 客户端 API 的⾼度封装，使对 Redis 的操作更加便捷。</li></ul><p>可以⽤以下⽅式来表达它们之间的关系：</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Lettuce ➡️ Spring Data Redis ➡️ Spring Data ➡️ spring-boot-starter-data-redis</span><br></pre></td></tr></table></figure><h2 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h2><h3 id="引入依赖包"><a href="#引入依赖包" class="headerlink" title="引入依赖包"></a>引入依赖包</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;commons-pool2&lt;/artifactId&gt; &lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br></pre></td></tr></table></figure><h3 id="application-配置"><a href="#application-配置" class="headerlink" title="application 配置"></a>application 配置</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> Redis 数据库索引（默认为 0）</span><br><span class="line">spring.redis.database=0</span><br><span class="line"><span class="meta">#</span> Redis 服务器地址</span><br><span class="line">spring.redis.host=localhost</span><br><span class="line"><span class="meta">#</span> Redis 服务器连接端⼝</span><br><span class="line">spring.redis.port=6379</span><br><span class="line"><span class="meta">#</span> Redis 服务器连接密码（默认为空）</span><br><span class="line">spring.redis.password=</span><br><span class="line"><span class="meta">#</span> 连接池最⼤连接数（使⽤负值表示没有限制） 默认 8</span><br><span class="line">spring.redis.lettuce.pool.max-active=8</span><br><span class="line"><span class="meta">#</span> 连接池最⼤阻塞等待时间（使⽤负值表示没有限制） 默认 -1</span><br><span class="line">spring.redis.lettuce.pool.max-wait=-1</span><br><span class="line"><span class="meta">#</span> 连接池中的最⼤空闲连接 默认 8</span><br><span class="line">spring.redis.lettuce.pool.max-idle=8</span><br><span class="line"><span class="meta">#</span> 连接池中的最⼩空闲连接 默认 0</span><br><span class="line">spring.redis.lettuce.pool.min-idle=0</span><br></pre></td></tr></table></figure><h3 id="缓存配置"><a href="#缓存配置" class="headerlink" title="缓存配置"></a>缓存配置</h3><p>在这⾥可以为 Redis 设置⼀些全局配置，⽐如配置主键的⽣产策略 KeyGenerator，如不配置会默认使⽤参数名作为主键。</p><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableCaching</span></span><br><span class="line"><span class="comment">//@EnableCaching 来开启缓存</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisConfig</span> <span class="keyword">extends</span> <span class="title">CachingConfigurerSupport</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> KeyGenerator <span class="title">keyGenerator</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> KeyGenerator() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> Object <span class="title">generate</span><span class="params">(Object target, Method method, Object... params)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">                sb.append(target.getClass().getName());</span><br><span class="line">                sb.append(method.getName());</span><br><span class="line">                <span class="keyword">for</span> (Object obj : params) &#123;</span><br><span class="line">                    sb.append(obj.toString());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> sb.toString();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestRedisTemplate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RedisTemplate redisTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        redisTemplate.opsForValue().set(<span class="string">"name"</span>, <span class="string">"renyapeng"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Spring-Boot-和-Redis-常用操作&quot;&gt;&lt;a href=&quot;#Spring-Boot-和-Redis-常用操作&quot; class=&quot;headerlink&quot; title=&quot;Spring Boot 和 Redis 常用操作&quot;&gt;&lt;/a&gt;Spring Boot 和 
+      
+    
+    </summary>
+    
+      <category term="技术分享" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="springBoot" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/springBoot/"/>
+    
+    
+      <category term="springBoot" scheme="https://yapengren.github.io/tags/springBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>mac系统快捷键</title>
@@ -523,33 +550,6 @@
       
       
         &lt;h2 id=&quot;谈谈你对-volatile-的理解&quot;&gt;&lt;a href=&quot;#谈谈你对-volatile-的理解&quot; class=&quot;headerlink&quot; title=&quot;谈谈你对 volatile 的理解&quot;&gt;&lt;/a&gt;谈谈你对 volatile 的理解&lt;/h2&gt;&lt;p&gt;volatile 是
-      
-    
-    </summary>
-    
-      <category term="技术分享" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"/>
-    
-      <category term="java并发" scheme="https://yapengren.github.io/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/java%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="java" scheme="https://yapengren.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java 线程池知识点</title>
-    <link href="https://yapengren.github.io/wiki/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
-    <id>https://yapengren.github.io/wiki/java-线程池知识点/</id>
-    <published>2019-08-19T07:33:15.000Z</published>
-    <updated>2019-08-25T02:16:53.048Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="为什么用线程池，优势"><a href="#为什么用线程池，优势" class="headerlink" title="为什么用线程池，优势"></a>为什么用线程池，优势</h2><p>线程池主要是控制运行线程的数量，处理过程中将任务放入队列，然后在线程创建后启动这些任务，如果线程数量超过了最大数量的线程排队等候，等其他线程执行完毕，再从队列中取出任务来执行。</p><p>主要特点是：线程复用、控制最大并发数、管理线程。</p><p>第一：降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</p><p>第二：提高响应速度。当任务到达时，任务可以不需要等到线程创建就能立即执行。</p><p>第三：提高线程的可管理性。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控。</p><h2 id="线程池如何使用"><a href="#线程池如何使用" class="headerlink" title="线程池如何使用"></a>线程池如何使用</h2><h3 id="架构说明"><a href="#架构说明" class="headerlink" title="架构说明"></a>架构说明</h3><p>Java中的线程池是通过 Executor 框架实现的，该框架中用到了 Executor，Executors，ExecutorService，ThreadPoolExecutor 这几个类。</p><h3 id="编码实现"><a href="#编码实现" class="headerlink" title="编码实现"></a>编码实现</h3><ol><li><p>Executors.newFixedThreadPool(int)</p><p>执行长期的任务，性能好很多</p><p>主要特点：</p><ol><li>创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。</li><li>newFixedThreadPool 创建的线程池 corePoolSize 和 maximumPoolSize 值是相等的，它使用的 LinkedBlockingQueue。</li></ol></li><li><p>Executors.newSingleThreadExecutor()</p><p>一个任务一个任务执行的场景</p><p>主要特点：</p><ol><li>创建一个单线程化的线程池，它只会唯一的工作线程来执行任务，保证所有任务按照指定顺序执行。</li><li>newSingleThread 将 corePoolSize 和 maximumPoolSize 都设置为1，它使用的是LinkedBlockingQueue。</li></ol></li><li><p>Executors.newCachedThreadPool()</p><p>适用：执行很多短期异步的小程序或者负载较轻的服务器</p><p>主要特点：</p><ol><li><p>创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。</p></li><li><p>newCachedThreadPool 将 corePoolSize 设置为 0，将 maximumPoolSize 设置为 Integer.MAX_VALUE，使用的 SynchronousQueue，也就是说来了任务就创建线程运行，当线程空闲超过 60 秒，就销毁线程。</p></li></ol></li></ol><h3 id="阿里巴巴-java-开发规范"><a href="#阿里巴巴-java-开发规范" class="headerlink" title="阿里巴巴 java 开发规范"></a>阿里巴巴 java 开发规范</h3><p>【强制】线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式，这样的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。</p><p>说明：Executors 返回的线程池对象的弊端如下：</p><ol><li>FixedThreadPool 和 SingleThreadPool：<br>允许的请求队列长度为 Integer.MAX_VALUE ，可能会堆积大量的请求，从而导致 OOM。</li><li>CachedThreadPool：<br>允许的创建线程数量为 Integer.MAX_VALUE ，可能会创建大量的线程，从而导致 OOM。</li></ol><h2 id="线程池的几个重要参数介绍"><a href="#线程池的几个重要参数介绍" class="headerlink" title="线程池的几个重要参数介绍"></a>线程池的几个重要参数介绍</h2><ol><li><h3 id="corePoolSize"><a href="#corePoolSize" class="headerlink" title="corePoolSize"></a>corePoolSize</h3></li></ol><p>线程池中的常驻核心线程数</p><p>  在创建线程池后，当有请求任务来之后，就会安排池中的线程去执行请求任务，近似理解为今日当值线程。<br>  当线程池中的线程数目到达 corePoolSize 后，就会把到达的任务放到缓存队列当中。</p><ol start="2"><li><h3 id="maximumPoolSize"><a href="#maximumPoolSize" class="headerlink" title="maximumPoolSize"></a>maximumPoolSize</h3></li></ol><p>线程池能够容纳同时执行的最大线程数，此值必须大于等于1.</p><ol start="3"><li><h3 id="keepAliveTime"><a href="#keepAliveTime" class="headerlink" title="keepAliveTime"></a>keepAliveTime</h3></li></ol><p>多余的空闲线程的存活时间。当前线程池数量超过 corePoolSize 时，当空闲时间达到 keepAliveTime 值时，多余空闲线程会被销毁直到只剩下 corePoolSize 个线程为止。</p><p>默认情况下：<br>只有当线程池中的线程数大于 corePoolSize 时 keepAliveTime 才会起作用，直到线程池中的线程数不大于 corePoolSize。</p><ol start="4"><li><h3 id="unit"><a href="#unit" class="headerlink" title="unit"></a>unit</h3></li></ol><p>keepAliveTime 的单位</p><ol start="5"><li><h3 id="workQueue"><a href="#workQueue" class="headerlink" title="workQueue"></a>workQueue</h3></li></ol><p>任务队列，被提交但尚未被执行的任务。</p><ol start="6"><li><h3 id="threadFactory"><a href="#threadFactory" class="headerlink" title="threadFactory"></a>threadFactory</h3></li></ol><p>表示生成线程池中工作线程的线程工厂，用于创建线程一般用默认的即可。</p><ol start="7"><li><h3 id="handler"><a href="#handler" class="headerlink" title="handler"></a>handler</h3></li></ol><p>拒绝策略，表示当队列满了并且工作线程大于等于线程池的最大线程数。</p><h2 id="线程池的底层工作原理？"><a href="#线程池的底层工作原理？" class="headerlink" title="线程池的底层工作原理？"></a>线程池的底层工作原理？</h2><ol><li><p>在创建了线程池后，等待提交过来的任务请求。</p></li><li><p>当调用 execute() 方法添加一个请求任务时，线程池会做如下判断：</p><ol><li>如果正在运行的线程数量 &lt; corePoolSize，那么马上创建线程运行这个任务。</li><li>如果正在运行的线程数量 &gt;= corePoolSize，那么将这个任务放入队列。</li><li>如果这个时候队列满了且正在运行的线程数量还 &lt; maximumPoolSize，那么还是要创建非核心线程立刻运行这个任务。</li><li>如果队列满了且正在运行的线程数量 &gt;= maximumPoolSize，那么线程池会启动饱和拒绝策略来执行。</li></ol></li><li><p>当一个线程完成任务时，它会从队列中取下一个任务来执行。</p></li><li><p>当一个线程无事可做超过一定的时间 (keepAliveTime) 时，线程池会判断：</p><p>如果当前运行的线程数 &gt; corePoolSize，那么这个线程就被停掉。<br>所以线程池的所有任务完成后它最终会收缩到 corePoolSize 的大小。</p></li></ol><h2 id="线程池的拒绝策略"><a href="#线程池的拒绝策略" class="headerlink" title="线程池的拒绝策略"></a>线程池的拒绝策略</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>等待队列也满了，再也塞不下新任务了，同时线程池中的 max 线程也达到了，无法继续为新的任务服务。</p><p>这时候就需要拒绝策略机制合理的处理这个问题。</p><h3 id="JDK-内置的拒绝策略"><a href="#JDK-内置的拒绝策略" class="headerlink" title="JDK 内置的拒绝策略"></a>JDK 内置的拒绝策略</h3><ol><li>AbortPolicy（默认）：直接抛出 RejectedExecutionException 异常阻止系统正常运行。</li><li>CallerRunsPolicy：“调用者运行”一种调节机制，该策略既不会抛弃任务，也不会抛出异常，而是将某些任务回退到调用者，从而降低新任务的流量。</li><li>DiscardOldestPolicy：抛弃队列中等待最久的任务，然后把当前任务加入队列中尝试再次提交当前任务。</li><li>DiscardPolicy：直接丢弃任务，不予任何处理也不抛出异常。如果允许任务丢失，这是最好的一种方案。</li></ol><p>以上内置拒绝策略均实现了 RejectedExecutionHandler 接口</p><h2 id="合理配置线程池你是如何考虑的？"><a href="#合理配置线程池你是如何考虑的？" class="headerlink" title="合理配置线程池你是如何考虑的？"></a>合理配置线程池你是如何考虑的？</h2><h3 id="CPU密集型"><a href="#CPU密集型" class="headerlink" title="CPU密集型"></a>CPU密集型</h3><p>CPU 密集的意思是该任务需要大量的运算，而没有阻塞，CPU 一直全速运行。</p><p>CPU 密集型任务配置尽可能少的线程数量：</p><p>一般公式为：<strong>CPU 核数 + 1个线程</strong>的线程池。</p><h3 id="IO密集型"><a href="#IO密集型" class="headerlink" title="IO密集型"></a>IO密集型</h3><ol><li>由于 IO 密集型任务线程并不是一直执行任务，则应配置尽可能多的线程，如 <strong>CPU 核数 * 2</strong>        </li><li>IO 密集型，即该任务需要大量的 IO，即大量的阻塞。</li></ol><p>在单线程上运行 IO 密集型的任务会导致浪费大量的 CPU 运算能力浪费在等待。</p><p>所以 IO 密集型任务中使用多线程可以大大的加速程序运行，即使在单核 CPU 上，这种加速主要就是利用了被浪费掉的阻塞时间。</p><p>IO 密集型时，大部分线程都阻塞，故需要多配置线程数：</p><p>参考公式：<strong>CPU 核数 / (1 - 阻塞系数)</strong>    阻塞系数在 0.8-0.9 之间</p><p>比如 8 核 CPU：8 / (1 - 0.9) = 80 个线程数</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;为什么用线程池，优势&quot;&gt;&lt;a href=&quot;#为什么用线程池，优势&quot; class=&quot;headerlink&quot; title=&quot;为什么用线程池，优势&quot;&gt;&lt;/a&gt;为什么用线程池，优势&lt;/h2&gt;&lt;p&gt;线程池主要是控制运行线程的数量，处理过程中将任务放入队列，然后在线程创建后启
       
     
     </summary>
