@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="yp_ren Blog">
 <meta property="og:description" content="Spring Boot 和 Redis 常用操作spring-boot-starter-data-redisSpring Boot 提供了对 Redis 集成的组件包：spring-boot-starter-data-redis，它依赖于 spring-data-redis 和 lettuce。Spring Boot 1.0 默认使⽤的是 Jedis 客户端，2.0 替换成了 Lettuce，但如">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-23T07:53:05.265Z">
+<meta property="og:updated_time" content="2019-10-24T07:24:16.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot中间件">
 <meta name="twitter:description" content="Spring Boot 和 Redis 常用操作spring-boot-starter-data-redisSpring Boot 提供了对 Redis 集成的组件包：spring-boot-starter-data-redis，它依赖于 spring-data-redis 和 lettuce。Spring Boot 1.0 默认使⽤的是 Jedis 客户端，2.0 替换成了 Lettuce，但如">
@@ -275,7 +275,7 @@
                             &nbsp;
                             解决方案
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/token-防表单重复提交/">token 防表单重复提交</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/token-防表单重复提交/">token 防表单重复提交</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  </ul> 
                     </li> 
                      <li class="file"><a href="/wiki/稀疏数组sparsearray/">稀疏数组sparsearray</a></li>  <li class="file"><a href="/wiki/冒泡排序/">冒泡排序</a></li>  </ul> 
                     </li> 
@@ -461,7 +461,7 @@
 <p>可以⽤以下⽅式来表达它们之间的关系：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Lettuce ➡️ Spring Data Redis ➡️ Spring Data ➡️ spring-boot-starter-data-redis</span><br></pre></td></tr></table></figure>
 
-<h2 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h2><h3 id="引入依赖包"><a href="#引入依赖包" class="headerlink" title="引入依赖包"></a>引入依赖包</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;commons-pool2&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h2><h3 id="引入依赖包"><a href="#引入依赖包" class="headerlink" title="引入依赖包"></a>引入依赖包</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!--Lettuce 需要使⽤ commons-pool <span class="number">2</span> 创建 Redis 连接池--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;commons-pool2&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="application-配置"><a href="#application-配置" class="headerlink" title="application 配置"></a>application 配置</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> Redis 数据库索引（默认为 0）</span><br><span class="line">spring.redis.database=0</span><br><span class="line"><span class="meta">#</span> Redis 服务器地址</span><br><span class="line">spring.redis.host=localhost</span><br><span class="line"><span class="meta">#</span> Redis 服务器连接端⼝</span><br><span class="line">spring.redis.port=6379</span><br><span class="line"><span class="meta">#</span> Redis 服务器连接密码（默认为空）</span><br><span class="line">spring.redis.password=</span><br><span class="line"><span class="meta">#</span> 连接池最⼤连接数（使⽤负值表示没有限制） 默认 8</span><br><span class="line">spring.redis.lettuce.pool.max-active=8</span><br><span class="line"><span class="meta">#</span> 连接池最⼤阻塞等待时间（使⽤负值表示没有限制） 默认 -1</span><br><span class="line">spring.redis.lettuce.pool.max-wait=-1</span><br><span class="line"><span class="meta">#</span> 连接池中的最⼤空闲连接 默认 8</span><br><span class="line">spring.redis.lettuce.pool.max-idle=8</span><br><span class="line"><span class="meta">#</span> 连接池中的最⼩空闲连接 默认 0</span><br><span class="line">spring.redis.lettuce.pool.min-idle=0</span><br></pre></td></tr></table></figure>
 
@@ -481,6 +481,15 @@
 
     
 <nav id="article-nav">
+    
+        <a href="/wiki/java判断对象中属性值是否全为空/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    java判断对象中属性值是否全为空
+                
+            </div>
+        </a>
     
     
         <a href="/wiki/mac系统快捷键/" id="article-nav-older" class="article-nav-link-wrap">

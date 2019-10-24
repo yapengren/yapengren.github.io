@@ -1,3 +1,4 @@
+https://yapengren.github.io/wiki/java判断对象中属性值是否全为空/
 https://yapengren.github.io/wiki/SpringBoot中间件/
 https://yapengren.github.io/wiki/mac系统快捷键/
 https://yapengren.github.io/wiki/linux-基本命令/
@@ -7,4 +8,3 @@ https://yapengren.github.io/wiki/lombok-使用方法/
 https://yapengren.github.io/wiki/冒泡排序/
 https://yapengren.github.io/wiki/稀疏数组sparsearray/
 https://yapengren.github.io/wiki/java-基础题/
-https://yapengren.github.io/wiki/数据库知识点/
