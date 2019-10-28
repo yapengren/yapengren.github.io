@@ -3,19 +3,19 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>Redis核心原理与应用实践 | yp_ren Blog</title>
+    <title>Redis 基础数据结构 | yp_ren Blog</title>
     
     
         <meta name="keywords" content="Redis">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="基础：Redis 基础数据结构Redis 安装体验 Redis 需要使用 Linux 或者 Mac 环境，如果是 Windows 可以考虑使用虚拟机。主要方式有四种：  使用 Docker 安装。 通过 Github 源码编译。 直接安装 apt-get install(Ubuntu)、yum install(RedHat) 或者 brew install(Mac)。 如果读者懒于安装操作，也可以">
+    <meta name="description" content="Redis 安装体验 Redis 需要使用 Linux 或者 Mac 环境，如果是 Windows 可以考虑使用虚拟机。主要方式有四种：  使用 Docker 安装。 通过 Github 源码编译。 直接安装 apt-get install(Ubuntu)、yum install(RedHat) 或者 brew install(Mac)。 如果读者懒于安装操作，也可以使用网页版的 Web Redi">
 <meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis核心原理与应用实践">
-<meta property="og:url" content="https://yapengren.github.io/wiki/Redis核心原理与应用实践/index.html">
+<meta property="og:title" content="Redis 基础数据结构">
+<meta property="og:url" content="https://yapengren.github.io/wiki/Redis 基础数据结构/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="基础：Redis 基础数据结构Redis 安装体验 Redis 需要使用 Linux 或者 Mac 环境，如果是 Windows 可以考虑使用虚拟机。主要方式有四种：  使用 Docker 安装。 通过 Github 源码编译。 直接安装 apt-get install(Ubuntu)、yum install(RedHat) 或者 brew install(Mac)。 如果读者懒于安装操作，也可以">
+<meta property="og:description" content="Redis 安装体验 Redis 需要使用 Linux 或者 Mac 环境，如果是 Windows 可以考虑使用虚拟机。主要方式有四种：  使用 Docker 安装。 通过 Github 源码编译。 直接安装 apt-get install(Ubuntu)、yum install(RedHat) 或者 brew install(Mac)。 如果读者懒于安装操作，也可以使用网页版的 Web Redi">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g63ohr8b7dg30b402iq2v.gif">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g63orqaky9j30fw04pglg.jpg">
@@ -28,10 +28,10 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79ly1g63ohss9pag30b404g0ub.gif">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g63oycwdpwj30zk0323yh.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g63oymhg7mj30vz069weo.jpg">
-<meta property="og:updated_time" content="2019-10-28T02:48:22.688Z">
+<meta property="og:updated_time" content="2019-10-28T08:01:41.586Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis核心原理与应用实践">
-<meta name="twitter:description" content="基础：Redis 基础数据结构Redis 安装体验 Redis 需要使用 Linux 或者 Mac 环境，如果是 Windows 可以考虑使用虚拟机。主要方式有四种：  使用 Docker 安装。 通过 Github 源码编译。 直接安装 apt-get install(Ubuntu)、yum install(RedHat) 或者 brew install(Mac)。 如果读者懒于安装操作，也可以">
+<meta name="twitter:title" content="Redis 基础数据结构">
+<meta name="twitter:description" content="Redis 安装体验 Redis 需要使用 Linux 或者 Mac 环境，如果是 Windows 可以考虑使用虚拟机。主要方式有四种：  使用 Docker 安装。 通过 Github 源码编译。 直接安装 apt-get install(Ubuntu)、yum install(RedHat) 或者 brew install(Mac)。 如果读者懒于安装操作，也可以使用网页版的 Web Redi">
 <meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79ly1g63ohr8b7dg30b402iq2v.gif">
     
 
@@ -269,7 +269,7 @@
                             &nbsp;
                             Redis
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/Redis核心原理与应用实践/">Redis核心原理与应用实践</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/Redis 基础数据结构/">Redis 基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis-安全防范/">Redis 安全防范</a></li>  <li class="file"><a href="/wiki/Redis 过期策略/">Redis 过期策略</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -461,7 +461,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Redis核心原理与应用实践" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Redis 基础数据结构" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -483,7 +483,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis核心原理与应用实践/">
+        <a href="/wiki/Redis 基础数据结构/">
             <time datetime="2019-08-18T03:26:40.000Z" itemprop="datePublished">2019-08-18</time>
         </a>
     </div>
@@ -495,13 +495,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis核心原理与应用实践.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis 基础数据结构.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis核心原理与应用实践.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis 基础数据结构.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis核心原理与应用实践.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis 基础数据结构.md'> History </a>
                             </div>
                         
                     </div>
@@ -509,7 +509,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Redis核心原理与应用实践
+            Redis 基础数据结构
         </h1>
     
 
@@ -522,12 +522,12 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基础：Redis-基础数据结构"><span class="toc-number">1.</span> <span class="toc-text">基础：Redis 基础数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-安装"><span class="toc-number">1.1.</span> <span class="toc-text">Redis 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-方式"><span class="toc-number">1.1.1.</span> <span class="toc-text">Docker 方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Github-源码编译方式"><span class="toc-number">1.1.2.</span> <span class="toc-text">Github 源码编译方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#直接安装方式"><span class="toc-number">1.1.3.</span> <span class="toc-text">直接安装方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-基础数据结构"><span class="toc-number">1.2.</span> <span class="toc-text">Redis 基础数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#string-字符串"><span class="toc-number">1.2.1.</span> <span class="toc-text">string (字符串)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#键值对"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">键值对</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量键值对"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">批量键值对</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#过期和-set-命令扩展"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">过期和 set 命令扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计数"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">计数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list-列表"><span class="toc-number">1.2.2.</span> <span class="toc-text">list (列表)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#右边进左边出：队列"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">右边进左边出：队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#右边进右边出：栈"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">右边进右边出：栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#慢操作"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">慢操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#快速列表"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">快速列表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hash-字典"><span class="toc-number">1.2.3.</span> <span class="toc-text">hash (字典)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set-集合"><span class="toc-number">1.2.4.</span> <span class="toc-text">set (集合)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zset-有序集合"><span class="toc-number">1.2.5.</span> <span class="toc-text">zset (有序集合)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器型数据结构的通用规则"><span class="toc-number">1.3.</span> <span class="toc-text">容器型数据结构的通用规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过期时间"><span class="toc-number">1.4.</span> <span class="toc-text">过期时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">1.5.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-安装"><span class="toc-number">1.</span> <span class="toc-text">Redis 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-方式"><span class="toc-number">1.1.</span> <span class="toc-text">Docker 方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Github-源码编译方式"><span class="toc-number">1.2.</span> <span class="toc-text">Github 源码编译方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#直接安装方式"><span class="toc-number">1.3.</span> <span class="toc-text">直接安装方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-基础数据结构"><span class="toc-number">2.</span> <span class="toc-text">Redis 基础数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#string-字符串"><span class="toc-number">2.1.</span> <span class="toc-text">string (字符串)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#键值对"><span class="toc-number">2.1.1.</span> <span class="toc-text">键值对</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#批量键值对"><span class="toc-number">2.1.2.</span> <span class="toc-text">批量键值对</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#过期和-set-命令扩展"><span class="toc-number">2.1.3.</span> <span class="toc-text">过期和 set 命令扩展</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计数"><span class="toc-number">2.1.4.</span> <span class="toc-text">计数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#list-列表"><span class="toc-number">2.2.</span> <span class="toc-text">list (列表)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#右边进左边出：队列"><span class="toc-number">2.2.1.</span> <span class="toc-text">右边进左边出：队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#右边进右边出：栈"><span class="toc-number">2.2.2.</span> <span class="toc-text">右边进右边出：栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#慢操作"><span class="toc-number">2.2.3.</span> <span class="toc-text">慢操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#快速列表"><span class="toc-number">2.2.4.</span> <span class="toc-text">快速列表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hash-字典"><span class="toc-number">2.3.</span> <span class="toc-text">hash (字典)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set-集合"><span class="toc-number">2.4.</span> <span class="toc-text">set (集合)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zset-有序集合"><span class="toc-number">2.5.</span> <span class="toc-text">zset (有序集合)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#容器型数据结构的通用规则"><span class="toc-number">3.</span> <span class="toc-text">容器型数据结构的通用规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过期时间"><span class="toc-number">4.</span> <span class="toc-text">过期时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
         
         
-            <h1 id="基础：Redis-基础数据结构"><a href="#基础：Redis-基础数据结构" class="headerlink" title="基础：Redis 基础数据结构"></a>基础：Redis 基础数据结构</h1><h2 id="Redis-安装"><a href="#Redis-安装" class="headerlink" title="Redis 安装"></a>Redis 安装</h2><p>体验 Redis 需要使用 Linux 或者 Mac 环境，如果是 Windows 可以考虑使用虚拟机。主要方式有四种：</p>
+            <h2 id="Redis-安装"><a href="#Redis-安装" class="headerlink" title="Redis 安装"></a>Redis 安装</h2><p>体验 Redis 需要使用 Linux 或者 Mac 环境，如果是 Windows 可以考虑使用虚拟机。主要方式有四种：</p>
 <ol>
 <li>使用 Docker 安装。</li>
 <li>通过 Github 源码编译。</li>

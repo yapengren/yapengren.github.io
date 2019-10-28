@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yapengren.github.io/"/>
-  <updated>2019-10-28T02:37:43.398Z</updated>
+  <updated>2019-10-28T08:57:48.883Z</updated>
   <id>https://yapengren.github.io/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redis 过期策略</title>
+    <link href="https://yapengren.github.io/wiki/Redis%20%E8%BF%87%E6%9C%9F%E7%AD%96%E7%95%A5/"/>
+    <id>https://yapengren.github.io/wiki/Redis 过期策略/</id>
+    <published>2019-10-28T08:38:14.000Z</published>
+    <updated>2019-10-28T08:57:48.883Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Redis-过期策略"><a href="#Redis-过期策略" class="headerlink" title="Redis 过期策略"></a>Redis 过期策略</h2><p>Redis 过期策略是：定期删除 + 惰性删除。</p><p>所谓定期删除，指的是 Redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。</p><p>假设 Redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 Redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意，这里可不是每隔 100ms 就遍历所有的设置过期时间的 key，那样就是一场性能上的灾难。实际上 Redis 是每隔 100ms 随机抽取一些 key 来检查和删除的。</p><p>但是问题是，定期删除可能会导致很多过期 key 到了时间并没有被删除掉，那咋整呢？所以就是惰性删除了。这就是说，在你获取某个 key 的时候，Redis 会检查一下 ，这个 key 如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。</p><p>但是实际上这还是有问题的，如果定期删除漏掉了很多过期 key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？如果大量过期 key 堆积在内存里，导致 Redis 内存快耗尽了，怎么办？</p><p>答案是：走内存淘汰机制。</p><h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>Redis 内存淘汰机制有以下几个：</p><ul><li><strong>noeviction</strong> 不会继续服务写请求 (DEL 请求可以继续服务)，读请求可以继续进行。这样可以保证不会丢失数据，但是会让线上的业务不能持续进行。这是默认的淘汰策略。</li><li><strong>volatile-lru</strong> 尝试淘汰设置了过期时间的 key，最少使用的 key 优先被淘汰。没有设置过期时间的 key 不会被淘汰，这样可以保证需要持久化的数据不会突然丢失。</li><li><strong>volatile-lfu</strong> 尝试淘汰设置了过期时间的 key，按最近的访问频率进行淘汰。</li><li><strong>volatile-ttl</strong> 跟上面一样，除了淘汰的策略不是 LRU，而是 key 的剩余寿命 ttl 的值，ttl 越小越优先被淘汰。</li><li><strong>volatile-random</strong> 跟上面一样，不过淘汰的 key 是过期 key 集合中随机的 key。</li><li><strong>allkeys-lru</strong> 区别于 volatile-lru，这个策略要淘汰的 key 对象是全体的 key 集合，而不只是过期的 key 集合。这意味着没有设置过期时间的 key 也会被淘汰（常用）</li><li><strong>allkeys-lfu</strong> 区别于 volatile-lfu，这个策略要淘汰的 key 对象是全体的 key 集合，按最近的访问频率进行淘汰（常用）</li><li><strong>allkeys-random</strong> 跟上面一样，不过淘汰的策略是随机的 key。</li></ul><p>volatile-xxx 策略只会针对带过期时间的 key 进行淘汰，allkeys-xxx 策略会对所有的 key 进行淘汰。</p><p>如果你只是拿 Redis 做缓存，那应该使用 allkeys-xxx，客户端写缓存时不必携带过期时间。</p><p>如果你还想同时使用 Redis 的持久化功能，那就使用 volatile-xxx 策略，这样可以保留没有设置过期时间的 key，它们是永久的 key 不会被 LRU 算法淘汰。</p><h2 id="LRU-vs-LFU"><a href="#LRU-vs-LFU" class="headerlink" title="LRU vs LFU"></a>LRU vs LFU</h2><p>LFU 的全称是<code>Least Frequently Used</code>，表示按最近的访问频率进行淘汰，它比 LRU 更加精准地表示了一个 key 被访问的热度。</p><blockquote><p>  Frequently    [/‘friːkw(ə)ntlɪ/]    adv.频繁地，屡次地</p></blockquote><p>如果一个 key 长时间不被访问，只是刚刚偶然被用户访问了一下，那么在使用 LRU 算法下它是不容易被淘汰的，因为 LRU 算法认为当前这个 key 是很热的。而 LFU 是需要追踪最近一段时间的访问频率，如果某个 key 只是偶然被访问一次是不足以变得很热的，它需要在近期一段时间内被访问很多次才有机会被认为很热。</p><h2 id="LRU算法"><a href="#LRU算法" class="headerlink" title="LRU算法"></a>LRU算法</h2><p>LinkedHashMap 默认的元素顺序是 put 的顺序，但是如果使用带参数的构造函数，那么 LinkedHashMap 会根据访问顺序来调整内部顺序。 LinkedHashMap 的 get() 方法除了返回元素之外还可以把被访问的元素放到链表的底端，这样一来每次顶端的元素就是 remove 的元素。</p><h2 id="LRU代码"><a href="#LRU代码" class="headerlink" title="LRU代码"></a>LRU代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedHashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 最近最少使用算法，linkedHashMap实现，主要是针对缓存过期策略实现</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> renyapeng</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LRULinkedHashMap</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">LinkedHashMap</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 缓存数据容量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity = <span class="number">16</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 默认装载因子</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> DEFAULT_LOAD_FACTOR = <span class="number">0.75F</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 带参数构造方法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> initialCapacity 容量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LRULinkedHashMap</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> initialCapacity 容量</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> DEFAULT_LOAD_FACTOR 默认装载因子</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> accessOrder 是否使用lru算法</span></span><br><span class="line"><span class="comment">         *                    true：使用（基于访问顺序，get一个元素后，这个元素被加到最后，使用了LRU最近最少被使用的调度算法）</span></span><br><span class="line"><span class="comment">         *                    false：不使用（基于插入顺序）</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">super</span>(initialCapacity, DEFAULT_LOAD_FACTOR, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 传入指定的缓存最大容量</span></span><br><span class="line">        <span class="keyword">this</span>.capacity = initialCapacity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 实现LRU的关键方法，如果map里面的元素个数大于了缓存最大容量，则删除链表的顶端元素</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> eldest</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">removeEldestEntry</span><span class="params">(Map.Entry&lt;K, V&gt; eldest)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size() &gt; capacity;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  《Redis 深度历险：核心原理与应用实践》 作者：钱文品</p><p>  <a href="https://doocs.github.io/advanced-java/#/docs/high-concurrency/redis-expiration-policies-and-lru" target="_blank" rel="noopener">互联网 Java 工程师进阶知识完全扫盲</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Redis-过期策略&quot;&gt;&lt;a href=&quot;#Redis-过期策略&quot; class=&quot;headerlink&quot; title=&quot;Redis 过期策略&quot;&gt;&lt;/a&gt;Redis 过期策略&lt;/h2&gt;&lt;p&gt;Redis 过期策略是：定期删除 + 惰性删除。&lt;/p&gt;
+&lt;p&gt;所谓定期删除
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="https://yapengren.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="Redis" scheme="https://yapengren.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/"/>
+    
+    
+      <category term="Redis" scheme="https://yapengren.github.io/tags/Redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis 安全防范</title>
+    <link href="https://yapengren.github.io/wiki/Redis-%E5%AE%89%E5%85%A8%E9%98%B2%E8%8C%83/"/>
+    <id>https://yapengren.github.io/wiki/Redis-安全防范/</id>
+    <published>2019-10-28T08:33:17.000Z</published>
+    <updated>2019-10-28T08:39:06.664Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="指令安全"><a href="#指令安全" class="headerlink" title="指令安全"></a>指令安全</h2><p>Redis 有一些非常危险的指令，这些指令会对 Redis 的稳定以及数据安全造成非常严重的影响。比如 <code>keys</code> 指令会导致 Redis 卡顿，<code>flushdb</code> 和 <code>flushall</code> 会让 Redis 的所有数据全部清空。如何避免人为操作失误导致这些灾难性的后果也是运维人员特别需要注意的风险点之一。</p><p>Redis 在配置文件中提供了 <code>rename-command</code> 指令用于将某些危险的指令修改成特别的名称，用来避免人为误操作。比如在配置文件的 security 块增加下面的内容:</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rename-command keys abckeysabc</span><br></pre></td></tr></table></figure><p>如果还想执行 keys 方法，那就不能直接敲 <code>keys</code> 命令了，而需要键入<code>abckeysabc</code>。 如果想完全封杀某条指令，可以将指令 <code>rename</code> 成空串，就无法通过任何字符串指令来执行这条指令了。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rename-command flushall ""</span><br></pre></td></tr></table></figure><h2 id="端口安全"><a href="#端口安全" class="headerlink" title="端口安全"></a>端口安全</h2><p>Redis 默认会监听 <code>*:6379</code>，如果当前的服务器主机有外网地址，Redis 的服务将会直接暴露在公网上，任何一个初级黑客使用适当的工具对 IP 地址进行端口扫描就可以探测出来。</p><p> Redis 的服务地址一旦可以被外网直接访问，内部的数据就彻底丧失了安全性。高级一点的黑客们可以通过 Redis 执行 Lua 脚本拿到服务器权限，恶意的竞争对手们甚至会直接清空你的 Redis 数据库。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bind 10.100.20.13</span><br></pre></td></tr></table></figure><p>所以，运维人员务必在 Redis 的配置文件中指定监听的 IP 地址，避免这样的惨剧发生。更进一步，还可以增加 Redis 的密码访问限制，客户端必须使用 <code>auth</code> 指令传入正确的密码才可以访问 Redis，这样即使地址暴露出去了，普通黑客也无法对 Redis 进行任何指令操作。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">requirepass yoursecurepasswordhereplease</span><br></pre></td></tr></table></figure><p>密码控制也会影响到从库复制，从库必须在配置文件里使用 masterauth 指令配置相应的密码才可以进行复制操作。</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">masterauth yoursecurepasswordhereplease</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;指令安全&quot;&gt;&lt;a href=&quot;#指令安全&quot; class=&quot;headerlink&quot; title=&quot;指令安全&quot;&gt;&lt;/a&gt;指令安全&lt;/h2&gt;&lt;p&gt;Redis 有一些非常危险的指令，这些指令会对 Redis 的稳定以及数据安全造成非常严重的影响。比如 &lt;code&gt;keys
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="https://yapengren.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="Redis" scheme="https://yapengren.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>java判断对象中属性值是否全为空</title>
@@ -496,61 +549,6 @@
       
       
         &lt;h2 id=&quot;写时复制&quot;&gt;&lt;a href=&quot;#写时复制&quot; class=&quot;headerlink&quot; title=&quot;写时复制&quot;&gt;&lt;/a&gt;写时复制&lt;/h2&gt;&lt;p&gt;CopyOnWrite 容器即写时复制的容器。&lt;br&gt;往一个容器添加元素的时候，不直接往当前容器 Object[] 添加，而
-      
-    
-    </summary>
-    
-      <category term="java" scheme="https://yapengren.github.io/categories/java/"/>
-    
-      <category term="并发" scheme="https://yapengren.github.io/categories/java/%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="java" scheme="https://yapengren.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>原子类Atomiclnteger的ABA问题谈谈？</title>
-    <link href="https://yapengren.github.io/wiki/%E5%8E%9F%E5%AD%90%E7%B1%BBAtomiclnteger%E7%9A%84ABA%E9%97%AE%E9%A2%98%E8%B0%88%E8%B0%88%EF%BC%9F/"/>
-    <id>https://yapengren.github.io/wiki/原子类Atomiclnteger的ABA问题谈谈？/</id>
-    <published>2019-08-20T05:56:30.000Z</published>
-    <updated>2019-10-28T02:32:38.434Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="ABA问题怎么产生的"><a href="#ABA问题怎么产生的" class="headerlink" title="ABA问题怎么产生的"></a>ABA问题怎么产生的</h2><p>CAS会导致 ABA 问题</p><p>CAS 算法实现一个重要前提需要取出内存中某时刻的数据并在当下时刻比较并替换，那么在这个时间差类会导致数据的变化。</p><p>尽管线程 one 的 CAS 操作成功，但是不代表这个过程就是没问题的。</p><h2 id="原子引用"><a href="#原子引用" class="headerlink" title="原子引用"></a>原子引用</h2><p>解决ABA问题</p><h2 id="时间戳原子引用"><a href="#时间戳原子引用" class="headerlink" title="时间戳原子引用"></a>时间戳原子引用</h2><p>AtomicStampledReference<br>ABADemo</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;ABA问题怎么产生的&quot;&gt;&lt;a href=&quot;#ABA问题怎么产生的&quot; class=&quot;headerlink&quot; title=&quot;ABA问题怎么产生的&quot;&gt;&lt;/a&gt;ABA问题怎么产生的&lt;/h2&gt;&lt;p&gt;CAS会导致 ABA 问题&lt;/p&gt;
-&lt;p&gt;CAS 算法实现一个重要前提需要取
-      
-    
-    </summary>
-    
-      <category term="java" scheme="https://yapengren.github.io/categories/java/"/>
-    
-      <category term="并发" scheme="https://yapengren.github.io/categories/java/%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="java" scheme="https://yapengren.github.io/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CAS理解</title>
-    <link href="https://yapengren.github.io/wiki/CAS%E7%90%86%E8%A7%A3/"/>
-    <id>https://yapengren.github.io/wiki/CAS理解/</id>
-    <published>2019-08-20T05:49:03.000Z</published>
-    <updated>2019-10-28T02:33:43.136Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="比较并交换"><a href="#比较并交换" class="headerlink" title="比较并交换"></a>比较并交换</h2><h2 id="CAS底层原理？如果知道，谈谈比对Unsafe的理解"><a href="#CAS底层原理？如果知道，谈谈比对Unsafe的理解" class="headerlink" title="CAS底层原理？如果知道，谈谈比对Unsafe的理解"></a>CAS底层原理？如果知道，谈谈比对Unsafe的理解</h2><h3 id="Unsafe"><a href="#Unsafe" class="headerlink" title="Unsafe"></a>Unsafe</h3><ol><li><p>Unsafe 是 CAS 的核心类，由于 Java 方法无法直接访问底层系统，需要通过本地（native）方法来访问，Unsafe 相当于一个后门，基于该类可以直接操作特定内存的数据。Unsafe 类存在于 sun.misc 包中，其内部方法操作可以像 C 的指针一样直接操作内存，因为 Java 中 CAS 操作的执行依赖于 Unsafe 类的方法。</p><p>注意 Unsafe 类中的所有方法都是 native 修饰的，也就是说 Unsafe 类中的方法都直接调用操作系统底层资源执行相应任务。</p></li><li><p>变量 valueOffset，表示该变量在内存中的偏移地址，因为 Unsafe 就是根据内存偏移地址获取数据的。</p></li><li><p>变量 value 用 volatile 修饰，保证了多线程之间的内存可见性。</p></li></ol><h3 id="CAS-是什么"><a href="#CAS-是什么" class="headerlink" title="CAS 是什么"></a>CAS 是什么</h3><ol><li><p>unsafe.getAndAddInt</p><p>假设线程 A 和线程 B 两个线程同时执行 getAndAddInt 操作（分别跑在不同 CPU 上）</p><p>AtomicInteger 里面的 value 原始值为 3，即主内存中 AtomicInteger 的 value 为 3，根据 JMM 模型，线程 A 和线程 B 各自持有一份值为 3 的 value 的副本分别到各自的工作内存。</p><p>线程 A 通过 getIntVolatile（var1，var2）拿到 value 值 3，这是线程 A 被挂起。</p><p>线程 B 也通过 getIntVolatile（var1，var2）方法获得 value 值 3，此时刚好线程 B 没有被挂起并执行 compareAndSwap 方法比较内存值也为 3，成功修改内存值为 4，线程 B 打完收工，一切OK。</p><p>这是线程 A 回复，执行 compareAndSwapInt 方法比较，发现手里的值 3 与内存值 4 不一致，说明该值已经被其他线程抢险异步修改过了，那 A 线程本次修改失败，只能重新读取重新来一遍了。</p><p>线程 A 重新获取 value 值，因为变量 value 被 volatile 修饰，所以其他线程对它的修改，线程 A 总是能够看到，线程 A 继续执行 compareAndSwapInt 进行比较替换，直到成功。</p></li><li><p>底层汇编</p></li><li><p>简单版小总结<br>CAS（CompareAndSwap）<br>比较当前工作内存中的值和主内存中的值，如果相同则执行规定操作，否则继续比较知道主内存和工作内存中的值一致为止。</p></li></ol><p>CAS应用<br>CAS有 3 个操作数，内存值 V，旧的预期值 A，要修改的更新值 B。<br>当且仅当预期值 A 和内存值 V 相同时，将内存值 V 修改为 B，否则什么都不做。</p><h2 id="CAS缺点"><a href="#CAS缺点" class="headerlink" title="CAS缺点"></a>CAS缺点</h2><ol><li><p>循环时间长开销大<br>如果 CAS 失败，会一直进行尝试。如果 CAS 长时间一直不成功，可能会给 CPU 带来很大的开销。</p></li><li><p>只能保证一个共享变量的原子操作<br>当对一个共享变量执行操作时，我们只能使用循环 CAS 的方式来保证原子操作，但是，对多个共享变量操作时，循环 CAS 就无法保证操作的原子性，这个时候就可以用锁来保证原子性。</p></li><li><p>引出来 ABA 问题？？？<br>通过原子引用解决 ABA 问题</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;比较并交换&quot;&gt;&lt;a href=&quot;#比较并交换&quot; class=&quot;headerlink&quot; title=&quot;比较并交换&quot;&gt;&lt;/a&gt;比较并交换&lt;/h2&gt;&lt;h2 id=&quot;CAS底层原理？如果知道，谈谈比对Unsafe的理解&quot;&gt;&lt;a href=&quot;#CAS底层原理？如果知道，谈谈
       
     
     </summary>
