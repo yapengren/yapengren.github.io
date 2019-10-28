@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://yapengren.github.io/wiki/%E8%AE%A9%E6%88%91%E4%BB%AC%E5%90%8C%E6%AD%A5%E8%BF%9B%E9%98%B6/</loc>
+    <lastmod>2019-10-28</lastmod>
+  </url>  <url>
     <loc>https://yapengren.github.io/wiki/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2019-10-28</lastmod>
   </url>  <url>
@@ -117,8 +120,5 @@
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/</loc>
     <lastmod>2019-10-28</lastmod>
-  </url>  <url>
-    <loc>https://yapengren.github.io/wiki/%E8%AE%A9%E6%88%91%E4%BB%AC%E5%90%8C%E6%AD%A5%E8%BF%9B%E9%98%B6/</loc>
-    <lastmod>2019-09-24</lastmod>
   </url>
 </urlset>
