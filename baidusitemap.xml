@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://yapengren.github.io/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%89%E8%8C%83%E5%BC%8F/</loc>
+    <lastmod>2019-10-29</lastmod>
+  </url>  <url>
+    <loc>https://yapengren.github.io/wiki/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
+    <lastmod>2019-10-29</lastmod>
+  </url>  <url>
     <loc>https://yapengren.github.io/wiki/Redis%20%E8%BF%87%E6%9C%9F%E7%AD%96%E7%95%A5/</loc>
     <lastmod>2019-10-28</lastmod>
   </url>  <url>
@@ -19,16 +25,10 @@
     <loc>https://yapengren.github.io/wiki/%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84sparsearray/</loc>
     <lastmod>2019-10-28</lastmod>
   </url>  <url>
-    <loc>https://yapengren.github.io/wiki/Redis-%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
-    <lastmod>2019-10-28</lastmod>
-  </url>  <url>
     <loc>https://yapengren.github.io/wiki/Redis-zset-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E9%99%90%E6%B5%81/</loc>
     <lastmod>2019-10-28</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/token-%E9%98%B2%E8%A1%A8%E5%8D%95%E9%87%8D%E5%A4%8D%E6%8F%90%E4%BA%A4/</loc>
-    <lastmod>2019-10-28</lastmod>
-  </url>  <url>
-    <loc>https://yapengren.github.io/wiki/MySQL%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <lastmod>2019-10-28</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/Mybatis-%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
@@ -50,9 +50,6 @@
     <lastmod>2019-10-28</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/SpringBoot%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
-    <lastmod>2019-10-28</lastmod>
-  </url>  <url>
-    <loc>https://yapengren.github.io/wiki/Spring-%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <lastmod>2019-10-28</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/shiro-%E6%B5%81%E7%A8%8B%E5%9B%BE/</loc>
@@ -91,9 +88,6 @@
     <loc>https://yapengren.github.io/wiki/java-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <lastmod>2019-10-28</lastmod>
   </url>  <url>
-    <loc>https://yapengren.github.io/wiki/Java-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
-    <lastmod>2019-10-28</lastmod>
-  </url>  <url>
     <loc>https://yapengren.github.io/wiki/java-%E5%9F%BA%E7%A1%80%E9%A2%98/</loc>
     <lastmod>2019-10-28</lastmod>
   </url>  <url>
@@ -119,9 +113,6 @@
     <lastmod>2019-10-28</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9volatile%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
-    <lastmod>2019-10-28</lastmod>
-  </url>  <url>
-    <loc>https://yapengren.github.io/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9F%A5%E8%AF%86%E7%82%B9/</loc>
     <lastmod>2019-10-28</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/</loc>

@@ -3,24 +3,28 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>Redis 知识点 | yp_ren Blog</title>
+    <title>数据库三范式 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="Redis">
+        <meta name="keywords" content="MySQL">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Redis用过哪些数据数据，以及Redis底层怎么实现string, hash, list, set, zset Redis缓存穿透，缓存雪崩如何使用Redis来实现分布式锁Redis的并发竞争问题如何解决Redis持久化的几种方式，优缺点是什么，怎么实现的aof 文件太大会怎么样Redis的缓存失效策略 &amp;amp; 最大缓存策略Redis集群，高可用，原理Redis缓存分片Redis的数据淘汰策">
-<meta name="keywords" content="Redis">
+    <meta name="description" content="数据库三范式第一范式(1st NF－列都是不可再分)第一范式的目标是确保每列的原子性:如果每列都是不可再分的最小数据单元（也称为最小的原子单元），则满足第一范式（1NF）  第二范式(2nd NF－每个表只描述一件事情)首先满足第一范式，并且表中非主键列不存在对主键的部分依赖。 第二范式要求每个表只描述一件事情。  第三范式(3rd NF－不存在对非主键列的传递依赖)第三范式定义是，满足第二范式，">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis 知识点">
-<meta property="og:url" content="https://yapengren.github.io/wiki/Redis-知识点/index.html">
+<meta property="og:title" content="数据库三范式">
+<meta property="og:url" content="https://yapengren.github.io/wiki/数据库三范式/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="Redis用过哪些数据数据，以及Redis底层怎么实现string, hash, list, set, zset Redis缓存穿透，缓存雪崩如何使用Redis来实现分布式锁Redis的并发竞争问题如何解决Redis持久化的几种方式，优缺点是什么，怎么实现的aof 文件太大会怎么样Redis的缓存失效策略 &amp;amp; 最大缓存策略Redis集群，高可用，原理Redis缓存分片Redis的数据淘汰策">
+<meta property="og:description" content="数据库三范式第一范式(1st NF－列都是不可再分)第一范式的目标是确保每列的原子性:如果每列都是不可再分的最小数据单元（也称为最小的原子单元），则满足第一范式（1NF）  第二范式(2nd NF－每个表只描述一件事情)首先满足第一范式，并且表中非主键列不存在对主键的部分依赖。 第二范式要求每个表只描述一件事情。  第三范式(3rd NF－不存在对非主键列的传递依赖)第三范式定义是，满足第二范式，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-28T02:48:39.277Z">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6fan9n4muj30op05sq4c.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6fankw6t9j30jj07cq4d.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6fanpp7gcj30jp08ejsw.jpg">
+<meta property="og:updated_time" content="2019-10-29T08:02:41.841Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis 知识点">
-<meta name="twitter:description" content="Redis用过哪些数据数据，以及Redis底层怎么实现string, hash, list, set, zset Redis缓存穿透，缓存雪崩如何使用Redis来实现分布式锁Redis的并发竞争问题如何解决Redis持久化的几种方式，优缺点是什么，怎么实现的aof 文件太大会怎么样Redis的缓存失效策略 &amp;amp; 最大缓存策略Redis集群，高可用，原理Redis缓存分片Redis的数据淘汰策">
+<meta name="twitter:title" content="数据库三范式">
+<meta name="twitter:description" content="数据库三范式第一范式(1st NF－列都是不可再分)第一范式的目标是确保每列的原子性:如果每列都是不可再分的最小数据单元（也称为最小的原子单元），则满足第一范式（1NF）  第二范式(2nd NF－每个表只描述一件事情)首先满足第一范式，并且表中非主键列不存在对主键的部分依赖。 第二范式要求每个表只描述一件事情。  第三范式(3rd NF－不存在对非主键列的传递依赖)第三范式定义是，满足第二范式，">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6fan9n4muj30op05sq4c.jpg">
     
 
     
@@ -226,29 +230,29 @@
                      </ul> 
                     </li> 
                     
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            待整理
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  </ul> 
+                    </li> 
+                    
                     <li class="directory open">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
                             &nbsp;
-                            待整理
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/MySQL知识点/">MySQL知识点</a></li>  <li class="file"><a href="/wiki/Java-基础知识点/">Java 基础知识点</a></li>  <li class="file"><a href="/wiki/Spring-知识点/">Spring 知识点</a></li>  <li class="file active"><a href="/wiki/Redis-知识点/">Redis 知识点</a></li>  <li class="file"><a href="/wiki/数据库知识点/">数据库知识点</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
                             数据库
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             MySQL
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL-索引/">MySQL 索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL-索引/">MySQL 索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file active"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -449,7 +453,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Redis-知识点" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-数据库三范式" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -459,20 +463,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/待整理/">待整理</a>
+        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/MySQL/">MySQL</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Redis/">Redis</a>
+        <a class="tag-link" href="/tags/MySQL/">MySQL</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis-知识点/">
-            <time datetime="2019-08-04T05:12:21.000Z" itemprop="datePublished">2019-08-04</time>
+        <a href="/wiki/数据库三范式/">
+            <time datetime="2019-08-27T09:58:46.000Z" itemprop="datePublished">2019-08-27</time>
         </a>
     </div>
 
@@ -483,13 +487,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis-知识点.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/数据库三范式.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis-知识点.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/数据库三范式.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis-知识点.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/数据库三范式.md'> History </a>
                             </div>
                         
                     </div>
@@ -497,7 +501,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Redis 知识点
+            数据库三范式
         </h1>
     
 
@@ -510,13 +514,18 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis用过哪些数据数据，以及Redis底层怎么实现"><span class="toc-number">1.</span> <span class="toc-text">Redis用过哪些数据数据，以及Redis底层怎么实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis缓存穿透，缓存雪崩"><span class="toc-number">2.</span> <span class="toc-text">Redis缓存穿透，缓存雪崩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何使用Redis来实现分布式锁"><span class="toc-number">3.</span> <span class="toc-text">如何使用Redis来实现分布式锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis的并发竞争问题如何解决"><span class="toc-number">4.</span> <span class="toc-text">Redis的并发竞争问题如何解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis持久化的几种方式，优缺点是什么，怎么实现的"><span class="toc-number">5.</span> <span class="toc-text">Redis持久化的几种方式，优缺点是什么，怎么实现的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aof-文件太大会怎么样"><span class="toc-number">6.</span> <span class="toc-text">aof 文件太大会怎么样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis的缓存失效策略-amp-最大缓存策略"><span class="toc-number">7.</span> <span class="toc-text">Redis的缓存失效策略 &amp; 最大缓存策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis集群，高可用，原理"><span class="toc-number">8.</span> <span class="toc-text">Redis集群，高可用，原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis缓存分片"><span class="toc-number">9.</span> <span class="toc-text">Redis缓存分片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis的数据淘汰策略"><span class="toc-number">10.</span> <span class="toc-text">Redis的数据淘汰策略</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库三范式"><span class="toc-number">1.</span> <span class="toc-text">数据库三范式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一范式-1st-NF－列都是不可再分"><span class="toc-number">1.1.</span> <span class="toc-text">第一范式(1st NF－列都是不可再分)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二范式-2nd-NF－每个表只描述一件事情"><span class="toc-number">1.2.</span> <span class="toc-text">第二范式(2nd NF－每个表只描述一件事情)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三范式-3rd-NF－不存在对非主键列的传递依赖"><span class="toc-number">1.3.</span> <span class="toc-text">第三范式(3rd NF－不存在对非主键列的传递依赖)</span></a></li></ol></li></ol>
                 </div>
             
         
         
-            <h3 id="Redis用过哪些数据数据，以及Redis底层怎么实现"><a href="#Redis用过哪些数据数据，以及Redis底层怎么实现" class="headerlink" title="Redis用过哪些数据数据，以及Redis底层怎么实现"></a>Redis用过哪些数据数据，以及Redis底层怎么实现</h3><p>string, hash, list, set, zset</p>
-<h3 id="Redis缓存穿透，缓存雪崩"><a href="#Redis缓存穿透，缓存雪崩" class="headerlink" title="Redis缓存穿透，缓存雪崩"></a><a href="https://www.cnblogs.com/fidelQuan/p/4543387.html" target="_blank" rel="noopener">Redis缓存穿透，缓存雪崩</a></h3><h3 id="如何使用Redis来实现分布式锁"><a href="#如何使用Redis来实现分布式锁" class="headerlink" title="如何使用Redis来实现分布式锁"></a><a href="https://www.cnblogs.com/linjiqin/p/8003838.html" target="_blank" rel="noopener">如何使用Redis来实现分布式锁</a></h3><h3 id="Redis的并发竞争问题如何解决"><a href="#Redis的并发竞争问题如何解决" class="headerlink" title="Redis的并发竞争问题如何解决"></a><a href="https://blog.csdn.net/hjm4702192/article/details/80518856" target="_blank" rel="noopener">Redis的并发竞争问题如何解决</a></h3><h3 id="Redis持久化的几种方式，优缺点是什么，怎么实现的"><a href="#Redis持久化的几种方式，优缺点是什么，怎么实现的" class="headerlink" title="Redis持久化的几种方式，优缺点是什么，怎么实现的"></a><a href="https://www.cnblogs.com/chenliangcl/p/7240350.html" target="_blank" rel="noopener">Redis持久化的几种方式，优缺点是什么，怎么实现的</a></h3><h3 id="aof-文件太大会怎么样"><a href="#aof-文件太大会怎么样" class="headerlink" title="aof 文件太大会怎么样"></a><a href="https://www.cnblogs.com/xingzc/p/6384677.html" target="_blank" rel="noopener">aof 文件太大会怎么样</a></h3><h3 id="Redis的缓存失效策略-amp-最大缓存策略"><a href="#Redis的缓存失效策略-amp-最大缓存策略" class="headerlink" title="Redis的缓存失效策略 &amp; 最大缓存策略"></a><a href="https://www.cnblogs.com/moonandstar08/p/5686498.html" target="_blank" rel="noopener">Redis的缓存失效策略 &amp; 最大缓存策略</a></h3><h3 id="Redis集群，高可用，原理"><a href="#Redis集群，高可用，原理" class="headerlink" title="Redis集群，高可用，原理"></a>Redis集群，高可用，原理</h3><h3 id="Redis缓存分片"><a href="#Redis缓存分片" class="headerlink" title="Redis缓存分片"></a><a href="https://www.cnblogs.com/shiw27/p/8360485.html" target="_blank" rel="noopener">Redis缓存分片</a></h3><h3 id="Redis的数据淘汰策略"><a href="#Redis的数据淘汰策略" class="headerlink" title="Redis的数据淘汰策略"></a><a href="https://blog.csdn.net/yangtuogege/article/details/77970896" target="_blank" rel="noopener">Redis的数据淘汰策略</a></h3>
+            <h2 id="数据库三范式"><a href="#数据库三范式" class="headerlink" title="数据库三范式"></a>数据库三范式</h2><h3 id="第一范式-1st-NF－列都是不可再分"><a href="#第一范式-1st-NF－列都是不可再分" class="headerlink" title="第一范式(1st NF－列都是不可再分)"></a>第一范式(1st NF－列都是不可再分)</h3><p>第一范式的目标是确保每列的原子性:如果每列都是不可再分的最小数据单元（也称为最小的原子单元），则满足第一范式（1NF）</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6fan9n4muj30op05sq4c.jpg" alt="数据库第一范式"></p>
+<h3 id="第二范式-2nd-NF－每个表只描述一件事情"><a href="#第二范式-2nd-NF－每个表只描述一件事情" class="headerlink" title="第二范式(2nd NF－每个表只描述一件事情)"></a>第二范式(2nd NF－每个表只描述一件事情)</h3><p>首先满足第一范式，并且表中非主键列不存在对主键的部分依赖。 第二范式要求每个表只描述一件事情。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6fankw6t9j30jj07cq4d.jpg" alt="数据库第二范式"></p>
+<h3 id="第三范式-3rd-NF－不存在对非主键列的传递依赖"><a href="#第三范式-3rd-NF－不存在对非主键列的传递依赖" class="headerlink" title="第三范式(3rd NF－不存在对非主键列的传递依赖)"></a>第三范式(3rd NF－不存在对非主键列的传递依赖)</h3><p>第三范式定义是，满足第二范式，并且表中的列不存在对非主键列的传递依赖。除了主键订单编号外，顾客姓名依赖于非主键顾客编号。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6fanpp7gcj30jp08ejsw.jpg" alt="数据库第三范式"></p>
+
             </div>
         
         <footer class="article-footer">
@@ -528,19 +537,19 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/让我们同步进阶/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/wiki/java-基础题/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    让我们同步进阶
+                    java 基础题
                 
             </div>
         </a>
     
     
-        <a href="/wiki/Spring-知识点/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/数据库事务/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Spring 知识点</div>
+            <div class="article-nav-title">数据库事务</div>
         </a>
     
 </nav>
