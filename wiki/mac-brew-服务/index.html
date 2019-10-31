@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="yp_ren Blog">
 <meta property="og:description" content="brew 常用命令# brew 搜索软件$ brew search nginx# brew 安装软件$ brew install nginx# brew 卸载软件$ brew uninstall nginx# brew 升级$ sudo brew update# 查看安装信息$ sudo brew info nginx # 查看已安装软件$ brew list  brew 清除locksbrew">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-28T02:38:39.748Z">
+<meta property="og:updated_time" content="2019-10-31T05:07:03.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac brew 服务">
 <meta name="twitter:description" content="brew 常用命令# brew 搜索软件$ brew search nginx# brew 安装软件$ brew install nginx# brew 卸载软件$ brew uninstall nginx# brew 升级$ sudo brew update# 查看安装信息$ sudo brew info nginx # 查看已安装软件$ brew list  brew 清除locksbrew">
@@ -501,7 +501,7 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-常用命令"><span class="toc-number">1.</span> <span class="toc-text">brew 常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-清除locks"><span class="toc-number">2.</span> <span class="toc-text">brew 清除locks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-安装nginx"><span class="toc-number">3.</span> <span class="toc-text">brew 安装nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-redis"><span class="toc-number">4.</span> <span class="toc-text">brew redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-安装-activemq"><span class="toc-number">5.</span> <span class="toc-text">brew 安装 activemq</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-安装-rabbitmq"><span class="toc-number">6.</span> <span class="toc-text">brew 安装 rabbitmq</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-安装-mongodb"><span class="toc-number">7.</span> <span class="toc-text">brew 安装 mongodb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nacos-启动命令"><span class="toc-number">8.</span> <span class="toc-text">nacos 启动命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#elasticsearch-head-安装和启动-elasticsearch-GUI客户端"><span class="toc-number">9.</span> <span class="toc-text">elasticsearch-head 安装和启动 -elasticsearch GUI客户端</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-常用命令"><span class="toc-number">1.</span> <span class="toc-text">brew 常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-清除locks"><span class="toc-number">2.</span> <span class="toc-text">brew 清除locks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-安装node低版本"><span class="toc-number">3.</span> <span class="toc-text">brew 安装node低版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-安装nginx"><span class="toc-number">4.</span> <span class="toc-text">brew 安装nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-redis"><span class="toc-number">5.</span> <span class="toc-text">brew redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-安装-activemq"><span class="toc-number">6.</span> <span class="toc-text">brew 安装 activemq</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-安装-rabbitmq"><span class="toc-number">7.</span> <span class="toc-text">brew 安装 rabbitmq</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-安装-mongodb"><span class="toc-number">8.</span> <span class="toc-text">brew 安装 mongodb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nacos-启动命令"><span class="toc-number">9.</span> <span class="toc-text">nacos 启动命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#elasticsearch-head-安装和启动-elasticsearch-GUI客户端"><span class="toc-number">10.</span> <span class="toc-text">elasticsearch-head 安装和启动 -elasticsearch GUI客户端</span></a></li></ol>
                 </div>
             
         
@@ -515,6 +515,14 @@
 <p>解决办法：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -rf /usr/local/var/homebrew/locks</span><br></pre></td></tr></table></figure>
 
+<h3 id="brew-安装node低版本"><a href="#brew-安装node低版本" class="headerlink" title="brew 安装node低版本"></a>brew 安装node低版本</h3><p>使用使用 brew install node 默认是最高版本。</p>
+<ol>
+<li>需要先执行 brew unlink node 来解绑 node</li>
+<li>安装需要的版本，例如 brew install node@10</li>
+<li>执行 brew link node@10，这一步可能会报错，按照提示命令执行就可以</li>
+<li>执行 brew link –overwrite –force node@10</li>
+<li>node -v 查看版本是否是想要的低版本</li>
+</ol>
 <h3 id="brew-安装nginx"><a href="#brew-安装nginx" class="headerlink" title="brew 安装nginx"></a>brew 安装nginx</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> 安装</span><br><span class="line"><span class="meta">$</span> sudo brew install nginx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 启动</span><br><span class="line"><span class="meta">$</span> sudo brew services start nginx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 重启</span><br><span class="line"><span class="meta">$</span> sudo brew services restart nginx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 停止</span><br><span class="line"><span class="meta">$</span> sudo brew services stop nginx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看</span><br><span class="line"><span class="meta">$</span> cat /usr/local/etc/nginx/nignx.conf</span><br></pre></td></tr></table></figure>
 
 <h3 id="brew-redis"><a href="#brew-redis" class="headerlink" title="brew redis"></a>brew redis</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> 启动</span><br><span class="line"><span class="meta">$</span> redis-server /usr/local/etc/redis-6379.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 停止</span><br><span class="line"><span class="meta">$</span> redis-cli -p 6379 shutdown</span><br></pre></td></tr></table></figure>
