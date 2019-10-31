@@ -3,27 +3,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>Redis zset 实现简单限流 | yp_ren Blog</title>
+    <title>Redis 过期策略 | yp_ren Blog</title>
     
     
         <meta name="keywords" content="Redis">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="除了控制流量，限流还有一个应用目的是用于控制用户行为，避免垃圾请求。比如在 UGC 社区，用户的发帖、回复、点赞等行为都要严格受控，一般要严格限定某行为在规定时间内允许的次数，超过了次数那就是非法行为。对非法行为，业务必须规定适当的惩处策略。 如何使用 Redis 来实现简单限流策略？首先我们来看一个常见的简单的限流策略。系统要限定用户的某个行为在指定的时间里只能允许发生 N 次，如何使用 Red">
+    <meta name="description" content="Redis 过期策略Redis 过期策略是：定期删除 + 惰性删除。 所谓定期删除，指的是 Redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。 假设 Redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 Redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意">
 <meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis zset 实现简单限流">
-<meta property="og:url" content="https://yapengren.github.io/wiki/Redis-zset-实现简单限流/index.html">
+<meta property="og:title" content="Redis 过期策略">
+<meta property="og:url" content="https://yapengren.github.io/wiki/Redis-过期策略/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="除了控制流量，限流还有一个应用目的是用于控制用户行为，避免垃圾请求。比如在 UGC 社区，用户的发帖、回复、点赞等行为都要严格受控，一般要严格限定某行为在规定时间内允许的次数，超过了次数那就是非法行为。对非法行为，业务必须规定适当的惩处策略。 如何使用 Redis 来实现简单限流策略？首先我们来看一个常见的简单的限流策略。系统要限定用户的某个行为在指定的时间里只能允许发生 N 次，如何使用 Red">
+<meta property="og:description" content="Redis 过期策略Redis 过期策略是：定期删除 + 惰性删除。 所谓定期删除，指的是 Redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。 假设 Redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 Redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79ly1g64rkjcypbj30ym0i80ti.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g64rsbdgrgj30jr0cv3yj.jpg">
-<meta property="og:updated_time" content="2019-10-28T02:48:15.824Z">
+<meta property="og:updated_time" content="2019-10-28T08:57:48.883Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis zset 实现简单限流">
-<meta name="twitter:description" content="除了控制流量，限流还有一个应用目的是用于控制用户行为，避免垃圾请求。比如在 UGC 社区，用户的发帖、回复、点赞等行为都要严格受控，一般要严格限定某行为在规定时间内允许的次数，超过了次数那就是非法行为。对非法行为，业务必须规定适当的惩处策略。 如何使用 Redis 来实现简单限流策略？首先我们来看一个常见的简单的限流策略。系统要限定用户的某个行为在指定的时间里只能允许发生 N 次，如何使用 Red">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/006tNc79ly1g64rkjcypbj30ym0i80ti.jpg">
+<meta name="twitter:title" content="Redis 过期策略">
+<meta name="twitter:description" content="Redis 过期策略Redis 过期策略是：定期删除 + 惰性删除。 所谓定期删除，指的是 Redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。 假设 Redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 Redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意">
     
 
     
@@ -251,7 +248,7 @@
                             &nbsp;
                             Redis
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis 基础数据结构/">Redis 基础数据结构</a></li>  <li class="file active"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis-安全防范/">Redis 安全防范</a></li>  <li class="file"><a href="/wiki/Redis-过期策略/">Redis 过期策略</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis 基础数据结构/">Redis 基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis-安全防范/">Redis 安全防范</a></li>  <li class="file active"><a href="/wiki/Redis-过期策略/">Redis 过期策略</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -443,7 +440,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Redis-zset-实现简单限流" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Redis-过期策略" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -465,8 +462,8 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis-zset-实现简单限流/">
-            <time datetime="2019-08-23T01:48:40.000Z" itemprop="datePublished">2019-08-23</time>
+        <a href="/wiki/Redis-过期策略/">
+            <time datetime="2019-10-28T08:38:14.000Z" itemprop="datePublished">2019-10-28</time>
         </a>
     </div>
 
@@ -477,13 +474,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis-zset-实现简单限流.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis-过期策略.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis-zset-实现简单限流.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis-过期策略.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis-zset-实现简单限流.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis-过期策略.md'> History </a>
                             </div>
                         
                     </div>
@@ -491,7 +488,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Redis zset 实现简单限流
+            Redis 过期策略
         </h1>
     
 
@@ -504,37 +501,42 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何使用-Redis-来实现简单限流策略？"><span class="toc-number">1.</span> <span class="toc-text">如何使用 Redis 来实现简单限流策略？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#错误方案"><span class="toc-number">1.1.</span> <span class="toc-text">错误方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题模拟分析"><span class="toc-number">1.1.1.</span> <span class="toc-text">问题模拟分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正确方案"><span class="toc-number">1.2.</span> <span class="toc-text">正确方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#缺点"><span class="toc-number">1.2.1.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">1.3.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-过期策略"><span class="toc-number">1.</span> <span class="toc-text">Redis 过期策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存淘汰机制"><span class="toc-number">2.</span> <span class="toc-text">内存淘汰机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU-vs-LFU"><span class="toc-number">3.</span> <span class="toc-text">LRU vs LFU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU算法"><span class="toc-number">4.</span> <span class="toc-text">LRU算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU代码"><span class="toc-number">5.</span> <span class="toc-text">LRU代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
                 </div>
             
         
         
-            <p>除了控制流量，限流还有一个应用目的是用于控制用户行为，避免垃圾请求。比如在 UGC 社区，用户的发帖、回复、点赞等行为都要严格受控，一般要严格限定某行为在规定时间内允许的次数，超过了次数那就是非法行为。对非法行为，业务必须规定适当的惩处策略。</p>
-<h1 id="如何使用-Redis-来实现简单限流策略？"><a href="#如何使用-Redis-来实现简单限流策略？" class="headerlink" title="如何使用 Redis 来实现简单限流策略？"></a>如何使用 Redis 来实现简单限流策略？</h1><p>首先我们来看一个常见的简单的限流策略。系统要限定用户的某个行为在指定的时间里只能允许发生 N 次，如何使用 Redis 的数据结构来实现这个限流的功能？</p>
-<p>我们先定义这个接口，理解了这个接口的定义，读者就应该能明白我们期望达到的功能。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指定用户 user_id 的某个行为 action_key，在特定的时间内 period，只允许发生一定的次数 max_count</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isActionAllowed</span><span class="params">(String userId, String actionKey, <span class="keyword">int</span> period, <span class="keyword">int</span> maxCount)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用这个接口，5 分钟之内只能发帖 10 次</span></span><br><span class="line">limiter.isActionAllowed(<span class="string">"xiaoming"</span>, <span class="string">"publish"</span>, <span class="number">5</span> * <span class="number">60</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="错误方案"><a href="#错误方案" class="headerlink" title="错误方案"></a>错误方案</h2><blockquote>
-<p>  将 userId 和 actionKey 拼成 key，在第一次请求时设置 value 为 1，设置过期时间 expire 为特定的时间 period</p>
-<p>  每次请求的时候获取 value 值，若存在则 incr 自增 1，超过 maxCount 则做限制</p>
-</blockquote>
-<h3 id="问题模拟分析"><a href="#问题模拟分析" class="headerlink" title="问题模拟分析"></a>问题模拟分析</h3><p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g64rkjcypbj30ym0i80ti.jpg" alt="redis 问题模拟分析"></p>
-<p>如上图：5 分钟之内只能发帖 10 次。</p>
-<p>11:01 用户发帖 1 次，此时 redis 中存放数据 key 为 <code>userId:actionKey</code>，vlaue 为 1，过期时间 5 分钟；</p>
-<p>11:05 用户发帖 8 次，发帖成功；</p>
-<p>11:05 之后，key 过期时间到，被移除；</p>
-<p>11:06 用户发帖，此时 redis 中 key 不存在，重新存放 key，发帖 8 次，发帖成功；</p>
-<p>那么 11:05 -&gt; 11:06 时间段 2 分钟发帖 16 次，没有达到期望的功能；</p>
-<h2 id="正确方案"><a href="#正确方案" class="headerlink" title="正确方案"></a>正确方案</h2><p>这个限流需求中存在一个滑动时间窗口，想想 zset 数据结构的 score 值，是不是可以通过 score 来圈出这个时间窗口来。而且我们只需要保留这个时间窗口，窗口之外的数据都可以砍掉。那这个 zset 的 value 填什么比较合适呢？它只需要保证唯一性即可，用 uuid 会比较浪费空间，那就改用毫秒时间戳吧。</p>
-<p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g64rsbdgrgj30jr0cv3yj.jpg" alt="redis 滑动窗口"></p>
-<p>如图所示，用一个 zset 结构记录用户的行为历史，每一个行为都会作为 zset 中的一个 key 保存下来。同一个用户同一种行为用一个 zset 记录。</p>
-<p>为节省内存，我们只需要保留时间窗口内的行为记录，同时如果用户是冷用户，滑动时间窗口内的行为是空记录，那么这个 zset 就可以从内存中移除，不再占用空间。</p>
-<p>通过统计滑动窗口内的行为数量与阈值 max_count 进行比较就可以得出当前的行为是否允许。用代码表示如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleRateLimiter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Jedis jedis;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SimpleRateLimiter</span><span class="params">(Jedis jedis)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.jedis = jedis;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> userId    用户 user_id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> actionKey 某个行为</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> period    特定的时间内，单位秒</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> maxCount  最大允许的次数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isActionAllowed</span><span class="params">(String userId, String actionKey, <span class="keyword">int</span> period, <span class="keyword">int</span> maxCount)</span> </span>&#123;</span><br><span class="line">        String key = String.format(<span class="string">"hist:%s:%s"</span>, userId, actionKey);</span><br><span class="line">        <span class="comment">// 毫秒时间戳</span></span><br><span class="line">        <span class="keyword">long</span> nowTs = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        Pipeline pipe = jedis.pipelined();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 用了multi，也就是事务，能保证一系列指令的原子顺序执行</span></span><br><span class="line">        pipe.multi();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 存放数据，value 和 score 都使用毫秒时间戳</span></span><br><span class="line">        pipe.zadd(key, nowTs, <span class="string">""</span> + nowTs);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// zremrangebyscore key min max 命令用于移除有序集中，指定分数（score）区间内的所有成员</span></span><br><span class="line">        <span class="comment">// 移除时间窗口之前的数据，剩下的都是时间窗口之内的</span></span><br><span class="line">        Response&lt;Long&gt; longResponse = pipe.zremrangeByScore(key, <span class="number">0</span>, nowTs - period * <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 相当于 count()，获取时间窗口内的行为数量</span></span><br><span class="line">        Response&lt;Long&gt; count = pipe.zcard(key);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设置 zset 过期时间，避免冷用户持续占用内存</span></span><br><span class="line">        <span class="comment">// 过期时间应该等于时间窗口的长度，再多宽限 1s</span></span><br><span class="line">        pipe.expire(key, period + <span class="number">1</span>);</span><br><span class="line">        pipe.exec();</span><br><span class="line">        pipe.close();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 比较数量是否超标</span></span><br><span class="line">        <span class="keyword">return</span> count.get() &lt;= maxCount;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Jedis jedis = <span class="keyword">new</span> Jedis();</span><br><span class="line">        SimpleRateLimiter limiter = <span class="keyword">new</span> SimpleRateLimiter(jedis);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">            System.out.println(limiter.isActionAllowed(<span class="string">"xiaoming"</span>, <span class="string">"publish"</span>, <span class="number">5</span> * <span class="number">60</span>, <span class="number">10</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>因为它要记录时间窗口内所有的行为记录，如果这个量很大，比如限定 60s 内操作不得超过 100w 次这样的参数，它是不适合做这样的限流的，因为会消耗大量的存储空间。</p>
+            <h2 id="Redis-过期策略"><a href="#Redis-过期策略" class="headerlink" title="Redis 过期策略"></a>Redis 过期策略</h2><p>Redis 过期策略是：定期删除 + 惰性删除。</p>
+<p>所谓定期删除，指的是 Redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。</p>
+<p>假设 Redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 Redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意，这里可不是每隔 100ms 就遍历所有的设置过期时间的 key，那样就是一场性能上的灾难。实际上 Redis 是每隔 100ms 随机抽取一些 key 来检查和删除的。</p>
+<p>但是问题是，定期删除可能会导致很多过期 key 到了时间并没有被删除掉，那咋整呢？所以就是惰性删除了。这就是说，在你获取某个 key 的时候，Redis 会检查一下 ，这个 key 如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。</p>
+<p>但是实际上这还是有问题的，如果定期删除漏掉了很多过期 key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？如果大量过期 key 堆积在内存里，导致 Redis 内存快耗尽了，怎么办？</p>
+<p>答案是：走内存淘汰机制。</p>
+<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>Redis 内存淘汰机制有以下几个：</p>
+<ul>
+<li><strong>noeviction</strong> 不会继续服务写请求 (DEL 请求可以继续服务)，读请求可以继续进行。这样可以保证不会丢失数据，但是会让线上的业务不能持续进行。这是默认的淘汰策略。</li>
+<li><strong>volatile-lru</strong> 尝试淘汰设置了过期时间的 key，最少使用的 key 优先被淘汰。没有设置过期时间的 key 不会被淘汰，这样可以保证需要持久化的数据不会突然丢失。</li>
+<li><strong>volatile-lfu</strong> 尝试淘汰设置了过期时间的 key，按最近的访问频率进行淘汰。</li>
+<li><strong>volatile-ttl</strong> 跟上面一样，除了淘汰的策略不是 LRU，而是 key 的剩余寿命 ttl 的值，ttl 越小越优先被淘汰。</li>
+<li><strong>volatile-random</strong> 跟上面一样，不过淘汰的 key 是过期 key 集合中随机的 key。</li>
+<li><strong>allkeys-lru</strong> 区别于 volatile-lru，这个策略要淘汰的 key 对象是全体的 key 集合，而不只是过期的 key 集合。这意味着没有设置过期时间的 key 也会被淘汰（常用）</li>
+<li><strong>allkeys-lfu</strong> 区别于 volatile-lfu，这个策略要淘汰的 key 对象是全体的 key 集合，按最近的访问频率进行淘汰（常用）</li>
+<li><strong>allkeys-random</strong> 跟上面一样，不过淘汰的策略是随机的 key。</li>
+</ul>
+<p>volatile-xxx 策略只会针对带过期时间的 key 进行淘汰，allkeys-xxx 策略会对所有的 key 进行淘汰。</p>
+<p>如果你只是拿 Redis 做缓存，那应该使用 allkeys-xxx，客户端写缓存时不必携带过期时间。</p>
+<p>如果你还想同时使用 Redis 的持久化功能，那就使用 volatile-xxx 策略，这样可以保留没有设置过期时间的 key，它们是永久的 key 不会被 LRU 算法淘汰。</p>
+<h2 id="LRU-vs-LFU"><a href="#LRU-vs-LFU" class="headerlink" title="LRU vs LFU"></a>LRU vs LFU</h2><p>LFU 的全称是<code>Least Frequently Used</code>，表示按最近的访问频率进行淘汰，它比 LRU 更加精准地表示了一个 key 被访问的热度。</p>
 <blockquote>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  《Redis 深度历险：核心原理与应用实践》   作者：钱文品</p>
+<p>  Frequently    [/‘friːkw(ə)ntlɪ/]    adv.频繁地，屡次地</p>
+</blockquote>
+<p>如果一个 key 长时间不被访问，只是刚刚偶然被用户访问了一下，那么在使用 LRU 算法下它是不容易被淘汰的，因为 LRU 算法认为当前这个 key 是很热的。而 LFU 是需要追踪最近一段时间的访问频率，如果某个 key 只是偶然被访问一次是不足以变得很热的，它需要在近期一段时间内被访问很多次才有机会被认为很热。</p>
+<h2 id="LRU算法"><a href="#LRU算法" class="headerlink" title="LRU算法"></a>LRU算法</h2><p>LinkedHashMap 默认的元素顺序是 put 的顺序，但是如果使用带参数的构造函数，那么 LinkedHashMap 会根据访问顺序来调整内部顺序。 LinkedHashMap 的 get() 方法除了返回元素之外还可以把被访问的元素放到链表的底端，这样一来每次顶端的元素就是 remove 的元素。</p>
+<h2 id="LRU代码"><a href="#LRU代码" class="headerlink" title="LRU代码"></a>LRU代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedHashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 最近最少使用算法，linkedHashMap实现，主要是针对缓存过期策略实现</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> renyapeng</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LRULinkedHashMap</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">LinkedHashMap</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 缓存数据容量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity = <span class="number">16</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 默认装载因子</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> DEFAULT_LOAD_FACTOR = <span class="number">0.75F</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 带参数构造方法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> initialCapacity 容量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LRULinkedHashMap</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> initialCapacity 容量</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> DEFAULT_LOAD_FACTOR 默认装载因子</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> accessOrder 是否使用lru算法</span></span><br><span class="line"><span class="comment">         *                    true：使用（基于访问顺序，get一个元素后，这个元素被加到最后，使用了LRU最近最少被使用的调度算法）</span></span><br><span class="line"><span class="comment">         *                    false：不使用（基于插入顺序）</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">super</span>(initialCapacity, DEFAULT_LOAD_FACTOR, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 传入指定的缓存最大容量</span></span><br><span class="line">        <span class="keyword">this</span>.capacity = initialCapacity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 实现LRU的关键方法，如果map里面的元素个数大于了缓存最大容量，则删除链表的顶端元素</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> eldest</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">removeEldestEntry</span><span class="params">(Map.Entry&lt;K, V&gt; eldest)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size() &gt; capacity;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  《Redis 深度历险：核心原理与应用实践》 作者：钱文品</p>
+<p>  <a href="https://doocs.github.io/advanced-java/#/docs/high-concurrency/redis-expiration-policies-and-lru" target="_blank" rel="noopener">互联网 Java 工程师进阶知识完全扫盲</a></p>
 </blockquote>
 
             </div>
@@ -548,19 +550,10 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/SQL语句/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">上一篇</strong>
-            <div class="article-nav-title">
-                
-                    SQL语句
-                
-            </div>
-        </a>
     
-    
-        <a href="/wiki/java死锁编程及定位分析/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/Redis-安全防范/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">java死锁编程及定位分析</div>
+            <div class="article-nav-title">Redis 安全防范</div>
         </a>
     
 </nav>

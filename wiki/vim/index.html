@@ -3,24 +3,27 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>Redis 过期策略 | yp_ren Blog</title>
+    <title>vim | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="Redis">
+        <meta name="keywords" content="linux">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Redis 过期策略Redis 过期策略是：定期删除 + 惰性删除。 所谓定期删除，指的是 Redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。 假设 Redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 Redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意">
-<meta name="keywords" content="Redis">
+    <meta name="description" content="vim工作模式  vim键盘图  vim常用按键">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis 过期策略">
-<meta property="og:url" content="https://yapengren.github.io/wiki/Redis 过期策略/index.html">
+<meta property="og:title" content="vim">
+<meta property="og:url" content="https://yapengren.github.io/wiki/vim/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="Redis 过期策略Redis 过期策略是：定期删除 + 惰性删除。 所谓定期删除，指的是 Redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。 假设 Redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 Redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意">
+<meta property="og:description" content="vim工作模式  vim键盘图  vim常用按键">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-28T08:57:48.883Z">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png">
+<meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif">
+<meta property="og:updated_time" content="2019-10-31T02:41:07.473Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis 过期策略">
-<meta name="twitter:description" content="Redis 过期策略Redis 过期策略是：定期删除 + 惰性删除。 所谓定期删除，指的是 Redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。 假设 Redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 Redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意">
+<meta name="twitter:title" content="vim">
+<meta name="twitter:description" content="vim工作模式  vim键盘图  vim常用按键">
+<meta name="twitter:image" content="https://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png">
     
 
     
@@ -226,9 +229,9 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             数据库
                         </a>
@@ -242,13 +245,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL-索引/">MySQL 索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             Redis
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis 基础数据结构/">Redis 基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis-安全防范/">Redis 安全防范</a></li>  <li class="file active"><a href="/wiki/Redis 过期策略/">Redis 过期策略</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis 基础数据结构/">Redis 基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis-安全防范/">Redis 安全防范</a></li>  <li class="file"><a href="/wiki/Redis-过期策略/">Redis 过期策略</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -343,20 +346,20 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             系统
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             linux
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/linux-基本命令/">linux 基本命令</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/linux-基本命令/">linux 基本命令</a></li>  <li class="file active"><a href="/wiki/vim/">vim</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -440,7 +443,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Redis 过期策略" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-vim" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -450,20 +453,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/Redis/">Redis</a>
+        <a class="article-category-link" href="/categories/系统/">系统</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/系统/linux/">linux</a>
     </div>
 
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Redis/">Redis</a>
+        <a class="tag-link" href="/tags/linux/">linux</a>
     </div>
 
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis 过期策略/">
-            <time datetime="2019-10-28T08:38:14.000Z" itemprop="datePublished">2019-10-28</time>
+        <a href="/wiki/vim/">
+            <time datetime="2019-09-22T05:57:38.000Z" itemprop="datePublished">2019-09-22</time>
         </a>
     </div>
 
@@ -474,13 +477,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis 过期策略.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/vim.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis 过期策略.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/vim.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis 过期策略.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/vim.md'> History </a>
                             </div>
                         
                     </div>
@@ -488,7 +491,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Redis 过期策略
+            vim
         </h1>
     
 
@@ -501,44 +504,16 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-过期策略"><span class="toc-number">1.</span> <span class="toc-text">Redis 过期策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存淘汰机制"><span class="toc-number">2.</span> <span class="toc-text">内存淘汰机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU-vs-LFU"><span class="toc-number">3.</span> <span class="toc-text">LRU vs LFU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU算法"><span class="toc-number">4.</span> <span class="toc-text">LRU算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LRU代码"><span class="toc-number">5.</span> <span class="toc-text">LRU代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">6.</span> <span class="toc-text">参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vim工作模式"><span class="toc-number">1.</span> <span class="toc-text">vim工作模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim键盘图"><span class="toc-number">2.</span> <span class="toc-text">vim键盘图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vim常用按键"><span class="toc-number">3.</span> <span class="toc-text">vim常用按键</span></a></li></ol>
                 </div>
             
         
         
-            <h2 id="Redis-过期策略"><a href="#Redis-过期策略" class="headerlink" title="Redis 过期策略"></a>Redis 过期策略</h2><p>Redis 过期策略是：定期删除 + 惰性删除。</p>
-<p>所谓定期删除，指的是 Redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。</p>
-<p>假设 Redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 Redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意，这里可不是每隔 100ms 就遍历所有的设置过期时间的 key，那样就是一场性能上的灾难。实际上 Redis 是每隔 100ms 随机抽取一些 key 来检查和删除的。</p>
-<p>但是问题是，定期删除可能会导致很多过期 key 到了时间并没有被删除掉，那咋整呢？所以就是惰性删除了。这就是说，在你获取某个 key 的时候，Redis 会检查一下 ，这个 key 如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。</p>
-<p>但是实际上这还是有问题的，如果定期删除漏掉了很多过期 key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？如果大量过期 key 堆积在内存里，导致 Redis 内存快耗尽了，怎么办？</p>
-<p>答案是：走内存淘汰机制。</p>
-<h2 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h2><p>Redis 内存淘汰机制有以下几个：</p>
-<ul>
-<li><strong>noeviction</strong> 不会继续服务写请求 (DEL 请求可以继续服务)，读请求可以继续进行。这样可以保证不会丢失数据，但是会让线上的业务不能持续进行。这是默认的淘汰策略。</li>
-<li><strong>volatile-lru</strong> 尝试淘汰设置了过期时间的 key，最少使用的 key 优先被淘汰。没有设置过期时间的 key 不会被淘汰，这样可以保证需要持久化的数据不会突然丢失。</li>
-<li><strong>volatile-lfu</strong> 尝试淘汰设置了过期时间的 key，按最近的访问频率进行淘汰。</li>
-<li><strong>volatile-ttl</strong> 跟上面一样，除了淘汰的策略不是 LRU，而是 key 的剩余寿命 ttl 的值，ttl 越小越优先被淘汰。</li>
-<li><strong>volatile-random</strong> 跟上面一样，不过淘汰的 key 是过期 key 集合中随机的 key。</li>
-<li><strong>allkeys-lru</strong> 区别于 volatile-lru，这个策略要淘汰的 key 对象是全体的 key 集合，而不只是过期的 key 集合。这意味着没有设置过期时间的 key 也会被淘汰（常用）</li>
-<li><strong>allkeys-lfu</strong> 区别于 volatile-lfu，这个策略要淘汰的 key 对象是全体的 key 集合，按最近的访问频率进行淘汰（常用）</li>
-<li><strong>allkeys-random</strong> 跟上面一样，不过淘汰的策略是随机的 key。</li>
-</ul>
-<p>volatile-xxx 策略只会针对带过期时间的 key 进行淘汰，allkeys-xxx 策略会对所有的 key 进行淘汰。</p>
-<p>如果你只是拿 Redis 做缓存，那应该使用 allkeys-xxx，客户端写缓存时不必携带过期时间。</p>
-<p>如果你还想同时使用 Redis 的持久化功能，那就使用 volatile-xxx 策略，这样可以保留没有设置过期时间的 key，它们是永久的 key 不会被 LRU 算法淘汰。</p>
-<h2 id="LRU-vs-LFU"><a href="#LRU-vs-LFU" class="headerlink" title="LRU vs LFU"></a>LRU vs LFU</h2><p>LFU 的全称是<code>Least Frequently Used</code>，表示按最近的访问频率进行淘汰，它比 LRU 更加精准地表示了一个 key 被访问的热度。</p>
-<blockquote>
-<p>  Frequently    [/‘friːkw(ə)ntlɪ/]    adv.频繁地，屡次地</p>
-</blockquote>
-<p>如果一个 key 长时间不被访问，只是刚刚偶然被用户访问了一下，那么在使用 LRU 算法下它是不容易被淘汰的，因为 LRU 算法认为当前这个 key 是很热的。而 LFU 是需要追踪最近一段时间的访问频率，如果某个 key 只是偶然被访问一次是不足以变得很热的，它需要在近期一段时间内被访问很多次才有机会被认为很热。</p>
-<h2 id="LRU算法"><a href="#LRU算法" class="headerlink" title="LRU算法"></a>LRU算法</h2><p>LinkedHashMap 默认的元素顺序是 put 的顺序，但是如果使用带参数的构造函数，那么 LinkedHashMap 会根据访问顺序来调整内部顺序。 LinkedHashMap 的 get() 方法除了返回元素之外还可以把被访问的元素放到链表的底端，这样一来每次顶端的元素就是 remove 的元素。</p>
-<h2 id="LRU代码"><a href="#LRU代码" class="headerlink" title="LRU代码"></a>LRU代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedHashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 最近最少使用算法，linkedHashMap实现，主要是针对缓存过期策略实现</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> renyapeng</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LRULinkedHashMap</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">LinkedHashMap</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 缓存数据容量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity = <span class="number">16</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 默认装载因子</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> DEFAULT_LOAD_FACTOR = <span class="number">0.75F</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 带参数构造方法</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> initialCapacity 容量</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LRULinkedHashMap</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> initialCapacity 容量</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> DEFAULT_LOAD_FACTOR 默认装载因子</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> accessOrder 是否使用lru算法</span></span><br><span class="line"><span class="comment">         *                    true：使用（基于访问顺序，get一个元素后，这个元素被加到最后，使用了LRU最近最少被使用的调度算法）</span></span><br><span class="line"><span class="comment">         *                    false：不使用（基于插入顺序）</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">super</span>(initialCapacity, DEFAULT_LOAD_FACTOR, <span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">// 传入指定的缓存最大容量</span></span><br><span class="line">        <span class="keyword">this</span>.capacity = initialCapacity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 实现LRU的关键方法，如果map里面的元素个数大于了缓存最大容量，则删除链表的顶端元素</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> eldest</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">removeEldestEntry</span><span class="params">(Map.Entry&lt;K, V&gt; eldest)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size() &gt; capacity;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h3 id="vim工作模式"><a href="#vim工作模式" class="headerlink" title="vim工作模式"></a>vim工作模式</h3><img src="https://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png" alt="vim工作模式" style="zoom:50%;">
 
-<blockquote>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  《Redis 深度历险：核心原理与应用实践》 作者：钱文品</p>
-<p>  <a href="https://doocs.github.io/advanced-java/#/docs/high-concurrency/redis-expiration-policies-and-lru" target="_blank" rel="noopener">互联网 Java 工程师进阶知识完全扫盲</a></p>
-</blockquote>
+<h3 id="vim键盘图"><a href="#vim键盘图" class="headerlink" title="vim键盘图"></a>vim键盘图</h3><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt="vim键盘图" style="zoom:67%;">
 
+<h3 id="vim常用按键"><a href="#vim常用按键" class="headerlink" title="vim常用按键"></a>vim常用按键</h3>
             </div>
         
         <footer class="article-footer">
@@ -550,10 +525,19 @@
     
 <nav id="article-nav">
     
+        <a href="/wiki/mac系统快捷键/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    mac系统快捷键
+                
+            </div>
+        </a>
     
-        <a href="/wiki/Redis-安全防范/" id="article-nav-older" class="article-nav-link-wrap">
+    
+        <a href="/wiki/linux-基本命令/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">Redis 安全防范</div>
+            <div class="article-nav-title">linux 基本命令</div>
         </a>
     
 </nav>
