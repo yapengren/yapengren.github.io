@@ -297,7 +297,7 @@
                             &nbsp;
                             spring
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/springMVC-流程图/">springMVC 流程图</a></li>  <li class="file"><a href="/wiki/lombok-使用方法/">lombok 使用方法</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/springMVC-流程图/">springMVC 流程图</a></li>  <li class="file"><a href="/wiki/lombok-使用方法/">lombok 使用方法</a></li>  <li class="file"><a href="/wiki/Spring-事务/">Spring 事务</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -436,6 +436,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-Spring-事务" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/框架/">框架</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/spring/">spring</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/spring/">spring</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Spring-事务/">
+            <time datetime="2019-11-02T01:50:11.000Z" itemprop="datePublished">2019-11-02</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Spring-事务.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Spring-事务.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Spring-事务.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/Spring-事务/">Spring 事务</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="Spring-事务管理-API-分析"><a href="#Spring-事务管理-API-分析" class="headerlink" title="Spring 事务管理 API 分析"></a>Spring 事务管理 API 分析</h2><p>Spring 框架中，涉及到事务管理的 API 大约有100个左右，其中最重要的有三个：<strong>PlatformTransactionManager</strong>、<strong>TransactionDefinition</strong>、<strong>TransactionStatus</strong>。</p>
+<p>所谓事务管理，其实就是“按照给定的事务规则来执行提交或者回滚操作”。</p>
+<p>“按照……来执行提交或者回滚操作”便是用 PlatformTransactionManager 来表示，</p>
+<p>“给定的事务规则“就是用 TransactionDefinition 表示的，</p>
+<p>TransactionStatus 用于表示一个运行着的事务的状态。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/Spring-事务/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-Redis-过期策略" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1339,110 +1443,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/Mybatis-批量操作报错-BadSqlGrammarException/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-lombok-使用方法" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/框架/">框架</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/spring/">spring</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/spring/">spring</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/lombok-使用方法/">
-            <time datetime="2019-09-07T08:24:59.000Z" itemprop="datePublished">2019-09-07</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/lombok-使用方法.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/lombok-使用方法.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/lombok-使用方法.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/lombok-使用方法/">lombok 使用方法</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h3 id="Data"><a href="#Data" class="headerlink" title="@Data"></a>@Data</h3><p>注解在类上，提供类所有属性的 getter 和 setter 方法，此外还提供了equals、canEqual、hashCode、toString 方法、无参构造方法；</p>
-<h3 id="Accessors-chain-true"><a href="#Accessors-chain-true" class="headerlink" title="@Accessors(chain = true)"></a>@Accessors(chain = true)</h3><p>注解在类上，使用链式设置属性；</p>
-<h3 id="Setter"><a href="#Setter" class="headerlink" title="@Setter"></a>@Setter</h3><p>注解在属性上，为单个属性提供 setter 方法、无参构造方法；</p>
-<p>注解在类上，为该类所有的属性提供 setter 方法、无参构造方法；</p>
-<h3 id="Getter"><a href="#Getter" class="headerlink" title="@Getter"></a>@Getter</h3><p>注解在属性上，为单个属性提供 getter 方法、无参构造方法；</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/lombok-使用方法/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

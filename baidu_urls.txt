@@ -1,3 +1,4 @@
+https://yapengren.github.io/wiki/Spring-事务/
 https://yapengren.github.io/wiki/Redis-过期策略/
 https://yapengren.github.io/wiki/Redis-安全防范/
 https://yapengren.github.io/wiki/java判断对象中属性值是否全为空/
@@ -7,4 +8,3 @@ https://yapengren.github.io/wiki/vim/
 https://yapengren.github.io/wiki/linux-基本命令/
 https://yapengren.github.io/wiki/java-util-ConcurrentModificationException-异常详解/
 https://yapengren.github.io/wiki/Mybatis-批量操作报错-BadSqlGrammarException/
-https://yapengren.github.io/wiki/lombok-使用方法/
