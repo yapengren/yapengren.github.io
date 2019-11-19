@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpei5n1j322w08242p.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpmqucmj31uc084788.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpz58v2j321a07ygpp.jpg">
-<meta property="og:updated_time" content="2019-10-28T02:39:18.098Z">
+<meta property="og:updated_time" content="2019-11-13T01:49:41.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL 索引">
 <meta name="twitter:description" content="索引优化索引失效案例 全值匹配 最佳左前缀法则。如果索引了多列，要遵守最左前缀法则，指的是查询从索引的最左前列开始并且不跳过索引中的列 不在索引列上做任何操作（计算、函数、「自动或者手动」类型转换），会导致索引失效而转向全表扫描 存储引擎不能使用索引中范围条件右边的列 尽量使用覆盖索引（只访问索引的查询「索引列和查询列一致」），减少 select * MySQL 在使用 != 或者 &amp;lt;&amp;gt">
@@ -588,55 +588,55 @@
 <ol>
 <li>explain select * from test03 where c1=’a1’ and c2=’a2’ and c3=’a3’ and c4=’a4’;<br>索引全部使用</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxein3zpj31v407y0wj.jpg" alt="image-20190825145131921"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxein3zpj31v407y0wj.jpg" alt></p>
 <ol start="2">
 <li>explain select * from test03 where c1=’a1’ and c2=’a2’ and c4=’a4’ and c3=’a3’;<br>索引全部使用</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxkebwxfj31v4088n11.jpg" alt="image-20190825145307176"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxkebwxfj31v4088n11.jpg" alt></p>
 <ol start="3">
 <li>explain select * from test03 where c1=’a1’ and c2=’a2’ and c3&gt;’a3’ and c4=’a4’;<br>索引 c1c2c3 使用，c4 未使用</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxjkp44uj31ua07w42g.jpg" alt="image-20190825145614418"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxjkp44uj31ua07w42g.jpg" alt></p>
 <ol start="4">
 <li>explain select * from test03 where c1=’a1’ and c2=’a2’ and c4&gt;’a4’ and c3=’a3’;<br>索引全部使用 </li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxjyb630j31uo07yae1.jpg" alt="image-20190825145645207"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxjyb630j31uo07yae1.jpg" alt></p>
 <ol start="5">
 <li>explain select * from test03 where c1=’a1’ and c2=’a2’ and c4=’a4’ order by c3;<br>索引 c1c2 使用，c3 作用在排序而不是查找，c4 不使用</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxlhdwq5j31wy08642j.jpg" alt="image-20190825145812889"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxlhdwq5j31wy08642j.jpg" alt></p>
 <ol start="6">
 <li>explain select * from test03 where c1=’a1’ and c2=’a2’ order by c3;<br>索引 c1c2 使用 c3 作用在排序而不是查找，和 5 题一样</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxm32cxcj31x6088n16.jpg" alt="image-20190825145848614"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxm32cxcj31x6088n16.jpg" alt></p>
 <ol start="7">
 <li>explain select * from test03 where c1=’a1’ and c2=’a2’ order by c4;<br>索引 c1c2 使用 ，但出现 Using filesort</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxn1x2g4j323u08ctcz.jpg" alt="image-20190825145943711"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxn1x2g4j323u08ctcz.jpg" alt></p>
 <ol start="8">
 <li>explain select * from test03 where c1=’a1’ and c5=’a5’ order by c2,c3;<br>索引 c1 使用，但是 c2，c3用于排序，无 filesort</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxnorlcwj320408aq74.jpg" alt="image-20190825150020427"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxnorlcwj320408aq74.jpg" alt></p>
 <p>explain select * from test03 where c1=’a1’ and c5=’a5’ order by c3,c2;<br>索引 c1 使用，出现 filesort，我们建立索引 1234，它没有按照顺序来，3 2 颠倒了 </p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxo1umiyj327a08678m.jpg" alt="image-20190825150041613"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxo1umiyj327a08678m.jpg" alt></p>
 <ol start="9">
 <li>explain select * from test03 where c1=’a1’ and c2=’a2’ order by c2,c3;<br>索引 c1c2 使用</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxofl0uij31x8082djv.jpg" alt="image-20190825150103386"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxofl0uij31x8082djv.jpg" alt></p>
 <ol start="10">
 <li>explain select * from test03 where c1=’a1’ and c2=’a2’ and c5=’a5’ order by c2,c3;<br>索引 c1c2 使用，但是 c2、c3 用于排序，无 filesort</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxp640boj322m084dk3.jpg" alt="image-20190825150145899"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxp640boj322m084dk3.jpg" alt></p>
 <p>explain select * from test03 where c1=’a1’ and c2=’a2’ and c5=’a5’ order by c3,c2;<br>本例有常量 c2 的情况，和 8.2 对比，无filesort</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpei5n1j322w08242p.jpg" alt="image-20190825150159806"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpei5n1j322w08242p.jpg" alt></p>
 <ol start="11">
 <li>explain select * from test03 where c1=’a1’ and c4=’a4’ order by c2,c3;<br>索引 c1 使用</li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpmqucmj31uc084788.jpg" alt="image-20190825150212205"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpmqucmj31uc084788.jpg" alt></p>
 <ol start="12">
 <li>explain select * from test03 where c1=’a1’ and c4=’a4’ order by c3,c2;<br>索引 c1 使用, 出现了 Using where; Using temporary; Using filesort </li>
 </ol>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpz58v2j321a07ygpp.jpg" alt="image-20190825150232699"></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpz58v2j321a07ygpp.jpg" alt></p>
 <h1 id="InnoDB-聚簇索引和非聚簇索引"><a href="#InnoDB-聚簇索引和非聚簇索引" class="headerlink" title="InnoDB 聚簇索引和非聚簇索引"></a>InnoDB 聚簇索引和非聚簇索引</h1><p>每个 InnoDB 表都有一个称为 「 聚簇索引 」 的特殊索引，通常情况下，这个聚簇索引就是 「 主键 」 ( primary key ) 。Innodb 使用它存储表中每一行的数据。</p>
 <p>如果想要从查询、插入和其它数据库操作中获得最佳性能，那么我们就必须了解 InnoDB 如何使用 「 聚簇索引 」 来优化每个表的最常见检索和 DML 操作方式</p>
 <ul>
