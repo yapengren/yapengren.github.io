@@ -171,7 +171,7 @@
                             &nbsp;
                             基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -436,6 +436,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-Mybatis-知识点" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/框架/">框架</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/Mybatis/">Mybatis</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Mybatis/">Mybatis</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Mybatis-知识点/">
+            <time datetime="2019-08-14T09:20:15.000Z" itemprop="datePublished">2019-08-14</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Mybatis-知识点.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Mybatis-知识点.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Mybatis-知识点.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/Mybatis-知识点/">Mybatis 知识点</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="jdbc-问题"><a href="#jdbc-问题" class="headerlink" title="jdbc 问题"></a>jdbc 问题</h2><ol>
+<li>数据库连接创建、释放频繁造成系统资源浪费，从而影响系统性能。如果使用数据库连接池可解决此问题。</li>
+<li>Sql 语句在代码中硬编码，造成代码不易维护，实际应用中 sql 变化的可能较大，sql 变动需要改变 java 代码。</li>
+<li>使用 preparedStatement 向占有位符号传参数存在硬编码，因为 sql 语句的 where 条件不一定，可能多也可能少，修改 sql 还要修改代码，系统不易维护。</li>
+<li>对结果集解析存在硬编码（查询列名），sql 变化导致解析代码变化，系统不易维护，如果能将数据库记录封装成 pojo 对象解析比较方便。</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/Mybatis-知识点/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-synchronized-和-lock-区别，用lock有什么好处？" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1324,112 +1428,8 @@
 
 
     
-        <article id="post-token-防表单重复提交" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/java/方案/">方案</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/token-防表单重复提交/">
-            <time datetime="2019-08-02T03:16:10.000Z" itemprop="datePublished">2019-08-02</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/token-防表单重复提交.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/token-防表单重复提交.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/token-防表单重复提交.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/token-防表单重复提交/">token 防表单重复提交</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h3 id="生成-token"><a href="#生成-token" class="headerlink" title="生成 token"></a>生成 token</h3><p>加载页面时候调用 <code>initToken()</code> 方法，生成 token 存入页面隐藏域中</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;%--隐藏域-防止表单的重复提交--%&gt;</span><br><span class="line">&lt;input type=&quot;hidden&quot; name=&quot;examToken&quot; id=&quot;examToken&quot;&gt;&lt;/input&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="表单提交"><a href="#表单提交" class="headerlink" title="表单提交"></a>表单提交</h3><p>表单提交的时候带上 token</p>
-<h3 id="方法添加注解"><a href="#方法添加注解" class="headerlink" title="方法添加注解"></a>方法添加注解</h3><p>springMVC 方法上添加注解 <code>@TokenCheck(isCheckToken = true)</code></p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/token-防表单重复提交/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+        <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">下一页 &raquo;</a>
         </nav>
     
 </section>

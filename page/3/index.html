@@ -171,7 +171,7 @@
                             &nbsp;
                             基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -436,6 +436,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-java死锁编程及定位分析" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/java/并发/">并发</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/java死锁编程及定位分析/">
+            <time datetime="2019-08-21T09:37:44.000Z" itemprop="datePublished">2019-08-21</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java死锁编程及定位分析.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java死锁编程及定位分析.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java死锁编程及定位分析.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/java死锁编程及定位分析/">java死锁编程及定位分析</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="死锁编程及定位分析"><a href="#死锁编程及定位分析" class="headerlink" title="死锁编程及定位分析"></a>死锁编程及定位分析</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>死锁是指两个或者两个以上的进程在执行过程中，因抢夺资源而造成的一种互相等待的现象，若无外力干涉它们将都无法推进下去，如果系统资源充足，进程的资源请求都能够得到满足，死锁出现的可能性也就很低，否则就会因争夺有限的资源而陷入死锁。</p>
+<h3 id="产生死锁的主要原因"><a href="#产生死锁的主要原因" class="headerlink" title="产生死锁的主要原因"></a>产生死锁的主要原因</h3><ul>
+<li>系统资源不足</li>
+<li>进程运行推进的顺序不合适</li>
+<li>资源分配不当</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/java死锁编程及定位分析/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-java公平锁-非公平锁-可重入锁-递归锁-自旋锁" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1353,112 +1457,8 @@
 
 
     
-        <article id="post-Mybatis-知识点" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/框架/">框架</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/Mybatis/">Mybatis</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Mybatis/">Mybatis</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/Mybatis-知识点/">
-            <time datetime="2019-08-14T09:20:15.000Z" itemprop="datePublished">2019-08-14</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Mybatis-知识点.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Mybatis-知识点.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Mybatis-知识点.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/Mybatis-知识点/">Mybatis 知识点</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="jdbc-问题"><a href="#jdbc-问题" class="headerlink" title="jdbc 问题"></a>jdbc 问题</h2><ol>
-<li>数据库连接创建、释放频繁造成系统资源浪费，从而影响系统性能。如果使用数据库连接池可解决此问题。</li>
-<li>Sql 语句在代码中硬编码，造成代码不易维护，实际应用中 sql 变化的可能较大，sql 变动需要改变 java 代码。</li>
-<li>使用 preparedStatement 向占有位符号传参数存在硬编码，因为 sql 语句的 where 条件不一定，可能多也可能少，修改 sql 还要修改代码，系统不易维护。</li>
-<li>对结果集解析存在硬编码（查询列名），sql 变化导致解析代码变化，系统不易维护，如果能将数据库记录封装成 pojo 对象解析比较方便。</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/Mybatis-知识点/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
         </nav>
     
 </section>

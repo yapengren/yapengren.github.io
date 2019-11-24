@@ -171,7 +171,7 @@
                             &nbsp;
                             基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -436,6 +436,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-Mybatis-批量操作报错-BadSqlGrammarException" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/框架/">框架</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/Mybatis/">Mybatis</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Mybatis/">Mybatis</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Mybatis-批量操作报错-BadSqlGrammarException/">
+            <time datetime="2019-09-16T07:10:48.000Z" itemprop="datePublished">2019-09-16</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Mybatis-批量操作报错-BadSqlGrammarException.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Mybatis-批量操作报错-BadSqlGrammarException.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Mybatis-批量操作报错-BadSqlGrammarException.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/Mybatis-批量操作报错-BadSqlGrammarException/">Mybatis 批量操作报错 BadSqlGrammarException</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>Mybatis 使用<code>&lt;foreach&gt;</code>批量操作时，对应的 sql 文件为</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"testBatchUpd"</span> <span class="attr">parameterType</span>=<span class="string">"java.util.Map"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"dmsProdSkuStocks"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">separator</span>=<span class="string">";"</span>&gt;</span></span><br><span class="line">        UPDATE dms_prod_sku_stock SET </span><br><span class="line">        STOCK = #&#123;item.stock&#125; </span><br><span class="line">        WHERE SKU_RELATE_ID = #&#123;item.skuRelateId&#125; </span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>调用接口执行的时候，程序就会报错</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">org.springframework.jdbc.BadSqlGrammarException</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/Mybatis-批量操作报错-BadSqlGrammarException/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-lombok-使用方法" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1372,112 +1476,8 @@
 
 
     
-        <article id="post-java死锁编程及定位分析" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/java/并发/">并发</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/java死锁编程及定位分析/">
-            <time datetime="2019-08-21T09:37:44.000Z" itemprop="datePublished">2019-08-21</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java死锁编程及定位分析.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java死锁编程及定位分析.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java死锁编程及定位分析.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/java死锁编程及定位分析/">java死锁编程及定位分析</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="死锁编程及定位分析"><a href="#死锁编程及定位分析" class="headerlink" title="死锁编程及定位分析"></a>死锁编程及定位分析</h2><h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>死锁是指两个或者两个以上的进程在执行过程中，因抢夺资源而造成的一种互相等待的现象，若无外力干涉它们将都无法推进下去，如果系统资源充足，进程的资源请求都能够得到满足，死锁出现的可能性也就很低，否则就会因争夺有限的资源而陷入死锁。</p>
-<h3 id="产生死锁的主要原因"><a href="#产生死锁的主要原因" class="headerlink" title="产生死锁的主要原因"></a>产生死锁的主要原因</h3><ul>
-<li>系统资源不足</li>
-<li>进程运行推进的顺序不合适</li>
-<li>资源分配不当</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/java死锁编程及定位分析/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+        <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
         </nav>
     
 </section>
