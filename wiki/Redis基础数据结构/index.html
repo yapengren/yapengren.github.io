@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <title>Redis基础数据结构 | yp_ren Blog</title>
+    
+    
+        <meta name="keywords" content="Redis">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Redis 有 5 种基础数据结构，分别为：string (字符串)、list (列表)、set (集合)、hash (哈希) 和 zset (有序集合)。 string (字符串)set 添加$ set name zhangsan  # 添加OK  get 获取$ get name  # 获取&quot;zhangsan&quot;  del 删除$ del name  # 删除(integer) 1  exist">
+<meta name="keywords" content="Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis基础数据结构">
+<meta property="og:url" content="https://yapengren.github.io/wiki/Redis基础数据结构/index.html">
+<meta property="og:site_name" content="yp_ren Blog">
+<meta property="og:description" content="Redis 有 5 种基础数据结构，分别为：string (字符串)、list (列表)、set (集合)、hash (哈希) 和 zset (有序集合)。 string (字符串)set 添加$ set name zhangsan  # 添加OK  get 获取$ get name  # 获取&quot;zhangsan&quot;  del 删除$ del name  # 删除(integer) 1  exist">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-04T06:28:36.569Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis基础数据结构">
+<meta name="twitter:description" content="Redis 有 5 种基础数据结构，分别为：string (字符串)、list (列表)、set (集合)、hash (哈希) 和 zset (有序集合)。 string (字符串)set 添加$ set name zhangsan  # 添加OK  get 获取$ get name  # 获取&quot;zhangsan&quot;  del 删除$ del name  # 删除(integer) 1  exist">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="yp_ren Blog" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+        <meta name="google-site-verification" content="jTqssQuvjh3vU5wBqR6KSVItfv-XKrUFCpg9IijicZo">
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head>
+</html>
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">yp_ren Blog</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            java
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            并发
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/synchronized-和-lock-区别，用lock有什么好处？/">synchronized 和 lock 区别，用lock有什么好处？</a></li>  <li class="file"><a href="/wiki/java-线程池知识点/">java 线程池知识点</a></li>  <li class="file"><a href="/wiki/volatile的理解/">volatile的理解</a></li>  <li class="file"><a href="/wiki/CAS理解/">CAS理解</a></li>  <li class="file"><a href="/wiki/原子类Atomiclnteger的ABA问题/">原子类Atomiclnteger的ABA问题</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList/">CopyOnWriteArrayList</a></li>  <li class="file"><a href="/wiki/java公平锁-非公平锁-可重入锁-递归锁-自旋锁/">java公平锁/非公平锁/可重入锁/递归锁/自旋锁</a></li>  <li class="file"><a href="/wiki/java死锁编程及定位分析/">java死锁编程及定位分析</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            方案
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/token-防表单重复提交/">token 防表单重复提交</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            源码
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-hash-原理/">java hash 原理</a></li>  <li class="file"><a href="/wiki/ArrayList源码分析/">ArrayList源码分析</a></li>  <li class="file"><a href="/wiki/HashMap源码分析/">HashMap源码分析</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            工具
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            IDE
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/intellij idea修改记录/">intellij idea修改记录</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            数据库
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            MySQL
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL-索引/">MySQL 索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Redis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/Redis基础数据结构/">Redis基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis-安全防范/">Redis 安全防范</a></li>  <li class="file"><a href="/wiki/Redis-过期策略/">Redis 过期策略</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            框架
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Dubbo
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Dubbo架构/">Dubbo架构</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            FastDFS
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/FastDFS流程图/">FastDFS流程图</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Mybatis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  <li class="file"><a href="/wiki/Mybatis-批量操作报错-BadSqlGrammarException/">Mybatis 批量操作报错 BadSqlGrammarException</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            shiro
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/shiro-流程图/">shiro 流程图</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            spring
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/springMVC-流程图/">springMVC 流程图</a></li>  <li class="file"><a href="/wiki/lombok-使用方法/">lombok 使用方法</a></li>  <li class="file"><a href="/wiki/Spring-事务/">Spring 事务</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            springBoot
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SpringBoot中间件/">SpringBoot中间件</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            算法
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            排序
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/冒泡排序/">冒泡排序</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数组
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/稀疏数组sparsearray/">稀疏数组sparsearray</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            系统
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            linux
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/linux-基本命令/">linux 基本命令</a></li>  <li class="file"><a href="/wiki/vim/">vim</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            mac
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/mac-brew-服务/">mac brew 服务</a></li>  <li class="file"><a href="/wiki/mac系统快捷键/">mac系统快捷键</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/让我们同步进阶/">让我们同步进阶</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Redis基础数据结构" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/Redis/">Redis</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Redis/">Redis</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Redis基础数据结构/">
+            <time datetime="2019-08-18T03:26:40.000Z" itemprop="datePublished">2019-08-18</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis基础数据结构.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis基础数据结构.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis基础数据结构.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Redis基础数据结构
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#string-字符串"><span class="toc-number">1.</span> <span class="toc-text">string (字符串)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#set-添加"><span class="toc-number">1.1.</span> <span class="toc-text">set 添加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#get-获取"><span class="toc-number">1.2.</span> <span class="toc-text">get 获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#del-删除"><span class="toc-number">1.3.</span> <span class="toc-text">del 删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#exists-是否存在"><span class="toc-number">1.4.</span> <span class="toc-text">exists 是否存在</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strlen-获取长度"><span class="toc-number">1.5.</span> <span class="toc-text">strlen 获取长度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getrange-获取子串"><span class="toc-number">1.6.</span> <span class="toc-text">getrange 获取子串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mget-批量获取"><span class="toc-number">1.7.</span> <span class="toc-text">mget 批量获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mset-批量添加"><span class="toc-number">1.8.</span> <span class="toc-text">mset 批量添加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#expire-过期"><span class="toc-number">1.9.</span> <span class="toc-text">expire 过期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setex-等价于set-expire"><span class="toc-number">1.10.</span> <span class="toc-text">setex 等价于set + expire</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#setnx-如果key不存在就执行set操作"><span class="toc-number">1.11.</span> <span class="toc-text">setnx 如果key不存在就执行set操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#incr-递增"><span class="toc-number">1.12.</span> <span class="toc-text">incr 递增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#decr-递减"><span class="toc-number">1.13.</span> <span class="toc-text">decr 递减</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#list-列表"><span class="toc-number">2.</span> <span class="toc-text">list (列表)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#右进左出：队列"><span class="toc-number">2.1.</span> <span class="toc-text">右进左出：队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#右进右出：栈"><span class="toc-number">2.2.</span> <span class="toc-text">右进右出：栈</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hash-字典"><span class="toc-number">3.</span> <span class="toc-text">hash (字典)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hset-添加"><span class="toc-number">3.1.</span> <span class="toc-text">hset 添加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hget-根据key获取value"><span class="toc-number">3.2.</span> <span class="toc-text">hget 根据key获取value</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hgetall-获取全部"><span class="toc-number">3.3.</span> <span class="toc-text">hgetall  获取全部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hlen-获取长度"><span class="toc-number">3.4.</span> <span class="toc-text">hlen 获取长度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hmset-批量添加"><span class="toc-number">3.5.</span> <span class="toc-text">hmset 批量添加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hincrby-递增"><span class="toc-number">3.6.</span> <span class="toc-text">hincrby 递增</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#set-集合"><span class="toc-number">4.</span> <span class="toc-text">set (集合)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sadd-添加"><span class="toc-number">4.1.</span> <span class="toc-text">sadd 添加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#smembers-获取"><span class="toc-number">4.2.</span> <span class="toc-text">smembers 获取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#srem-移除"><span class="toc-number">4.3.</span> <span class="toc-text">srem 移除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sismember-查询value是否存在"><span class="toc-number">4.4.</span> <span class="toc-text">sismember 查询value是否存在</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scard-获取长度"><span class="toc-number">4.5.</span> <span class="toc-text">scard 获取长度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spop-弹出一个"><span class="toc-number">4.6.</span> <span class="toc-text">spop 弹出一个</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#zset-有序集合"><span class="toc-number">5.</span> <span class="toc-text">zset (有序集合)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#zadd-添加"><span class="toc-number">5.1.</span> <span class="toc-text">zadd 添加</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zrange-按score排序列出"><span class="toc-number">5.2.</span> <span class="toc-text">zrange 按score排序列出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zrevrange-按score逆序列出"><span class="toc-number">5.3.</span> <span class="toc-text">zrevrange 按score逆序列出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zcard-获取个数，相当于-count"><span class="toc-number">5.4.</span> <span class="toc-text">zcard 获取个数，相当于 count()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zrank-排名"><span class="toc-number">5.5.</span> <span class="toc-text">zrank  排名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zscore-获取指定value的score"><span class="toc-number">5.6.</span> <span class="toc-text">zscore 获取指定value的score</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zrangebyscore-根据分值区间遍历"><span class="toc-number">5.7.</span> <span class="toc-text">zrangebyscore 根据分值区间遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#zrem"><span class="toc-number">5.8.</span> <span class="toc-text">zrem</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#容器型数据结构的通用规则"><span class="toc-number">6.</span> <span class="toc-text">容器型数据结构的通用规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过期时间"><span class="toc-number">7.</span> <span class="toc-text">过期时间</span></a></li></ol>
+                </div>
+            
+        
+        
+            <p>Redis 有 5 种基础数据结构，分别为：string (字符串)、list (列表)、set (集合)、hash (哈希) 和 zset (有序集合)。</p>
+<h1 id="string-字符串"><a href="#string-字符串" class="headerlink" title="string (字符串)"></a>string (字符串)</h1><h2 id="set-添加"><a href="#set-添加" class="headerlink" title="set 添加"></a>set 添加</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> set name zhangsan  # 添加</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+
+<h2 id="get-获取"><a href="#get-获取" class="headerlink" title="get 获取"></a>get 获取</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> get name  # 获取</span><br><span class="line">"zhangsan"</span><br></pre></td></tr></table></figure>
+
+<h2 id="del-删除"><a href="#del-删除" class="headerlink" title="del 删除"></a>del 删除</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> del name  # 删除</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="exists-是否存在"><a href="#exists-是否存在" class="headerlink" title="exists 是否存在"></a>exists 是否存在</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> exists name  # 字符串是否存在</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="strlen-获取长度"><a href="#strlen-获取长度" class="headerlink" title="strlen 获取长度"></a>strlen 获取长度</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> strlen name  # 获取字符串的长度</span><br><span class="line">(integer) 8</span><br></pre></td></tr></table></figure>
+
+<h2 id="getrange-获取子串"><a href="#getrange-获取子串" class="headerlink" title="getrange 获取子串"></a>getrange 获取子串</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> getrange name 0 4  # 获取子串(开始和结束位置start,end)</span><br><span class="line">"zhang"</span><br></pre></td></tr></table></figure>
+
+<h2 id="mget-批量获取"><a href="#mget-批量获取" class="headerlink" title="mget 批量获取"></a>mget 批量获取</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> mget name1 name2  # 返回一个列表</span><br><span class="line">1) "zhangsan"</span><br><span class="line">2) "lisi"</span><br></pre></td></tr></table></figure>
+
+<h2 id="mset-批量添加"><a href="#mset-批量添加" class="headerlink" title="mset 批量添加"></a>mset 批量添加</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> mset name1 wangwu name2 zhaoliu</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+
+<h2 id="expire-过期"><a href="#expire-过期" class="headerlink" title="expire 过期"></a>expire 过期</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> set name zhangsan</span><br><span class="line"><span class="meta">$</span> expire name 20  # 20s后过期</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> ttl name    # 还有18秒的寿命，返回-2表示变量不存在，-1表示没有设置过期时间</span><br><span class="line">(integer) 18</span><br></pre></td></tr></table></figure>
+
+<h2 id="setex-等价于set-expire"><a href="#setex-等价于set-expire" class="headerlink" title="setex 等价于set + expire"></a>setex 等价于set + expire</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> setex name 5 zhangsan  # 5s后过期，等价于 set + expire</span><br><span class="line"><span class="meta">$</span> get name</span><br><span class="line">"zhangsan"</span><br></pre></td></tr></table></figure>
+
+<h2 id="setnx-如果key不存在就执行set操作"><a href="#setnx-如果key不存在就执行set操作" class="headerlink" title="setnx 如果key不存在就执行set操作"></a>setnx 如果key不存在就执行set操作</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> setnx name zhangsan  # 如果 name 不存在就执行 set 创建</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> get name</span><br><span class="line">"zhangsan"</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> setnx name zhangsan</span><br><span class="line">(integer) 0  # 因为 name 已经存在，所以 set 创建不成功</span><br></pre></td></tr></table></figure>
+
+<h2 id="incr-递增"><a href="#incr-递增" class="headerlink" title="incr 递增"></a>incr 递增</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> set age 30</span><br><span class="line">OK</span><br><span class="line"><span class="meta">$</span> incr age  # 递增</span><br><span class="line">(integer) 31</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> incrby age 5</span><br><span class="line">(integer) 36</span><br></pre></td></tr></table></figure>
+
+<h2 id="decr-递减"><a href="#decr-递减" class="headerlink" title="decr 递减"></a>decr 递减</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> set age 30</span><br><span class="line">OK</span><br><span class="line"><span class="meta">$</span> decr age  # 递减</span><br><span class="line">(integer) 29</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> decrby age 5</span><br><span class="line">(integer) 24</span><br></pre></td></tr></table></figure>
+
+<p>自增是有范围的，它的范围是 signed long 的最大最小值，超过了这个值，Redis 会报错。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> set codehole 9223372036854775807  # Long.Max  最大值</span><br><span class="line">OK</span><br><span class="line"><span class="meta">$</span> incr codehole</span><br><span class="line">(error) ERR increment or decrement would overflow</span><br></pre></td></tr></table></figure>
+
+<h1 id="list-列表"><a href="#list-列表" class="headerlink" title="list (列表)"></a>list (列表)</h1><p>Redis 的列表相当于 Java 里面的 LinkedList，这意味着 list 的插入和删除操作非常快，时间复杂度为 O(1)，但是索引定位很慢，时间复杂度为 O(n)</p>
+<p>当列表弹出了最后一个元素之后，该数据结构自动被删除，内存被回收。</p>
+<p>Redis 的列表结构常用来做异步队列使用。将需要延后处理的任务结构体序列化成字符串塞进 Redis 的列表，另一个线程从这个列表中轮询数据进行处理。</p>
+<h2 id="右进左出：队列"><a href="#右进左出：队列" class="headerlink" title="右进左出：队列"></a>右进左出：队列</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> rpush books python java golang</span><br><span class="line">(integer) 3</span><br><span class="line"><span class="meta">$</span> llen books</span><br><span class="line">(integer) 3</span><br><span class="line"><span class="meta">$</span> lpop books</span><br><span class="line">"python"</span><br><span class="line"><span class="meta">$</span> lpop books</span><br><span class="line">"java"</span><br><span class="line"><span class="meta">$</span> lpop books</span><br><span class="line">"golang"</span><br><span class="line"><span class="meta">$</span> lpop books</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+
+<h2 id="右进右出：栈"><a href="#右进右出：栈" class="headerlink" title="右进右出：栈"></a>右进右出：栈</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> rpush books python java golang</span><br><span class="line">(integer) 3</span><br><span class="line"><span class="meta">$</span> rpop books</span><br><span class="line">"golang"</span><br><span class="line"><span class="meta">$</span> rpop books</span><br><span class="line">"java"</span><br><span class="line"><span class="meta">$</span> rpop books</span><br><span class="line">"python"</span><br><span class="line"><span class="meta">$</span> rpop books</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+
+<h1 id="hash-字典"><a href="#hash-字典" class="headerlink" title="hash (字典)"></a>hash (字典)</h1><p>Redis 的字典相当于 Java 里面的 HashMap，它是无序字典。内部实现结构上同 Java 的 HashMap 也是一致的，同样的数组 + 链表二维结构。第一维 hash 的数组位置碰撞时，就会将碰撞的元素使用链表串接起来。</p>
+<p>不同的是，Redis 的字典的值只能是字符串，另外它们 rehash 的方式不一样，因为 Java 的 HashMap 在字典很大时，rehash 是个耗时的操作，需要一次性全部 rehash。Redis 为了高性能，不能堵塞服务，所以采用了渐进式 rehash 策略。</p>
+<p>渐进式 rehash 会在 rehash 的同时，保留新旧两个 hash 结构，查询时会同时查询两个 hash 结构，然后在后续的定时任务中以及 hash 操作指令中，循序渐进地将旧 hash 的内容一点点迁移到新的 hash 结构中。当搬迁完成了，就会使用新的hash结构取而代之。</p>
+<p>当 hash 移除了最后一个元素之后，该数据结构自动被删除，内存被回收。</p>
+<p>hash 结构也可以用来存储用户信息，不同于字符串一次性需要全部序列化整个对象，hash 可以对用户结构中的每个字段单独存储。这样当我们需要获取用户信息时可以进行部分获取。而以整个字符串的形式去保存用户信息的话就只能一次性全部读取。</p>
+<p>hash 结构的存储消耗要高于单个字符串。</p>
+<h2 id="hset-添加"><a href="#hset-添加" class="headerlink" title="hset 添加"></a>hset 添加</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> 命令行的字符串如果包含空格，要用引号括起来</span><br><span class="line"><span class="meta">$</span> hset books java "think in java"  # 新增</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="hget-根据key获取value"><a href="#hget-根据key获取value" class="headerlink" title="hget 根据key获取value"></a>hget 根据key获取value</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> hget books java  # 根据key获取value</span><br><span class="line">"think in java"</span><br></pre></td></tr></table></figure>
+
+<h2 id="hgetall-获取全部"><a href="#hgetall-获取全部" class="headerlink" title="hgetall  获取全部"></a>hgetall  获取全部</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> hgetall books  # 查询entries()，key 和 value 间隔出现</span><br><span class="line">1) "java"</span><br><span class="line">2) "think in java"</span><br><span class="line">3) "golang"</span><br><span class="line">4) "concurrency in go"</span><br><span class="line">5) "python"</span><br><span class="line">6) "python cookbook"</span><br></pre></td></tr></table></figure>
+
+<h2 id="hlen-获取长度"><a href="#hlen-获取长度" class="headerlink" title="hlen 获取长度"></a>hlen 获取长度</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> hlen books  # 获取长度</span><br><span class="line">(integer) 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="hmset-批量添加"><a href="#hmset-批量添加" class="headerlink" title="hmset 批量添加"></a>hmset 批量添加</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> hmset books java "effective java" python "learning python" golang "modern golang programming"</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+
+<h2 id="hincrby-递增"><a href="#hincrby-递增" class="headerlink" title="hincrby 递增"></a>hincrby 递增</h2><p>可以使用 <code>hincrby</code> 对 hash 结构中的单个子 key 进行计数，和 <code>incr</code>使用方法一样。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> hincrby user age 1</span><br><span class="line">(integer) 30</span><br></pre></td></tr></table></figure>
+
+<h1 id="set-集合"><a href="#set-集合" class="headerlink" title="set (集合)"></a>set (集合)</h1><p>Redis 的集合相当于 Java 里面的 HashSet，它内部的键值对是无序的唯一的。它的内部实现相当于一个特殊的字典，字典中所有的 value 都是一个值<code>NULL</code>。</p>
+<p>当集合中最后一个元素移除之后，数据结构自动删除，内存被回收。</p>
+<p>set 结构可以用来存储活动中奖的用户 ID，因为有去重功能，可以保证同一个用户不会中奖两次。</p>
+<h2 id="sadd-添加"><a href="#sadd-添加" class="headerlink" title="sadd 添加"></a>sadd 添加</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> sadd books python  # 新增</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> sadd books java golang  # 批量添加</span><br><span class="line">(integer) 2</span><br></pre></td></tr></table></figure>
+
+<h2 id="smembers-获取"><a href="#smembers-获取" class="headerlink" title="smembers 获取"></a>smembers 获取</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> smembers books  # 获取，set是无序的</span><br><span class="line">1) "java"</span><br><span class="line">2) "python"</span><br><span class="line">3) "golang"</span><br></pre></td></tr></table></figure>
+
+<h2 id="srem-移除"><a href="#srem-移除" class="headerlink" title="srem 移除"></a>srem 移除</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> srem book java</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="sismember-查询value是否存在"><a href="#sismember-查询value是否存在" class="headerlink" title="sismember 查询value是否存在"></a>sismember 查询value是否存在</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> sismember books java  # 查询某个value是否存在，相当于 contains(o)</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="scard-获取长度"><a href="#scard-获取长度" class="headerlink" title="scard 获取长度"></a>scard 获取长度</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> scard books    # 获取长度相当于 count()</span><br><span class="line">(integer) 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="spop-弹出一个"><a href="#spop-弹出一个" class="headerlink" title="spop 弹出一个"></a>spop 弹出一个</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> spop books    # 弹出一个</span><br><span class="line">"java"</span><br></pre></td></tr></table></figure>
+
+<h1 id="zset-有序集合"><a href="#zset-有序集合" class="headerlink" title="zset (有序集合)"></a>zset (有序集合)</h1><p>zset 类似于 Java 的 SortedSet 和 HashMap 的结合体，一方面它是一个 set，保证了内部 value 的唯一性，另一方面它可以给每个 value 赋予一个 score，代表这个 value 的排序权重。</p>
+<p>zset 中最后一个 value 被移除后，数据结构自动删除，内存被回收。</p>
+<p>zset 可以用来存粉丝列表，value 值是粉丝的用户 ID，score 是关注时间。我们可以对粉丝列表按关注时间进行排序。</p>
+<p>zset 还可以用来存储学生的成绩，value 值是学生的 ID，score 是他的考试成绩。我们可以对成绩按分数进行排序就可以得到他的名次。</p>
+<h2 id="zadd-添加"><a href="#zadd-添加" class="headerlink" title="zadd 添加"></a>zadd 添加</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> zadd books 9.0 "think in java"</span><br><span class="line">(integer) 1</span><br><span class="line"><span class="meta">$</span> zadd books 8.9 "java concurrency"</span><br><span class="line">(integer) 1</span><br><span class="line"><span class="meta">$</span> zadd books 8.6 "java cookbook"</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="zrange-按score排序列出"><a href="#zrange-按score排序列出" class="headerlink" title="zrange 按score排序列出"></a>zrange 按score排序列出</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> zrange books 0 -1  # 按 score 排序列出，参数区间为排名范围</span><br><span class="line">1) "java cookbook"</span><br><span class="line">2) "java concurrency"</span><br><span class="line">3) "think in java"</span><br></pre></td></tr></table></figure>
+
+<h2 id="zrevrange-按score逆序列出"><a href="#zrevrange-按score逆序列出" class="headerlink" title="zrevrange 按score逆序列出"></a>zrevrange 按score逆序列出</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> zrevrange books 0 -1  # 按 score 逆序列出，参数区间为排名范围</span><br><span class="line">1) "think in java"</span><br><span class="line">2) "java concurrency"</span><br><span class="line">3) "java cookbook"</span><br></pre></td></tr></table></figure>
+
+<h2 id="zcard-获取个数，相当于-count"><a href="#zcard-获取个数，相当于-count" class="headerlink" title="zcard 获取个数，相当于 count()"></a>zcard 获取个数，相当于 count()</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> zcard books  # 相当于 count()</span><br><span class="line">(integer) 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="zrank-排名"><a href="#zrank-排名" class="headerlink" title="zrank  排名"></a>zrank  排名</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> zrank books "java concurrency"  # 排名</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<h2 id="zscore-获取指定value的score"><a href="#zscore-获取指定value的score" class="headerlink" title="zscore 获取指定value的score"></a>zscore 获取指定value的score</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> zscore books "java concurrency"  # 获取指定value的score</span><br><span class="line">"8.9000000000000004"  # 内部 score 使用 double 类型进行存储，所以存在小数点精度问题</span><br></pre></td></tr></table></figure>
+
+<h2 id="zrangebyscore-根据分值区间遍历"><a href="#zrangebyscore-根据分值区间遍历" class="headerlink" title="zrangebyscore 根据分值区间遍历"></a>zrangebyscore 根据分值区间遍历</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> zrangebyscore books 0 8.91  # 根据分值区间遍历 zset</span><br><span class="line">1) "java cookbook"</span><br><span class="line">2) "java concurrency"</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> zrangebyscore books -inf 8.91 withscores # 根据分值区间 (-∞, 8.91] 遍历 zset，同时返回分值。inf 代表 infinite，无穷大的意思。</span><br><span class="line">1) "java cookbook"</span><br><span class="line">2) "8.5999999999999996"</span><br><span class="line">3) "java concurrency"</span><br><span class="line">4) "8.9000000000000004"</span><br></pre></td></tr></table></figure>
+
+<h2 id="zrem"><a href="#zrem" class="headerlink" title="zrem"></a>zrem</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> zrem books "java concurrency"  # 删除 value</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+
+<h1 id="容器型数据结构的通用规则"><a href="#容器型数据结构的通用规则" class="headerlink" title="容器型数据结构的通用规则"></a>容器型数据结构的通用规则</h1><p>list / set / hash / zset 这四种数据结构是容器型数据结构，它们都有下面两条通用规则：</p>
+<ol>
+<li><p>create if not exists</p>
+<p>如果容器不存在，那就创建一个，再进行操作。比如 rpush 操作刚开始是没有列表的，Redis 就会自动创建一个，然后再 rpush 进去新元素。</p>
+</li>
+<li><p>drop if no elements</p>
+<p>如果容器里元素没有了，那么立即删除元素，释放内存。这意味着 lpop 操作到最后一个元素，列表就消失了。</p>
+</li>
+</ol>
+<h1 id="过期时间"><a href="#过期时间" class="headerlink" title="过期时间"></a>过期时间</h1><p>Redis 所有的数据结构都可以设置过期时间，时间到了，Redis 会自动删除相应的对象。</p>
+<p>还有一个需要特别注意的地方是如果一个字符串已经设置了过期时间，然后你调用了 set 方法修改了它，它的过期时间会消失。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> set name zhangsan  # 添加</span><br><span class="line">OK</span><br><span class="line"><span class="meta">$</span> expire name 600  # 设置过期时间</span><br><span class="line">(integer) 1</span><br><span class="line"><span class="meta">$</span> ttl name  # 查看过期时间</span><br><span class="line">(integer) 597</span><br><span class="line"><span class="meta">$</span> set name lisi  # 再次添加</span><br><span class="line">OK</span><br><span class="line"><span class="meta">$</span> ttl name  # 查看过期时间，变成了永久有效</span><br><span class="line">(integer) -1</span><br></pre></td></tr></table></figure>
+
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/java-线程池知识点/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    java 线程池知识点
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/HashMap源码分析/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">HashMap源码分析</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            renyapeng &copy; 2019 
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
