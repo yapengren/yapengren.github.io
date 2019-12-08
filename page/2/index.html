@@ -171,7 +171,7 @@
                             &nbsp;
                             基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java基础题/">java基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -180,7 +180,7 @@
                             &nbsp;
                             并发
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/synchronized-和-lock-区别，用lock有什么好处？/">synchronized 和 lock 区别，用lock有什么好处？</a></li>  <li class="file"><a href="/wiki/java-线程池知识点/">java 线程池知识点</a></li>  <li class="file"><a href="/wiki/volatile的理解/">volatile的理解</a></li>  <li class="file"><a href="/wiki/CAS理解/">CAS理解</a></li>  <li class="file"><a href="/wiki/原子类Atomiclnteger的ABA问题/">原子类Atomiclnteger的ABA问题</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList/">CopyOnWriteArrayList</a></li>  <li class="file"><a href="/wiki/java公平锁-非公平锁-可重入锁-递归锁-自旋锁/">java公平锁/非公平锁/可重入锁/递归锁/自旋锁</a></li>  <li class="file"><a href="/wiki/java死锁编程及定位分析/">java死锁编程及定位分析</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/synchronized和lock区别/">synchronized和lock区别</a></li>  <li class="file"><a href="/wiki/java线程池知识点/">java线程池知识点</a></li>  <li class="file"><a href="/wiki/volatile/">volatile</a></li>  <li class="file"><a href="/wiki/CAS理解/">CAS理解</a></li>  <li class="file"><a href="/wiki/原子类Atomiclnteger的ABA问题/">原子类Atomiclnteger的ABA问题</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList/">CopyOnWriteArrayList</a></li>  <li class="file"><a href="/wiki/java公平锁-非公平锁-可重入锁-递归锁-自旋锁/">java公平锁/非公平锁/可重入锁/递归锁/自旋锁</a></li>  <li class="file"><a href="/wiki/java死锁编程及定位分析/">java死锁编程及定位分析</a></li>  <li class="file"><a href="/wiki/java线程知识点/">java线程知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -189,7 +189,7 @@
                             &nbsp;
                             方案
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/token-防表单重复提交/">token 防表单重复提交</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/token防表单重复提交/">token防表单重复提交</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -436,6 +436,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-java-util-ConcurrentModificationException-异常详解" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/java/基础/">基础</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/java/">java</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/java-util-ConcurrentModificationException-异常详解/">
+            <time datetime="2019-09-20T02:11:57.000Z" itemprop="datePublished">2019-09-20</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java-util-ConcurrentModificationException-异常详解.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java-util-ConcurrentModificationException-异常详解.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java-util-ConcurrentModificationException-异常详解.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>环境：JDK 1.8.0</p>
+<p>使用 iterator 遍历集合的同时对集合进行修改会报错 <code>java.util.ConcurrentModificationException</code></p>
+<h2 id="问题复现"><a href="#问题复现" class="headerlink" title="问题复现"></a>问题复现</h2><p>抛异常代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test02</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">11</span>; i++) &#123;</span><br><span class="line">        list.add(i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Iterator&lt;Integer&gt; it = list.iterator();</span><br><span class="line">    <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">        Integer next = it.next();</span><br><span class="line">        <span class="keyword">if</span> (next == <span class="number">5</span>) &#123;</span><br><span class="line">            list.remove(next);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/java-util-ConcurrentModificationException-异常详解/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-Mybatis-批量操作报错-BadSqlGrammarException" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -852,7 +956,7 @@
 
 
     
-        <article id="post-java-基础题" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-java基础题" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -874,7 +978,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/java-基础题/">
+        <a href="/wiki/java基础题/">
             <time datetime="2019-09-01T01:38:39.000Z" itemprop="datePublished">2019-09-01</time>
         </a>
     </div>
@@ -886,13 +990,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java-基础题.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java基础题.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java-基础题.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java基础题.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java-基础题.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java基础题.md'> History </a>
                             </div>
                         
                     </div>
@@ -900,7 +1004,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/wiki/java-基础题/">java 基础题</a>
+            <a class="article-title" href="/wiki/java基础题/">java基础题</a>
         </h1>
     
 
@@ -942,7 +1046,7 @@
         
             </div>   
             <div class="article-more-link">
-                <a href="/wiki/java-基础题/#more">查看更多</a>
+                <a href="/wiki/java基础题/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
@@ -1359,110 +1463,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/SQL语句/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-Redis-zset-实现简单限流" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/Redis/">Redis</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Redis/">Redis</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis-zset-实现简单限流/">
-            <time datetime="2019-08-23T01:48:40.000Z" itemprop="datePublished">2019-08-23</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis-zset-实现简单限流.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis-zset-实现简单限流.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis-zset-实现简单限流.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>除了控制流量，限流还有一个应用目的是用于控制用户行为，避免垃圾请求。比如在 UGC 社区，用户的发帖、回复、点赞等行为都要严格受控，一般要严格限定某行为在规定时间内允许的次数，超过了次数那就是非法行为。对非法行为，业务必须规定适当的惩处策略。</p>
-<h1 id="如何使用-Redis-来实现简单限流策略？"><a href="#如何使用-Redis-来实现简单限流策略？" class="headerlink" title="如何使用 Redis 来实现简单限流策略？"></a>如何使用 Redis 来实现简单限流策略？</h1><p>首先我们来看一个常见的简单的限流策略。系统要限定用户的某个行为在指定的时间里只能允许发生 N 次，如何使用 Redis 的数据结构来实现这个限流的功能？</p>
-<p>我们先定义这个接口，理解了这个接口的定义，读者就应该能明白我们期望达到的功能。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指定用户 user_id 的某个行为 action_key，在特定的时间内 period，只允许发生一定的次数 max_count</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isActionAllowed</span><span class="params">(String userId, String actionKey, <span class="keyword">int</span> period, <span class="keyword">int</span> maxCount)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用这个接口，5 分钟之内只能发帖 10 次</span></span><br><span class="line">limiter.isActionAllowed(<span class="string">"xiaoming"</span>, <span class="string">"publish"</span>, <span class="number">5</span> * <span class="number">60</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/Redis-zset-实现简单限流/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

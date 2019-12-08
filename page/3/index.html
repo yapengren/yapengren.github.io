@@ -171,7 +171,7 @@
                             &nbsp;
                             基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java-基础题/">java 基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java基础题/">java基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -180,7 +180,7 @@
                             &nbsp;
                             并发
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/synchronized-和-lock-区别，用lock有什么好处？/">synchronized 和 lock 区别，用lock有什么好处？</a></li>  <li class="file"><a href="/wiki/java-线程池知识点/">java 线程池知识点</a></li>  <li class="file"><a href="/wiki/volatile的理解/">volatile的理解</a></li>  <li class="file"><a href="/wiki/CAS理解/">CAS理解</a></li>  <li class="file"><a href="/wiki/原子类Atomiclnteger的ABA问题/">原子类Atomiclnteger的ABA问题</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList/">CopyOnWriteArrayList</a></li>  <li class="file"><a href="/wiki/java公平锁-非公平锁-可重入锁-递归锁-自旋锁/">java公平锁/非公平锁/可重入锁/递归锁/自旋锁</a></li>  <li class="file"><a href="/wiki/java死锁编程及定位分析/">java死锁编程及定位分析</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/synchronized和lock区别/">synchronized和lock区别</a></li>  <li class="file"><a href="/wiki/java线程池知识点/">java线程池知识点</a></li>  <li class="file"><a href="/wiki/volatile/">volatile</a></li>  <li class="file"><a href="/wiki/CAS理解/">CAS理解</a></li>  <li class="file"><a href="/wiki/原子类Atomiclnteger的ABA问题/">原子类Atomiclnteger的ABA问题</a></li>  <li class="file"><a href="/wiki/CopyOnWriteArrayList/">CopyOnWriteArrayList</a></li>  <li class="file"><a href="/wiki/java公平锁-非公平锁-可重入锁-递归锁-自旋锁/">java公平锁/非公平锁/可重入锁/递归锁/自旋锁</a></li>  <li class="file"><a href="/wiki/java死锁编程及定位分析/">java死锁编程及定位分析</a></li>  <li class="file"><a href="/wiki/java线程知识点/">java线程知识点</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -189,7 +189,7 @@
                             &nbsp;
                             方案
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/token-防表单重复提交/">token 防表单重复提交</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/token防表单重复提交/">token防表单重复提交</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -436,6 +436,110 @@
 </aside>
             
             <section id="main">
+        <article id="post-Redis-zset-实现简单限流" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/Redis/">Redis</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Redis/">Redis</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Redis-zset-实现简单限流/">
+            <time datetime="2019-08-23T01:48:40.000Z" itemprop="datePublished">2019-08-23</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis-zset-实现简单限流.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis-zset-实现简单限流.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis-zset-实现简单限流.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>除了控制流量，限流还有一个应用目的是用于控制用户行为，避免垃圾请求。比如在 UGC 社区，用户的发帖、回复、点赞等行为都要严格受控，一般要严格限定某行为在规定时间内允许的次数，超过了次数那就是非法行为。对非法行为，业务必须规定适当的惩处策略。</p>
+<h1 id="如何使用-Redis-来实现简单限流策略？"><a href="#如何使用-Redis-来实现简单限流策略？" class="headerlink" title="如何使用 Redis 来实现简单限流策略？"></a>如何使用 Redis 来实现简单限流策略？</h1><p>首先我们来看一个常见的简单的限流策略。系统要限定用户的某个行为在指定的时间里只能允许发生 N 次，如何使用 Redis 的数据结构来实现这个限流的功能？</p>
+<p>我们先定义这个接口，理解了这个接口的定义，读者就应该能明白我们期望达到的功能。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指定用户 user_id 的某个行为 action_key，在特定的时间内 period，只允许发生一定的次数 max_count</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isActionAllowed</span><span class="params">(String userId, String actionKey, <span class="keyword">int</span> period, <span class="keyword">int</span> maxCount)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用这个接口，5 分钟之内只能发帖 10 次</span></span><br><span class="line">limiter.isActionAllowed(<span class="string">"xiaoming"</span>, <span class="string">"publish"</span>, <span class="number">5</span> * <span class="number">60</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/wiki/Redis-zset-实现简单限流/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
         <article id="post-java死锁编程及定位分析" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -937,7 +1041,7 @@
 
 
     
-        <article id="post-volatile的理解" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-volatile" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -959,7 +1063,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/volatile的理解/">
+        <a href="/wiki/volatile/">
             <time datetime="2019-08-19T09:23:18.000Z" itemprop="datePublished">2019-08-19</time>
         </a>
     </div>
@@ -971,13 +1075,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/volatile的理解.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/volatile.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/volatile的理解.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/volatile.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/volatile的理解.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/volatile.md'> History </a>
                             </div>
                         
                     </div>
@@ -985,7 +1089,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/wiki/volatile的理解/">volatile的理解</a>
+            <a class="article-title" href="/wiki/volatile/">volatile</a>
         </h1>
     
 
@@ -1027,7 +1131,7 @@
         
             </div>   
             <div class="article-more-link">
-                <a href="/wiki/volatile的理解/#more">查看更多</a>
+                <a href="/wiki/volatile/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
@@ -1041,7 +1145,7 @@
 
 
     
-        <article id="post-java-线程池知识点" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-java线程池知识点" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -1063,7 +1167,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/java-线程池知识点/">
+        <a href="/wiki/java线程池知识点/">
             <time datetime="2019-08-19T07:33:15.000Z" itemprop="datePublished">2019-08-19</time>
         </a>
     </div>
@@ -1075,13 +1179,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java-线程池知识点.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/java线程池知识点.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java-线程池知识点.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/java线程池知识点.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java-线程池知识点.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/java线程池知识点.md'> History </a>
                             </div>
                         
                     </div>
@@ -1089,7 +1193,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/wiki/java-线程池知识点/">java 线程池知识点</a>
+            <a class="article-title" href="/wiki/java线程池知识点/">java线程池知识点</a>
         </h1>
     
 
@@ -1131,7 +1235,7 @@
         
             </div>   
             <div class="article-more-link">
-                <a href="/wiki/java-线程池知识点/#more">查看更多</a>
+                <a href="/wiki/java线程池知识点/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
@@ -1340,110 +1444,6 @@
             </div>   
             <div class="article-more-link">
                 <a href="/wiki/HashMap源码分析/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
-        <article id="post-ArrayList源码分析" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/java/源码/">源码</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/ArrayList源码分析/">
-            <time datetime="2019-08-17T02:28:42.000Z" itemprop="datePublished">2019-08-17</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/ArrayList源码分析.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/ArrayList源码分析.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/ArrayList源码分析.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/ArrayList源码分析/">ArrayList源码分析</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h3 id="继承体系"><a href="#继承体系" class="headerlink" title="继承体系"></a>继承体系</h3><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g62gwty9i8j311i0jk0u2.jpg" alt="ArrayList 继承体系" style="zoom:50%;">
-
-<h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 默认容量为10，也就是通过 new ArrayList() 创建时的默认容量</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 空数组</span></span><br><span class="line"><span class="comment"> * 这种是通过 new ArrayList(0) 创建时用的空数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 空数组</span></span><br><span class="line"><span class="comment"> * 这种是通过 new ArrayList() 创建时用的空数组</span></span><br><span class="line"><span class="comment"> * 与 EMPTY_ELEMENTDATA 的区别是在添加第一个元素时使用这个空数组会初始化为 DEFAULT_CAPACITY（10）个元素</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 真正存放元素的地方</span></span><br><span class="line"><span class="comment"> * 使用 transient 关键字能不序列化这个字段</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">transient</span> Object[] elementData; <span class="comment">// non-private to simplify nested class access</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 真正存放元素的个数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> size;</span><br></pre></td></tr></table></figure>
-
-<h4 id="ArrayList-int-initialCapacity-构造方法"><a href="#ArrayList-int-initialCapacity-构造方法" class="headerlink" title="ArrayList(int initialCapacity) 构造方法"></a>ArrayList(int initialCapacity) 构造方法</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">(<span class="keyword">int</span> initialCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果传入的初始容量 &gt; 0，新建一个数组存储元素</span></span><br><span class="line">        <span class="keyword">this</span>.elementData = <span class="keyword">new</span> Object[initialCapacity];</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (initialCapacity == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果传入的初始容量 = 0，使用空数组 EMPTY_ELEMENTDATA</span></span><br><span class="line">        <span class="keyword">this</span>.elementData = EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 如果传入的初始容量 &lt; 0，抛出异常</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Illegal Capacity: "</span>+ initialCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/ArrayList源码分析/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
