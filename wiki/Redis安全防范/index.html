@@ -3,24 +3,23 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>Mybatis 批量操作报错 BadSqlGrammarException | yp_ren Blog</title>
+    <title>Redis安全防范 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="Mybatis">
+        <meta name="keywords" content="Redis安全防范">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="问题Mybatis 使用&amp;lt;foreach&amp;gt;批量操作时，对应的 sql 文件为 &amp;lt;update id=&quot;testBatchUpd&quot; parameterType=&quot;java.util.Map&quot;&amp;gt;    &amp;lt;foreach collection=&quot;dmsProdSkuStocks&quot; item=&quot;item&quot; separator=&quot;;&quot;&amp;gt;        UPDATE dms">
-<meta name="keywords" content="Mybatis">
+    <meta name="description" content="指令安全Redis 有一些非常危险的指令，这些指令会对 Redis 的稳定以及数据安全造成非常严重的影响。比如 keys 指令会导致 Redis 卡顿，flushdb 和 flushall 会让 Redis 的所有数据全部清空。如何避免人为操作失误导致这些灾难性的后果也是运维人员特别需要注意的风险点之一。 Redis 在配置文件中提供了 rename-command 指令用于将某些危险的指令修改成">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mybatis 批量操作报错 BadSqlGrammarException">
-<meta property="og:url" content="https://yapengren.github.io/wiki/Mybatis-批量操作报错-BadSqlGrammarException/index.html">
+<meta property="og:title" content="Redis安全防范">
+<meta property="og:url" content="https://yapengren.github.io/wiki/Redis安全防范/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="问题Mybatis 使用&amp;lt;foreach&amp;gt;批量操作时，对应的 sql 文件为 &amp;lt;update id=&quot;testBatchUpd&quot; parameterType=&quot;java.util.Map&quot;&amp;gt;    &amp;lt;foreach collection=&quot;dmsProdSkuStocks&quot; item=&quot;item&quot; separator=&quot;;&quot;&amp;gt;        UPDATE dms">
+<meta property="og:description" content="指令安全Redis 有一些非常危险的指令，这些指令会对 Redis 的稳定以及数据安全造成非常严重的影响。比如 keys 指令会导致 Redis 卡顿，flushdb 和 flushall 会让 Redis 的所有数据全部清空。如何避免人为操作失误导致这些灾难性的后果也是运维人员特别需要注意的风险点之一。 Redis 在配置文件中提供了 rename-command 指令用于将某些危险的指令修改成">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-28T02:45:06.707Z">
+<meta property="og:updated_time" content="2019-12-08T06:33:07.881Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mybatis 批量操作报错 BadSqlGrammarException">
-<meta name="twitter:description" content="问题Mybatis 使用&amp;lt;foreach&amp;gt;批量操作时，对应的 sql 文件为 &amp;lt;update id=&quot;testBatchUpd&quot; parameterType=&quot;java.util.Map&quot;&amp;gt;    &amp;lt;foreach collection=&quot;dmsProdSkuStocks&quot; item=&quot;item&quot; separator=&quot;;&quot;&amp;gt;        UPDATE dms">
+<meta name="twitter:title" content="Redis安全防范">
+<meta name="twitter:description" content="指令安全Redis 有一些非常危险的指令，这些指令会对 Redis 的稳定以及数据安全造成非常严重的影响。比如 keys 指令会导致 Redis 卡顿，flushdb 和 flushall 会让 Redis 的所有数据全部清空。如何避免人为操作失误导致这些灾难性的后果也是运维人员特别需要注意的风险点之一。 Redis 在配置文件中提供了 rename-command 指令用于将某些危险的指令修改成">
     
 
     
@@ -226,9 +225,9 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             数据库
                         </a>
@@ -239,23 +238,23 @@
                             &nbsp;
                             MySQL
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL-索引/">MySQL 索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            Redis
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis基础数据结构/">Redis基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis-安全防范/">Redis 安全防范</a></li>  <li class="file"><a href="/wiki/Redis-过期策略/">Redis 过期策略</a></li>  </ul> 
-                    </li> 
-                     </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL索引/">MySQL索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory open">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Redis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis基础数据结构/">Redis基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file active"><a href="/wiki/Redis安全防范/">Redis安全防范</a></li>  <li class="file"><a href="/wiki/Redis-过期策略/">Redis 过期策略</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             框架
                         </a>
@@ -278,13 +277,13 @@
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/FastDFS流程图/">FastDFS流程图</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             Mybatis
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  <li class="file active"><a href="/wiki/Mybatis-批量操作报错-BadSqlGrammarException/">Mybatis 批量操作报错 BadSqlGrammarException</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  <li class="file"><a href="/wiki/Mybatis批量操作报错BadSqlGrammarException/">Mybatis批量操作报错BadSqlGrammarException</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -293,7 +292,7 @@
                             &nbsp;
                             shiro
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/shiro-流程图/">shiro 流程图</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/shiro流程图/">shiro 流程图</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -302,7 +301,7 @@
                             &nbsp;
                             spring
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/springMVC-流程图/">springMVC 流程图</a></li>  <li class="file"><a href="/wiki/lombok-使用方法/">lombok 使用方法</a></li>  <li class="file"><a href="/wiki/Spring-事务/">Spring 事务</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/springMVC流程图/">springMVC流程图</a></li>  <li class="file"><a href="/wiki/lombok使用方法/">lombok使用方法</a></li>  <li class="file"><a href="/wiki/Spring事务/">Spring事务</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -356,7 +355,7 @@
                             &nbsp;
                             linux
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/linux-基本命令/">linux 基本命令</a></li>  <li class="file"><a href="/wiki/vim/">vim</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/linux基本命令/">linux基本命令</a></li>  <li class="file"><a href="/wiki/vim/">vim</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -440,7 +439,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Mybatis-批量操作报错-BadSqlGrammarException" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Redis安全防范" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -450,20 +449,15 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/框架/">框架</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/Mybatis/">Mybatis</a>
+        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/Redis/">Redis</a>
     </div>
 
                         
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Mybatis/">Mybatis</a>
-    </div>
-
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Mybatis-批量操作报错-BadSqlGrammarException/">
-            <time datetime="2019-09-16T07:10:48.000Z" itemprop="datePublished">2019-09-16</time>
+        <a href="/wiki/Redis安全防范/">
+            <time datetime="2019-10-28T08:33:17.000Z" itemprop="datePublished">2019-10-28</time>
         </a>
     </div>
 
@@ -474,13 +468,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Mybatis-批量操作报错-BadSqlGrammarException.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis安全防范.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Mybatis-批量操作报错-BadSqlGrammarException.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis安全防范.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Mybatis-批量操作报错-BadSqlGrammarException.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis安全防范.md'> History </a>
                             </div>
                         
                     </div>
@@ -488,7 +482,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Mybatis 批量操作报错 BadSqlGrammarException
+            Redis安全防范
         </h1>
     
 
@@ -501,22 +495,28 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因"><span class="toc-number">2.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">3.</span> <span class="toc-text">解决方案</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#指令安全"><span class="toc-number">1.</span> <span class="toc-text">指令安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#端口安全"><span class="toc-number">2.</span> <span class="toc-text">端口安全</span></a></li></ol>
                 </div>
             
         
         
-            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>Mybatis 使用<code>&lt;foreach&gt;</code>批量操作时，对应的 sql 文件为</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"testBatchUpd"</span> <span class="attr">parameterType</span>=<span class="string">"java.util.Map"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"dmsProdSkuStocks"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">separator</span>=<span class="string">";"</span>&gt;</span></span><br><span class="line">        UPDATE dms_prod_sku_stock SET </span><br><span class="line">        STOCK = #&#123;item.stock&#125; </span><br><span class="line">        WHERE SKU_RELATE_ID = #&#123;item.skuRelateId&#125; </span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+            <h2 id="指令安全"><a href="#指令安全" class="headerlink" title="指令安全"></a>指令安全</h2><p>Redis 有一些非常危险的指令，这些指令会对 Redis 的稳定以及数据安全造成非常严重的影响。比如 <code>keys</code> 指令会导致 Redis 卡顿，<code>flushdb</code> 和 <code>flushall</code> 会让 Redis 的所有数据全部清空。如何避免人为操作失误导致这些灾难性的后果也是运维人员特别需要注意的风险点之一。</p>
+<p>Redis 在配置文件中提供了 <code>rename-command</code> 指令用于将某些危险的指令修改成特别的名称，用来避免人为误操作。比如在配置文件的 security 块增加下面的内容:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rename-command keys abckeysabc</span><br></pre></td></tr></table></figure>
 
-<p>调用接口执行的时候，程序就会报错</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">org.springframework.jdbc.BadSqlGrammarException</span><br></pre></td></tr></table></figure>
+<p>如果还想执行 keys 方法，那就不能直接敲 <code>keys</code> 命令了，而需要键入<code>abckeysabc</code>。 如果想完全封杀某条指令，可以将指令 <code>rename</code> 成空串，就无法通过任何字符串指令来执行这条指令了。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rename-command flushall ""</span><br></pre></td></tr></table></figure>
 
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>用 Mybatic 批量操作必须加上参数 <code>&amp;allowMultiQueries=true</code></p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>添加参数 <code>&amp;allowMultiQueries=true</code></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">community.jdbc.url=jdbc:mysql://172.25.28.8:3306/jr_community?createDatabaseIfNotExist=true&amp;amp;characterEncoding=utf-8&amp;amp;useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true</span><br><span class="line">community.jdbc.username=</span><br><span class="line">community.jdbc.password=</span><br></pre></td></tr></table></figure>
+<h2 id="端口安全"><a href="#端口安全" class="headerlink" title="端口安全"></a>端口安全</h2><p>Redis 默认会监听 <code>*:6379</code>，如果当前的服务器主机有外网地址，Redis 的服务将会直接暴露在公网上，任何一个初级黑客使用适当的工具对 IP 地址进行端口扫描就可以探测出来。</p>
+<p> Redis 的服务地址一旦可以被外网直接访问，内部的数据就彻底丧失了安全性。高级一点的黑客们可以通过 Redis 执行 Lua 脚本拿到服务器权限，恶意的竞争对手们甚至会直接清空你的 Redis 数据库。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bind 10.100.20.13</span><br></pre></td></tr></table></figure>
 
-<p>参数意思是允许多查询</p>
+<p>所以，运维人员务必在 Redis 的配置文件中指定监听的 IP 地址，避免这样的惨剧发生。更进一步，还可以增加 Redis 的密码访问限制，客户端必须使用 <code>auth</code> 指令传入正确的密码才可以访问 Redis，这样即使地址暴露出去了，普通黑客也无法对 Redis 进行任何指令操作。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">requirepass yoursecurepasswordhereplease</span><br></pre></td></tr></table></figure>
+
+<p>密码控制也会影响到从库复制，从库必须在配置文件里使用 masterauth 指令配置相应的密码才可以进行复制操作。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">masterauth yoursecurepasswordhereplease</span><br></pre></td></tr></table></figure>
+
 
             </div>
         
@@ -529,19 +529,19 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/java-util-ConcurrentModificationException-异常详解/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/wiki/Redis-过期策略/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    java.util.ConcurrentModificationException 异常详解
+                    Redis 过期策略
                 
             </div>
         </a>
     
     
-        <a href="/wiki/lombok-使用方法/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/java判断对象中属性值是否全为空/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">lombok 使用方法</div>
+            <div class="article-nav-title">java判断对象中属性值是否全为空</div>
         </a>
     
 </nav>

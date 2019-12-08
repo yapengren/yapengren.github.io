@@ -3,23 +3,23 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>Redis 安全防范 | yp_ren Blog</title>
+    <title>shiro 流程图 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="Redis 安全防范">
+        <meta name="keywords" content="shiro">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="指令安全Redis 有一些非常危险的指令，这些指令会对 Redis 的稳定以及数据安全造成非常严重的影响。比如 keys 指令会导致 Redis 卡顿，flushdb 和 flushall 会让 Redis 的所有数据全部清空。如何避免人为操作失误导致这些灾难性的后果也是运维人员特别需要注意的风险点之一。 Redis 在配置文件中提供了 rename-command 指令用于将某些危险的指令修改成">
+    <meta name="keywords" content="shiro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis 安全防范">
-<meta property="og:url" content="https://yapengren.github.io/wiki/Redis-安全防范/index.html">
+<meta property="og:title" content="shiro 流程图">
+<meta property="og:url" content="https://yapengren.github.io/wiki/shiro流程图/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="指令安全Redis 有一些非常危险的指令，这些指令会对 Redis 的稳定以及数据安全造成非常严重的影响。比如 keys 指令会导致 Redis 卡顿，flushdb 和 flushall 会让 Redis 的所有数据全部清空。如何避免人为操作失误导致这些灾难性的后果也是运维人员特别需要注意的风险点之一。 Redis 在配置文件中提供了 rename-command 指令用于将某些危险的指令修改成">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-28T08:39:06.664Z">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79ly1g5nhjbbi30j30se0g1glz.jpg">
+<meta property="og:updated_time" content="2019-10-28T02:40:09.184Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis 安全防范">
-<meta name="twitter:description" content="指令安全Redis 有一些非常危险的指令，这些指令会对 Redis 的稳定以及数据安全造成非常严重的影响。比如 keys 指令会导致 Redis 卡顿，flushdb 和 flushall 会让 Redis 的所有数据全部清空。如何避免人为操作失误导致这些灾难性的后果也是运维人员特别需要注意的风险点之一。 Redis 在配置文件中提供了 rename-command 指令用于将某些危险的指令修改成">
+<meta name="twitter:title" content="shiro 流程图">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79ly1g5nhjbbi30j30se0g1glz.jpg">
     
 
     
@@ -225,9 +225,9 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             数据库
                         </a>
@@ -238,23 +238,23 @@
                             &nbsp;
                             MySQL
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL-索引/">MySQL 索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory open">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
-                            &nbsp;
-                            Redis
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis基础数据结构/">Redis基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file active"><a href="/wiki/Redis-安全防范/">Redis 安全防范</a></li>  <li class="file"><a href="/wiki/Redis-过期策略/">Redis 过期策略</a></li>  </ul> 
-                    </li> 
-                     </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL索引/">MySQL索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Redis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis基础数据结构/">Redis基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis安全防范/">Redis安全防范</a></li>  <li class="file"><a href="/wiki/Redis-过期策略/">Redis 过期策略</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             框架
                         </a>
@@ -283,16 +283,16 @@
                             &nbsp;
                             Mybatis
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  <li class="file"><a href="/wiki/Mybatis-批量操作报错-BadSqlGrammarException/">Mybatis 批量操作报错 BadSqlGrammarException</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  <li class="file"><a href="/wiki/Mybatis批量操作报错BadSqlGrammarException/">Mybatis批量操作报错BadSqlGrammarException</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             shiro
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/shiro-流程图/">shiro 流程图</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/shiro流程图/">shiro 流程图</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -301,7 +301,7 @@
                             &nbsp;
                             spring
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/springMVC-流程图/">springMVC 流程图</a></li>  <li class="file"><a href="/wiki/lombok-使用方法/">lombok 使用方法</a></li>  <li class="file"><a href="/wiki/Spring-事务/">Spring 事务</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/springMVC流程图/">springMVC流程图</a></li>  <li class="file"><a href="/wiki/lombok使用方法/">lombok使用方法</a></li>  <li class="file"><a href="/wiki/Spring事务/">Spring事务</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -355,7 +355,7 @@
                             &nbsp;
                             linux
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/linux-基本命令/">linux 基本命令</a></li>  <li class="file"><a href="/wiki/vim/">vim</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/linux基本命令/">linux基本命令</a></li>  <li class="file"><a href="/wiki/vim/">vim</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -439,7 +439,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Redis-安全防范" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-shiro流程图" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -449,15 +449,20 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/Redis/">Redis</a>
+        <a class="article-category-link" href="/categories/框架/">框架</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/shiro/">shiro</a>
     </div>
 
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/shiro/">shiro</a>
+    </div>
+
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis-安全防范/">
-            <time datetime="2019-10-28T08:33:17.000Z" itemprop="datePublished">2019-10-28</time>
+        <a href="/wiki/shiro流程图/">
+            <time datetime="2019-08-04T03:28:49.000Z" itemprop="datePublished">2019-08-04</time>
         </a>
     </div>
 
@@ -468,13 +473,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis-安全防范.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/shiro流程图.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis-安全防范.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/shiro流程图.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis-安全防范.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/shiro流程图.md'> History </a>
                             </div>
                         
                     </div>
@@ -482,7 +487,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Redis 安全防范
+            shiro 流程图
         </h1>
     
 
@@ -495,28 +500,12 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#指令安全"><span class="toc-number">1.</span> <span class="toc-text">指令安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#端口安全"><span class="toc-number">2.</span> <span class="toc-text">端口安全</span></a></li></ol>
+                    
                 </div>
             
         
         
-            <h2 id="指令安全"><a href="#指令安全" class="headerlink" title="指令安全"></a>指令安全</h2><p>Redis 有一些非常危险的指令，这些指令会对 Redis 的稳定以及数据安全造成非常严重的影响。比如 <code>keys</code> 指令会导致 Redis 卡顿，<code>flushdb</code> 和 <code>flushall</code> 会让 Redis 的所有数据全部清空。如何避免人为操作失误导致这些灾难性的后果也是运维人员特别需要注意的风险点之一。</p>
-<p>Redis 在配置文件中提供了 <code>rename-command</code> 指令用于将某些危险的指令修改成特别的名称，用来避免人为误操作。比如在配置文件的 security 块增加下面的内容:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rename-command keys abckeysabc</span><br></pre></td></tr></table></figure>
-
-<p>如果还想执行 keys 方法，那就不能直接敲 <code>keys</code> 命令了，而需要键入<code>abckeysabc</code>。 如果想完全封杀某条指令，可以将指令 <code>rename</code> 成空串，就无法通过任何字符串指令来执行这条指令了。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rename-command flushall ""</span><br></pre></td></tr></table></figure>
-
-<h2 id="端口安全"><a href="#端口安全" class="headerlink" title="端口安全"></a>端口安全</h2><p>Redis 默认会监听 <code>*:6379</code>，如果当前的服务器主机有外网地址，Redis 的服务将会直接暴露在公网上，任何一个初级黑客使用适当的工具对 IP 地址进行端口扫描就可以探测出来。</p>
-<p> Redis 的服务地址一旦可以被外网直接访问，内部的数据就彻底丧失了安全性。高级一点的黑客们可以通过 Redis 执行 Lua 脚本拿到服务器权限，恶意的竞争对手们甚至会直接清空你的 Redis 数据库。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bind 10.100.20.13</span><br></pre></td></tr></table></figure>
-
-<p>所以，运维人员务必在 Redis 的配置文件中指定监听的 IP 地址，避免这样的惨剧发生。更进一步，还可以增加 Redis 的密码访问限制，客户端必须使用 <code>auth</code> 指令传入正确的密码才可以访问 Redis，这样即使地址暴露出去了，普通黑客也无法对 Redis 进行任何指令操作。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">requirepass yoursecurepasswordhereplease</span><br></pre></td></tr></table></figure>
-
-<p>密码控制也会影响到从库复制，从库必须在配置文件里使用 masterauth 指令配置相应的密码才可以进行复制操作。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">masterauth yoursecurepasswordhereplease</span><br></pre></td></tr></table></figure>
-
+            <p><img src="http://ww4.sinaimg.cn/large/006tNc79ly1g5nhjbbi30j30se0g1glz.jpg" alt="shiro流程图"></p>
 
             </div>
         
@@ -529,19 +518,19 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/Redis-过期策略/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/wiki/springMVC流程图/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    Redis 过期策略
+                    springMVC流程图
                 
             </div>
         </a>
     
     
-        <a href="/wiki/java判断对象中属性值是否全为空/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/Dubbo架构/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">java判断对象中属性值是否全为空</div>
+            <div class="article-nav-title">Dubbo架构</div>
         </a>
     
 </nav>

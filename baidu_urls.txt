@@ -1,10 +1,10 @@
 https://yapengren.github.io/wiki/java线程知识点/
 https://yapengren.github.io/wiki/java8总结/
-https://yapengren.github.io/wiki/Spring-事务/
+https://yapengren.github.io/wiki/Spring事务/
 https://yapengren.github.io/wiki/Redis-过期策略/
-https://yapengren.github.io/wiki/Redis-安全防范/
+https://yapengren.github.io/wiki/Redis安全防范/
 https://yapengren.github.io/wiki/java判断对象中属性值是否全为空/
 https://yapengren.github.io/wiki/SpringBoot中间件/
 https://yapengren.github.io/wiki/mac系统快捷键/
 https://yapengren.github.io/wiki/vim/
-https://yapengren.github.io/wiki/linux-基本命令/
+https://yapengren.github.io/wiki/linux基本命令/
