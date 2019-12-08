@@ -9,20 +9,20 @@
         <meta name="keywords" content="linux">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="vim工作模式  vim键盘图  vim常用按键vim使用案例在每行行首添加相同的内容:%s/^/要添加的内容  在每行行尾添加相同的内容:%s/$/要添加的内容">
+    <meta name="description" content="vim工作模式  vim键盘图    vim使用案例特殊字符转义/   -&amp;gt;   \/\   -&amp;gt;   \\n  在每行行首添加相同的内容:%s/^/要添加的内容  在每行行尾添加相同的内容:%s/$/要添加的内容  删除包含指定字符的行: g/指定字符/d例如，需要删除文件中，含有字符串“content-length”的行：: g/content-length/d">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vim">
 <meta property="og:url" content="https://yapengren.github.io/wiki/vim/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="vim工作模式  vim键盘图  vim常用按键vim使用案例在每行行首添加相同的内容:%s/^/要添加的内容  在每行行尾添加相同的内容:%s/$/要添加的内容">
+<meta property="og:description" content="vim工作模式  vim键盘图    vim使用案例特殊字符转义/   -&amp;gt;   \/\   -&amp;gt;   \\n  在每行行首添加相同的内容:%s/^/要添加的内容  在每行行尾添加相同的内容:%s/$/要添加的内容  删除包含指定字符的行: g/指定字符/d例如，需要删除文件中，含有字符串“content-length”的行：: g/content-length/d">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png">
 <meta property="og:image" content="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif">
-<meta property="og:updated_time" content="2019-10-31T04:54:53.918Z">
+<meta property="og:updated_time" content="2019-12-06T06:01:17.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vim">
-<meta name="twitter:description" content="vim工作模式  vim键盘图  vim常用按键vim使用案例在每行行首添加相同的内容:%s/^/要添加的内容  在每行行尾添加相同的内容:%s/$/要添加的内容">
+<meta name="twitter:description" content="vim工作模式  vim键盘图    vim使用案例特殊字符转义/   -&amp;gt;   \/\   -&amp;gt;   \\n  在每行行首添加相同的内容:%s/^/要添加的内容  在每行行尾添加相同的内容:%s/$/要添加的内容  删除包含指定字符的行: g/指定字符/d例如，需要删除文件中，含有字符串“content-length”的行：: g/content-length/d">
 <meta name="twitter:image" content="https://www.runoob.com/wp-content/uploads/2014/07/vim-vi-workmodel.png">
     
 
@@ -504,7 +504,7 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vim工作模式"><span class="toc-number">1.</span> <span class="toc-text">vim工作模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vim键盘图"><span class="toc-number">2.</span> <span class="toc-text">vim键盘图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vim常用按键"><span class="toc-number">3.</span> <span class="toc-text">vim常用按键</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vim使用案例"><span class="toc-number">4.</span> <span class="toc-text">vim使用案例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在每行行首添加相同的内容"><span class="toc-number">4.1.</span> <span class="toc-text">在每行行首添加相同的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在每行行尾添加相同的内容"><span class="toc-number">4.2.</span> <span class="toc-text">在每行行尾添加相同的内容</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vim工作模式"><span class="toc-number">1.</span> <span class="toc-text">vim工作模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vim键盘图"><span class="toc-number">2.</span> <span class="toc-text">vim键盘图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vim使用案例"><span class="toc-number">3.</span> <span class="toc-text">vim使用案例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊字符转义"><span class="toc-number">3.1.</span> <span class="toc-text">特殊字符转义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在每行行首添加相同的内容"><span class="toc-number">3.2.</span> <span class="toc-text">在每行行首添加相同的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在每行行尾添加相同的内容"><span class="toc-number">3.3.</span> <span class="toc-text">在每行行尾添加相同的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除包含指定字符的行"><span class="toc-number">3.4.</span> <span class="toc-text">删除包含指定字符的行</span></a></li></ol></li></ol>
                 </div>
             
         
@@ -513,9 +513,15 @@
 
 <h1 id="vim键盘图"><a href="#vim键盘图" class="headerlink" title="vim键盘图"></a>vim键盘图</h1><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt="vim键盘图" style="zoom:67%;">
 
-<h1 id="vim常用按键"><a href="#vim常用按键" class="headerlink" title="vim常用按键"></a>vim常用按键</h1><h1 id="vim使用案例"><a href="#vim使用案例" class="headerlink" title="vim使用案例"></a>vim使用案例</h1><h2 id="在每行行首添加相同的内容"><a href="#在每行行首添加相同的内容" class="headerlink" title="在每行行首添加相同的内容"></a>在每行行首添加相同的内容</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">:%s/^/要添加的内容</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="vim使用案例"><a href="#vim使用案例" class="headerlink" title="vim使用案例"></a>vim使用案例</h1><h2 id="特殊字符转义"><a href="#特殊字符转义" class="headerlink" title="特殊字符转义"></a>特殊字符转义</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/   -&gt;   \/</span><br><span class="line">\   -&gt;   \\n</span><br></pre></td></tr></table></figure>
+
+<h2 id="在每行行首添加相同的内容"><a href="#在每行行首添加相同的内容" class="headerlink" title="在每行行首添加相同的内容"></a>在每行行首添加相同的内容</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">:%s/^/要添加的内容</span><br></pre></td></tr></table></figure>
 
 <h2 id="在每行行尾添加相同的内容"><a href="#在每行行尾添加相同的内容" class="headerlink" title="在每行行尾添加相同的内容"></a>在每行行尾添加相同的内容</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">:%s/$/要添加的内容</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除包含指定字符的行"><a href="#删除包含指定字符的行" class="headerlink" title="删除包含指定字符的行"></a>删除包含指定字符的行</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">: g/指定字符/d</span><br><span class="line"></span><br><span class="line">例如，需要删除文件中，含有字符串“content-length”的行：</span><br><span class="line">: g/content-length/d</span><br></pre></td></tr></table></figure>
 
 
             </div>

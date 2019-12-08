@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://yapengren.github.io/wiki/vim/</loc>
+    <lastmod>2019-12-06</lastmod>
+  </url>  <url>
     <loc>https://yapengren.github.io/wiki/Redis%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2019-12-05</lastmod>
   </url>  <url>
@@ -29,9 +32,6 @@
     <lastmod>2019-11-02</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/mac-brew-%E6%9C%8D%E5%8A%A1/</loc>
-    <lastmod>2019-10-31</lastmod>
-  </url>  <url>
-    <loc>https://yapengren.github.io/wiki/vim/</loc>
     <lastmod>2019-10-31</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/linux-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</loc>
