@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://yapengren.github.io/wiki/Mybatis%20foreach%20%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C/</loc>
+    <lastmod>2019-12-12</lastmod>
+  </url>  <url>
     <loc>https://yapengren.github.io/wiki/springMVC%E6%B5%81%E7%A8%8B%E5%9B%BE/</loc>
     <lastmod>2019-12-08</lastmod>
   </url>  <url>
@@ -11,9 +14,6 @@
     <lastmod>2019-12-08</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/MySQL%E7%B4%A2%E5%BC%95/</loc>
-    <lastmod>2019-12-08</lastmod>
-  </url>  <url>
-    <loc>https://yapengren.github.io/wiki/Mybatis%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E6%8A%A5%E9%94%99BadSqlGrammarException/</loc>
     <lastmod>2019-12-08</lastmod>
   </url>  <url>
     <loc>https://yapengren.github.io/wiki/lombok%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</loc>

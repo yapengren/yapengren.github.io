@@ -279,7 +279,7 @@
                             &nbsp;
                             Mybatis
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  <li class="file"><a href="/wiki/Mybatis批量操作报错BadSqlGrammarException/">Mybatis批量操作报错BadSqlGrammarException</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  <li class="file"><a href="/wiki/Mybatis foreach 批量操作/">Mybatis foreach 批量操作</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -540,7 +540,7 @@
 
 
     
-        <article id="post-Mybatis批量操作报错BadSqlGrammarException" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Mybatis foreach 批量操作" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -562,7 +562,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Mybatis批量操作报错BadSqlGrammarException/">
+        <a href="/wiki/Mybatis foreach 批量操作/">
             <time datetime="2019-09-16T07:10:48.000Z" itemprop="datePublished">2019-09-16</time>
         </a>
     </div>
@@ -574,13 +574,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Mybatis批量操作报错BadSqlGrammarException.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Mybatis foreach 批量操作.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Mybatis批量操作报错BadSqlGrammarException.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Mybatis foreach 批量操作.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Mybatis批量操作报错BadSqlGrammarException.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Mybatis foreach 批量操作.md'> History </a>
                             </div>
                         
                     </div>
@@ -588,7 +588,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/wiki/Mybatis批量操作报错BadSqlGrammarException/">Mybatis批量操作报错BadSqlGrammarException</a>
+            <a class="article-title" href="/wiki/Mybatis foreach 批量操作/">Mybatis foreach 批量操作</a>
         </h1>
     
 
@@ -618,11 +618,11 @@
                 
                 
                     
-                    <p><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>Mybatis 使用<code>&lt;foreach&gt;</code>批量操作时，对应的 sql 文件为</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"testBatchUpd"</span> <span class="attr">parameterType</span>=<span class="string">"java.util.Map"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"dmsProdSkuStocks"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">separator</span>=<span class="string">";"</span>&gt;</span></span><br><span class="line">        UPDATE dms_prod_sku_stock SET </span><br><span class="line">        STOCK = #&#123;item.stock&#125; </span><br><span class="line">        WHERE SKU_RELATE_ID = #&#123;item.skuRelateId&#125; </span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+                    <p><h1 id="mybatis-foreach-遍历传递进来的集合"><a href="#mybatis-foreach-遍历传递进来的集合" class="headerlink" title="mybatis foreach 遍历传递进来的集合"></a>mybatis foreach 遍历传递进来的集合</h1><h2 id="mapper-接口"><a href="#mapper-接口" class="headerlink" title="mapper 接口"></a>mapper 接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">List&lt;Employee&gt; <span class="title">getEmpsByConditions</span><span class="params">(@Param(<span class="string">"list"</span>)</span> List&lt;Integer&gt; idList)</span>;</span><br></pre></td></tr></table></figure>
 
-<p>调用接口执行的时候，程序就会报错</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">org.springframework.jdbc.BadSqlGrammarException</span><br></pre></td></tr></table></figure>
+<h2 id="mapper-xml"><a href="#mapper-xml" class="headerlink" title="mapper.xml"></a>mapper.xml</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 注意返回的数据类型是集合中保存的数据类型 Employee--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getEmpsByConditions"</span> <span class="attr">resultType</span>=<span class="string">"com.jas.mybatis.bean.Employee"</span>&gt;</span></span><br><span class="line">	SELECT * FROM t_employee WHERE id IN </span><br><span class="line">	<span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">		collection：指定要遍历的集合</span></span><br><span class="line"><span class="comment">		item:取出当前集合中元素，赋给 item 中的值</span></span><br><span class="line"><span class="comment">    separator：遍历出的多个元素之间用什么分隔符分隔开</span></span><br><span class="line"><span class="comment">    open：遍历集合前用什么字符进行拼接</span></span><br><span class="line"><span class="comment">    close：遍历集合后用什么字符进行拼接</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    在 foreach 标签中还有一个属性 index，</span></span><br><span class="line"><span class="comment">    遍历集合的时候 index 表示的是当前元素的索引，item 对应索引中的值</span></span><br><span class="line"><span class="comment">    遍历 map 的时候 index 表示的是当前 map 中的 key，item 是 key 对应的 value</span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"list"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">separator</span>=<span class="string">","</span> <span class="attr">open</span>=<span class="string">"("</span> <span class="attr">close</span>=<span class="string">")"</span>&gt;</span></span><br><span class="line">		#&#123;item&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="foreach-批量插入数据"><a href="#foreach-批量插入数据" class="headerlink" title="foreach 批量插入数据"></a>foreach 批量插入数据</h1><h2 id="mapper-接口-1"><a href="#mapper-接口-1" class="headerlink" title="mapper 接口"></a>mapper 接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Integer <span class="title">addEmpsByList</span><span class="params">(@Param(<span class="string">"list"</span>)</span> List&lt;Employee&gt; list)</span>;</span><br></pre></td></tr></table></figure>
 <p>
                 
             
@@ -630,7 +630,7 @@
         
             </div>   
             <div class="article-more-link">
-                <a href="/wiki/Mybatis批量操作报错BadSqlGrammarException/#more">查看更多</a>
+                <a href="/wiki/Mybatis foreach 批量操作/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

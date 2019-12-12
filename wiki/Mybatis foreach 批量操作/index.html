@@ -3,24 +3,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>Mybatis批量操作报错BadSqlGrammarException | yp_ren Blog</title>
+    <title>Mybatis foreach 批量操作 | yp_ren Blog</title>
     
     
         <meta name="keywords" content="Mybatis">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="问题Mybatis 使用&amp;lt;foreach&amp;gt;批量操作时，对应的 sql 文件为 &amp;lt;update id=&quot;testBatchUpd&quot; parameterType=&quot;java.util.Map&quot;&amp;gt;    &amp;lt;foreach collection=&quot;dmsProdSkuStocks&quot; item=&quot;item&quot; separator=&quot;;&quot;&amp;gt;        UPDATE dms">
+    <meta name="description" content="mybatis foreach 遍历传递进来的集合mapper 接口List&amp;lt;Employee&amp;gt; getEmpsByConditions(@Param(&quot;list&quot;) List&amp;lt;Integer&amp;gt; idList);  mapper.xml&amp;lt;!-- 注意返回的数据类型是集合中保存的数据类型 Employee--&amp;gt;&amp;lt;select id=&quot;getEmpsByCon">
 <meta name="keywords" content="Mybatis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mybatis批量操作报错BadSqlGrammarException">
-<meta property="og:url" content="https://yapengren.github.io/wiki/Mybatis批量操作报错BadSqlGrammarException/index.html">
+<meta property="og:title" content="Mybatis foreach 批量操作">
+<meta property="og:url" content="https://yapengren.github.io/wiki/Mybatis foreach 批量操作/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="问题Mybatis 使用&amp;lt;foreach&amp;gt;批量操作时，对应的 sql 文件为 &amp;lt;update id=&quot;testBatchUpd&quot; parameterType=&quot;java.util.Map&quot;&amp;gt;    &amp;lt;foreach collection=&quot;dmsProdSkuStocks&quot; item=&quot;item&quot; separator=&quot;;&quot;&amp;gt;        UPDATE dms">
+<meta property="og:description" content="mybatis foreach 遍历传递进来的集合mapper 接口List&amp;lt;Employee&amp;gt; getEmpsByConditions(@Param(&quot;list&quot;) List&amp;lt;Integer&amp;gt; idList);  mapper.xml&amp;lt;!-- 注意返回的数据类型是集合中保存的数据类型 Employee--&amp;gt;&amp;lt;select id=&quot;getEmpsByCon">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-08T06:32:54.651Z">
+<meta property="og:updated_time" content="2019-12-12T09:05:50.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mybatis批量操作报错BadSqlGrammarException">
-<meta name="twitter:description" content="问题Mybatis 使用&amp;lt;foreach&amp;gt;批量操作时，对应的 sql 文件为 &amp;lt;update id=&quot;testBatchUpd&quot; parameterType=&quot;java.util.Map&quot;&amp;gt;    &amp;lt;foreach collection=&quot;dmsProdSkuStocks&quot; item=&quot;item&quot; separator=&quot;;&quot;&amp;gt;        UPDATE dms">
+<meta name="twitter:title" content="Mybatis foreach 批量操作">
+<meta name="twitter:description" content="mybatis foreach 遍历传递进来的集合mapper 接口List&amp;lt;Employee&amp;gt; getEmpsByConditions(@Param(&quot;list&quot;) List&amp;lt;Integer&amp;gt; idList);  mapper.xml&amp;lt;!-- 注意返回的数据类型是集合中保存的数据类型 Employee--&amp;gt;&amp;lt;select id=&quot;getEmpsByCon">
     
 
     
@@ -284,7 +284,7 @@
                             &nbsp;
                             Mybatis
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  <li class="file active"><a href="/wiki/Mybatis批量操作报错BadSqlGrammarException/">Mybatis批量操作报错BadSqlGrammarException</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mybatis-知识点/">Mybatis 知识点</a></li>  <li class="file active"><a href="/wiki/Mybatis foreach 批量操作/">Mybatis foreach 批量操作</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -440,7 +440,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Mybatis批量操作报错BadSqlGrammarException" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Mybatis foreach 批量操作" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -462,7 +462,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Mybatis批量操作报错BadSqlGrammarException/">
+        <a href="/wiki/Mybatis foreach 批量操作/">
             <time datetime="2019-09-16T07:10:48.000Z" itemprop="datePublished">2019-09-16</time>
         </a>
     </div>
@@ -474,13 +474,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Mybatis批量操作报错BadSqlGrammarException.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Mybatis foreach 批量操作.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Mybatis批量操作报错BadSqlGrammarException.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Mybatis foreach 批量操作.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Mybatis批量操作报错BadSqlGrammarException.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Mybatis foreach 批量操作.md'> History </a>
                             </div>
                         
                     </div>
@@ -488,7 +488,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Mybatis批量操作报错BadSqlGrammarException
+            Mybatis foreach 批量操作
         </h1>
     
 
@@ -501,19 +501,22 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原因"><span class="toc-number">2.</span> <span class="toc-text">原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">3.</span> <span class="toc-text">解决方案</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mybatis-foreach-遍历传递进来的集合"><span class="toc-number">1.</span> <span class="toc-text">mybatis foreach 遍历传递进来的集合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mapper-接口"><span class="toc-number">1.1.</span> <span class="toc-text">mapper 接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mapper-xml"><span class="toc-number">1.2.</span> <span class="toc-text">mapper.xml</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#foreach-批量插入数据"><span class="toc-number">2.</span> <span class="toc-text">foreach 批量插入数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mapper-接口-1"><span class="toc-number">2.1.</span> <span class="toc-text">mapper 接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mapper-xml-1"><span class="toc-number">2.2.</span> <span class="toc-text">mapper.xml</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#执行多条-SQL-批量插入数据"><span class="toc-number">3.</span> <span class="toc-text">执行多条 SQL 批量插入数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mapper-xml-2"><span class="toc-number">3.1.</span> <span class="toc-text">mapper.xml</span></a></li></ol></li></ol>
                 </div>
             
         
         
-            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>Mybatis 使用<code>&lt;foreach&gt;</code>批量操作时，对应的 sql 文件为</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"testBatchUpd"</span> <span class="attr">parameterType</span>=<span class="string">"java.util.Map"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"dmsProdSkuStocks"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">separator</span>=<span class="string">";"</span>&gt;</span></span><br><span class="line">        UPDATE dms_prod_sku_stock SET </span><br><span class="line">        STOCK = #&#123;item.stock&#125; </span><br><span class="line">        WHERE SKU_RELATE_ID = #&#123;item.skuRelateId&#125; </span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+            <h1 id="mybatis-foreach-遍历传递进来的集合"><a href="#mybatis-foreach-遍历传递进来的集合" class="headerlink" title="mybatis foreach 遍历传递进来的集合"></a>mybatis foreach 遍历传递进来的集合</h1><h2 id="mapper-接口"><a href="#mapper-接口" class="headerlink" title="mapper 接口"></a>mapper 接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">List&lt;Employee&gt; <span class="title">getEmpsByConditions</span><span class="params">(@Param(<span class="string">"list"</span>)</span> List&lt;Integer&gt; idList)</span>;</span><br></pre></td></tr></table></figure>
 
-<p>调用接口执行的时候，程序就会报错</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">org.springframework.jdbc.BadSqlGrammarException</span><br></pre></td></tr></table></figure>
+<h2 id="mapper-xml"><a href="#mapper-xml" class="headerlink" title="mapper.xml"></a>mapper.xml</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 注意返回的数据类型是集合中保存的数据类型 Employee--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getEmpsByConditions"</span> <span class="attr">resultType</span>=<span class="string">"com.jas.mybatis.bean.Employee"</span>&gt;</span></span><br><span class="line">	SELECT * FROM t_employee WHERE id IN </span><br><span class="line">	<span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">		collection：指定要遍历的集合</span></span><br><span class="line"><span class="comment">		item:取出当前集合中元素，赋给 item 中的值</span></span><br><span class="line"><span class="comment">    separator：遍历出的多个元素之间用什么分隔符分隔开</span></span><br><span class="line"><span class="comment">    open：遍历集合前用什么字符进行拼接</span></span><br><span class="line"><span class="comment">    close：遍历集合后用什么字符进行拼接</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    在 foreach 标签中还有一个属性 index，</span></span><br><span class="line"><span class="comment">    遍历集合的时候 index 表示的是当前元素的索引，item 对应索引中的值</span></span><br><span class="line"><span class="comment">    遍历 map 的时候 index 表示的是当前 map 中的 key，item 是 key 对应的 value</span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"list"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">separator</span>=<span class="string">","</span> <span class="attr">open</span>=<span class="string">"("</span> <span class="attr">close</span>=<span class="string">")"</span>&gt;</span></span><br><span class="line">		#&#123;item&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>用 Mybatic 批量操作必须加上参数 <code>&amp;allowMultiQueries=true</code></p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>添加参数 <code>&amp;allowMultiQueries=true</code></p>
+<h1 id="foreach-批量插入数据"><a href="#foreach-批量插入数据" class="headerlink" title="foreach 批量插入数据"></a>foreach 批量插入数据</h1><h2 id="mapper-接口-1"><a href="#mapper-接口-1" class="headerlink" title="mapper 接口"></a>mapper 接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Integer <span class="title">addEmpsByList</span><span class="params">(@Param(<span class="string">"list"</span>)</span> List&lt;Employee&gt; list)</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="mapper-xml-1"><a href="#mapper-xml-1" class="headerlink" title="mapper.xml"></a>mapper.xml</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"addEmpsByList"</span> <span class="attr">parameterType</span>=<span class="string">"com.mybatis.bean.Employee"</span>&gt;</span></span><br><span class="line">	INSERT INTO t_employee(username, gender, email) VALUES </span><br><span class="line">	<span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"list"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></span><br><span class="line">		(#&#123;item.username&#125;, #&#123;item.gender&#125;, #&#123;item.email&#125;)</span><br><span class="line">	<span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="执行多条-SQL-批量插入数据"><a href="#执行多条-SQL-批量插入数据" class="headerlink" title="执行多条 SQL 批量插入数据"></a>执行多条 SQL 批量插入数据</h1><h2 id="mapper-xml-2"><a href="#mapper-xml-2" class="headerlink" title="mapper.xml"></a>mapper.xml</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"addEmpsByList"</span> <span class="attr">parameterType</span>=<span class="string">"com.mybatis.bean.Employee"</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">		每插入一条数据就执行一次 SQL，中间用";"分隔开 </span></span><br><span class="line"><span class="comment">	--&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"list"</span> <span class="attr">item</span>=<span class="string">"item"</span> <span class="attr">separator</span>=<span class="string">";"</span>&gt;</span></span><br><span class="line">		INSERT INTO t_employee(username, gender, email) VALUES </span><br><span class="line">		(#&#123;item.username&#125;, #&#123;item.gender&#125;, #&#123;item.email&#125;)</span><br><span class="line">	<span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>MySql 默认的情况下是不支持使用<code>;</code>分隔开多条 SQL 进行执行的，程序会报错<code>org.springframework.jdbc.BadSqlGrammarException</code>，Mybatic 批量操作必须加上参数 <code>&amp;allowMultiQueries=true</code></p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">community.jdbc.url=jdbc:mysql://172.25.28.8:3306/jr_community?createDatabaseIfNotExist=true&amp;amp;characterEncoding=utf-8&amp;amp;useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;allowMultiQueries=true</span><br><span class="line">community.jdbc.username=</span><br><span class="line">community.jdbc.password=</span><br></pre></td></tr></table></figure>
 
 <p>参数意思是允许多查询</p>
