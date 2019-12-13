@@ -3,19 +3,33 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>分类: 数据库 | yp_ren Blog</title>
+    <title>进制转换 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="yp_ren Blog">
+        <meta name="keywords" content="java">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="yp_ren Blog">
-<meta property="og:url" content="https://yapengren.github.io/categories/数据库/index.html">
+    <meta name="description" content="二进制转十进制方法：把二进制数按权展开，相加即得十进制数。  十进制转二进制方法：十进制数除2取余法，即十进制数除2，余数为权位上的数，得到的商值继续除2，依此步骤继续向下运算直到商为0为止。  二进制转八进制方法：3位二进制数按权展开相加得到1位八进制数。（注意事项，3位二进制转成八进制是从右到左开始转换，不足时补0）。  八进制转成二进制方法：八进制数通过除2取余法，得到二进制数，对每个八进制">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="进制转换">
+<meta property="og:url" content="https://yapengren.github.io/wiki/进制转换/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
+<meta property="og:description" content="二进制转十进制方法：把二进制数按权展开，相加即得十进制数。  十进制转二进制方法：十进制数除2取余法，即十进制数除2，余数为权位上的数，得到的商值继续除2，依此步骤继续向下运算直到商为0为止。  二进制转八进制方法：3位二进制数按权展开相加得到1位八进制数。（注意事项，3位二进制转成八进制是从右到左开始转换，不足时补0）。  八进制转成二进制方法：八进制数通过除2取余法，得到二进制数，对每个八进制">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwq85qxcj30dc08w40w.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwqqxu8zj30ge0bagr0.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwrgt9fwj30ge0b3tdb.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwrx9vv7j30gh0azn1y.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwshasdbj30gh0azn2u.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwsuhuv9j30gf0brn26.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwtk7xxxj30gh0azq83.jpg">
+<meta property="og:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwug87bij30gh0azn0j.jpg">
+<meta property="og:updated_time" content="2019-12-13T03:00:31.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yp_ren Blog">
+<meta name="twitter:title" content="进制转换">
+<meta name="twitter:description" content="二进制转十进制方法：把二进制数按权展开，相加即得十进制数。  十进制转二进制方法：十进制数除2取余法，即十进制数除2，余数为权位上的数，得到的商值继续除2，依此步骤继续向下运算直到商为0为止。  二进制转八进制方法：3位二进制数按权展开相加得到1位八进制数。（注意事项，3位二进制转成八进制是从右到左开始转换，不足时补0）。  八进制转成二进制方法：八进制数通过除2取余法，得到二进制数，对每个八进制">
+<meta name="twitter:image" content="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwq85qxcj30dc08w40w.jpg">
     
 
     
@@ -162,16 +176,52 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
-                            java
+                            MySQL
                         </a>
                          <ul class="unstyled" id="tree" > 
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            原理
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java基础题/">java基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL索引/">MySQL索引</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Redis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis基础数据结构/">Redis基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis安全防范/">Redis安全防范</a></li>  <li class="file"><a href="/wiki/Redis过期策略/">Redis过期策略</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            java
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java基础题/">java基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  <li class="file active"><a href="/wiki/进制转换/">进制转换</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -217,33 +267,6 @@
                             IDE
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/intellij idea修改记录/">intellij idea修改记录</a></li>  </ul> 
-                    </li> 
-                     </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            数据库
-                        </a>
-                         <ul class="unstyled" id="tree" > 
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            MySQL
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL索引/">MySQL索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            Redis
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis基础数据结构/">Redis基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis安全防范/">Redis安全防范</a></li>  <li class="file"><a href="/wiki/Redis-过期策略/">Redis 过期策略</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -435,297 +458,127 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">数据库</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-进制转换" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/Redis-过期策略/">Redis 过期策略</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis-过期策略/">
-            <time datetime="2019-10-28T08:38:14.000Z" itemprop="datePublished">2019-10-28</time>
-        </a>
-    </div>
-
-
-                    
+                    <div class="article-meta">
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/Redis/">Redis</a>
+        <a class="article-category-link" href="/categories/java/">java</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/java/基础/">基础</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Redis/">Redis</a>
+        <a class="tag-link" href="/tags/java/">java</a>
     </div>
 
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/Redis安全防范/">Redis安全防范</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis安全防范/">
-            <time datetime="2019-10-28T08:33:17.000Z" itemprop="datePublished">2019-10-28</time>
+        <a href="/wiki/进制转换/">
+            <time datetime="2019-12-13T02:49:43.000Z" itemprop="datePublished">2019-12-13</time>
         </a>
     </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/Redis/">Redis</a>
-    </div>
-
-                    
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/进制转换.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/进制转换.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/进制转换.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/数据库三范式/">数据库三范式</a>
+        <h1 class="article-title" itemprop="name">
+            进制转换
         </h1>
     
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/数据库三范式/">
-            <time datetime="2019-08-27T09:58:46.000Z" itemprop="datePublished">2019-08-27</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/MySQL/">MySQL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/MySQL/">MySQL</a>
-    </div>
-
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二进制转十进制"><span class="toc-number">1.</span> <span class="toc-text">二进制转十进制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十进制转二进制"><span class="toc-number">2.</span> <span class="toc-text">十进制转二进制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二进制转八进制"><span class="toc-number">3.</span> <span class="toc-text">二进制转八进制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八进制转成二进制"><span class="toc-number">4.</span> <span class="toc-text">八进制转成二进制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二进制转十六进制"><span class="toc-number">5.</span> <span class="toc-text">二进制转十六进制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十六进制转二进制"><span class="toc-number">6.</span> <span class="toc-text">十六进制转二进制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十进制转八进制或者十六进制"><span class="toc-number">7.</span> <span class="toc-text">十进制转八进制或者十六进制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八进制或者十六进制转成十进制"><span class="toc-number">8.</span> <span class="toc-text">八进制或者十六进制转成十进制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">8.1.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
                 </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/数据库事务/">数据库事务</a>
-        </h1>
-    
+            
+        
+        
+            <h1 id="二进制转十进制"><a href="#二进制转十进制" class="headerlink" title="二进制转十进制"></a>二进制转十进制</h1><p>方法：把二进制数按权展开，相加即得十进制数。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwq85qxcj30dc08w40w.jpg" alt="image.png"></p>
+<h1 id="十进制转二进制"><a href="#十进制转二进制" class="headerlink" title="十进制转二进制"></a>十进制转二进制</h1><p>方法：十进制数除2取余法，即十进制数除2，余数为权位上的数，得到的商值继续除2，依此步骤继续向下运算直到商为0为止。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwqqxu8zj30ge0bagr0.jpg" alt="image.png"></p>
+<h1 id="二进制转八进制"><a href="#二进制转八进制" class="headerlink" title="二进制转八进制"></a>二进制转八进制</h1><p>方法：3位二进制数按权展开相加得到1位八进制数。（注意事项，3位二进制转成八进制是从右到左开始转换，不足时补0）。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwrgt9fwj30ge0b3tdb.jpg" alt="image.png"></p>
+<h1 id="八进制转成二进制"><a href="#八进制转成二进制" class="headerlink" title="八进制转成二进制"></a>八进制转成二进制</h1><p>方法：八进制数通过除2取余法，得到二进制数，对每个八进制为3个二进制，不足时在最左边补零。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwrx9vv7j30gh0azn1y.jpg" alt="image.png"></p>
+<h1 id="二进制转十六进制"><a href="#二进制转十六进制" class="headerlink" title="二进制转十六进制"></a>二进制转十六进制</h1><p>方法：与二进制转八进制方法近似，八进制是取三合一，十六进制是取四合一。（注意事项，4位二进制转成十六进制是从右到左开始转换，不足时补0）。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwshasdbj30gh0azn2u.jpg" alt="image.png"></p>
+<h1 id="十六进制转二进制"><a href="#十六进制转二进制" class="headerlink" title="十六进制转二进制"></a>十六进制转二进制</h1><p>方法：十六进制数通过除2取余法，得到二进制数，对每个十六进制为4个二进制，不足时在最左边补零。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwsuhuv9j30gf0brn26.jpg" alt="image.png"></p>
+<h1 id="十进制转八进制或者十六进制"><a href="#十进制转八进制或者十六进制" class="headerlink" title="十进制转八进制或者十六进制"></a>十进制转八进制或者十六进制</h1><p>方法一：间接法—把十进制转成二进制，然后再由二进制转成八进制或者十六进制。</p>
+<p>方法二：直接法—把十进制转八进制或者十六进制按照除8或者16取余，直到商为0为止。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwtk7xxxj30gh0azq83.jpg" alt="image.png"></p>
+<h1 id="八进制或者十六进制转成十进制"><a href="#八进制或者十六进制转成十进制" class="headerlink" title="八进制或者十六进制转成十进制"></a>八进制或者十六进制转成十进制</h1><p>方法：把八进制、十六进制数按权展开、相加即得十进制数。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006tNbRwly1g9uwug87bij30gh0azn0j.jpg" alt="image.png"></p>
+<blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  <a href="https://www.yuque.com/yinjianwei/vyrvkf/vidbk6" target="_blank" rel="noopener">https://www.yuque.com/yinjianwei/vyrvkf/vidbk6</a></p>
+<p>  感谢原作者</p>
+</blockquote>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/数据库事务/">
-            <time datetime="2019-08-27T09:20:07.000Z" itemprop="datePublished">2019-08-27</time>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/java线程知识点/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">java线程知识点</div>
         </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/MySQL/">MySQL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/MySQL/">MySQL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
     
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
+</nav>
+
+
+
+
+
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/MySQL索引/">MySQL索引</a>
-        </h1>
     
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/MySQL索引/">
-            <time datetime="2019-08-25T03:44:17.000Z" itemprop="datePublished">2019-08-25</time>
-        </a>
-    </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/MySQL/">MySQL</a>
-    </div>
 
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/MySQL/">MySQL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/SQL语句/">SQL语句</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/SQL语句/">
-            <time datetime="2019-08-24T07:41:20.000Z" itemprop="datePublished">2019-08-24</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/MySQL/">MySQL</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/MySQL/">MySQL</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis-zset-实现简单限流/">
-            <time datetime="2019-08-23T01:48:40.000Z" itemprop="datePublished">2019-08-23</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/Redis/">Redis</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Redis/">Redis</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/Redis基础数据结构/">Redis基础数据结构</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis基础数据结构/">
-            <time datetime="2019-08-18T03:26:40.000Z" itemprop="datePublished">2019-08-18</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/Redis/">Redis</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Redis/">Redis</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-</div>
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 </section>
         </div>
         <footer id="footer">

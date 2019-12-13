@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpei5n1j322w08242p.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpmqucmj31uc084788.jpg">
 <meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6ly1g6bxpz58v2j321a07ygpp.jpg">
-<meta property="og:updated_time" content="2019-12-08T06:33:01.421Z">
+<meta property="og:updated_time" content="2019-12-13T07:00:31.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL索引">
 <meta name="twitter:description" content="索引优化索引失效案例 全值匹配 最佳左前缀法则。如果索引了多列，要遵守最左前缀法则，指的是查询从索引的最左前列开始并且不跳过索引中的列 不在索引列上做任何操作（计算、函数、「自动或者手动」类型转换），会导致索引失效而转向全表扫描 存储引擎不能使用索引中范围条件右边的列 尽量使用覆盖索引（只访问索引的查询「索引列和查询列一致」），减少 select * MySQL 在使用 != 或者 &amp;lt;&amp;gt">
@@ -178,6 +178,42 @@
         
         
          <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            MySQL
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            原理
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file active"><a href="/wiki/MySQL索引/">MySQL索引</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Redis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis基础数据结构/">Redis基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis安全防范/">Redis安全防范</a></li>  <li class="file"><a href="/wiki/Redis过期策略/">Redis过期策略</a></li>  </ul> 
+                    </li> 
+                    
                     <li class="directory">
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
@@ -191,7 +227,7 @@
                             &nbsp;
                             基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java基础题/">java基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java基础题/">java基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  <li class="file"><a href="/wiki/进制转换/">进制转换</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -237,33 +273,6 @@
                             IDE
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/intellij idea修改记录/">intellij idea修改记录</a></li>  </ul> 
-                    </li> 
-                     </ul> 
-                    </li> 
-                    
-                    <li class="directory open">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
-                            &nbsp;
-                            数据库
-                        </a>
-                         <ul class="unstyled" id="tree" > 
-                    <li class="directory open">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
-                            &nbsp;
-                            MySQL
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file active"><a href="/wiki/MySQL索引/">MySQL索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            Redis
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis基础数据结构/">Redis基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis安全防范/">Redis安全防范</a></li>  <li class="file"><a href="/wiki/Redis-过期策略/">Redis 过期策略</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -465,7 +474,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/MySQL/">MySQL</a>
+        <a class="article-category-link" href="/categories/MySQL/">MySQL</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/MySQL/基础/">基础</a>
     </div>
 
                         

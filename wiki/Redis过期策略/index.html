@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>Redis 过期策略 | yp_ren Blog</title>
+    <title>Redis过期策略 | yp_ren Blog</title>
     
     
         <meta name="keywords" content="Redis">
@@ -12,14 +12,14 @@
     <meta name="description" content="Redis 过期策略Redis 过期策略是：定期删除 + 惰性删除。 所谓定期删除，指的是 Redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。 假设 Redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 Redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意">
 <meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis 过期策略">
-<meta property="og:url" content="https://yapengren.github.io/wiki/Redis-过期策略/index.html">
+<meta property="og:title" content="Redis过期策略">
+<meta property="og:url" content="https://yapengren.github.io/wiki/Redis过期策略/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
 <meta property="og:description" content="Redis 过期策略Redis 过期策略是：定期删除 + 惰性删除。 所谓定期删除，指的是 Redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。 假设 Redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 Redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-28T08:57:48.883Z">
+<meta property="og:updated_time" content="2019-12-13T06:58:58.648Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis 过期策略">
+<meta name="twitter:title" content="Redis过期策略">
 <meta name="twitter:description" content="Redis 过期策略Redis 过期策略是：定期删除 + 惰性删除。 所谓定期删除，指的是 Redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。 假设 Redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 Redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意">
     
 
@@ -167,6 +167,42 @@
                         <a href="#" data-role="directory">
                             <i class="fa fa-folder"></i>
                             &nbsp;
+                            MySQL
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            原理
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL索引/">MySQL索引</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Redis
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis基础数据结构/">Redis基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis安全防范/">Redis安全防范</a></li>  <li class="file active"><a href="/wiki/Redis过期策略/">Redis过期策略</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
                             java
                         </a>
                          <ul class="unstyled" id="tree" > 
@@ -176,7 +212,7 @@
                             &nbsp;
                             基础
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java基础题/">java基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/java基础题/">java基础题</a></li>  <li class="file"><a href="/wiki/java-util-ConcurrentModificationException-异常详解/">java.util.ConcurrentModificationException 异常详解</a></li>  <li class="file"><a href="/wiki/java判断对象中属性值是否全为空/">java判断对象中属性值是否全为空</a></li>  <li class="file"><a href="/wiki/java8总结/">java8总结</a></li>  <li class="file"><a href="/wiki/进制转换/">进制转换</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -222,33 +258,6 @@
                             IDE
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/intellij idea修改记录/">intellij idea修改记录</a></li>  </ul> 
-                    </li> 
-                     </ul> 
-                    </li> 
-                    
-                    <li class="directory open">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
-                            &nbsp;
-                            数据库
-                        </a>
-                         <ul class="unstyled" id="tree" > 
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            MySQL
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL索引/">MySQL索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory open">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
-                            &nbsp;
-                            Redis
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Redis基础数据结构/">Redis基础数据结构</a></li>  <li class="file"><a href="/wiki/Redis-zset-实现简单限流/">Redis zset 实现简单限流</a></li>  <li class="file"><a href="/wiki/Redis安全防范/">Redis安全防范</a></li>  <li class="file active"><a href="/wiki/Redis-过期策略/">Redis 过期策略</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -440,7 +449,7 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Redis-过期策略" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Redis过期策略" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -450,7 +459,7 @@
                         
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/Redis/">Redis</a>
+        <a class="article-category-link" href="/categories/Redis/">Redis</a>
     </div>
 
                         
@@ -462,7 +471,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/Redis-过期策略/">
+        <a href="/wiki/Redis过期策略/">
             <time datetime="2019-10-28T08:38:14.000Z" itemprop="datePublished">2019-10-28</time>
         </a>
     </div>
@@ -474,13 +483,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis-过期策略.md'> Source </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/Redis过期策略.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis-过期策略.md'> Edit </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/Redis过期策略.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis-过期策略.md'> History </a>
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/Redis过期策略.md'> History </a>
                             </div>
                         
                     </div>
@@ -488,7 +497,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            Redis 过期策略
+            Redis过期策略
         </h1>
     
 
