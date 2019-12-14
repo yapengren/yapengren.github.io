@@ -3,19 +3,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>分类: 原理 | yp_ren Blog</title>
+    <title>MySQL字段类型介绍 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="yp_ren Blog">
+        <meta name="keywords" content="MySQL">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="yp_ren Blog">
-<meta property="og:url" content="https://yapengren.github.io/categories/数据库/MySQL/原理/index.html">
+    <meta name="description" content="注意点：  数值类型：注意字段范围的选择。 日期和时间类型：注意 DATETIME 和 TIMESTAMP 的区别。 字符串类型：用的最多的是 CHAR 和 VARCHAR 类型，注意两者的区别，其他类型在互联网业务中不建议使用。  数值类型   类型 大小 范围（有符号） 范围（无符号） 用途    TINYINT 1 字节 (-128，127) (0，255) 小整数值   SMALLINT">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL字段类型介绍">
+<meta property="og:url" content="https://yapengren.github.io/wiki/MySQL字段类型介绍/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
+<meta property="og:description" content="注意点：  数值类型：注意字段范围的选择。 日期和时间类型：注意 DATETIME 和 TIMESTAMP 的区别。 字符串类型：用的最多的是 CHAR 和 VARCHAR 类型，注意两者的区别，其他类型在互联网业务中不建议使用。  数值类型   类型 大小 范围（有符号） 范围（无符号） 用途    TINYINT 1 字节 (-128，127) (0，255) 小整数值   SMALLINT">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-14T09:37:41.155Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yp_ren Blog">
+<meta name="twitter:title" content="MySQL字段类型介绍">
+<meta name="twitter:description" content="注意点：  数值类型：注意字段范围的选择。 日期和时间类型：注意 DATETIME 和 TIMESTAMP 的区别。 字符串类型：用的最多的是 CHAR 和 VARCHAR 类型，注意两者的区别，其他类型在互联网业务中不建议使用。  数值类型   类型 大小 范围（有符号） 范围（无符号） 用途    TINYINT 1 字节 (-128，127) (0，255) 小整数值   SMALLINT">
     
 
     
@@ -221,38 +226,20 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             数据库
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             MySQL
                         </a>
-                         <ul class="unstyled" id="tree" > 
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            原理
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            基础
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL索引/">MySQL索引</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  </ul> 
-                    </li> 
-                     </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL索引/">MySQL索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  <li class="file active"><a href="/wiki/MySQL字段类型介绍/">MySQL字段类型介绍</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -453,50 +440,288 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">原理</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-MySQL字段类型介绍" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/数据库事务/">数据库事务</a>
-        </h1>
-    
-
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/数据库事务/">
-            <time datetime="2019-08-27T09:20:07.000Z" itemprop="datePublished">2019-08-27</time>
-        </a>
-    </div>
-
-
-                    
+                    <div class="article-meta">
+                        
     <div class="article-category">
     	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/MySQL/">MySQL</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/MySQL/原理/">原理</a>
+        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/MySQL/">MySQL</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
         <a class="tag-link" href="/tags/MySQL/">MySQL</a>
     </div>
 
-                </div>
-            </div>
-        </div>
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/MySQL字段类型介绍/">
+            <time datetime="2019-12-14T09:23:12.000Z" itemprop="datePublished">2019-12-14</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/MySQL字段类型介绍.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/MySQL字段类型介绍.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/MySQL字段类型介绍.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
     
-</div>
+        <h1 class="article-title" itemprop="name">
+            MySQL字段类型介绍
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数值类型"><span class="toc-number">1.</span> <span class="toc-text">数值类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#日期和时间类型"><span class="toc-number">2.</span> <span class="toc-text">日期和时间类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串类型"><span class="toc-number">3.</span> <span class="toc-text">字符串类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">3.1.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <p>注意点：</p>
+<ul>
+<li>数值类型：注意字段范围的选择。</li>
+<li>日期和时间类型：注意 DATETIME 和 TIMESTAMP 的区别。</li>
+<li>字符串类型：用的最多的是 CHAR 和 VARCHAR 类型，注意两者的区别，其他类型在互联网业务中不建议使用。</li>
+</ul>
+<h1 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h1><table>
+<thead>
+<tr>
+<th align="center"><strong>类型</strong></th>
+<th align="center"><strong>大小</strong></th>
+<th align="center"><strong>范围（有符号）</strong></th>
+<th align="center"><strong>范围（无符号）</strong></th>
+<th align="center"><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">TINYINT</td>
+<td align="center">1 字节</td>
+<td align="center">(-128，127)</td>
+<td align="center">(0，255)</td>
+<td align="center">小整数值</td>
+</tr>
+<tr>
+<td align="center">SMALLINT</td>
+<td align="center">2 字节</td>
+<td align="center">(-32 768，32 767)</td>
+<td align="center">(0，65 535)</td>
+<td align="center">大整数值</td>
+</tr>
+<tr>
+<td align="center">MEDIUMINT</td>
+<td align="center">3 字节</td>
+<td align="center">(-8 388 608，8 388 607)</td>
+<td align="center">(0，16 777 215)</td>
+<td align="center">大整数值</td>
+</tr>
+<tr>
+<td align="center">INT或INTEGER</td>
+<td align="center">4 字节</td>
+<td align="center">(-2 147 483 648，2 147 483 647)</td>
+<td align="center">(0，4 294 967 295)</td>
+<td align="center">大整数值</td>
+</tr>
+<tr>
+<td align="center">BIGINT</td>
+<td align="center">8 字节</td>
+<td align="center">(-9,223,372,036,854,775,808，9 223 372 036 854 775 807)</td>
+<td align="center">(0，18 446 744 073 709 551 615)</td>
+<td align="center">极大整数值</td>
+</tr>
+<tr>
+<td align="center">FLOAT</td>
+<td align="center">4 字节</td>
+<td align="center">(-3.402 823 466 E+38，-1.175 494 351 E-38)，0，(1.175 494 351 E-38，3.402 823 466 351 E+38)</td>
+<td align="center">0，(1.175 494 351 E-38，3.402 823 466 E+38)</td>
+<td align="center">单精度<br>浮点数值</td>
+</tr>
+<tr>
+<td align="center">DOUBLE</td>
+<td align="center">8 字节</td>
+<td align="center">(-1.797 693 134 862 315 7 E+308，-2.225 073 858 507 201 4 E-308)，0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td align="center">0，(2.225 073 858 507 201 4 E-308，1.797 693 134 862 315 7 E+308)</td>
+<td align="center">双精度<br>浮点数值</td>
+</tr>
+<tr>
+<td align="center">DECIMAL</td>
+<td align="center">对DECIMAL(M,D) ，如果M&gt;D，为M+2否则为D+2</td>
+<td align="center">依赖于M和D的值</td>
+<td align="center">依赖于M和D的值</td>
+<td align="center">小数值</td>
+</tr>
+</tbody></table>
+<h1 id="日期和时间类型"><a href="#日期和时间类型" class="headerlink" title="日期和时间类型"></a>日期和时间类型</h1><table>
+<thead>
+<tr>
+<th align="center"><strong>类型</strong></th>
+<th align="center"><strong>大小</strong></th>
+<th align="center"><strong>范围</strong></th>
+<th align="center"><strong>格式</strong></th>
+<th align="center"><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">DATE</td>
+<td align="center">3 字节</td>
+<td align="center">1000-01-01/9999-12-31</td>
+<td align="center">YYYY-MM-DD</td>
+<td align="center">日期值</td>
+</tr>
+<tr>
+<td align="center">TIME</td>
+<td align="center">3 字节</td>
+<td align="center">‘-838:59:59’/‘838:59:59’</td>
+<td align="center">HH:MM:SS</td>
+<td align="center">时间值或持续时间</td>
+</tr>
+<tr>
+<td align="center">YEAR</td>
+<td align="center">1 字节</td>
+<td align="center">1901/2155</td>
+<td align="center">YYYY</td>
+<td align="center">年份值</td>
+</tr>
+<tr>
+<td align="center">DATETIME</td>
+<td align="center">8 字节</td>
+<td align="center">1000-01-01 00:00:00/9999-12-31 23:59:59</td>
+<td align="center">YYYY-MM-DD HH:MM:SS</td>
+<td align="center">混合日期和时间值</td>
+</tr>
+<tr>
+<td align="center">TIMESTAMP</td>
+<td align="center">4 字节</td>
+<td align="center">1970-01-01 00:00:00/2038<br>结束时间是第 <strong>2147483647</strong> 秒，北京时间 <strong>2038-1-19 11:14:07</strong>，格林尼治时间 2038年1月19日 凌晨 03:14:07</td>
+<td align="center">YYYYMMDD HHMMSS</td>
+<td align="center">混合日期和时间值，时间戳</td>
+</tr>
+</tbody></table>
+<h1 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h1><table>
+<thead>
+<tr>
+<th align="center"><strong>类型</strong></th>
+<th align="center"><strong>大小</strong></th>
+<th align="center"><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CHAR</td>
+<td align="center">0-255字节</td>
+<td align="center">定长字符串</td>
+</tr>
+<tr>
+<td align="center">VARCHAR</td>
+<td align="center">0-65535 字节</td>
+<td align="center">变长字符串</td>
+</tr>
+<tr>
+<td align="center">TINYBLOB</td>
+<td align="center">0-255字节</td>
+<td align="center">不超过 255 个字符的二进制字符串</td>
+</tr>
+<tr>
+<td align="center">TINYTEXT</td>
+<td align="center">0-255字节</td>
+<td align="center">短文本字符串</td>
+</tr>
+<tr>
+<td align="center">BLOB</td>
+<td align="center">0-65 535字节</td>
+<td align="center">二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td align="center">TEXT</td>
+<td align="center">0-65 535字节</td>
+<td align="center">长文本数据</td>
+</tr>
+<tr>
+<td align="center">MEDIUMBLOB</td>
+<td align="center">0-16 777 215字节</td>
+<td align="center">二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td align="center">MEDIUMTEXT</td>
+<td align="center">0-16 777 215字节</td>
+<td align="center">中等长度文本数据</td>
+</tr>
+<tr>
+<td align="center">LONGBLOB</td>
+<td align="center">0-4 294 967 295字节</td>
+<td align="center">二进制形式的极大文本数据</td>
+</tr>
+<tr>
+<td align="center">LONGTEXT</td>
+<td align="center">0-4 294 967 295字节</td>
+<td align="center">极大文本数据</td>
+</tr>
+</tbody></table>
+<blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  <a href="https://www.yuque.com/yinjianwei/vyrvkf/ta5a63" target="_blank" rel="noopener">https://www.yuque.com/yinjianwei/vyrvkf/ta5a63</a></p>
+<p>  感谢原作者</p>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/进制转换/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">进制转换</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 </section>
         </div>
         <footer id="footer">

@@ -1,3 +1,4 @@
+https://yapengren.github.io/wiki/MySQL字段类型介绍/
 https://yapengren.github.io/wiki/进制转换/
 https://yapengren.github.io/wiki/java线程知识点/
 https://yapengren.github.io/wiki/java8总结/
@@ -7,4 +8,3 @@ https://yapengren.github.io/wiki/Redis安全防范/
 https://yapengren.github.io/wiki/java判断对象中属性值是否全为空/
 https://yapengren.github.io/wiki/SpringBoot中间件/
 https://yapengren.github.io/wiki/mac系统快捷键/
-https://yapengren.github.io/wiki/vim/
