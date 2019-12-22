@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yapengren.github.io/"/>
-  <updated>2019-12-14T09:37:41.155Z</updated>
+  <updated>2019-12-22T09:21:29.782Z</updated>
   <id>https://yapengren.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记录盲盒项目SQL错误的事故</title>
+    <link href="https://yapengren.github.io/wiki/%E8%AE%B0%E5%BD%95%E7%9B%B2%E7%9B%92%E9%A1%B9%E7%9B%AESQL%E9%94%99%E8%AF%AF%E7%9A%84%E4%BA%8B%E6%95%85/"/>
+    <id>https://yapengren.github.io/wiki/记录盲盒项目SQL错误的事故/</id>
+    <published>2019-12-22T09:15:33.000Z</published>
+    <updated>2019-12-22T09:21:29.782Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>  记录盲盒抽奖项目因为SQL错误</p><p>  导致表中数据被批量修改的问题</p></blockquote><h1 id="上下文"><a href="#上下文" class="headerlink" title="上下文"></a>上下文</h1><p>需要根据 <code>is_big_prize</code> 是否大奖字段，修改删除状态。</p><p>如果<code>is_big_prize = ‘1’</code> 则修改所有大奖商品<code>delete_status=1</code> ，</p><p>如果 <code>is_big_prize</code> <strong>不等于</strong> 1，则修改所有小奖商品<code>delete_status=1</code></p><h1 id="错误mapper-xml"><a href="#错误mapper-xml" class="headerlink" title="错误mapper.xml"></a>错误mapper.xml</h1><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"deleteBySkuId"</span> <span class="attr">parameterType</span>=<span class="string">"com.jd.jr.bcs.domain.entity.eggMachine.LdEggmachineProduct"</span>&gt;</span></span><br><span class="line">    UPDATE ld_eggmachine_product</span><br><span class="line">    <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">        modified_user = #&#123;modifiedUser,jdbcType=VARCHAR&#125;,</span><br><span class="line">        modified_date = #&#123;modifiedDate,jdbcType=TIMESTAMP&#125;,</span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"deleteStatus != null"</span>&gt;</span></span><br><span class="line">            delete_status = #&#123;deleteStatus,jdbcType=INTEGER&#125;,</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">    where</span><br><span class="line">    delete_status = 0</span><br><span class="line">    and sku_id = #&#123;skuId,jdbcType=VARCHAR&#125;</span><br><span class="line">    and activity_id = #&#123;activityId,jdbcType=INTEGER&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">choose</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"isBigPrize !=null and isBigPrize == 1"</span>&gt;</span></span><br><span class="line">            and is_big_prize = '1'</span><br><span class="line">        <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">otherwise</span>&gt;</span></span><br><span class="line">            and is_big_prize is null or is_big_prize != '1'</span><br><span class="line">        <span class="tag">&lt;/<span class="name">otherwise</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">choose</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure><h1 id="解析错误SQL"><a href="#解析错误SQL" class="headerlink" title="解析错误SQL"></a>解析错误SQL</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select *</span><br><span class="line">from ld_eggmachine_product</span><br><span class="line">where delete_status = 1</span><br><span class="line">    and sku_id = &apos;5309709&apos;</span><br><span class="line">    and activity_id = 6</span><br><span class="line">    and is_big_prize is null</span><br><span class="line">    or is_big_prize != &apos;1&apos;;</span><br></pre></td></tr></table></figure><p><code>or</code> 导致<code>ld_eggmachine_product</code>表中<code>is_big_prize</code>字段<code>!=&#39;1&#39;</code>的数据都被修改</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><code>is_big_prize != &#39;1&#39;</code>查询不出为 NULL 的数据</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select *</span><br><span class="line">from ld_eggmachine_product</span><br><span class="line">where is_big_prize != &apos;1&apos;;</span><br></pre></td></tr></table></figure><br><p>查询<code>is_big_prize</code>不等于1的正确写法，可以查询出 != ‘1’ 和 != null 的数据</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select *</span><br><span class="line">from ld_eggmachine_product</span><br><span class="line">where delete_status = 1</span><br><span class="line">    and sku_id = &apos;5309709&apos;</span><br><span class="line">    and activity_id = 6</span><br><span class="line">    and ifnull(is_big_prize, &apos;&apos;) != &apos;1&apos;;</span><br></pre></td></tr></table></figure><h1 id="MySQL-IFNULL"><a href="#MySQL-IFNULL" class="headerlink" title="MySQL IFNULL()"></a>MySQL IFNULL()</h1><p>IFNULL() 函数用于判断第一个表达式是否为 NULL，如果为 NULL 则返回第二个参数的值，如果不为 NULL 则返回第一个参数的值</p><p>语法:</p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">IFNULL(expression, alt_value)</span><br></pre></td></tr></table></figure><p>如果第一个参数的表达式 expression 为 NULL，则返回第二个参数的备用值</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;  记录盲盒抽奖项目因为SQL错误&lt;/p&gt;
+&lt;p&gt;  导致表中数据被批量修改的问题&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;上下文&quot;&gt;&lt;a href=&quot;#上下文&quot; class=&quot;headerlink&quot; title=&quot;上下文&quot;&gt;&lt;/a&gt;上
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="https://yapengren.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="MySQL" scheme="https://yapengren.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/"/>
+    
+    
+      <category term="MySQL" scheme="https://yapengren.github.io/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>MySQL字段类型介绍</title>
@@ -527,33 +558,6 @@
       
       
         &lt;h2 id=&quot;数据库三范式&quot;&gt;&lt;a href=&quot;#数据库三范式&quot; class=&quot;headerlink&quot; title=&quot;数据库三范式&quot;&gt;&lt;/a&gt;数据库三范式&lt;/h2&gt;&lt;h3 id=&quot;第一范式-1st-NF－列都是不可再分&quot;&gt;&lt;a href=&quot;#第一范式-1st-NF－列都是不可再
-      
-    
-    </summary>
-    
-      <category term="数据库" scheme="https://yapengren.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="MySQL" scheme="https://yapengren.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/"/>
-    
-    
-      <category term="MySQL" scheme="https://yapengren.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库事务</title>
-    <link href="https://yapengren.github.io/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/"/>
-    <id>https://yapengren.github.io/wiki/数据库事务/</id>
-    <published>2019-08-27T09:20:07.000Z</published>
-    <updated>2019-12-14T09:24:23.438Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="数据库事务概念"><a href="#数据库事务概念" class="headerlink" title="数据库事务概念"></a>数据库事务概念</h2><h3 id="什么是数据库事务"><a href="#什么是数据库事务" class="headerlink" title="什么是数据库事务"></a>什么是数据库事务</h3><p>事务（transaction）是指逻辑上对数据的一组操作， 这组操作要么全部成功，要么全部失败，是不可分割的一个工作单位。</p><h2 id="数据库事务的-4-个基本性质（ACID）"><a href="#数据库事务的-4-个基本性质（ACID）" class="headerlink" title="数据库事务的 4 个基本性质（ACID）"></a>数据库事务的 4 个基本性质（ACID）</h2><h3 id="原子性（Atomicity）"><a href="#原子性（Atomicity）" class="headerlink" title="原子性（Atomicity）"></a>原子性（Atomicity）</h3><p>事务的原子性是指事务是一个不可分割的工作单位，这组操作要么全部成功，要么全部失败。</p><h3 id="一致性（Consistency）"><a href="#一致性（Consistency）" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h3><p>在事务开始以前，被操作的数据的完整性处于一致性的状态，事务结束后，被操作的数据的完整性也必须处于一致性状态。</p><p>拿银行转账来说，一致性要求事务的执行不应改变A、B 两个账户的金额总和。如果没有这种一致性要求，转账过程中就会发生钱无中生有，或者不翼而飞的现象。事务应该把数据库从一个一致性状态转换到另外一个一致性状态。</p><h3 id="隔离性（Isolation）"><a href="#隔离性（Isolation）" class="headerlink" title="隔离性（Isolation）"></a>隔离性（Isolation）</h3><p>事务隔离性要求系统必须保证事务不受其他并发执行的事务的影响，也即要达到这样一种效果：对于任何一对事务T1 和 T2，在事务 T1 看来，T2 要么在 T1 开始之前已经结束，要么在 T1 完成之后才开始执行。这样，每个事务都感觉不到系统中有其他事务在并发地执行。</p><h3 id="持久性（Durability）"><a href="#持久性（Durability）" class="headerlink" title="持久性（Durability）"></a>持久性（Durability）</h3><p>一个事务一旦成功提交，它对数据库的改变必须是永久的，即便是数据库发生故障也应该不回对其产生任何影响。</p><h2 id="数据库事务的-4-种隔离级别"><a href="#数据库事务的-4-种隔离级别" class="headerlink" title="数据库事务的 4 种隔离级别"></a>数据库事务的 4 种隔离级别</h2><h3 id="Read-uncommitted"><a href="#Read-uncommitted" class="headerlink" title="Read uncommitted"></a>Read uncommitted</h3><p>读未提交，顾名思义，就是一个事务可以读取另一个未提交事务的数据。</p><p>事例：老板要给程序员发工资，程序员的工资是 3.6 万/月。但是发工资时老板不小心按错了数字，按成 3.9 万/月，该钱已经打到程序员的户口，但是事务还没有提交，就在这时，程序员去查看自己这个月的工资，发现比往常多了 3 千元，以为涨工资了非常高兴。但是老板及时发现了不对，马上回滚差点就提交了的事务，将数字改成 3.6 万再提交。</p><p>分析：实际程序员这个月的工资还是 3.6 万，但是程序员看到的是 3.9 万。他看到的是老板还没提交事务时的数据，这就是脏读。</p><p>那怎么解决脏读呢？Read committed！读提交，能解决脏读问题。</p><h3 id="Read-committed"><a href="#Read-committed" class="headerlink" title="Read committed"></a>Read committed</h3><p>读提交，顾名思义，就是一个事务要等另一个事务提交后才能读取数据。</p><p>事例：程序员拿着信用卡去享受生活（卡里当然是只有 3.6 万），当他埋单时（程序员事务开启），收费系统事先检测到他的卡里有 3.6 万，就在这个时候！！程序员的妻子要把钱全部转出充当家用，并提交。当收费系统准备扣款时，再检测卡里的金额，发现已经没钱了（第二次检测金额当然要等待妻子转出金额事务提交完）。程序员就会很郁闷，明明卡里是有钱的…</p><p>分析：这就是读提交，若有事务对数据进行更新 UPDATE 操作时，读操作事务要等待这个更新操作事务提交后才能读取数据，可以解决脏读问题。但在这个事例中，出现了一个事务范围内两个相同的查询却返回了不同数据，这就是不可重复读。</p><p>那怎么解决可能的不可重复读问题？Repeatable read ！</p><h3 id="Repeatable-read"><a href="#Repeatable-read" class="headerlink" title="Repeatable read"></a>Repeatable read</h3><p>重复读，就是在开始读取数据（事务开启）时，不再允许修改操作</p><p>事例：程序员拿着信用卡去享受生活（卡里当然是只有 3.6 万），当他埋单时（事务开启，不允许其他事务的 UPDATE 修改操作），收费系统事先检测到他的卡里有 3.6 万。这个时候他的妻子不能转出金额了。接下来收费系统就可以扣款了。</p><p>分析：重复读可以解决不可重复读问题。写到这里，应该明白的一点就是，不可重复读对应的是修改，即 UPDATE 操作。但是可能还会有幻读问题。因为幻读问题对应的是插入 INSERT 操作，而不是 UPDATE 操作。</p><p>什么时候会出现幻读？</p><p>事例：程序员某一天去消费，花了 2 千元，然后他的妻子去查看他今天的消费记录（全表扫描FTS，妻子事务开启），看到确实是花了 2 千元，就在这个时候，程序员花了 1 万买了一部电脑，即新增 INSERT 了一条消费记录，并提交。当妻子打印程序员的消费记录清单时（妻子事务提交），发现花了1.2万元，似乎出现了幻觉，这就是幻读。</p><p>那怎么解决幻读问题？Serializable！</p><h3 id="Serializable-序列化"><a href="#Serializable-序列化" class="headerlink" title="Serializable 序列化"></a>Serializable 序列化</h3><p>Serializable 是最高的事务隔离级别，在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读。但是这种事务隔离级别效率低下，比较耗数据库性能，一般不使用。</p><blockquote><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>  <a href="https://blog.csdn.net/mfl0315/article/details/51981792" target="_blank" rel="noopener">https://blog.csdn.net/mfl0315/article/details/51981792</a></p><p>  <a href="https://blog.csdn.net/qq_33290787/article/details/51924963" target="_blank" rel="noopener">https://blog.csdn.net/qq_33290787/article/details/51924963</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;数据库事务概念&quot;&gt;&lt;a href=&quot;#数据库事务概念&quot; class=&quot;headerlink&quot; title=&quot;数据库事务概念&quot;&gt;&lt;/a&gt;数据库事务概念&lt;/h2&gt;&lt;h3 id=&quot;什么是数据库事务&quot;&gt;&lt;a href=&quot;#什么是数据库事务&quot; class=&quot;headerli
       
     
     </summary>

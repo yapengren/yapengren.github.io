@@ -3,19 +3,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     
-    <title>标签: shiro | yp_ren Blog</title>
+    <title>记录盲盒项目SQL错误的事故 | yp_ren Blog</title>
     
     
-        <meta name="keywords" content="yp_ren Blog">
+        <meta name="keywords" content="MySQL">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="yp_ren Blog">
-<meta property="og:url" content="https://yapengren.github.io/tags/shiro/index.html">
+    <meta name="description" content="记录盲盒抽奖项目因为SQL错误   导致表中数据被批量修改的问题  上下文需要根据 is_big_prize 是否大奖字段，修改删除状态。 如果is_big_prize = ‘1’ 则修改所有大奖商品delete_status=1 ， 如果 is_big_prize 不等于 1，则修改所有小奖商品delete_status=1 错误mapper.xml&amp;lt;update id=&quot;delet">
+<meta name="keywords" content="MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录盲盒项目SQL错误的事故">
+<meta property="og:url" content="https://yapengren.github.io/wiki/记录盲盒项目SQL错误的事故/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
+<meta property="og:description" content="记录盲盒抽奖项目因为SQL错误   导致表中数据被批量修改的问题  上下文需要根据 is_big_prize 是否大奖字段，修改删除状态。 如果is_big_prize = ‘1’ 则修改所有大奖商品delete_status=1 ， 如果 is_big_prize 不等于 1，则修改所有小奖商品delete_status=1 错误mapper.xml&amp;lt;update id=&quot;delet">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-22T09:21:29.782Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yp_ren Blog">
+<meta name="twitter:title" content="记录盲盒项目SQL错误的事故">
+<meta name="twitter:description" content="记录盲盒抽奖项目因为SQL错误   导致表中数据被批量修改的问题  上下文需要根据 is_big_prize 是否大奖字段，修改删除状态。 如果is_big_prize = ‘1’ 则修改所有大奖商品delete_status=1 ， 如果 is_big_prize 不等于 1，则修改所有小奖商品delete_status=1 错误mapper.xml&amp;lt;update id=&quot;delet">
     
 
     
@@ -221,20 +226,20 @@
                      </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             数据库
                         </a>
                          <ul class="unstyled" id="tree" > 
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             MySQL
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL索引/">MySQL索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  <li class="file"><a href="/wiki/MySQL字段类型介绍/">MySQL字段类型介绍</a></li>  <li class="file"><a href="/wiki/记录盲盒项目SQL错误的事故/">记录盲盒项目SQL错误的事故</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/SQL语句/">SQL语句</a></li>  <li class="file"><a href="/wiki/MySQL索引/">MySQL索引</a></li>  <li class="file"><a href="/wiki/数据库事务/">数据库事务</a></li>  <li class="file"><a href="/wiki/数据库三范式/">数据库三范式</a></li>  <li class="file"><a href="/wiki/MySQL字段类型介绍/">MySQL字段类型介绍</a></li>  <li class="file active"><a href="/wiki/记录盲盒项目SQL错误的事故/">记录盲盒项目SQL错误的事故</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -435,50 +440,131 @@
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#shiro</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-记录盲盒项目SQL错误的事故" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/wiki/shiro流程图/">shiro 流程图</a>
-        </h1>
-    
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/数据库/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/数据库/MySQL/">MySQL</a>
+    </div>
 
-                <div class="article-meta">
-                    
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/MySQL/">MySQL</a>
+    </div>
+
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/wiki/shiro流程图/">
-            <time datetime="2019-08-04T03:28:49.000Z" itemprop="datePublished">2019-08-04</time>
+        <a href="/wiki/记录盲盒项目SQL错误的事故/">
+            <time datetime="2019-12-22T09:15:33.000Z" itemprop="datePublished">2019-12-22</time>
         </a>
     </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/框架/">框架</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/框架/shiro/">shiro</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/shiro/">shiro</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/raw/master/source/_posts/记录盲盒项目SQL错误的事故.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/edit/master/source/_posts/记录盲盒项目SQL错误的事故.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='https://github.com/yapengren/https://github.com/yapengren/yapengren.github.io.git/commits/master/source/_posts/记录盲盒项目SQL错误的事故.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
     
-</div>
+        <h1 class="article-title" itemprop="name">
+            记录盲盒项目SQL错误的事故
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#上下文"><span class="toc-number">1.</span> <span class="toc-text">上下文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#错误mapper-xml"><span class="toc-number">2.</span> <span class="toc-text">错误mapper.xml</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解析错误SQL"><span class="toc-number">3.</span> <span class="toc-text">解析错误SQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL-IFNULL"><span class="toc-number">5.</span> <span class="toc-text">MySQL IFNULL()</span></a></li></ol>
+                </div>
+            
+        
+        
+            <blockquote>
+<p>  记录盲盒抽奖项目因为SQL错误</p>
+<p>  导致表中数据被批量修改的问题</p>
+</blockquote>
+<h1 id="上下文"><a href="#上下文" class="headerlink" title="上下文"></a>上下文</h1><p>需要根据 <code>is_big_prize</code> 是否大奖字段，修改删除状态。</p>
+<p>如果<code>is_big_prize = ‘1’</code> 则修改所有大奖商品<code>delete_status=1</code> ，</p>
+<p>如果 <code>is_big_prize</code> <strong>不等于</strong> 1，则修改所有小奖商品<code>delete_status=1</code></p>
+<h1 id="错误mapper-xml"><a href="#错误mapper-xml" class="headerlink" title="错误mapper.xml"></a>错误mapper.xml</h1><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">"deleteBySkuId"</span> <span class="attr">parameterType</span>=<span class="string">"com.jd.jr.bcs.domain.entity.eggMachine.LdEggmachineProduct"</span>&gt;</span></span><br><span class="line">    UPDATE ld_eggmachine_product</span><br><span class="line">    <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">        modified_user = #&#123;modifiedUser,jdbcType=VARCHAR&#125;,</span><br><span class="line">        modified_date = #&#123;modifiedDate,jdbcType=TIMESTAMP&#125;,</span><br><span class="line">        <span class="tag">&lt;<span class="name">if</span> <span class="attr">test</span>=<span class="string">"deleteStatus != null"</span>&gt;</span></span><br><span class="line">            delete_status = #&#123;deleteStatus,jdbcType=INTEGER&#125;,</span><br><span class="line">        <span class="tag">&lt;/<span class="name">if</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">    where</span><br><span class="line">    delete_status = 0</span><br><span class="line">    and sku_id = #&#123;skuId,jdbcType=VARCHAR&#125;</span><br><span class="line">    and activity_id = #&#123;activityId,jdbcType=INTEGER&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">choose</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">when</span> <span class="attr">test</span>=<span class="string">"isBigPrize !=null and isBigPrize == 1"</span>&gt;</span></span><br><span class="line">            and is_big_prize = '1'</span><br><span class="line">        <span class="tag">&lt;/<span class="name">when</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">otherwise</span>&gt;</span></span><br><span class="line">            and is_big_prize is null or is_big_prize != '1'</span><br><span class="line">        <span class="tag">&lt;/<span class="name">otherwise</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">choose</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="解析错误SQL"><a href="#解析错误SQL" class="headerlink" title="解析错误SQL"></a>解析错误SQL</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select *</span><br><span class="line">from ld_eggmachine_product</span><br><span class="line">where delete_status = 1</span><br><span class="line">    and sku_id = &apos;5309709&apos;</span><br><span class="line">    and activity_id = 6</span><br><span class="line">    and is_big_prize is null</span><br><span class="line">    or is_big_prize != &apos;1&apos;;</span><br></pre></td></tr></table></figure>
+
+<p><code>or</code> 导致<code>ld_eggmachine_product</code>表中<code>is_big_prize</code>字段<code>!=&#39;1&#39;</code>的数据都被修改</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><code>is_big_prize != &#39;1&#39;</code>查询不出为 NULL 的数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select *</span><br><span class="line">from ld_eggmachine_product</span><br><span class="line">where is_big_prize != &apos;1&apos;;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>查询<code>is_big_prize</code>不等于1的正确写法，可以查询出 != ‘1’ 和 != null 的数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select *</span><br><span class="line">from ld_eggmachine_product</span><br><span class="line">where delete_status = 1</span><br><span class="line">    and sku_id = &apos;5309709&apos;</span><br><span class="line">    and activity_id = 6</span><br><span class="line">    and ifnull(is_big_prize, &apos;&apos;) != &apos;1&apos;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="MySQL-IFNULL"><a href="#MySQL-IFNULL" class="headerlink" title="MySQL IFNULL()"></a>MySQL IFNULL()</h1><p>IFNULL() 函数用于判断第一个表达式是否为 NULL，如果为 NULL 则返回第二个参数的值，如果不为 NULL 则返回第一个参数的值</p>
+<p>语法:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">IFNULL(expression, alt_value)</span><br></pre></td></tr></table></figure>
+
+<p>如果第一个参数的表达式 expression 为 NULL，则返回第二个参数的备用值</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/wiki/MySQL字段类型介绍/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">MySQL字段类型介绍</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 </section>
         </div>
         <footer id="footer">
