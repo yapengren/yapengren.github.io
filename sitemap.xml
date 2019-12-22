@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yapengren.github.io/wiki/mac%E6%9C%8D%E5%8A%A1/</loc>
+    
+    <lastmod>2019-12-20T06:17:00.713Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yapengren.github.io/wiki/MySQL%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B%E4%BB%8B%E7%BB%8D/</loc>
     
     <lastmod>2019-12-14T09:37:41.155Z</lastmod>
@@ -180,13 +187,6 @@
     <loc>https://yapengren.github.io/wiki/%E5%8E%9F%E5%AD%90%E7%B1%BBAtomiclnteger%E7%9A%84ABA%E9%97%AE%E9%A2%98/</loc>
     
     <lastmod>2019-11-06T00:51:58.625Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yapengren.github.io/wiki/mac-brew-%E6%9C%8D%E5%8A%A1/</loc>
-    
-    <lastmod>2019-10-31T05:07:03.306Z</lastmod>
     
   </url>
   
