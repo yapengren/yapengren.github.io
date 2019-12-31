@@ -6,5 +6,5 @@ https://yapengren.github.io/wiki/java8总结/
 https://yapengren.github.io/wiki/Spring事务/
 https://yapengren.github.io/wiki/Redis过期策略/
 https://yapengren.github.io/wiki/Redis安全防范/
-https://yapengren.github.io/wiki/java判断对象中属性值是否全为空/
+https://yapengren.github.io/wiki/java小技巧/
 https://yapengren.github.io/wiki/SpringBoot中间件/
