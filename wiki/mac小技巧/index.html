@@ -9,18 +9,18 @@
         <meta name="keywords" content="mac">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="ping IP+端口$ nc -vz -w 2 192.168.1.104 3306  iTerm2输入密码不方便iTerm2自带 Password Manager 快捷键 command + option + F Finder左侧边栏显示英文每个文件夹里面有个隐藏文件 .localized，删除后就会显示英文原名，恢复办法就是重建文件 避免 rm 引发的问题可以用trash命令替代rm，tras">
+    <meta name="description" content="Mac 查看端口占用及杀死进程$ lsof -i:5601COMMAND   PID      USER   FD   TYPE             DEVICE SIZE/OFF NODE NAMEnode    29152 renyapeng   23u  IPv4 0x5ff129ce84c9eb1d      0t0  TCP localhost:esmagent (LISTEN)$">
 <meta name="keywords" content="mac">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac小技巧">
 <meta property="og:url" content="https://yapengren.github.io/wiki/mac小技巧/index.html">
 <meta property="og:site_name" content="yp_ren Blog">
-<meta property="og:description" content="ping IP+端口$ nc -vz -w 2 192.168.1.104 3306  iTerm2输入密码不方便iTerm2自带 Password Manager 快捷键 command + option + F Finder左侧边栏显示英文每个文件夹里面有个隐藏文件 .localized，删除后就会显示英文原名，恢复办法就是重建文件 避免 rm 引发的问题可以用trash命令替代rm，tras">
+<meta property="og:description" content="Mac 查看端口占用及杀死进程$ lsof -i:5601COMMAND   PID      USER   FD   TYPE             DEVICE SIZE/OFF NODE NAMEnode    29152 renyapeng   23u  IPv4 0x5ff129ce84c9eb1d      0t0  TCP localhost:esmagent (LISTEN)$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-31T01:23:35.595Z">
+<meta property="og:updated_time" content="2020-01-04T09:25:25.787Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mac小技巧">
-<meta name="twitter:description" content="ping IP+端口$ nc -vz -w 2 192.168.1.104 3306  iTerm2输入密码不方便iTerm2自带 Password Manager 快捷键 command + option + F Finder左侧边栏显示英文每个文件夹里面有个隐藏文件 .localized，删除后就会显示英文原名，恢复办法就是重建文件 避免 rm 引发的问题可以用trash命令替代rm，tras">
+<meta name="twitter:description" content="Mac 查看端口占用及杀死进程$ lsof -i:5601COMMAND   PID      USER   FD   TYPE             DEVICE SIZE/OFF NODE NAMEnode    29152 renyapeng   23u  IPv4 0x5ff129ce84c9eb1d      0t0  TCP localhost:esmagent (LISTEN)$">
     
 
     
@@ -365,7 +365,7 @@
                             &nbsp;
                             mac
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/mac服务/">mac服务</a></li>  <li class="file active"><a href="/wiki/mac小技巧/">mac小技巧</a></li>  <li class="file"><a href="/wiki/mac系统快捷键/">mac系统快捷键</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/mac小技巧/">mac小技巧</a></li>  <li class="file"><a href="/wiki/mac服务/">mac服务</a></li>  <li class="file"><a href="/wiki/mac系统快捷键/">mac系统快捷键</a></li>  </ul> 
                     </li> 
                      </ul> 
                     </li> 
@@ -501,12 +501,14 @@
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ping-IP-端口"><span class="toc-number">1.</span> <span class="toc-text">ping IP+端口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#iTerm2输入密码不方便"><span class="toc-number">2.</span> <span class="toc-text">iTerm2输入密码不方便</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Finder左侧边栏显示英文"><span class="toc-number">3.</span> <span class="toc-text">Finder左侧边栏显示英文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#避免-rm-引发的问题"><span class="toc-number">4.</span> <span class="toc-text">避免 rm 引发的问题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mac-查看端口占用及杀死进程"><span class="toc-number">1.</span> <span class="toc-text">Mac 查看端口占用及杀死进程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ping-IP-端口"><span class="toc-number">2.</span> <span class="toc-text">ping IP+端口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#iTerm2输入密码不方便"><span class="toc-number">3.</span> <span class="toc-text">iTerm2输入密码不方便</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Finder左侧边栏显示英文"><span class="toc-number">4.</span> <span class="toc-text">Finder左侧边栏显示英文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#避免-rm-引发的问题"><span class="toc-number">5.</span> <span class="toc-text">避免 rm 引发的问题</span></a></li></ol>
                 </div>
             
         
         
-            <h1 id="ping-IP-端口"><a href="#ping-IP-端口" class="headerlink" title="ping IP+端口"></a>ping IP+端口</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> nc -vz -w 2 192.168.1.104 3306</span><br></pre></td></tr></table></figure>
+            <h1 id="Mac-查看端口占用及杀死进程"><a href="#Mac-查看端口占用及杀死进程" class="headerlink" title="Mac 查看端口占用及杀死进程"></a>Mac 查看端口占用及杀死进程</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> lsof -i:5601</span><br><span class="line">COMMAND   PID      USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME</span><br><span class="line">node    29152 renyapeng   23u  IPv4 0x5ff129ce84c9eb1d      0t0  TCP localhost:esmagent (LISTEN)</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> kill -9 29152</span><br><span class="line">[2]  + 29152 killed     kibana</span><br></pre></td></tr></table></figure>
+
+<h1 id="ping-IP-端口"><a href="#ping-IP-端口" class="headerlink" title="ping IP+端口"></a>ping IP+端口</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> nc -vz -w 2 192.168.1.104 3306</span><br></pre></td></tr></table></figure>
 
 <h1 id="iTerm2输入密码不方便"><a href="#iTerm2输入密码不方便" class="headerlink" title="iTerm2输入密码不方便"></a>iTerm2输入密码不方便</h1><p>iTerm2自带 Password Manager</p>
 <p>快捷键 command + option + F</p>
@@ -532,19 +534,19 @@
     
 <nav id="article-nav">
     
-        <a href="/wiki/mac服务/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/wiki/intellij idea修改记录/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    mac服务
+                    intellij idea修改记录
                 
             </div>
         </a>
     
     
-        <a href="/wiki/token防表单重复提交/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/wiki/mac服务/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">token防表单重复提交</div>
+            <div class="article-nav-title">mac服务</div>
         </a>
     
 </nav>

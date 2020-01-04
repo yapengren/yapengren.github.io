@@ -299,18 +299,18 @@
     <link href="https://yapengren.github.io/wiki/mac%E7%B3%BB%E7%BB%9F%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>https://yapengren.github.io/wiki/mac系统快捷键/</id>
     <published>2019-10-05T02:58:45.000Z</published>
-    <updated>2019-10-28T02:38:44.733Z</updated>
+    <updated>2020-01-04T09:34:38.994Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p>^ A    Home</p><p>^ E    End</p><p>^ H    删除</p><p>^ D    Delete</p><p>^ K    删除到结尾</p><p>^ P              Previous⬆️</p><p>^ B    ^ F    Backward⬅️    Forward➡️</p><p>^ N             Next⬇️</p><h2 id="Mac-查看端口占用及杀死进程"><a href="#Mac-查看端口占用及杀死进程" class="headerlink" title="Mac 查看端口占用及杀死进程"></a>Mac 查看端口占用及杀死进程</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> lsof -i:5601</span><br><span class="line">COMMAND   PID      USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME</span><br><span class="line">node    29152 renyapeng   23u  IPv4 0x5ff129ce84c9eb1d      0t0  TCP localhost:esmagent (LISTEN)</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> kill -9 29152</span><br><span class="line">[2]  + 29152 killed     kibana</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p>⌃A    Home</p><p>⌃E    End</p><p>⌃H    ⌫</p><p>⌃D    Delete</p><p>⌃K    删除到结尾</p><p>⌃P    (Previous)  ↑</p><p>⌃N    (Next)  ↓</p><p>⌃B    (Backward)  ←</p><p>⌃F    (Forward)  →</p><p>⌃⌘F    全屏显示</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;快捷键&quot;&gt;&lt;a href=&quot;#快捷键&quot; class=&quot;headerlink&quot; title=&quot;快捷键&quot;&gt;&lt;/a&gt;快捷键&lt;/h2&gt;&lt;p&gt;^ A    Home&lt;/p&gt;
-&lt;p&gt;^ E    End&lt;/p&gt;
-&lt;p&gt;^ H    删除&lt;/p&gt;
-&lt;p&gt;^ D    Delet
+        &lt;h2 id=&quot;快捷键&quot;&gt;&lt;a href=&quot;#快捷键&quot; class=&quot;headerlink&quot; title=&quot;快捷键&quot;&gt;&lt;/a&gt;快捷键&lt;/h2&gt;&lt;p&gt;⌃A    Home&lt;/p&gt;
+&lt;p&gt;⌃E    End&lt;/p&gt;
+&lt;p&gt;⌃H    ⌫&lt;/p&gt;
+&lt;p&gt;⌃D    Delete&lt;/p&gt;
       
     
     </summary>
